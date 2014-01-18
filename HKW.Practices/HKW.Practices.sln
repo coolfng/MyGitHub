@@ -1,0 +1,48 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.21005.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HKW.Practices.Public", "HKW.Practices.Public\HKW.Practices.Public.csproj", "{B242C891-08B2-4EC1-8E32-404A8BEDF88D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HKW.Practices.NHBase", "HKW.Practices.NHBase\HKW.Practices.NHBase.csproj", "{924CA1DA-4B22-4121-AC9A-4780F5ACF527}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HKW.Practices.Controls.Silverlight", "HKW.Practices.Controls.Silverlight\HKW.Practices.Controls.Silverlight.csproj", "{43A895A2-4751-4708-B751-B18CC59E4883}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Controls.Theming.SystemColors", "Controls.Theming\Controls.Theming.SystemColors\Controls.Theming.SystemColors.csproj", "{66205074-576D-4B5A-8DC7-4FC6812C5AFE}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Controls.Theming", "Controls.Theming", "{145E33D0-50AD-4681-AE0E-EF4837DF2374}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B242C891-08B2-4EC1-8E32-404A8BEDF88D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B242C891-08B2-4EC1-8E32-404A8BEDF88D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B242C891-08B2-4EC1-8E32-404A8BEDF88D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B242C891-08B2-4EC1-8E32-404A8BEDF88D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{924CA1DA-4B22-4121-AC9A-4780F5ACF527}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{924CA1DA-4B22-4121-AC9A-4780F5ACF527}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{924CA1DA-4B22-4121-AC9A-4780F5ACF527}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{924CA1DA-4B22-4121-AC9A-4780F5ACF527}.Release|Any CPU.Build.0 = Release|Any CPU
+		{43A895A2-4751-4708-B751-B18CC59E4883}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{43A895A2-4751-4708-B751-B18CC59E4883}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{43A895A2-4751-4708-B751-B18CC59E4883}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{43A895A2-4751-4708-B751-B18CC59E4883}.Release|Any CPU.Build.0 = Release|Any CPU
+		{66205074-576D-4B5A-8DC7-4FC6812C5AFE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{66205074-576D-4B5A-8DC7-4FC6812C5AFE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{66205074-576D-4B5A-8DC7-4FC6812C5AFE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{66205074-576D-4B5A-8DC7-4FC6812C5AFE}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{66205074-576D-4B5A-8DC7-4FC6812C5AFE} = {145E33D0-50AD-4681-AE0E-EF4837DF2374}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		EnterpriseLibraryConfigurationToolBinariesPathV6 = packages\EnterpriseLibrary.Common.6.0.1304.0\lib\NET45;packages\EnterpriseLibrary.Logging.6.0.1304.0\lib\NET45
+	EndGlobalSection
+EndGlobal

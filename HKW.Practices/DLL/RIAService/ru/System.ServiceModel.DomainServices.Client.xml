@@ -1,0 +1,1858 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<doc>
+	<assembly>
+		<name>System.ServiceModel.DomainServices.Client</name>
+	</assembly>
+	<members>
+		<member name="T:System.ComponentModel.DataAnnotations.CompositionAttribute">
+			<summary>Указывает, что элемент представляет связь, являющуюся частью составной иерархии.</summary>
+		</member>
+		<member name="M:System.ComponentModel.DataAnnotations.CompositionAttribute.#ctor">
+			<summary>Инициализирует новый экземпляр класса <see cref="T:System.ComponentModel.DataAnnotations.CompositionAttribute"></see>. </summary>
+		</member>
+		<member name="T:System.ComponentModel.DataAnnotations.RoundtripOriginalAttribute">
+			<summary>При применении к элементу данный атрибут указывает, что исходное значение этого элемента должно быть отправлено обратно на сервер при обновлении объекта. При применении к классу атрибут применяется к каждому элементу данного класса. </summary>
+		</member>
+		<member name="M:System.ComponentModel.DataAnnotations.RoundtripOriginalAttribute.#ctor">
+			<summary>Инициализирует новый экземпляр класса <see cref="T:System.ComponentModel.DataAnnotations.RoundtripOriginalAttribute"></see>. </summary>
+		</member>
+		<member name="N:System.ServiceModel.DomainServices">
+			<summary>Предоставляет классы, используемые для определения службы домена.</summary>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.DomainIdentifierAttribute">
+			<summary>Указывает, что тип находится в определенном домене.</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.DomainIdentifierAttribute.#ctor(System.String)">
+			<summary>Инициализирует новый экземпляр класса <see cref="T:System.ServiceModel.DomainServices.DomainIdentifierAttribute"></see>. </summary>
+			<param name="name">Имя идентификатора домена. Эта строка не содержит семантики на уровне платформы. Она полностью определяется разработчиком приложения, который обеспечивает ее уникальность и решает, должна ли она учитывать регистр символов. Она не может принимать значение null или быть пустой.</param>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.DomainIdentifierAttribute.IsApplicationService">
+			<summary>Возвращает или задает значение, указывающее, представляет ли тип, снабженный данным атрибутом, службу приложения.</summary>
+			<returns>Значение true, если снабженный атрибутом тип представляет службу приложения. В противном случае — значение false.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.DomainIdentifierAttribute.Name">
+			<summary>Возвращает имя идентификатора домена.</summary>
+			<returns>Имя идентификатора домена.</returns>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.ExternalReferenceAttribute">
+			<summary>Указывает, что сущности ссылок на ассоциации принадлежат к внешнему контексту <see cref="T:System.ServiceModel.DomainServices.Client.DomainContext"></see>.</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.ExternalReferenceAttribute.#ctor">
+			<summary>Инициализирует новый экземпляр класса <see cref="T:System.ServiceModel.DomainServices.ExternalReferenceAttribute"></see>. </summary>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.ChangeSetEntry">
+			<summary>Представляет операцию домена для выполнения по отношению к сущности.</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ChangeSetEntry.#ctor(System.ServiceModel.DomainServices.Client.Entity,System.Int32,System.ServiceModel.DomainServices.Client.EntityOperationType)">
+			<summary>Инициализирует новый экземпляр класса <see cref="T:System.ServiceModel.DomainServices.Client.ChangeSetEntry"></see> с заданными параметрами.</summary>
+			<param name="operationType">Выполняемая операция.</param>
+			<param name="entity">Сущность, с которой выполняется операция.</param>
+			<param name="id">Идентификатор клиента для сущности, используемой для увязки результатов сервера с экземплярами их клиентских сущностей.</param>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.ChangeSetEntry.Associations">
+			<summary>Возвращает или задает коллекцию идентификаторов для всех сущностей, связанных с сущностью в операции.</summary>
+			<returns>Коллекция идентификаторов для всех сущностей, связанных с сущностью в операции.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.ChangeSetEntry.ClientEntity">
+			<summary>Возвращает или задает сущность, которая была первоначально отправлена.</summary>
+			<returns>Сущность, которая была первоначально отправлена.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.ChangeSetEntry.ConflictMembers">
+			<summary>Возвращает или задает коллекцию членов, участвующих в конфликте.</summary>
+			<returns>Коллекция членов, участвующих в конфликте.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.ChangeSetEntry.Entity">
+			<summary>Возвращает или задает сущность, с которой выполняется операция.</summary>
+			<returns>Сущность, с которой выполняется операция.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.ChangeSetEntry.EntityActions">
+			<summary>Возвращает или задает пользовательские методы, вызываемые применительно к сущности.</summary>
+			<returns>Коллекция пользовательских методов, вызываемых для сущности.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.ChangeSetEntry.HasConflict">
+			<summary>Возвращает значение, которое указывает, содержит ли <see cref="T:System.ServiceModel.DomainServices.Client.ChangeSetEntry"></see> конфликты.</summary>
+			<returns>Значение true, если <see cref="T:System.ServiceModel.DomainServices.Client.ChangeSetEntry"></see> содержит конфликты. В противном случае — значение false.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.ChangeSetEntry.HasMemberChanges">
+			<summary>Возвращает или задает значение, показывающее, содержит ли сущность для этой операции измененные свойства.</summary>
+			<returns>Значение true, если сущность для этой операции содержит измененные свойства. В противном случае — значение false.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.ChangeSetEntry.Id">
+			<summary>Возвращает или задает идентификатор клиента для сущности.</summary>
+			<returns>Идентификатор клиента для сущности.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.ChangeSetEntry.IsDeleteConflict">
+			<summary>Возвращает или задает значение, показывающее, является ли конфликт возникающим при удалении, что означает, что сущность больше не существует в хранилище.</summary>
+			<returns>Значение true, если конфликт связан с операцией удаления. В противном случае — значение false.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.ChangeSetEntry.Operation">
+			<summary>Возвращает или задает <see cref="T:System.ServiceModel.DomainServices.Client.EntityOperationType"></see> для этого набора изменений.</summary>
+			<returns>Объект <see cref="T:System.ServiceModel.DomainServices.Client.EntityOperationType"></see> для этого набора изменений.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.ChangeSetEntry.OriginalAssociations">
+			<summary>Возвращает или задает коллекцию идентификаторов сущностей, представляющих сущности для каждой ассоциации <see cref="P:System.ServiceModel.DomainServices.Client.ChangeSetEntry.OriginalEntity"></see>.</summary>
+			<returns>Коллекция идентификаторов сущностей, представляющих сущности для каждой ассоциации <see cref="P:System.ServiceModel.DomainServices.Client.ChangeSetEntry.OriginalEntity"></see>.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.ChangeSetEntry.OriginalEntity">
+			<summary>Возвращает или задает исходное состояние сущности, с которой выполняется операция.</summary>
+			<returns>Исходное состояние сущности, с которой выполняется операция.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.ChangeSetEntry.StoreEntity">
+			<summary>Возвращает или задает состояние сущности в хранилище.</summary>
+			<returns>Состояние сущности в хранилище.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.ChangeSetEntry.ValidationErrors">
+			<summary>Возвращает или задает ошибки проверки, обнаруженные при обработке операции.</summary>
+			<returns>Ошибки проверки, обнаруженные при обработке операции.</returns>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.ComplexObject">
+			<summary>Базовый класс для всех сложных объектов.</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ComplexObject.#ctor">
+			<summary>Создан экземпляр класса <see cref="T:System.ServiceModel.DomainServices.Client.ComplexObject"></see>.</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ComplexObject.BeginEdit">
+			<summary>Начните изменение этого экземпляра сложного объекта.</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ComplexObject.CancelEdit">
+			<summary>Отменяет все изменения, внесенные в этот экземпляр с момента последнего вызова метода <see cref="M:System.ServiceModel.DomainServices.Client.ComplexObject.BeginEdit"></see>.</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ComplexObject.EndEdit">
+			<summary>Фиксирует изменения, внесенные в этот экземпляр с момента последнего вызова метода <see cref="M:System.ServiceModel.DomainServices.Client.ComplexObject.BeginEdit"></see>.</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ComplexObject.OnDeserialized(System.Runtime.Serialization.StreamingContext)">
+			<summary>Метод вызван после десериализации сложного объекта.</summary>
+			<param name="context">Контекст сериализации.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ComplexObject.OnDeserializing(System.Runtime.Serialization.StreamingContext)">
+			<summary>Метод вызван во время десериализации сложного объекта.</summary>
+			<param name="context">Контекст сериализации.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ComplexObject.OnPropertyChanged(System.ComponentModel.PropertyChangedEventArgs)">
+			<summary>Вызван при изменении свойства сложного объекта.</summary>
+			<param name="e">Аргументы события.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ComplexObject.RaiseDataMemberChanged(System.String)">
+			<summary>Вызывается из метода задания свойства для уведомления платформы о том, что изменился элемент данных сложного объекта. </summary>
+			<param name="propertyName">Имя измененного свойства.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ComplexObject.RaiseDataMemberChanging(System.String)">
+			<summary>Вызывается из метода задания свойства для уведомления платформы о том, что будет изменен элемент данных сложного объекта.</summary>
+			<param name="propertyName">Имя измененного свойства.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ComplexObject.RaisePropertyChanged(System.String)">
+			<summary>Вызывается из метода задания свойства для уведомления платформы о том, что изменилось свойство сложного объекта. </summary>
+			<param name="propertyName">Имя измененного свойства.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ComplexObject.ValidateProperty(System.String,System.Object)">
+			<summary>Убедитесь, что указанное значение является допустимым для указанного свойства текущего сложного объекта.</summary>
+			<param name="value">Значение для тестирования. Может содержать значение null, если значение null является допустимым для заданного свойства.</param>
+			<param name="propertyName">Имя проверяемого свойства.  </param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ComplexObject.ValidateProperty(System.ComponentModel.DataAnnotations.ValidationContext,System.Object)">
+			<summary>Проверяет, является ли указанное значение допустимым для указанного <see cref="T:System.ComponentModel.DataAnnotations.ValidationContext"></see>.</summary>
+			<param name="validationContext"><see cref="T:System.ComponentModel.DataAnnotations.ValidationContext"></see>, представляющий выполняемую проверку</param>
+			<param name="value">Значение для тестирования. Может содержать значение null, если значение null является допустимым для заданного свойства.</param>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.ComplexObject.HasValidationErrors">
+			<summary>Возвращает значение, указывающее, имеет ли сущность ошибки проверки.</summary>
+			<returns>Значение true, если ошибки проверки есть, в противном случае — значение false.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.ComplexObject.IsDeserializing">
+			<summary>Возвращает значение, указывающее, происходит ли в настоящее время десериализация этого экземпляра.</summary>
+			<returns>Значение true, если выполняется десериализация сложного объекта; в противном случае — false.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.ComplexObject.ValidationErrors">
+			<summary>Возвращает коллекцию ошибок проверки для этого экземпляра.</summary>
+			<returns><see cref="T:System.Collections.Generic.ICollection`1"></see> ошибок проверки для этого экземпляра.</returns>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.DomainClient">
+			<summary>Служит в качестве базового класса для всех реализаций <see cref="T:System.ServiceModel.DomainServices.Client.DomainClient"></see>.</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.DomainClient.#ctor">
+			<summary>Инициализирует новый экземпляр класса <see cref="T:System.ServiceModel.DomainServices.Client.DomainClient"></see>. </summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.DomainClient.BeginInvoke(System.ServiceModel.DomainServices.Client.InvokeArgs,System.AsyncCallback,System.Object)">
+			<summary>Вызывает операцию асинхронно.</summary>
+			<returns>Асинхронный результат, который идентифицирует этот вызов.</returns>
+			<param name="callback">Обратный вызов, используемый после завершения вызова.</param>
+			<param name="invokeArgs">Аргументы операции вызова.</param>
+			<param name="userState">Необязательное пользовательское состояние, связанное с этой операцией.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.DomainClient.BeginInvokeCore(System.ServiceModel.DomainServices.Client.InvokeArgs,System.AsyncCallback,System.Object)">
+			<summary>Вызывается платформой для асинхронного запуска операции вызова.</summary>
+			<returns>Асинхронный результат, который идентифицирует этот вызов.</returns>
+			<param name="callback">Обратный вызов, используемый после завершения вызова.</param>
+			<param name="invokeArgs">Аргументы операции вызова.</param>
+			<param name="userState">Необязательное пользовательское состояние, связанное с этой операцией.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.DomainClient.BeginQuery(System.ServiceModel.DomainServices.Client.EntityQuery,System.AsyncCallback,System.Object)">
+			<summary>Выполняет асинхронную операцию запроса.</summary>
+			<returns>Асинхронный результат, который идентифицирует этот запрос.</returns>
+			<param name="callback">Обратный вызов, производимый после выполнения запроса.</param>
+			<param name="query">Вызываемый запрос.</param>
+			<param name="userState">Необязательное пользовательское состояние, связанное с этой операцией.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.DomainClient.BeginQueryCore(System.ServiceModel.DomainServices.Client.EntityQuery,System.AsyncCallback,System.Object)">
+			<summary>Вызывается платформой для запуска асинхронной операции запроса.</summary>
+			<returns>Асинхронный результат, который идентифицирует этот запрос.</returns>
+			<param name="callback">Обратный вызов, производимый после выполнения запроса.</param>
+			<param name="query">Вызываемый запрос.</param>
+			<param name="userState">Необязательное пользовательское состояние, связанное с этой операцией.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.DomainClient.BeginSubmit(System.ServiceModel.DomainServices.Client.EntityChangeSet,System.AsyncCallback,System.Object)">
+			<summary>Асинхронно передает указанный набор <see cref="T:System.ServiceModel.DomainServices.Client.EntityChangeSet"></see> в <see cref="T:System.ServiceModel.DomainServices.Server.DomainService"></see>.</summary>
+			<returns>Асинхронный результат, который идентифицирует этот запрос на отправку.</returns>
+			<param name="callback">Обратный вызов, производимый после выполнения отправки.</param>
+			<param name="changeSet">Набор <see cref="T:System.ServiceModel.DomainServices.Client.EntityChangeSet"></see> для отправки в <see cref="T:System.ServiceModel.DomainServices.Server.DomainService"></see>.</param>
+			<param name="userState">Необязательное пользовательское состояние, связанное с этой операцией.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.DomainClient.BeginSubmitCore(System.ServiceModel.DomainServices.Client.EntityChangeSet,System.AsyncCallback,System.Object)">
+			<summary>Вызывается платформой для асинхронной обработки указанного набора <see cref="T:System.ServiceModel.DomainServices.Client.EntityChangeSet"></see>.</summary>
+			<returns>Асинхронный результат, который идентифицирует этот запрос на отправку.</returns>
+			<param name="callback">Обратный вызов, производимый после выполнения отправки.</param>
+			<param name="changeSet">Набор <see cref="T:System.ServiceModel.DomainServices.Client.EntityChangeSet"></see> для отправки в <see cref="T:System.ServiceModel.DomainServices.Server.DomainService"></see>.</param>
+			<param name="userState">Необязательное пользовательское состояние, связанное с этой операцией.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.DomainClient.CancelInvoke(System.IAsyncResult)">
+			<summary>Попытка отменить запрос вызова, заданный в asyncResult.</summary>
+			<param name="asyncResult">Интерфейс IAsyncResult, указывающий отменяемую операцию вызова.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.DomainClient.CancelInvokeCore(System.IAsyncResult)">
+			<summary>Попытка отменить запрос вызова, заданный в asyncResult.</summary>
+			<param name="asyncResult">Интерфейс IAsyncResult, указывающий отменяемую операцию вызова.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.DomainClient.CancelQuery(System.IAsyncResult)">
+			<summary>Попытка отменить запрос, заданный в asyncResult.</summary>
+			<param name="asyncResult">Интерфейс IAsyncResult, указывающий отменяемую операцию запроса.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.DomainClient.CancelQueryCore(System.IAsyncResult)">
+			<summary>Попытка отменить запрос, заданный в asyncResult.</summary>
+			<param name="asyncResult">Интерфейс IAsyncResult, указывающий отменяемую операцию запроса.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.DomainClient.CancelSubmit(System.IAsyncResult)">
+			<summary>Попытка отменить запрос на отправку, заданный в asyncResult.</summary>
+			<param name="asyncResult">Интерфейс IAsyncResult, указывающий отменяемую операцию отправки.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.DomainClient.CancelSubmitCore(System.IAsyncResult)">
+			<summary>Попытка отменить запрос на отправку, заданный в asyncResult.</summary>
+			<param name="asyncResult">Интерфейс IAsyncResult, указывающий отменяемую операцию отправки.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.DomainClient.EndInvoke(System.IAsyncResult)">
+			<summary>Завершает вызов операции.</summary>
+			<returns>Результат операции.</returns>
+			<param name="asyncResult">Асинхронный результат, который идентифицирует вызов.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.DomainClient.EndInvokeCore(System.IAsyncResult)">
+			<summary>Вызывается платформой для завершения асинхронного вызова.</summary>
+			<returns>Результат операции.</returns>
+			<param name="asyncResult">Асинхронный результат, который идентифицирует вызов.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.DomainClient.EndQuery(System.IAsyncResult)">
+			<summary>Возвращает результаты асинхронной операции запроса.</summary>
+			<returns>Результат операции.</returns>
+			<param name="asyncResult">Асинхронный результат, который идентифицирует запрос.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.DomainClient.EndQueryCore(System.IAsyncResult)">
+			<summary>Вызывается платформой для завершения асинхронной операции запроса.</summary>
+			<returns>Результат операции.</returns>
+			<param name="asyncResult">Асинхронный результат, который идентифицирует запрос.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.DomainClient.EndSubmit(System.IAsyncResult)">
+			<summary>Возвращает результаты запроса на отправку.</summary>
+			<returns>Результат операции.</returns>
+			<param name="asyncResult">Асинхронный результат, который идентифицирует запрос на отправку.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.DomainClient.EndSubmitCore(System.IAsyncResult)">
+			<summary>Вызывается платформой для завершения асинхронной операции отправки.</summary>
+			<returns>Результат операции.</returns>
+			<param name="asyncResult">Асинхронный результат, который идентифицирует запрос на отправку.</param>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.DomainClient.EntityTypes">
+			<summary>Возвращает или задает коллекцию типов сущностей, с которой будет работать этот объект <see cref="T:System.ServiceModel.DomainServices.Client.DomainClient"></see>.</summary>
+			<returns>Коллекция типов сущностей, с которой будет работать этот объект.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.DomainClient.SupportsCancellation">
+			<summary>Возвращает значение, указывающее, поддерживает ли отмену объект <see cref="T:System.ServiceModel.DomainServices.Client.DomainClient"></see>.</summary>
+			<returns>Значение true, если этот объект поддерживает отмену. В противном случае — значение false.</returns>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.DomainClientResult">
+			<summary>Представляет результат операции <see cref="T:System.ServiceModel.DomainServices.Client.DomainClient"></see>.</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.DomainClientResult.CreateInvokeResult(System.Object,System.Collections.Generic.IEnumerable{System.ComponentModel.DataAnnotations.ValidationResult})">
+			<summary>Создает результат операции вызова.</summary>
+			<returns>Результат операции вызова.</returns>
+			<param name="returnValue">Возвращаемое значение операции вызова.</param>
+			<param name="validationErrors">Коллекция ошибок проверки для вызова.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.DomainClientResult.CreateQueryResult(System.Collections.Generic.IEnumerable{System.ServiceModel.DomainServices.Client.Entity},System.Collections.Generic.IEnumerable{System.ServiceModel.DomainServices.Client.Entity},System.Int32,System.Collections.Generic.IEnumerable{System.ComponentModel.DataAnnotations.ValidationResult})">
+			<summary>Создает результат операции запроса.</summary>
+			<returns>Результат операции запроса.</returns>
+			<param name="allEntities">Все сущности, возвращенные из запроса, включая связанные сущности.</param>
+			<param name="validationErrors">Коллекция ошибок проверки для запроса.</param>
+			<param name="totalEntityCount">Общее количество серверных сущностей.</param>
+			<param name="entities">Сущности верхнего уровня, возвращенные из запроса.</param>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.DomainClientResult.AllEntities">
+			<summary>Возвращает все результаты сущностей, в том числе связанных сущностей.</summary>
+			<returns>Коллекция сущностей.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.DomainClientResult.Entities">
+			<summary>Возвращает результаты сущностей верхнего уровня.</summary>
+			<returns>Коллекция результатов сущностей.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.DomainClientResult.ReturnValue">
+			<summary>Возвращает возвращаемое значение операции вызова.</summary>
+			<returns>Возвращаемое значение операции вызова.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.DomainClientResult.TotalEntityCount">
+			<summary>Возвращает общее количество сущностей сервера для исходного запроса без применения к нему какого-либо разбиения по страницам.</summary>
+			<returns>Общее количество строк для запроса или -1, если сервер не поддерживает общие количества сущностей.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.DomainClientResult.ValidationErrors">
+			<summary>Возвращает коллекцию ошибок проверки.</summary>
+			<returns>Коллекция ошибок проверки.</returns>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.DomainContext">
+			<summary>Контекст <see cref="T:System.ServiceModel.DomainServices.Client.DomainContext"></see> — это клиентское представление с отслеживанием состояния службы домена, предоставляющее доступ ко всем функциональным возможностям службы.</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.DomainContext.#ctor(System.ServiceModel.DomainServices.Client.DomainClient)">
+			<summary>Инициализирует новый экземпляр класса <see cref="T:System.ServiceModel.DomainServices.Client.DomainContext"></see>. </summary>
+			<param name="domainClient">Экземпляр <see cref="P:System.ServiceModel.DomainServices.Client.DomainContext.DomainClient"></see>, который должен использоваться в этом контексте <see cref="T:System.ServiceModel.DomainServices.Client.DomainContext"></see>.</param>
+		</member>
+		<member name="E:System.ServiceModel.DomainServices.Client.DomainContext.PropertyChanged">
+			<summary>Вызывается при каждом изменении свойства <see cref="T:System.ServiceModel.DomainServices.Client.DomainContext"></see>.</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.DomainContext.AddReference(System.Type,System.ServiceModel.DomainServices.Client.DomainContext)">
+			<summary>Добавляет ссылку к внешнему контексту <see cref="T:System.ServiceModel.DomainServices.Client.DomainContext"></see>.</summary>
+			<param name="entityType">Тип сущности для поиска в контексте domainContext.</param>
+			<param name="domainContext">Контекст <see cref="T:System.ServiceModel.DomainServices.Client.DomainContext"></see>, который должен быть зарегистрирован как внешняя ссылка.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.DomainContext.CreateEntityContainer">
+			<summary>Создает и возвращает контейнер сущностей, настроенный с объектами <see cref="T:System.ServiceModel.DomainServices.Client.EntitySet"></see> для всех сущностей, к которым этот контекст <see cref="T:System.ServiceModel.DomainServices.Client.DomainContext"></see> будет предоставлять доступ. </summary>
+			<returns>Контейнер сущностей.</returns>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.DomainContext.CreateQuery``1(System.String,System.Collections.Generic.IDictionary{System.String,System.Object},System.Boolean,System.Boolean)">
+			<summary>Создает запрос <see cref="T:System.ServiceModel.DomainServices.Client.EntityQuery"></see>.</summary>
+			<returns>Новый запрос.</returns>
+			<param name="hasSideEffects">Значение true, если запрос имеет побочные эффекты. В противном случае — значение false.</param>
+			<param name="queryName">Имя метода запроса.</param>
+			<param name="parameters">Необязательные параметры для метода запроса. Укажите значение null, если операция запроса не имеет параметров.</param>
+			<param name="isComposable">Значение true, если запрос поддерживает композицию. В противном случае — значение false.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.DomainContext.InvokeOperation(System.String,System.Type,System.Collections.Generic.IDictionary{System.String,System.Object},System.Boolean,System.Action{System.ServiceModel.DomainServices.Client.InvokeOperation},System.Object)">
+			<summary>Выполняет операцию вызова.</summary>
+			<returns>Операция вызова.</returns>
+			<param name="hasSideEffects">Значение true, если операция имеет побочные эффекты. В противном случае — значение false.</param>
+			<param name="callback">Необязательный обратный вызов, выполняемый при завершении операции.</param>
+			<param name="returnType">Возвращаемый тип операции.</param>
+			<param name="userState">Необязательное пользовательское состояние для операции.</param>
+			<param name="parameters">Необязательные параметры операции. Укажите значение null, если операция не принимает параметров.</param>
+			<param name="operationName">Имя операции.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.DomainContext.InvokeOperation``1(System.String,System.Type,System.Collections.Generic.IDictionary{System.String,System.Object},System.Boolean,System.Action{System.ServiceModel.DomainServices.Client.InvokeOperation{``0}},System.Object)">
+			<summary>Выполняет операцию вызова.</summary>
+			<returns>Операция вызова.</returns>
+			<param name="hasSideEffects">Значение true, если операция имеет побочные эффекты. В противном случае — значение false.</param>
+			<param name="callback">Необязательный обратный вызов, выполняемый при завершении операции.</param>
+			<param name="returnType">Возвращаемый тип операции.</param>
+			<param name="userState">Необязательное пользовательское состояние для операции.</param>
+			<param name="parameters">Необязательные параметры операции. Укажите значение null, если операция не принимает параметров.</param>
+			<param name="operationName">Имя операции.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.DomainContext.Load(System.ServiceModel.DomainServices.Client.EntityQuery,System.ServiceModel.DomainServices.Client.LoadBehavior,System.Action{System.ServiceModel.DomainServices.Client.LoadOperation},System.Object)">
+			<summary>Инициирует операцию загрузки для указанного запроса с указанными режимом загрузки, методом обратного вызова и пользовательским состоянием.</summary>
+			<returns>Операция загрузки.</returns>
+			<param name="loadBehavior">Применяемый режим <see cref="T:System.ServiceModel.DomainServices.Client.LoadBehavior"></see>.</param>
+			<param name="callback">Необязательный обратный вызов, выполняемый после завершения операции загрузки. Обратный вызов должен быть делегатом, принимающим единственный параметр, который может принимать экземпляр возвращаемого типа <see cref="T:System.ServiceModel.DomainServices.Client.LoadOperation"></see>.</param>
+			<param name="query">Вызываемый запрос.</param>
+			<param name="userState">Необязательное пользовательское состояние.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.DomainContext.Load``1(System.ServiceModel.DomainServices.Client.EntityQuery{``0})">
+			<summary>Инициирует операцию загрузки для указанного запроса. </summary>
+			<returns>Операция загрузки.</returns>
+			<param name="query">Вызываемый запрос.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.DomainContext.Load``1(System.ServiceModel.DomainServices.Client.EntityQuery{``0},System.Boolean)">
+			<summary>Инициирует операцию загрузки для указанного запроса с указанным значением, указывающим, приводит ли ошибка к исключению.</summary>
+			<returns>Операция загрузки.</returns>
+			<param name="query">Вызываемый запрос.</param>
+			<param name="throwOnError">Значение true, если необработанная ошибка должна привести к исключению. В противном случае — значение false.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.DomainContext.Load``1(System.ServiceModel.DomainServices.Client.EntityQuery{``0},System.Action{System.ServiceModel.DomainServices.Client.LoadOperation{``0}},System.Object)">
+			<summary>Инициирует операцию загрузки для указанного запроса с указанным методом обратного вызова и пользовательским состоянием.</summary>
+			<returns>Операция загрузки.</returns>
+			<param name="callback">Необязательный обратный вызов, выполняемый после завершения операции загрузки.</param>
+			<param name="query">Вызываемый запрос.</param>
+			<param name="userState">Необязательное пользовательское состояние.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.DomainContext.Load``1(System.ServiceModel.DomainServices.Client.EntityQuery{``0},System.ServiceModel.DomainServices.Client.LoadBehavior,System.Boolean)">
+			<summary>Инициирует операцию загрузки для указанного запроса с указанным режимом загрузки и значением, показывающим, приводит ли ошибка к исключению.</summary>
+			<returns>Операция загрузки.</returns>
+			<param name="loadBehavior">Применяемый режим <see cref="T:System.ServiceModel.DomainServices.Client.LoadBehavior"></see>.</param>
+			<param name="query">Вызываемый запрос.</param>
+			<param name="throwOnError">Значение true, если необработанная ошибка должна привести к исключению. В противном случае — значение false.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.DomainContext.Load``1(System.ServiceModel.DomainServices.Client.EntityQuery{``0},System.ServiceModel.DomainServices.Client.LoadBehavior,System.Action{System.ServiceModel.DomainServices.Client.LoadOperation{``0}},System.Object)">
+			<summary>Инициирует операцию загрузки для указанного запроса с указанными режимом загрузки, методом обратного вызова и пользовательским состоянием.</summary>
+			<returns>Операция загрузки.</returns>
+			<param name="loadBehavior">Применяемый режим <see cref="T:System.ServiceModel.DomainServices.Client.LoadBehavior"></see>.</param>
+			<param name="callback">Необязательный обратный вызов, выполняемый после завершения операции загрузки.</param>
+			<param name="query">Вызываемый запрос.</param>
+			<param name="userState">Необязательное пользовательское состояние.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.DomainContext.RaisePropertyChanged(System.String)">
+			<summary>Вызывает событие <see cref="E:System.ServiceModel.DomainServices.Client.DomainContext.PropertyChanged"></see> для указанного свойства.</summary>
+			<param name="propertyName">Свойство, для которого должно быть вызвано событие.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.DomainContext.RejectChanges">
+			<summary>Отменяет все отложенные изменения для этого контекста <see cref="T:System.ServiceModel.DomainServices.Client.DomainContext"></see>.</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.DomainContext.SubmitChanges">
+			<summary>Передает все отложенные изменения службе домена. </summary>
+			<returns>Операция отправки.</returns>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.DomainContext.SubmitChanges(System.Action{System.ServiceModel.DomainServices.Client.SubmitOperation},System.Object)">
+			<summary>Передает все отложенные изменения службе домена.</summary>
+			<returns>Операция отправки.</returns>
+			<param name="callback">Необязательный обратный вызов для операции отправки.</param>
+			<param name="userState">Необязательное пользовательское состояние, которое должно быть связано с операцией.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.DomainContext.ValidateMethod(System.String,System.Collections.Generic.IDictionary{System.String,System.Object})">
+			<summary>Проверяет вызов метода.</summary>
+			<param name="methodName">Проверяемый метод.</param>
+			<param name="parameters">Параметры для метода.</param>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.DomainContext.DomainClient">
+			<summary>Возвращает клиента <see cref="T:System.ServiceModel.DomainServices.Client.DomainClient"></see> для этого контекста.</summary>
+			<returns>Клиент домена, резервирующий этот объект.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.DomainContext.EntityContainer">
+			<summary>Возвращает контейнер <see cref="T:System.ServiceModel.DomainServices.Client.EntityContainer"></see>, содержащий все сущности, загруженные этим контекстом.</summary>
+			<returns>Контейнер сущностей.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.DomainContext.HasChanges">
+			<summary>Возвращает значение, указывающее, имеются ли в этом контексте какие-либо отложенные изменения.</summary>
+			<returns>Значение true, если имеются отложенные изменения. В противном случае — значение false.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.DomainContext.IsLoading">
+			<summary>Возвращает значение, указывающее, выполняется ли в этом контексте <see cref="T:System.ServiceModel.DomainServices.Client.DomainContext"></see> в настоящее время операция загрузки.</summary>
+			<returns>Значение true, если имеется ожидающая операция загрузки. В противном случае — значение false.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.DomainContext.IsSubmitting">
+			<summary>Возвращает значение, указывающее, выполняется ли в этом контексте <see cref="T:System.ServiceModel.DomainServices.Client.DomainContext"></see> в настоящее время операция отправки.</summary>
+			<returns>Значение true, если имеется ожидающая операция отправки. В противном случае — значение false.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.DomainContext.ValidationContext">
+			<summary>Возвращает или задает контекст <see cref="T:System.ComponentModel.DataAnnotations.ValidationContext"></see>, предназначенный для использования во всех операциях проверки, вызванных контекстом <see cref="T:System.ServiceModel.DomainServices.Client.DomainContext"></see>.</summary>
+			<returns>Объект, который должен использоваться для всей операции проверки, вызванной контекстом <see cref="T:System.ServiceModel.DomainServices.Client.DomainContext"></see>.</returns>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.DomainException">
+			<summary>Показывает, что во время выполнения операции домена произошла неустранимая ошибка.</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.DomainException.#ctor">
+			<summary>Инициализирует новый экземпляр класса <see cref="T:System.ServiceModel.DomainServices.Client.DomainException"></see> с системным сообщением, описывающим ошибку.</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.DomainException.#ctor(System.String)">
+			<summary>Инициализирует новый экземпляр класса <see cref="T:System.ServiceModel.DomainServices.Client.DomainException"></see> с указанным сообщением, описывающим ошибку.</summary>
+			<param name="message">Локализованное сообщение об ошибке.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.DomainException.#ctor(System.String,System.Exception)">
+			<summary>Инициализирует новый экземпляр класса <see cref="T:System.ServiceModel.DomainServices.Client.DomainException"></see> с указанным сообщением об ошибке и ссылкой на внутреннее исключение, которое является причиной этого исключения.</summary>
+			<param name="message">Локализованное сообщение об ошибке.</param>
+			<param name="innerException">Внутреннее исключение, являющееся причиной этого исключения.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.DomainException.#ctor(System.String,System.Int32)">
+			<summary>Инициализирует новый экземпляр класса <see cref="T:System.ServiceModel.DomainServices.Client.DomainException"></see>, содержащий указанное сообщение об ошибке и нестандартный код ошибки. </summary>
+			<param name="errorCode">Пользовательский код ошибки для исключения.</param>
+			<param name="message">Локализованное сообщение об ошибке.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.DomainException.#ctor(System.String,System.Int32,System.Exception)">
+			<summary>Инициализирует новый экземпляр класса <see cref="T:System.ServiceModel.DomainServices.Client.DomainException"></see>, содержащий указанное сообщение об ошибке, нестандартный код ошибки и внутреннее исключение, которое является причиной этого исключения. </summary>
+			<param name="errorCode">Пользовательский код ошибки для исключения.</param>
+			<param name="message">Локализованное сообщение об ошибке.</param>
+			<param name="innerException">Внутреннее исключение, являющееся причиной этого исключения.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.DomainException.#ctor(System.String,System.Int32,System.String)">
+			<summary>Инициализирует новый экземпляр класса <see cref="T:System.ServiceModel.DomainServices.Client.DomainException"></see> с локализованным сообщением об исключении, нестандартным кодом ошибки и трассировкой стека.</summary>
+			<param name="errorCode">Пользовательский код ошибки для исключения.</param>
+			<param name="stackTrace">Трассировка стека для исключения.</param>
+			<param name="message">Локализованное сообщение об ошибке.</param>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.DomainException.ErrorCode">
+			<summary>Возвращает или задает пользовательский код ошибки для этого исключения.</summary>
+			<returns>Пользовательский код ошибки для этого исключения.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.DomainException.StackTrace">
+			<summary>Возвращает трассировку стека для исключения.</summary>
+			<returns>Трассировка стека для исключения.</returns>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.DomainOperationException">
+			<summary>Указывает, что по крайней мере одна ошибка произошла при обработке операций домена на сервере.</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.DomainOperationException.#ctor">
+			<summary>Инициализирует новый экземпляр класса <see cref="T:System.ServiceModel.DomainServices.Client.DomainOperationException"></see>.</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.DomainOperationException.#ctor(System.String)">
+			<summary>Инициализирует новый экземпляр класса <see cref="T:System.ServiceModel.DomainServices.Client.DomainOperationException"></see> с заданным сообщением, содержащим описание ошибки.</summary>
+			<param name="message">Сообщение с описанием исключения. Код, вызывающий этот конструктор, должен обеспечить локализацию данной строки в соответствии с текущим языком и региональными параметрами системы.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.DomainOperationException.#ctor(System.String,System.Exception)">
+			<summary>Инициализирует новый экземпляр класса <see cref="T:System.ServiceModel.DomainServices.Client.DomainOperationException"></see> с указанным сообщением об ошибке и ссылкой на внутреннее исключение, вызвавшее это исключение.</summary>
+			<param name="message">Сообщение с описанием исключения. Код, вызывающий этот конструктор, должен обеспечить локализацию данной строки в соответствии с текущим языком и региональными параметрами системы. </param>
+			<param name="innerException">Исключение, являющееся причиной текущего исключения. Если значением параметра innerException не является null, текущее исключение вызывается в блоке catch, обрабатывающем внутреннее исключение. </param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.DomainOperationException.#ctor(System.String,System.ServiceModel.DomainServices.Client.OperationErrorStatus)">
+			<summary>Инициализирует новый экземпляр класса <see cref="T:System.ServiceModel.DomainServices.Client.DomainOperationException"></see>, используя локализованное сообщение об исключении и состояние.</summary>
+			<param name="message">Локализованное сообщение об исключении.</param>
+			<param name="status">Состояние исключения.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.DomainOperationException.#ctor(System.String,System.ServiceModel.DomainServices.Client.OperationErrorStatus,System.Int32)">
+			<summary>Инициализирует новый экземпляр класса <see cref="T:System.ServiceModel.DomainServices.Client.DomainOperationException"></see>, используя локализованное сообщение об исключении, состояние и пользовательский код ошибки.</summary>
+			<param name="errorCode">Пользовательский код ошибки.</param>
+			<param name="message">Локализованное сообщение об исключении.</param>
+			<param name="status">Состояние исключения.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.DomainOperationException.#ctor(System.String,System.ServiceModel.DomainServices.Client.OperationErrorStatus,System.Int32,System.String)">
+			<summary>Инициализирует новый экземпляр класса <see cref="T:System.ServiceModel.DomainServices.Client.DomainOperationException"></see>, используя дополнительное локализованное сообщение об исключении, состояние, пользовательский код ошибки и трассировку стека исключения.</summary>
+			<param name="errorCode">Пользовательский код ошибки.</param>
+			<param name="stackTrace">Трассировка стека исключения.</param>
+			<param name="message">Локализованное сообщение об ошибке.</param>
+			<param name="status">Состояние исключения.</param>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.DomainOperationException.ErrorCode">
+			<summary>Возвращает или задает пользовательский код ошибки для этого исключения. Кодом ошибки может быть любое определяемое пользователем значение.</summary>
+			<returns>Пользовательский код ошибки.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.DomainOperationException.StackTrace">
+			<summary>Возвращает трассировку стека исключения.</summary>
+			<returns>Трассировка стека исключения.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.DomainOperationException.Status">
+			<summary>Возвращает или задает код состояния для этого исключения.</summary>
+			<returns>Код состояния для данного исключения.</returns>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.Entity">
+			<summary>Базовый класс для всех типов сущностей.</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.Entity.#ctor">
+			<summary>Инициализирует новый экземпляр класса <see cref="T:System.ServiceModel.DomainServices.Client.Entity"></see>.</summary>
+		</member>
+		<member name="E:System.ServiceModel.DomainServices.Client.Entity.PropertyChanged">
+			<summary>Происходит при изменении свойства <see cref="T:System.ServiceModel.DomainServices.Client.Entity"></see>.</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.Entity.AcceptChanges">
+			<summary>Принимает текущие изменения к этой сущности <see cref="T:System.ServiceModel.DomainServices.Client.Entity"></see> и применяет соответствующие переходы между состояниями.</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.Entity.BeginEdit">
+			<summary>Начинает изменение сущности <see cref="T:System.ServiceModel.DomainServices.Client.Entity"></see>.</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.Entity.CancelEdit">
+			<summary>Отменяет любые изменения, внесенные в сущность <see cref="T:System.ServiceModel.DomainServices.Client.Entity"></see> с момента последнего вызова метода <see cref="M:System.ServiceModel.DomainServices.Client.Entity.BeginEdit"></see>.</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.Entity.CanInvokeAction(System.String)">
+			<summary>Возвращает значение, указывающее, может ли указанное действие в настоящее время быть вызвано.</summary>
+			<returns>Значение true, если указанное действие может быть вызвано. В противном случае — значение false.</returns>
+			<param name="name">Имя действия, соответствующего пользовательскому методу.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.Entity.EndEdit">
+			<summary>Фиксирует изменения, внесенные в эту сущность с момента последнего вызова метода <see cref="M:System.ServiceModel.DomainServices.Client.Entity.EndEdit"></see>.</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.Entity.GetIdentity">
+			<summary>Возвращает идентификатор сущности, подходящий для хэширования.</summary>
+			<returns>Объект, который обозначает идентификатор сущности.</returns>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.Entity.GetOriginal">
+			<summary>Возвращает исходное состояние для этой сущности.</summary>
+			<returns>Сущность <see cref="T:System.ServiceModel.DomainServices.Client.Entity"></see> в ее исходном состоянии.</returns>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.Entity.InvokeAction(System.String,System.Object[])">
+			<summary>Вызывается для регистрации действия, вызываемого для этой сущности при передаче изменений.</summary>
+			<param name="actionName">Имя вызываемого действия.</param>
+			<param name="parameters">Значения параметров, с которыми вызывается указанное действие.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.Entity.IsActionInvoked(System.String)">
+			<summary>Показывает, было ли вызвано указанное действие.</summary>
+			<returns>Значение true, если указанное действие было вызвано. В противном случае — значение false.</returns>
+			<param name="name">Имя действия, соответствующего пользовательскому методу.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.Entity.OnActionStateChanged">
+			<summary>Вызывается при изменении состояния вызванного действия для этой сущности.</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.Entity.OnDeserialized(System.Runtime.Serialization.StreamingContext)">
+			<summary>Вызывается после десериализации этой сущности <see cref="T:System.ServiceModel.DomainServices.Client.Entity"></see>.</summary>
+			<param name="context">Контекст сериализации.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.Entity.OnDeserializing(System.Runtime.Serialization.StreamingContext)">
+			<summary>Вызывается при десериализации этой сущности <see cref="T:System.ServiceModel.DomainServices.Client.Entity"></see>.</summary>
+			<param name="context">Контекст сериализации.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.Entity.OnLoaded(System.Boolean)">
+			<summary>Вызывается при передаче <see cref="T:System.ServiceModel.DomainServices.Client.Entity"></see> в набор <see cref="T:System.ServiceModel.DomainServices.Client.EntitySet"></see>.</summary>
+			<param name="isInitialLoad">Значение true, если сущность передается в набор впервые. В противном случае — значение false.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.Entity.OnPropertyChanged(System.ComponentModel.PropertyChangedEventArgs)">
+			<summary>Вызывается при изменении свойства сущности <see cref="T:System.ServiceModel.DomainServices.Client.Entity"></see>.</summary>
+			<param name="e">Аргументы события.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.Entity.RaiseDataMemberChanged(System.String)">
+			<summary>Вызывается из метода задания свойства для уведомления платформы о том, что изменился элемент данных сущности <see cref="T:System.ServiceModel.DomainServices.Client.Entity"></see>. </summary>
+			<param name="propertyName">Имя измененного свойства.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.Entity.RaiseDataMemberChanging(System.String)">
+			<summary>Вызывается из метода задания свойства для уведомления платформы о том, что должен быть изменен элемент данных сущности <see cref="T:System.ServiceModel.DomainServices.Client.Entity"></see>. </summary>
+			<param name="propertyName">Имя изменяемого свойства.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.Entity.RaisePropertyChanged(System.String)">
+			<summary>Вызывается из метода задания свойства для уведомления платформы о том, что изменился элемент сущности <see cref="T:System.ServiceModel.DomainServices.Client.Entity"></see>. </summary>
+			<param name="propertyName">Имя измененного свойства.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.Entity.RejectChanges">
+			<summary>Восстанавливает все изменения свойств, внесенные в этой сущности, возвращая их к первоначальным значениям. </summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.Entity.ToString">
+			<summary>Возвращает строковое представление текущей сущности.</summary>
+			<returns>Строковое представление текущей сущности.</returns>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.Entity.UpdateActionState(System.String,System.String,System.String)">
+			<summary>Вызывается в пределах контекста переопределения метода <see cref="M:System.ServiceModel.DomainServices.Client.Entity.OnActionStateChanged"></see>. Этот метод вызывает соответствующие уведомления об изменении свойств, соответствующих пользовательскому методу.</summary>
+			<param name="name">Имя пользовательского метода.</param>
+			<param name="canInvokePropertyName">Имя свойства условия "CanInvoke" для пользовательского метода.</param>
+			<param name="isInvokedPropertyName">Имя свойства "IsInvoked" для пользовательского метода.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.Entity.ValidateProperty(System.String,System.Object)">
+			<summary>Показывает, допустимо ли указанное значение для указанного свойства текущей сущности.</summary>
+			<param name="value">Значение для тестирования. Может содержать значение null, если значение null является допустимым для данного свойства.</param>
+			<param name="propertyName">Имя свойства, задаваемого применительно к этой сущности. Это имя не может содержать значение null или быть пустым.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.Entity.ValidateProperty(System.ComponentModel.DataAnnotations.ValidationContext,System.Object)">
+			<summary>Указывает, допустимо ли указанное значение свойства для указанного контекста проверки.</summary>
+			<param name="validationContext">Контекст <see cref="P:System.ServiceModel.DomainServices.Client.DomainContext.ValidationContext"></see>, представляющий проверку, которая должна быть выполнена. Значение <see cref="P:System.ComponentModel.DataAnnotations.ValidationContext.MemberName"></see> должно указывать имя проверяемого свойства.</param>
+			<param name="value">Значение для тестирования. Может содержать значение null, если значение null является допустимым для данного свойства.</param>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.Entity.EntityActions">
+			<summary>Возвращает список вызовов пользовательского метода, ожидающих эту сущность.</summary>
+			<returns>Коллекция вызовов пользовательского метода, ожидающих эту сущность.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.Entity.EntityConflict">
+			<summary>Получает сведения о конфликте для этой сущности после операции отправки.</summary>
+			<returns>Конфликт <see cref="T:System.ServiceModel.DomainServices.Client.EntityConflict"></see> для этой сущности после операции отправки. Возвращает значение null, если конфликтов нет.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.Entity.EntitySet">
+			<summary>Возвращает объект <see cref="P:System.ServiceModel.DomainServices.Client.Entity.EntitySet"></see>, элементом которого является <see cref="T:System.ServiceModel.DomainServices.Client.Entity"></see>. </summary>
+			<returns>Объект <see cref="P:System.ServiceModel.DomainServices.Client.Entity.EntitySet"></see>, элементом которого является <see cref="T:System.ServiceModel.DomainServices.Client.Entity"></see>. Значение будет равно null, если сущность отсоединена или удалена из набора.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.Entity.EntityState">
+			<summary>Возвращает текущее состояние этой сущности <see cref="T:System.ServiceModel.DomainServices.Client.Entity"></see>.</summary>
+			<returns>Состояние <see cref="T:System.ServiceModel.DomainServices.Client.EntityState"></see>, представляющее текущее состояние этой сущности <see cref="T:System.ServiceModel.DomainServices.Client.Entity"></see>.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.Entity.HasChanges">
+			<summary>Возвращает значение, указывающее, имеет ли эта сущность в настоящее время какие-либо ожидающие изменения</summary>
+			<returns>Значение true, если сущность имеет какие-либо отложенные изменения. В противном случае — значение false.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.Entity.HasValidationErrors">
+			<summary>Возвращает значение, указывающее, имеет ли сущность ошибки проверки.</summary>
+			<returns>Значение true, если сущность имеет какие-либо ошибки проверки во время последней операции отправки. В противном случае — значение false.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.Entity.IsDeserializing">
+			<summary>Возвращает значение, указывающее, происходит ли в настоящее время десериализация текущей сущности.</summary>
+			<returns>Значение true, если сущность в настоящее время десериализуется. В противном случае — значение false.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.Entity.IsReadOnly">
+			<summary>Возвращает значение, указывающее, находится ли эта сущность в настоящее время в состоянии только для чтения.</summary>
+			<returns>Значение true, если сущность в состоянии только для чтения. В противном случае — значение false.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.Entity.ValidationErrors">
+			<summary>Возвращает коллекцию ошибок проверки для этой сущности.</summary>
+			<returns>Коллекция ошибок проверки, обнаруженных во время последней операции отправки.</returns>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.EntityAction">
+			<summary>Представляет вызов пользовательского метода для сущности.</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntityAction.#ctor(System.String,System.Object[])">
+			<summary>Инициализирует новый экземпляр класса <see cref="T:System.ServiceModel.DomainServices.Client.EntityAction"></see>.</summary>
+			<param name="name">Имя действия сущности.</param>
+			<param name="parameters">Список параметров для вызова действия сущности.</param>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.EntityAction.HasParameters">
+			<summary>Возвращает значение, показывающее, связаны ли какие-либо параметры с действием.</summary>
+			<returns>Значение true, если с этим действием связаны какие-либо параметры. В противном случае — значение false.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.EntityAction.Name">
+			<summary>Возвращает имя действия сущности.</summary>
+			<returns>Имя действия сущности.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.EntityAction.Parameters">
+			<summary>Возвращает параметры для передачи действию сущности.</summary>
+			<returns>Коллекция, представляющая параметры для передачи действию сущности.</returns>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.EntityChangeSet">
+			<summary>Представляет коллекцию изменений в <see cref="T:System.ServiceModel.DomainServices.Client.Entity"></see>.</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntityChangeSet.GetChangeSetEntries">
+			<summary>Возвращает коллекцию элементов <see cref="T:System.ServiceModel.DomainServices.Client.ChangeSetEntry"></see> для этого набора изменений.</summary>
+			<returns>Коллекция элементов <see cref="T:System.ServiceModel.DomainServices.Client.ChangeSetEntry"></see> для этого набора изменений.</returns>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntityChangeSet.ToString">
+			<summary>Возвращает текстовое представление <see cref="T:System.ServiceModel.DomainServices.Client.EntityChangeSet"></see>. </summary>
+			<returns>Текстовое представление выражения <see cref="T:System.ServiceModel.DomainServices.Client.EntityChangeSet"></see>.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.EntityChangeSet.AddedEntities">
+			<summary>Возвращает коллекцию добавленных сущностей.</summary>
+			<returns>Коллекция добавленных сущностей.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.EntityChangeSet.IsEmpty">
+			<summary>Возвращает значение, указывающее на наличие любых изменений в объекте <see cref="T:System.ServiceModel.DomainServices.Client.EntityChangeSet"></see>.</summary>
+			<returns>Значение true, если в свойство <see cref="T:System.ServiceModel.DomainServices.Client.EntityChangeSet"></see> внесены любые изменения. В противном случае — значение false.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.EntityChangeSet.ModifiedEntities">
+			<summary>Возвращает коллекцию измененных сущностей.</summary>
+			<returns>Коллекция измененных сущностей.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.EntityChangeSet.RemovedEntities">
+			<summary>Возвращает коллекцию удаленных сущностей.</summary>
+			<returns>Коллекция удаленных сущностей.</returns>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.EntityCollection`1">
+			<summary>Представляет коллекцию связанных сущностей.</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntityCollection`1.#ctor(System.ServiceModel.DomainServices.Client.Entity,System.String,System.Func{`0,System.Boolean})">
+			<summary>Инициализирует новый экземпляр класса <see cref="T:System.ServiceModel.DomainServices.Client.EntityCollection`1"></see> с указанными родителем, именем коллекции в родительской сущности и функцией фильтрации. </summary>
+			<param name="memberName">Имя этого члена <see cref="T:System.ServiceModel.DomainServices.Client.EntityCollection`1"></see> в родительской сущности.</param>
+			<param name="entityPredicate">Функция, используемая для фильтрации связанных сущностей и определения сущностей, которые являются членами этой коллекции.</param>
+			<param name="parent">Сущность, членом которой является эта коллекция.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntityCollection`1.#ctor(System.ServiceModel.DomainServices.Client.Entity,System.String,System.Func{`0,System.Boolean},System.Action{`0},System.Action{`0})">
+			<summary>Инициализирует новый экземпляр класса <see cref="T:System.ServiceModel.DomainServices.Client.EntityCollection`1"></see> с указанными родителем, именем коллекции в родительской сущности и функциями для фильтрации, присоединения и отсоединения. </summary>
+			<param name="memberName">Имя этого члена <see cref="T:System.ServiceModel.DomainServices.Client.EntityCollection`1"></see> в родительской сущности.</param>
+			<param name="entityPredicate">Функция, используемая для фильтрации связанных сущностей и определения сущностей, которые являются членами этой коллекции.</param>
+			<param name="parent">Сущность, членом которой является эта коллекция.</param>
+			<param name="detachAction">Эта функция используется для удаления обратной ссылки из связанной сущности на родительскую сущность.</param>
+			<param name="attachAction">Эта функция используется для задания обратной ссылки из связанной сущности на родительскую сущность.</param>
+		</member>
+		<member name="E:System.ServiceModel.DomainServices.Client.EntityCollection`1.EntityAdded">
+			<summary>Вызывается, если <see cref="T:System.ServiceModel.DomainServices.Client.Entity"></see> добавляется к этой коллекции.</summary>
+		</member>
+		<member name="E:System.ServiceModel.DomainServices.Client.EntityCollection`1.EntityRemoved">
+			<summary>Вызывается, если <see cref="T:System.ServiceModel.DomainServices.Client.Entity"></see> удаляется из этой коллекции.</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntityCollection`1.Add(`0)">
+			<summary>Добавляет заданную сущность в эту коллекцию. </summary>
+			<param name="entity">Добавляемая сущность.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntityCollection`1.GetEnumerator">
+			<summary>Возвращает перечислитель для этой коллекции.</summary>
+			<returns>IEnumerator для этой коллекции.</returns>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntityCollection`1.Remove(`0)">
+			<summary>Удаляет заданную сущность из этой коллекции.</summary>
+			<param name="entity">Удаляемая сущность.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntityCollection`1.ToString">
+			<summary>Возвращает текстовое представление коллекции.</summary>
+			<returns>Строка, представляющая объект <see cref="T:System.ServiceModel.DomainServices.Client.EntityCollection`1"></see>.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.EntityCollection`1.Count">
+			<summary>Возвращает текущее количество сущностей в этой коллекции.</summary>
+			<returns>Целое число, представляющее текущее количество сущностей в этой коллекции.</returns>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.EntityCollectionChangedEventArgs`1">
+			<summary>Предоставляет аргументы события для строго типизированных уведомлений о добавлении или удалении для коллекций, содержащих сущности.</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntityCollectionChangedEventArgs`1.#ctor(`0)">
+			<summary>Инициализирует новый экземпляр класса <see cref="T:System.ServiceModel.DomainServices.Client.EntityCollectionChangedEventArgs`1"></see>.</summary>
+			<param name="entity">Затронутая сущность <see cref="P:System.ServiceModel.DomainServices.Client.EntityCollectionChangedEventArgs`1.Entity"></see>.</param>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.EntityCollectionChangedEventArgs`1.Entity">
+			<summary>Возвращает затронутую сущность <see cref="P:System.ServiceModel.DomainServices.Client.EntityCollectionChangedEventArgs`1.Entity"></see>.</summary>
+			<returns>Затронутая сущность <see cref="P:System.ServiceModel.DomainServices.Client.EntityCollectionChangedEventArgs`1.Entity"></see>.</returns>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.EntityConflict">
+			<summary>Представляет конфликт сущностей.</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntityConflict.Resolve">
+			<summary>Разрешает конфликт, обновляя исходное состояние сущности с учетом текущего состояния хранилища.</summary>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.EntityConflict.CurrentEntity">
+			<summary>Возвращает текущий экземпляр <see cref="T:System.ServiceModel.DomainServices.Client.Entity"></see>.</summary>
+			<returns>Текущий экземпляр <see cref="T:System.ServiceModel.DomainServices.Client.Entity"></see>.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.EntityConflict.IsDeleted">
+			<summary>Возвращает значение, указывающее, что сущность отсутствует в хранилище.</summary>
+			<returns>Значение true, если сущность была удалена из хранилища. В противном случае — значение false.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.EntityConflict.OriginalEntity">
+			<summary>Возвращает исходный экземпляр <see cref="T:System.ServiceModel.DomainServices.Client.Entity"></see>.</summary>
+			<returns>Исходный экземпляр <see cref="T:System.ServiceModel.DomainServices.Client.Entity"></see>.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.EntityConflict.PropertyNames">
+			<summary>Возвращает коллекцию конфликтующих имен свойств.</summary>
+			<returns>Коллекция конфликтующих имен свойств.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.EntityConflict.StoreEntity">
+			<summary>Возвращает экземпляр сущности <see cref="T:System.ServiceModel.DomainServices.Client.Entity"></see> из хранилища. </summary>
+			<returns>Экземпляр сущности <see cref="T:System.ServiceModel.DomainServices.Client.Entity"></see> из хранилища или значение null, если сущность отсутствует в хранилище.</returns>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.EntityContainer">
+			<summary>Представляет кэш сущностей в виде коллекции объектов <see cref="T:System.ServiceModel.DomainServices.Client.EntitySet"></see>.</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntityContainer.#ctor">
+			<summary>Инициализирует новый экземпляр класса <see cref="T:System.ServiceModel.DomainServices.Client.EntityContainer"></see>.</summary>
+		</member>
+		<member name="E:System.ServiceModel.DomainServices.Client.EntityContainer.PropertyChanged">
+			<summary>Происходит при изменении свойства.</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntityContainer.AcceptChanges">
+			<summary>Принимает все изменения, внесенные в сущности или объекты <see cref="T:System.ServiceModel.DomainServices.Client.EntitySet"></see> в этом контейнере.</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntityContainer.AddReference(System.ServiceModel.DomainServices.Client.EntitySet)">
+			<summary>Добавляет ссылку к внешнему набору <see cref="T:System.ServiceModel.DomainServices.Client.EntitySet"></see>.</summary>
+			<param name="entitySet">Набор сущностей.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntityContainer.Clear">
+			<summary>Очищает содержимое всех объектов <see cref="T:System.ServiceModel.DomainServices.Client.EntitySet"></see> в этом контейнере.</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntityContainer.CreateEntitySet``1">
+			<summary>Создает новый набор <see cref="T:System.ServiceModel.DomainServices.Client.EntitySet"></see> в этом контейнере для указанного типа сущности.</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntityContainer.CreateEntitySet``1(System.ServiceModel.DomainServices.Client.EntitySetOperations)">
+			<summary>Создает набор <see cref="T:System.ServiceModel.DomainServices.Client.EntitySet"></see> в этом контейнере для указанного объекта <see cref="T:System.ServiceModel.DomainServices.Client.EntitySetOperations"></see>.</summary>
+			<param name="supportedOperations">Операции, поддерживаемые для типа сущности.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntityContainer.GetChanges">
+			<summary>Возвращает набор <see cref="T:System.ServiceModel.DomainServices.Client.EntityChangeSet"></see>, содержащий текущий набор отложенных изменений.</summary>
+			<returns>Набор <see cref="T:System.ServiceModel.DomainServices.Client.EntityChangeSet"></see>, содержащий текущий набор отложенных изменений.</returns>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntityContainer.GetEntitySet(System.Type)">
+			<summary>Возвращает набор <see cref="T:System.ServiceModel.DomainServices.Client.EntitySet"></see> для указанного типа сущности <see cref="T:System.ServiceModel.DomainServices.Client.Entity"></see>. </summary>
+			<returns>Набор <see cref="T:System.ServiceModel.DomainServices.Client.EntitySet"></see> для указанного типа сущности <see cref="T:System.ServiceModel.DomainServices.Client.Entity"></see>.</returns>
+			<param name="entityType">Тип сущности.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntityContainer.GetEntitySet``1">
+			<summary>Возвращает набор <see cref="T:System.ServiceModel.DomainServices.Client.EntitySet"></see> для указанного типа сущности <see cref="T:System.ServiceModel.DomainServices.Client.Entity"></see>. </summary>
+			<returns>Набор <see cref="T:System.ServiceModel.DomainServices.Client.EntitySet"></see> для указанного типа сущности <see cref="T:System.ServiceModel.DomainServices.Client.Entity"></see>.</returns>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntityContainer.LoadEntities(System.Collections.IEnumerable)">
+			<summary>Загружает указанную коллекцию сущностей в этот контейнер <see cref="T:System.ServiceModel.DomainServices.Client.EntityContainer"></see>.</summary>
+			<returns>Объект, реализующий интерфейс IEnumerable, представляющий коллекцию сущностей.</returns>
+			<param name="entities">Загружаемые сущности.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntityContainer.LoadEntities(System.Collections.IEnumerable,System.ServiceModel.DomainServices.Client.LoadBehavior)">
+			<summary>Загружает указанную коллекцию сущностей в этот контейнер <see cref="T:System.ServiceModel.DomainServices.Client.EntityContainer"></see>, используя указанный режим загрузки.</summary>
+			<returns>Объект, реализующий интерфейс IEnumerable, представляющий коллекцию сущностей.</returns>
+			<param name="loadBehavior">Используемый режим <see cref="T:System.ServiceModel.DomainServices.Client.LoadBehavior"></see>.</param>
+			<param name="entities">Загружаемые сущности.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntityContainer.RaisePropertyChanged(System.String)">
+			<summary>Вызывает событие <see cref="E:System.ServiceModel.DomainServices.Client.EntityContainer.PropertyChanged"></see> для указанного свойства.</summary>
+			<param name="propertyName">Имя измененного свойства.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntityContainer.RejectChanges">
+			<summary>Отменяет все изменения, внесенные в сущности или объекты <see cref="T:System.ServiceModel.DomainServices.Client.EntitySet"></see> в этом контейнере.</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntityContainer.TryGetEntitySet(System.Type,System.ServiceModel.DomainServices.Client.EntitySet@)">
+			<summary>Предпринимает попытку возвратить набор сущностей для указанного типа <see cref="T:System.ServiceModel.DomainServices.Client.Entity"></see>.</summary>
+			<returns>Значение true, если набор сущностей найден. В противном случае — значение false.</returns>
+			<param name="entityType">Тип сущности <see cref="T:System.ServiceModel.DomainServices.Client.Entity"></see>.</param>
+			<param name="entitySet">Набор сущностей, если он имеется. В противном случае — значение null.</param>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.EntityContainer.EntitySets">
+			<summary>Возвращает коллекцию объектов <see cref="T:System.ServiceModel.DomainServices.Client.EntitySet"></see> в этом контейнере <see cref="T:System.ServiceModel.DomainServices.Client.EntityContainer"></see>.</summary>
+			<returns>Коллекция объектов <see cref="T:System.ServiceModel.DomainServices.Client.EntitySet"></see> в этом контейнере <see cref="T:System.ServiceModel.DomainServices.Client.EntityContainer"></see>.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.EntityContainer.HasChanges">
+			<summary>Возвращает значение, указывающее, имеются ли для этого контейнера <see cref="T:System.ServiceModel.DomainServices.Client.EntityContainer"></see> в настоящее время отложенные изменения.</summary>
+			<returns>Значение true, если контейнер <see cref="T:System.ServiceModel.DomainServices.Client.EntityContainer"></see> в настоящее время имеет какие-либо отложенные изменения. В противном случае — значение false.</returns>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.EntityKey">
+			<summary>Базовый класс для ключа, представляющего уникальный идентификатор сущности. Ключ пригоден для хэширования. </summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntityKey.#ctor">
+			<summary>Инициализирует новый экземпляр класса <see cref="T:System.ServiceModel.DomainServices.Client.EntityKey"></see>.</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntityKey.Create(System.Object[])">
+			<summary>Создает ключ с использованием указанных значений ключа.</summary>
+			<returns>Ключ на основе указанных значений ключа.</returns>
+			<param name="keyValues">Массив значений ключа.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntityKey.Create``2(``0,``1)">
+			<summary>Создает ключ с использованием указанных значений ключа.</summary>
+			<returns>Ключ на основе указанных значений ключа.</returns>
+			<param name="v1">Первое значение ключа.</param>
+			<param name="v2">Второе значение ключа.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntityKey.Create``3(``0,``1,``2)">
+			<summary>Создает ключ с использованием указанных значений ключа.</summary>
+			<returns>Ключ на основе указанных значений ключа.</returns>
+			<param name="v1">Первое значение ключа.</param>
+			<param name="v2">Второе значение ключа.</param>
+			<param name="v3">Третье значение ключа.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntityKey.ToString">
+			<summary>Форматирует ключ как набор значений ключа.</summary>
+			<returns>Строка, представляющая отформатированный ключ.</returns>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.EntityOperationType">
+			<summary>Описывает типы операций, которые могут быть выполнены применительно к сущности <see cref="T:System.ServiceModel.DomainServices.Client.Entity"></see>.</summary>
+		</member>
+		<member name="F:System.ServiceModel.DomainServices.Client.EntityOperationType.Delete">
+			<summary>Операция удаления для существующей сущности <see cref="T:System.ServiceModel.DomainServices.Client.Entity"></see>.</summary>
+		</member>
+		<member name="F:System.ServiceModel.DomainServices.Client.EntityOperationType.Insert">
+			<summary>Операция вставки для новой сущности <see cref="T:System.ServiceModel.DomainServices.Client.Entity"></see>.</summary>
+		</member>
+		<member name="F:System.ServiceModel.DomainServices.Client.EntityOperationType.None">
+			<summary>Никакая операция не будет выполнена применительно к сущности <see cref="T:System.ServiceModel.DomainServices.Client.Entity"></see>.</summary>
+		</member>
+		<member name="F:System.ServiceModel.DomainServices.Client.EntityOperationType.Update">
+			<summary>Операция обновления для существующей сущности <see cref="T:System.ServiceModel.DomainServices.Client.Entity"></see>.</summary>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.EntityQuery">
+			<summary>Представляет вызов метода запроса. </summary>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.EntityQuery.DomainClient">
+			<summary>Возвращает значение <see cref="T:System.ServiceModel.DomainServices.Client.DomainClient"></see> для данного запроса.</summary>
+			<returns><see cref="T:System.ServiceModel.DomainServices.Client.DomainClient"></see> для этого запроса.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.EntityQuery.EntityType">
+			<summary>Возвращает тип объекта, из которого этот запрос получает данные.</summary>
+			<returns>Тип объекта, из которого этот запрос получает данные.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.EntityQuery.HasSideEffects">
+			<summary>Возвращает значение, указывающее, имеет ли запрос побочные эффекты.</summary>
+			<returns>Значение true, если запрос имеет побочные эффекты. В противном случае — значение false.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.EntityQuery.IncludeTotalCount">
+			<summary>Возвращает или задает значение, указывающее, является ли обязательным свойство <see cref="P:System.ServiceModel.DomainServices.Client.DomainClientResult.TotalEntityCount"></see>.</summary>
+			<returns>Значение true, если свойство <see cref="P:System.ServiceModel.DomainServices.Client.DomainClientResult.TotalEntityCount"></see> является обязательным. В противном случае — значение false.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.EntityQuery.IsComposable">
+			<summary>Возвращает значение, указывающее, поддерживает ли запрос композицию.</summary>
+			<returns>Значение true, если запрос поддерживает композицию. В противном случае — значение false.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.EntityQuery.Parameters">
+			<summary>Возвращает параметры, которые требуются методу запроса.</summary>
+			<returns>Словарь, представляющий необязательные параметры, которые требуются методу запроса. Возвращает значение null, если метод не имеет параметров.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.EntityQuery.Query">
+			<summary>Возвращает базовый интерфейс IQueryable для запроса.</summary>
+			<returns>Объект для вызова метода запроса или значение null, если запрос не существует.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.EntityQuery.QueryName">
+			<summary>Возвращает имя метода запроса.</summary>
+			<returns>Имя метода запроса.</returns>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.EntityQuery`1">
+			<summary>Представляет запрос LINQ к коллекции сущностей.</summary>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.EntityQueryable">
+			<summary>Содержит статические методы расширения, которые реализуют подмножество шаблона LINQ для <see cref="T:System.ServiceModel.DomainServices.Client.EntityQuery"></see>.</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntityQueryable.OrderBy``2(System.ServiceModel.DomainServices.Client.EntityQuery{``0},System.Linq.Expressions.Expression{System.Func{``0,``1}})">
+			<summary>Применяет указанное предложение «ascending order» к запросу к источнику.</summary>
+			<returns>Составной запрос.</returns>
+			<param name="source">Запрос к источнику.</param>
+			<param name="keySelector">Выражение для выбора элемента, по которому выполняется упорядочение.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntityQueryable.OrderByDescending``2(System.ServiceModel.DomainServices.Client.EntityQuery{``0},System.Linq.Expressions.Expression{System.Func{``0,``1}})">
+			<summary>Применяет указанное предложение «descending order» к запросу к источнику.</summary>
+			<returns>Запрос <see cref="T:System.ServiceModel.DomainServices.Client.EntityQuery`1"></see> с указанным предложением «descending order».</returns>
+			<param name="source">Запрос к источнику.</param>
+			<param name="keySelector">Выражение для выбора элемента, по которому выполняется упорядочение.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntityQueryable.Select``1(System.ServiceModel.DomainServices.Client.EntityQuery{``0},System.Linq.Expressions.Expression{System.Func{``0,``0}})">
+			<summary>Применяет указанное выделение к запросу к источнику.</summary>
+			<returns>Объект <see cref="T:System.ServiceModel.DomainServices.Client.EntityQuery`1"></see> с заданным выделением.</returns>
+			<param name="source">Запрос к источнику.</param>
+			<param name="selector">Функция выбора. Обратите внимание, что проекции не поддерживаются. Выделение должно представлять собой саму сущность.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntityQueryable.Skip``1(System.ServiceModel.DomainServices.Client.EntityQuery{``0},System.Int32)">
+			<summary>Применяет указанное предложение «skip» к запросу к источнику.</summary>
+			<returns>Запрос <see cref="T:System.ServiceModel.DomainServices.Client.EntityQuery`1"></see> с указанным предложением «skip».</returns>
+			<param name="source">Запрос к источнику.</param>
+			<param name="count">Число, которое нужно пропустить.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntityQueryable.Take``1(System.ServiceModel.DomainServices.Client.EntityQuery{``0},System.Int32)">
+			<summary>Применяет указанное предложение «take» к запросу к источнику.</summary>
+			<returns>Запрос <see cref="T:System.ServiceModel.DomainServices.Client.EntityQuery`1"></see> с указанным предложением «take».</returns>
+			<param name="source">Запрос к источнику.</param>
+			<param name="count">Принимаемое число.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntityQueryable.ThenBy``2(System.ServiceModel.DomainServices.Client.EntityQuery{``0},System.Linq.Expressions.Expression{System.Func{``0,``1}})">
+			<summary>Применяет указанное предложение «ascending order» к запросу к источнику.</summary>
+			<returns>Запрос <see cref="T:System.ServiceModel.DomainServices.Client.EntityQuery`1"></see> с указанным предложением «ascending order».</returns>
+			<param name="source">Запрос к источнику.</param>
+			<param name="keySelector">Выражение для выбора элемента, по которому выполняется упорядочение.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntityQueryable.ThenByDescending``2(System.ServiceModel.DomainServices.Client.EntityQuery{``0},System.Linq.Expressions.Expression{System.Func{``0,``1}})">
+			<summary>Применяет указанное предложение «descending order» к запросу к источнику.</summary>
+			<returns>Запрос <see cref="T:System.ServiceModel.DomainServices.Client.EntityQuery`1"></see> с указанным предложением «descending order».</returns>
+			<param name="source">Запрос к источнику.</param>
+			<param name="keySelector">Выражение для выбора элемента, по которому выполняется упорядочение.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntityQueryable.Where``1(System.ServiceModel.DomainServices.Client.EntityQuery{``0},System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}})">
+			<summary>Применяет указанный фильтр к запросу к источнику.</summary>
+			<returns>Объект <see cref="T:System.ServiceModel.DomainServices.Client.EntityQuery`1"></see> с заданным фильтром.</returns>
+			<param name="predicate">Предикат фильтра.</param>
+			<param name="source">Запрос к источнику.</param>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.EntityRef`1">
+			<summary>Представляет ссылку на связанную сущность.</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntityRef`1.#ctor(System.ServiceModel.DomainServices.Client.Entity,System.String,System.Func{`0,System.Boolean})">
+			<summary>Выполняет инициализацию экземпляра класса <see cref="T:System.ServiceModel.DomainServices.Client.EntityRef`1"></see>.</summary>
+			<param name="memberName">Имя этого члена <see cref="T:System.ServiceModel.DomainServices.Client.EntityRef`1"></see> в родительской сущности.</param>
+			<param name="entityPredicate">Функция, используемая для фильтрации связанной сущности.</param>
+			<param name="parent">Сущность, членом которой является эта ассоциация.</param>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.EntityRef`1.Entity">
+			<summary>Возвращает или задает связанный объект <see cref="P:System.ServiceModel.DomainServices.Client.EntityRef`1.Entity"></see>.</summary>
+			<returns>Связанная сущность.</returns>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.EntitySet">
+			<summary>Представляет коллекцию экземпляров <see cref="T:System.ServiceModel.DomainServices.Client.Entity"></see>.</summary>
+		</member>
+		<member name="E:System.ServiceModel.DomainServices.Client.EntitySet.PropertyChanged">
+			<summary>Происходит при изменении свойства.</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntitySet.AcceptChanges">
+			<summary>Принимает все изменения, внесенные в этот набор <see cref="T:System.ServiceModel.DomainServices.Client.EntitySet"></see>.</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntitySet.Add(System.ServiceModel.DomainServices.Client.Entity)">
+			<summary>Добавляет указанную сущность <see cref="T:System.ServiceModel.DomainServices.Client.Entity"></see> в этот набор <see cref="T:System.ServiceModel.DomainServices.Client.EntitySet"></see>. </summary>
+			<param name="entity">Добавляемая сущность.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntitySet.Attach(System.ServiceModel.DomainServices.Client.Entity)">
+			<summary>Присоединяет указанную сущность <see cref="T:System.ServiceModel.DomainServices.Client.Entity"></see> к этому набору <see cref="T:System.ServiceModel.DomainServices.Client.EntitySet"></see> в немодифицированном состоянии. </summary>
+			<param name="entity">Присоединяемая сущность.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntitySet.Clear">
+			<summary>Удаляет все сущности из набора.</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntitySet.CreateEntity">
+			<summary>Создает новую сущность.</summary>
+			<returns>Созданная сущность.</returns>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntitySet.CreateList">
+			<summary>Создает список хранения для набора.</summary>
+			<returns>Созданный экземпляр списка хранения.</returns>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntitySet.Detach(System.ServiceModel.DomainServices.Client.Entity)">
+			<summary>Отсоединяет указанную сущность <see cref="T:System.ServiceModel.DomainServices.Client.Entity"></see> от набора <see cref="T:System.ServiceModel.DomainServices.Client.EntitySet"></see>. </summary>
+			<param name="entity">Отсоединяемая сущность.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntitySet.GetEnumerator">
+			<summary>Возвращает перечислитель для коллекции.</summary>
+			<returns>Перечислитель для коллекции.</returns>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntitySet.OnCollectionChanged(System.Collections.Specialized.NotifyCollectionChangedAction,System.Object,System.Int32)">
+			<summary>Вызывается при каждом изменении коллекции. </summary>
+			<param name="affectedObject">Для событий сброса этот параметр будет служить коллекцией удаленных сущностей. Для всех других событий этот параметр будет являться единственной затронутой сущностью.</param>
+			<param name="action">Действие изменения.</param>
+			<param name="index">Затронутый индекс.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntitySet.OnPropertyChanged(System.ComponentModel.PropertyChangedEventArgs)">
+			<summary>Вызывается при изменении свойства <see cref="T:System.ServiceModel.DomainServices.Client.EntitySet"></see>.</summary>
+			<param name="e">Аргументы события.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntitySet.RaisePropertyChanged(System.String)">
+			<summary>Вызывает событие <see cref="E:System.ServiceModel.DomainServices.Client.EntitySet.PropertyChanged"></see> для указанного свойства.</summary>
+			<param name="propertyName">Измененное свойство.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntitySet.RejectChanges">
+			<summary>Отменяет все изменения, внесенные в этот набор <see cref="T:System.ServiceModel.DomainServices.Client.EntitySet"></see>. </summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntitySet.Remove(System.ServiceModel.DomainServices.Client.Entity)">
+			<summary>Удаляет указанную сущность из набора.</summary>
+			<param name="entity">Удаляемая сущность.</param>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.EntitySet.CanAdd">
+			<summary>Возвращает значение, указывающее, можно ли добавлять в набор новые сущности.</summary>
+			<returns>Значение true, если в коллекцию можно добавить новые элементы. В противном случае — значение false.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.EntitySet.CanEdit">
+			<summary>Возвращает значение, показывающее, можно ли редактировать сущности в наборе.</summary>
+			<returns>Значение true, если можно редактировать элементы в коллекции. В противном случае — значение false.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.EntitySet.CanRemove">
+			<summary>Возвращает значение, указывающее, разрешено ли удалять сущности из набора.</summary>
+			<returns>Значение true, если разрешено удалять элементы из коллекции. В противном случае — значение false.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.EntitySet.Count">
+			<summary>Возвращает текущее количество сущностей в наборе.</summary>
+			<returns>Целое число, указывающее количество сущностей в наборе.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.EntitySet.EntityContainer">
+			<summary>Возвращает контейнер для этого набора <see cref="T:System.ServiceModel.DomainServices.Client.EntitySet"></see>.</summary>
+			<returns>Контейнер для этого набора <see cref="T:System.ServiceModel.DomainServices.Client.EntitySet"></see>.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.EntitySet.EntityType">
+			<summary>Возвращает тип сущностей, содержащихся в этом наборе <see cref="T:System.ServiceModel.DomainServices.Client.EntitySet"></see>.</summary>
+			<returns>Тип сущностей, содержащихся в этом наборе <see cref="T:System.ServiceModel.DomainServices.Client.EntitySet"></see>.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.EntitySet.HasChanges">
+			<summary>Возвращает значение, указывающее, имеет ли этот контейнер <see cref="T:System.ServiceModel.DomainServices.Client.EntitySet"></see> в настоящее время какие-либо отложенные изменения.</summary>
+			<returns>Значение true, если коллекция имеет какие-либо ожидающие изменения. В противном случае — значение false.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.EntitySet.IsReadOnly">
+			<summary>Возвращает значение, указывающее, поддерживает ли этот набор операции обновления.</summary>
+			<returns>Значение true, если операции обновления не поддерживаются. В противном случае — значение false.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.EntitySet.List">
+			<summary>Возвращает резервный список для этого набора <see cref="T:System.ServiceModel.DomainServices.Client.EntitySet"></see>.</summary>
+			<returns>Резервный список для этого набора <see cref="T:System.ServiceModel.DomainServices.Client.EntitySet"></see>.</returns>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.EntitySet`1">
+			<summary>Представляет коллекцию экземпляров <see cref="T:System.ServiceModel.DomainServices.Client.Entity"></see>, которая предоставляет отслеживание изменений и другие службы.</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntitySet`1.#ctor">
+			<summary>Инициализирует новый экземпляр класса <see cref="T:System.ServiceModel.DomainServices.Client.EntitySet`1"></see>.</summary>
+		</member>
+		<member name="E:System.ServiceModel.DomainServices.Client.EntitySet`1.EntityAdded">
+			<summary>Происходит при добавлении объекта <see cref="T:System.ServiceModel.DomainServices.Client.Entity"></see> к этому набору сущностей.</summary>
+		</member>
+		<member name="E:System.ServiceModel.DomainServices.Client.EntitySet`1.EntityRemoved">
+			<summary>Происходит при удалении объекта <see cref="T:System.ServiceModel.DomainServices.Client.Entity"></see> из этого набора сущностей.</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntitySet`1.Add(`0)">
+			<summary>Добавляет указанную сущность к этому набору сущностей. Кроме того, рекурсивно добавляет все неприсоединенные сущности, доступные через ассоциации.</summary>
+			<param name="entity">Добавляемая сущность. Атрибут entity должен иметь тип TEntity и не может быть подклассом.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntitySet`1.Attach(`0)">
+			<summary>Присоединяет указанную сущность <see cref="T:System.ServiceModel.DomainServices.Client.Entity"></see> к этому набору сущностей в неизменном состоянии. Кроме того, рекурсивно присоединяет все неприсоединенные сущности, доступные через ассоциации.</summary>
+			<param name="entity">Присоединяемая сущность.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntitySet`1.Detach(`0)">
+			<summary>Отсоединяет сущность <see cref="T:System.ServiceModel.DomainServices.Client.Entity"></see> от этого набора сущностей.</summary>
+			<param name="entity">Отсоединяемая сущность.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntitySet`1.GetEnumerator">
+			<summary>Возвращает перечислитель для этого набора сущностей.</summary>
+			<returns>Перечислитель, который может использоваться для итерации по данному набору сущностей.</returns>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntitySet`1.Remove(`0)">
+			<summary>Удаляет указанную сущность из набора. Если сущность является корнем композиционной иерархии, то все дочерние сущности также будут удалены.</summary>
+			<param name="entity">Удаляемая сущность.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntitySet`1.System.Collections.Generic.IEnumerable`1.GetEnumerator">
+			<summary>Возвращает перечислитель для коллекции.</summary>
+			<returns>Перечислитель для коллекции.</returns>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.EntitySetOperations">
+			<summary>Перечисление типов операций, разрешенных по отношению к <see cref="T:System.ServiceModel.DomainServices.Client.EntitySet"></see>.</summary>
+		</member>
+		<member name="F:System.ServiceModel.DomainServices.Client.EntitySetOperations.Add">
+			<summary>Могут быть добавлены новые сущности.</summary>
+		</member>
+		<member name="F:System.ServiceModel.DomainServices.Client.EntitySetOperations.All">
+			<summary>Сущности могут быть добавлены, обновлены и удалены.</summary>
+		</member>
+		<member name="F:System.ServiceModel.DomainServices.Client.EntitySetOperations.Edit">
+			<summary>Сущности могут быть обновлены.</summary>
+		</member>
+		<member name="F:System.ServiceModel.DomainServices.Client.EntitySetOperations.None">
+			<summary>Разрешаются только операции чтения. Операции обновления не допускаются.</summary>
+		</member>
+		<member name="F:System.ServiceModel.DomainServices.Client.EntitySetOperations.Remove">
+			<summary>Сущности могут быть удалены.</summary>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.EntityState">
+			<summary>Описывает возможные состояния для сущности <see cref="T:System.ServiceModel.DomainServices.Client.Entity"></see>.</summary>
+		</member>
+		<member name="F:System.ServiceModel.DomainServices.Client.EntityState.Deleted">
+			<summary>Сущность отмечена для удаления.</summary>
+		</member>
+		<member name="F:System.ServiceModel.DomainServices.Client.EntityState.Detached">
+			<summary>Сущность не присоединена и не отслеживается.</summary>
+		</member>
+		<member name="F:System.ServiceModel.DomainServices.Client.EntityState.Modified">
+			<summary>Сущность была изменена.</summary>
+		</member>
+		<member name="F:System.ServiceModel.DomainServices.Client.EntityState.New">
+			<summary>Сущность присоединена в новом состоянии.</summary>
+		</member>
+		<member name="F:System.ServiceModel.DomainServices.Client.EntityState.Unmodified">
+			<summary>Сущность находится в исходном, неизмененном состоянии.</summary>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.InvokeArgs">
+			<summary>Представляет данные, необходимые для вызова операции вызова.</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.InvokeArgs.#ctor(System.String,System.Type,System.Collections.Generic.IDictionary{System.String,System.Object},System.Boolean)">
+			<summary>Инициализирует новый экземпляр класса <see cref="T:System.ServiceModel.DomainServices.Client.InvokeArgs"></see>. </summary>
+			<param name="hasSideEffects">Значение true, если операция имеет побочные эффекты. В противном случае — значение false.</param>
+			<param name="returnType">Возвращаемый тип операции вызова.</param>
+			<param name="parameters">Необязательные параметры операции. Укажите null, если метод не принимает параметров.</param>
+			<param name="operationName">Имя операции вызова.</param>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.InvokeArgs.HasSideEffects">
+			<summary>Возвращает значение, указывающее, имеет ли операция побочные эффекты.</summary>
+			<returns>Значение true, если операция имеет побочные эффекты. В противном случае — значение false.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.InvokeArgs.OperationName">
+			<summary>Возвращает имя операции.</summary>
+			<returns>Имя операции.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.InvokeArgs.Parameters">
+			<summary>Возвращает параметры, необходимые для операции, если они есть. </summary>
+			<returns>Параметры, необходимые для операции, или значение null, если метод не принимает параметров.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.InvokeArgs.ReturnType">
+			<summary>Возвращает возвращаемый тип операции.</summary>
+			<returns>Возвращаемый тип операции.</returns>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.InvokeCompletedResult">
+			<summary>Представляет результат операции вызова.</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.InvokeCompletedResult.#ctor(System.Object)">
+			<summary>Инициализирует новый экземпляр класса <see cref="T:System.ServiceModel.DomainServices.Client.InvokeCompletedResult"></see> с заданным возвращаемым значением.</summary>
+			<param name="returnValue">Значение, возвращенное сервером.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.InvokeCompletedResult.#ctor(System.Object,System.Collections.Generic.IEnumerable{System.ComponentModel.DataAnnotations.ValidationResult})">
+			<summary>Инициализирует новый экземпляр класса <see cref="T:System.ServiceModel.DomainServices.Client.InvokeCompletedResult"></see> с заданным возвращаемым значением и ошибками проверки. </summary>
+			<param name="returnValue">Значение, возвращенное сервером.</param>
+			<param name="validationErrors">Коллекция ошибок проверки.</param>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.InvokeCompletedResult.ReturnValue">
+			<summary>Возвращает значение, возвращенное сервером.</summary>
+			<returns>Объект, который представляет значение, возвращенное сервером.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.InvokeCompletedResult.ValidationErrors">
+			<summary>Возвращает ошибки проверки.</summary>
+			<returns>Объект <see cref="T:System.Collections.Generic.IEnumerable`1"></see>, который представляет ошибки проверки.</returns>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.InvokeOperation">
+			<summary>Представляет асинхронную операцию вызова.</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.InvokeOperation.CancelCore">
+			<summary>Выполняет обратный вызов операции отмены.</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.InvokeOperation.InvokeCompleteAction">
+			<summary>Вызывает обратный вызов по завершении.</summary>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.InvokeOperation.OperationName">
+			<summary>Возвращает имя операции.</summary>
+			<returns>Строка, которая представляет имя операции.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.InvokeOperation.Parameters">
+			<summary>Возвращает коллекцию параметров для операции.</summary>
+			<returns>Интерфейс <see cref="T: System.Collections.Generic.IDictionary`2"></see>, который представляет коллекцию параметров для операции.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.InvokeOperation.Result">
+			<summary>Возвращает результат <see cref="T:System.ServiceModel.DomainServices.Client.DomainClientResult"></see> для этой операции.</summary>
+			<returns>Объект, который представляет результат для этой операции.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.InvokeOperation.SupportsCancellation">
+			<summary>Возвращает значение, указывающее, поддерживает ли эта операция отмену.</summary>
+			<returns>Значение true, если операция поддерживает отмену. В противном случае — значение false.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.InvokeOperation.ValidationErrors">
+			<summary>Возвращает ошибки проверки для этой операции.</summary>
+			<returns>Интерфейс <see cref="T: System.Collections.Generic.IEnumerable`1"></see>, который представляет ошибки проверки для этой операции.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.InvokeOperation.Value">
+			<summary>Выдает возвращаемое значение для операции вызова.</summary>
+			<returns>Объект, который представляет возвращаемое значение для операции вызова.</returns>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.InvokeOperation`1">
+			<summary>Представляет асинхронную операцию вызова.</summary>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.InvokeOperation`1.Value">
+			<summary>Выдает возвращаемое значение для операции вызова.</summary>
+			<returns>Возвращаемое значение для операции вызова.</returns>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.LoadBehavior">
+			<summary>Указывает режим кэширования управляющих идентификаторов при загрузке сущностей. </summary>
+		</member>
+		<member name="F:System.ServiceModel.DomainServices.Client.LoadBehavior.KeepCurrent">
+			<summary>Кэшированный экземпляр не изменяется, а вновь считанный экземпляр удаляется.</summary>
+		</member>
+		<member name="F:System.ServiceModel.DomainServices.Client.LoadBehavior.MergeIntoCurrent">
+			<summary>Значения из вновь считанного экземпляра объединяются в кэшированном экземпляре для получения значений немодифицированных свойств. При этом слиянии не происходит потери никаких изменений.</summary>
+		</member>
+		<member name="F:System.ServiceModel.DomainServices.Client.LoadBehavior.RefreshCurrent">
+			<summary>Все элементы кэшированного экземпляра перезаписываются текущими значениями из вновь считанного экземпляра, независимо от того, были ли они изменены. Кроме того, исходное состояние сущности также задается в соответствии с вновь считанным экземпляром.</summary>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.LoadOperation">
+			<summary>Представляет асинхронную операцию загрузки.</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.LoadOperation.UpdateResults(System.ServiceModel.DomainServices.Client.DomainClientResult)">
+			<summary>Обновляет наблюдаемые коллекции результатов.</summary>
+			<param name="result">Результаты завершенной операции загрузки.</param>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.LoadOperation.AllEntities">
+			<summary>Возвращает все сущности, загруженные операцией, включая любые сущности, на которые ссылаются сущности верхнего уровня.</summary>
+			<returns>Перечислимый объект, представляющий все сущности, загруженные операцией, включая любые сущности, на которые ссылаются сущности верхнего уровня.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.LoadOperation.Entities">
+			<summary>Возвращает все сущности верхнего уровня, загруженные операцией. </summary>
+			<returns>Перечислимый объект, представляющий все сущности верхнего уровня, загруженные операцией.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.LoadOperation.EntityQuery">
+			<summary>Возвращает запрос <see cref="T:System.ServiceModel.DomainServices.Client.EntityQuery"></see> для этой операции загрузки.</summary>
+			<returns>Запрос <see cref="T:System.ServiceModel.DomainServices.Client.EntityQuery"></see> для этой операции загрузки.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.LoadOperation.LoadBehavior">
+			<summary>Возвращает поведение <see cref="T:System.ServiceModel.DomainServices.Client.LoadBehavior"></see> для этой операции загрузки.</summary>
+			<returns>Поведение <see cref="T:System.ServiceModel.DomainServices.Client.LoadBehavior"></see> для этой операции загрузки.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.LoadOperation.Result">
+			<summary>Возвращает результат <see cref="T:System.ServiceModel.DomainServices.Client.DomainClientResult"></see> для этой операции.</summary>
+			<returns>Результат <see cref="T:System.ServiceModel.DomainServices.Client.DomainClientResult"></see> для этой операции.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.LoadOperation.TotalEntityCount">
+			<summary>Возвращает общее количество серверных сущностей для запроса, используемого этой операцией.</summary>
+			<returns>Общее количество серверных сущностей для запроса, используемого этой операцией.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.LoadOperation.ValidationErrors">
+			<summary>Возвращает ошибки проверки.</summary>
+			<returns>Перечислимый объект, который представляет ошибки проверки.</returns>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.LoadOperation`1">
+			<summary>Представляет асинхронную операцию загрузки.</summary>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.LoadOperation`1.Entities">
+			<summary>Возвращает все сущности, загруженные операцией, включая любые сущности, на которые ссылаются сущности верхнего уровня. </summary>
+			<returns>Объект, реализующий интерфейс <see cref="T:System.Collections.Generic.IEnumerable`1"></see>, который представляет все сущности, загруженные операцией.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.LoadOperation`1.EntityQuery">
+			<summary>Возвращает запрос <see cref="P:System.ServiceModel.DomainServices.Client.LoadOperation`1.EntityQuery"></see> для этой операции загрузки.</summary>
+			<returns>Запрос <see cref="T:System.ServiceModel.DomainServices.Client.EntityQuery`1"></see> для этой операции загрузки.</returns>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.OperationBase">
+			<summary>Представляет асинхронную операцию.</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.OperationBase.#ctor(System.Object)">
+			<summary>Инициализирует новый экземпляр класса <see cref="T:System.ServiceModel.DomainServices.Client.OperationBase"></see>. </summary>
+			<param name="userState">Необязательное пользовательское состояние.</param>
+		</member>
+		<member name="E:System.ServiceModel.DomainServices.Client.OperationBase.Completed">
+			<summary>Происходит при завершении операции.</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.OperationBase.Cancel">
+			<summary>Отменяет операцию.</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.OperationBase.CancelCore">
+			<summary>При переопределении в производном классе предоставляет логику для отмены операции.</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.OperationBase.Complete(System.Exception)">
+			<summary>Завершает неуспешную операцию с указанной ошибкой.</summary>
+			<param name="error">Ошибка, ставшая причиной неуспешного завершения операции.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.OperationBase.Complete(System.Object)">
+			<summary>Завершает успешную операцию с указанным результатом.</summary>
+			<param name="result">Результат операции.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.OperationBase.InvokeCompleteAction">
+			<summary>Вызывает обратный вызов по завершении.</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.OperationBase.MarkErrorAsHandled">
+			<summary>Указывает, что ошибка, произошедшая во время операции, обработана.</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.OperationBase.OnPropertyChanged(System.ComponentModel.PropertyChangedEventArgs)">
+			<summary>Вызывается при изменении значения свойства.</summary>
+			<param name="e">Данные события.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.OperationBase.RaisePropertyChanged(System.String)">
+			<summary>Вызывает событие <see cref="E:System.Windows.Controls.Ria.DomainDataSourceView.System#ComponentModel#INotifyPropertyChanged#PropertyChanged"></see>.</summary>
+			<param name="propertyName">Имя измененного свойства.</param>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.OperationBase.CanCancel">
+			<summary>Возвращает значение, указывающее, находится ли эта операция <see cref="T:System.ServiceModel.DomainServices.Client.OperationBase"></see> в настоящее время в состоянии, которое допускает ее отмену.</summary>
+			<returns>Значение true, если эта операция <see cref="T:System.ServiceModel.DomainServices.Client.OperationBase"></see> находится в настоящее время в состоянии, которое допускает ее отмену. В противном случае — значение false.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.OperationBase.Error">
+			<summary>Возвращает ошибку операции, закончившейся неуспешно.</summary>
+			<returns>Ошибка, ставшая причиной неуспешного завершения операции. В противном случае — значение null.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.OperationBase.HasError">
+			<summary>Возвращает значение, указывающее, окончилась ли операция неуспешно.</summary>
+			<returns>Значение true, если операция завершилась ошибкой. В противном случае — значение false.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.OperationBase.IsCanceled">
+			<summary>Возвращает значение, указывающее, была ли эта операция отменена.</summary>
+			<returns>Значение true, если операция была отменена. В противном случае — значение false.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.OperationBase.IsComplete">
+			<summary>Возвращает значение, указывающее, завершилась ли эта операция.</summary>
+			<returns>Значение true, если операция завершилась. В противном случае — значение false.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.OperationBase.IsErrorHandled">
+			<summary>Возвращает или задает значение, которое указывает, была ли обработана ошибка операции.</summary>
+			<returns>Значение true, если ошибка была обработана. В противном случае — значение false.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.OperationBase.Result">
+			<summary>Возвращает результат асинхронной операции.</summary>
+			<returns>Результат асинхронной операции.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.OperationBase.SupportsCancellation">
+			<summary>Возвращает значение, которое указывает, поддерживает ли эта операция отмену.</summary>
+			<returns>Значение true, если операция поддерживает отмену. В противном случае — значение false. Эта реализация всегда возвращает значение false.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.OperationBase.UserState">
+			<summary>Возвращает необязательное пользовательское состояние для этой операции.</summary>
+			<returns>Пользовательское состояние для этой операции или значение null, если пользовательское состояние не указано.</returns>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.OperationErrorStatus">
+			<summary>Описывает ошибки, происходящие во время операции.</summary>
+		</member>
+		<member name="F:System.ServiceModel.DomainServices.Client.OperationErrorStatus.Conflicts">
+			<summary>Обнаружены конфликты. Конфликты для данной сущности описаны в разделе <see cref="P:System.ServiceModel.DomainServices.Client.Entity.EntityConflict"></see>.</summary>
+		</member>
+		<member name="F:System.ServiceModel.DomainServices.Client.OperationErrorStatus.NotFound">
+			<summary>Невозможно найти ресурс.</summary>
+		</member>
+		<member name="F:System.ServiceModel.DomainServices.Client.OperationErrorStatus.NotSupported">
+			<summary>Операция не поддерживается.</summary>
+		</member>
+		<member name="F:System.ServiceModel.DomainServices.Client.OperationErrorStatus.ServerError">
+			<summary>Во время обработки операции произошла ошибка сервера.</summary>
+		</member>
+		<member name="F:System.ServiceModel.DomainServices.Client.OperationErrorStatus.Unauthorized">
+			<summary>Операция не авторизована для выполнения.</summary>
+		</member>
+		<member name="F:System.ServiceModel.DomainServices.Client.OperationErrorStatus.ValidationFailed">
+			<summary>Проверка операции окончилась неудачей.</summary>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.QueryCompletedResult">
+			<summary>Представляет результат операции запроса.</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.QueryCompletedResult.#ctor(System.Collections.Generic.IEnumerable{System.ServiceModel.DomainServices.Client.Entity},System.Collections.Generic.IEnumerable{System.ServiceModel.DomainServices.Client.Entity},System.Int32,System.Collections.Generic.IEnumerable{System.ComponentModel.DataAnnotations.ValidationResult})">
+			<summary>Инициализирует новый экземпляр класса <see cref="T:System.ServiceModel.DomainServices.Client.QueryCompletedResult"></see>. </summary>
+			<param name="validationErrors">Коллекция ошибок проверки.</param>
+			<param name="includedEntities">Включенные сущности, возвращенные из запроса.</param>
+			<param name="entities">Сущности, возвращенные из запроса.</param>
+			<param name="totalCount">Общее количество строк для исходного запроса без разбиения на страницы.</param>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.QueryCompletedResult.Entities">
+			<summary>Возвращает сущности, возвращенные из запроса.</summary>
+			<returns>Сущности, возвращенные из запроса.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.QueryCompletedResult.IncludedEntities">
+			<summary>Возвращает включенные сущности, возвращенные из запроса.</summary>
+			<returns>Включенные сущности, возвращенные из запроса.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.QueryCompletedResult.TotalCount">
+			<summary>Возвращает общее количество строк для исходного запроса без разбиения на страницы.</summary>
+			<returns>Общее количество строк для исходного запроса или -1, если сервер не поддерживает общие количества.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.QueryCompletedResult.ValidationErrors">
+			<summary>Возвращает ошибки проверки.</summary>
+			<returns>Коллекция ошибок проверки.</returns>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.QueryResult">
+			<summary>Тип сообщений, используемый для обмена результатами запроса между сервером и клиентом.</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.QueryResult.#ctor">
+			<summary>Инициализирует новый экземпляр класса <see cref="T:System.ServiceModel.DomainServices.Client.QueryResult"></see>. </summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.QueryResult.GetIncludedResults">
+			<summary>Возвращает включенные результаты.</summary>
+			<returns>Включенные результаты.</returns>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.QueryResult.GetRootResults">
+			<summary>Возвращает корневые результаты.</summary>
+			<returns>Корневые результаты.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.QueryResult.TotalCount">
+			<summary>Возвращает или задает общее количество строк для исходного запроса без применения к нему какого-либо разбиения на страницы.</summary>
+			<returns>Общее количество строк для исходного запроса без разбиения на страницы.</returns>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.QueryResult`1">
+			<summary>Тип сообщений, используемый для обмена результатами запроса между сервером и клиентом.</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.QueryResult`1.#ctor">
+			<summary>Инициализирует новый экземпляр класса <see cref="T:System.ServiceModel.DomainServices.Client.QueryResult`1"></see> со значениями по умолчанию. </summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.QueryResult`1.#ctor(System.Collections.Generic.IEnumerable{`0})">
+			<summary>Инициализирует новый экземпляр класса <see cref="T:System.ServiceModel.DomainServices.Client.QueryResult`1"></see> с указанной коллекцией результирующих элементов.</summary>
+			<param name="results">Результаты запроса.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.QueryResult`1.#ctor(System.Collections.Generic.IEnumerable{`0},System.Int32)">
+			<summary>Инициализирует новый экземпляр класса <see cref="T:System.ServiceModel.DomainServices.Client.QueryResult`1"></see> с указанной коллекцией результирующих элементов и общим количеством.</summary>
+			<param name="results">Результаты запроса.</param>
+			<param name="totalCount">Общее количество строк на основе входного запроса, без применения к нему разбиения на страницы.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.QueryResult`1.GetIncludedResults">
+			<summary>Извлекает включенные результаты.</summary>
+			<returns>Включенные результаты.</returns>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.QueryResult`1.GetRootResults">
+			<summary>Извлекает корневые результаты.</summary>
+			<returns>Корневые результаты.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.QueryResult`1.IncludedResults">
+			<summary>Возвращает или задает включенные результаты запроса.</summary>
+			<returns>Включенные результаты запроса.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.QueryResult`1.RootResults">
+			<summary>Возвращает или задает результаты запроса верхнего уровня.</summary>
+			<returns>Результаты запроса верхнего уровня.</returns>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.SubmitCompletedResult">
+			<summary>Представляет результат операции отправки.</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.SubmitCompletedResult.#ctor(System.ServiceModel.DomainServices.Client.EntityChangeSet,System.Collections.Generic.IEnumerable{System.ServiceModel.DomainServices.Client.ChangeSetEntry})">
+			<summary>Инициализирует новый экземпляр класса <see cref="T:System.ServiceModel.DomainServices.Client.SubmitCompletedResult"></see> с указанным набором изменений и результатов операций.</summary>
+			<param name="operationResults">Результаты <see cref="T:System.ServiceModel.DomainServices.Client.ChangeSetEntry"></see>, переданные из <see cref="T:System.ServiceModel.DomainServices.Server.DomainService"></see> для операции отправки.</param>
+			<param name="changeSet">Переданный набор изменений.</param>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.SubmitCompletedResult.ChangeSet">
+			<summary>Возвращает значение отправленного набора изменений.</summary>
+			<returns>Значение отправленного набора изменений.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.SubmitCompletedResult.Results">
+			<summary>Возвращает результаты <see cref="T:System.ServiceModel.DomainServices.Server.ChangeSetEntry"></see>, возвращенные из <see cref="T:System.ServiceModel.DomainServices.Server.DomainService"></see>.</summary>
+			<returns>Возвращает результаты <see cref="T:System.ServiceModel.DomainServices.Server.ChangeSetEntry"></see>, возвращенные из <see cref="T:System.ServiceModel.DomainServices.Server.DomainService"></see>.</returns>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.SubmitOperation">
+			<summary>Представляет асинхронную операцию отправки.</summary>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.SubmitOperation.ChangeSet">
+			<summary>Возвращает передаваемый набор изменений.</summary>
+			<returns>Передаваемый набор изменений.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.SubmitOperation.EntitiesInError">
+			<summary>Возвращает все сущности, содержащие ошибки после завершения операции отправки.</summary>
+			<returns>Сущности, содержащие ошибки после завершения операции отправки.</returns>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.ValidationResultInfo">
+			<summary>Содержит сведения об ошибке, произошедшей при выполнении операции на сервере.</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ValidationResultInfo.#ctor">
+			<summary>Инициализирует новый экземпляр класса <see cref="T:System.ServiceModel.DomainServices.Client.ValidationResultInfo"></see>. </summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ValidationResultInfo.#ctor(System.String,System.Collections.Generic.IEnumerable{System.String})">
+			<summary>Инициализирует новый экземпляр класса <see cref="T:System.ServiceModel.DomainServices.Client.ValidationResultInfo"></see> с локализованным сообщением об ошибке и коллекцией имен членов, которые стали источником ошибки.</summary>
+			<param name="message">Локализованное сообщение об ошибке.</param>
+			<param name="sourceMemberNames">Имена членов, которые стали источником ошибки.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ValidationResultInfo.#ctor(System.String,System.Int32,System.String,System.Collections.Generic.IEnumerable{System.String})">
+			<summary>Инициализирует новый экземпляр класса <see cref="T:System.ServiceModel.DomainServices.Client.ValidationResultInfo"></see> с локализованной ошибкой, кодом ошибки, трассировкой стека и коллекцией имен членов, которые стали источником ошибки.</summary>
+			<param name="errorCode">Пользовательский код ошибки.</param>
+			<param name="stackTrace">Трассировка стека для ошибки.</param>
+			<param name="message">Локализованное сообщение об ошибке.</param>
+			<param name="sourceMemberNames">Коллекция имен членов, которые стали источником ошибки.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ValidationResultInfo.GetHashCode">
+			<summary>Возвращает хэш-код для этого объекта.</summary>
+			<returns>Хэш-код для этого объекта.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.ValidationResultInfo.ErrorCode">
+			<summary>Возвращает или задает пользовательский код ошибки.</summary>
+			<returns>Пользовательский код ошибки.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.ValidationResultInfo.Message">
+			<summary>Возвращает или задает сообщение об ошибке.</summary>
+			<returns>Сообщение об ошибке.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.ValidationResultInfo.SourceMemberNames">
+			<summary>Возвращает или задает имена членов, которые стали источником ошибки.</summary>
+			<returns>Имена членов, которые стали источником ошибки.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.ValidationResultInfo.StackTrace">
+			<summary>Возвращает или задает трассировку стека для ошибки.</summary>
+			<returns>Трассировка стека для ошибки.</returns>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationEventArgs">
+			<summary>Представляет аргументы событий, вызываемых классом <see cref="T:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService"></see>.</summary>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationEventArgs.User">
+			<summary>Возвращает пользователя во время возникновения события.</summary>
+			<returns>Пользователь во время возникновения события.</returns>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationOperation">
+			<summary>Представляет базовый тип для всех операций, поддерживаемых объектом <see cref="T:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService"></see>.</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationOperation.BeginCore(System.AsyncCallback)">
+			<summary>Вызывает соответствующий метод Begin в базовой реализации асинхронного результата.</summary>
+			<returns>Асинхронный результат, возвращенный вызовом базового метода Begin.</returns>
+			<param name="callback">Метод типа <see cref="T:System.AsyncCallback"></see>, вызываемый после завершения асинхронного вызова. Этот параметр может быть передан напрямую базовому методу Begin.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationOperation.EndCore(System.IAsyncResult)">
+			<summary>Вызывает соответствующий метод End в базовой реализации асинхронного результата.</summary>
+			<returns>Результат вызова метода End для сохранения в OperationBase.Result.</returns>
+			<param name="asyncResult">Асинхронный результат, возвращенный вызовом базового метода Begin.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationOperation.RaiseCompletionPropertyChanges">
+			<summary>После завершения операции вызываются события изменения свойств.</summary>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationOperation.AsyncResult">
+			<summary>Возвращает асинхронный результат, возвращенный из метода <see cref="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationOperation.BeginCore(System.AsyncCallback)"></see>.</summary>
+			<returns>Асинхронный результат, возвращенный из метода <see cref="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationOperation.BeginCore(System.AsyncCallback)"></see>.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationOperation.Result">
+			<summary>Возвращает результат в виде объекта <see cref="T:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationResult"></see>.</summary>
+			<returns>Результат в виде объекта <see cref="T:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationResult"></see>.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationOperation.Service">
+			<summary>Возвращает службу, которая будет использована этой операцией для реализации методов Begin, Cancel и End.</summary>
+			<returns>Служба, которая будет использована этой операцией для реализации методов Begin, Cancel и End.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationOperation.SupportsCancellation">
+			<summary>Возвращает значение, указывающее, поддерживает ли операция отмену.</summary>
+			<returns>Значение true, если операция поддерживает отмену. В противном случае — значение false.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationOperation.User">
+			<summary>Возвращает участника-пользователя.</summary>
+			<returns>Участник-пользователь. Это значение равно null, если операция не завершена, отменена или выполнена с ошибками.</returns>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationResult">
+			<summary>Представляет абстрактный базовый тип для всех результатов, возвращенных объекту <see cref="T:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService"></see> вызовами метода End для асинхронных операций.</summary>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationResult.User">
+			<summary>Возвращает пользователя, прошедшего проверку подлинности.</summary>
+			<returns>Пользователь, прошедший проверку подлинности.</returns>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService">
+			<summary>Предоставляет базовый класс для служб, выполняющих проверку подлинности, загрузку и сохранение текущего пользователя.</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.#ctor">
+			<summary>Инициализирует новый экземпляр класса <see cref="T:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService"></see>.</summary>
+		</member>
+		<member name="E:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.LoggedIn">
+			<summary>Возникает при успешном входе нового пользователя.</summary>
+		</member>
+		<member name="E:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.LoggedOut">
+			<summary>Возникает при успешном выходе пользователя.</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.BeginLoadUser(System.AsyncCallback,System.Object)">
+			<summary>Начинает асинхронную операцию <see cref="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.LoadUser"></see>.</summary>
+			<returns>Дескриптор, который можно использовать для ссылки на асинхронный вызов.</returns>
+			<param name="callback">Функция обратного вызова, которая должна быть вызвана после завершения асинхронного вызова.</param>
+			<param name="state">Состояние, которое должно быть присвоено <see cref="T:System.IAsyncResult"></see> при завершении этого метода. Этот параметр является необязательным.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.BeginLogin(System.ServiceModel.DomainServices.Client.ApplicationServices.LoginParameters,System.AsyncCallback,System.Object)">
+			<summary>Начинает асинхронную операцию <see cref="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.Login(System.ServiceModel.DomainServices.Client.ApplicationServices.LoginParameters,System.Action{System.ServiceModel.DomainServices.Client.ApplicationServices.LoginOperation},System.Object)"></see>.</summary>
+			<returns>Дескриптор, который можно использовать для ссылки на асинхронный вызов.</returns>
+			<param name="callback">Функция обратного вызова, которая должна быть вызвана после завершения асинхронного вызова.</param>
+			<param name="state">Состояние, которое должно быть присвоено <see cref="T:System.IAsyncResult"></see> при завершении этого метода. Этот параметр является необязательным.</param>
+			<param name="parameters">Параметры входа, указанные пользователем при проверке подлинности. Этот параметр является необязательным.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.BeginLogout(System.AsyncCallback,System.Object)">
+			<summary>Начинает асинхронную операцию <see cref="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.Logout(System.Action{System.ServiceModel.DomainServices.Client.ApplicationServices.LogoutOperation},System.Object)"></see>.</summary>
+			<returns>Дескриптор, который можно использовать для ссылки на асинхронный вызов.</returns>
+			<param name="callback">Функция обратного вызова, которая должна быть вызвана после завершения асинхронного вызова.</param>
+			<param name="state">Состояние, которое должно быть присвоено <see cref="T:System.IAsyncResult"></see> при завершении этого метода. Этот параметр является необязательным.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.BeginSaveUser(System.Security.Principal.IPrincipal,System.AsyncCallback,System.Object)">
+			<summary>Начинает асинхронную операцию <see cref="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.SaveUser(System.Action{System.ServiceModel.DomainServices.Client.ApplicationServices.SaveUserOperation},System.Object)"></see>.</summary>
+			<returns>Дескриптор, который можно использовать для ссылки на асинхронный вызов.</returns>
+			<param name="callback">Функция обратного вызова, которая должна быть вызвана после завершения асинхронного вызова.</param>
+			<param name="user">Пользователь для сохранения. Этот параметр не должен иметь значение null.</param>
+			<param name="state">Состояние, которое должно быть присвоено <see cref="T:System.IAsyncResult"></see> при завершении этого метода. Этот параметр является необязательным.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.CancelLoadUser(System.IAsyncResult)">
+			<summary>Отменяет асинхронную операцию <see cref="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.LoadUser"></see>.</summary>
+			<param name="asyncResult">Результат, возвращенный из <see cref="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.BeginLoadUser(System.AsyncCallback,System.Object)"></see> и представляющий отмену асинхронного вызова.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.CancelLogin(System.IAsyncResult)">
+			<summary>Отменяет асинхронную операцию <see cref="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.Login(System.ServiceModel.DomainServices.Client.ApplicationServices.LoginParameters,System.Action{System.ServiceModel.DomainServices.Client.ApplicationServices.LoginOperation},System.Object)"></see>.</summary>
+			<param name="asyncResult">Результат, возвращенный из <see cref="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.BeginLogin(System.ServiceModel.DomainServices.Client.ApplicationServices.LoginParameters,System.AsyncCallback,System.Object)"></see> и представляющий отмену асинхронного вызова.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.CancelLogout(System.IAsyncResult)">
+			<summary>Отменяет асинхронную операцию <see cref="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.Logout(System.Action{System.ServiceModel.DomainServices.Client.ApplicationServices.LogoutOperation},System.Object)"></see>.</summary>
+			<param name="asyncResult">Результат, возвращенный из <see cref="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.BeginLogout(System.AsyncCallback,System.Object)"></see> и представляющий отмену асинхронного вызова.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.CancelSaveUser(System.IAsyncResult)">
+			<summary>Отменяет асинхронную операцию <see cref="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.SaveUser(System.Action{System.ServiceModel.DomainServices.Client.ApplicationServices.SaveUserOperation},System.Object)"></see>.</summary>
+			<param name="asyncResult">Результат, возвращенный из <see cref="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.BeginSaveUser(System.Security.Principal.IPrincipal,System.AsyncCallback,System.Object)"></see> и представляющий отмену асинхронного вызова.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.CreateDefaultUser">
+			<summary>Создает пользователя по умолчанию.</summary>
+			<returns>Созданный пользователь.</returns>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.EndLoadUser(System.IAsyncResult)">
+			<summary>Завершает асинхронную операцию <see cref="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.LoadUser"></see>.</summary>
+			<returns>Результат операции.</returns>
+			<param name="asyncResult">Результат, возвращенный из метода <see cref="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.BeginLoadUser(System.AsyncCallback,System.Object)"></see> и представляющий завершение асинхронного вызова.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.EndLogin(System.IAsyncResult)">
+			<summary>Завершает асинхронную операцию <see cref="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.Login(System.ServiceModel.DomainServices.Client.ApplicationServices.LoginParameters,System.Action{System.ServiceModel.DomainServices.Client.ApplicationServices.LoginOperation},System.Object)"></see>.</summary>
+			<returns>Результат операции.</returns>
+			<param name="asyncResult">Результат, возвращенный из <see cref="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.BeginLogin(System.ServiceModel.DomainServices.Client.ApplicationServices.LoginParameters,System.AsyncCallback,System.Object)"></see> и представляющий завершение асинхронного вызова.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.EndLogout(System.IAsyncResult)">
+			<summary>Завершает асинхронную операцию <see cref="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.Logout(System.Action{System.ServiceModel.DomainServices.Client.ApplicationServices.LogoutOperation},System.Object)"></see>.</summary>
+			<returns>Результат операции.</returns>
+			<param name="asyncResult">Результат, возвращенный из метода <see cref="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.BeginLogout(System.AsyncCallback,System.Object)"></see> и представляющий завершение асинхронного вызова.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.EndSaveUser(System.IAsyncResult)">
+			<summary>Завершает асинхронную операцию <see cref="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.SaveUser(System.Action{System.ServiceModel.DomainServices.Client.ApplicationServices.SaveUserOperation},System.Object)"></see>.</summary>
+			<returns>Результат операции.</returns>
+			<param name="asyncResult">Результат, возвращенный из метода <see cref="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.BeginSaveUser(System.Security.Principal.IPrincipal,System.AsyncCallback,System.Object)"></see> и представляющий завершение асинхронного вызова.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.LoadUser">
+			<summary>Асинхронно загружает с сервера пользователя, прошедшего проверку подлинности.</summary>
+			<returns>Результат операции.</returns>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.LoadUser(System.Action{System.ServiceModel.DomainServices.Client.ApplicationServices.LoadUserOperation},System.Object)">
+			<summary>Асинхронно загружает с сервера пользователя, прошедшего проверку подлинности, с указанным методом обратного вызова и состоянием.</summary>
+			<returns>Результат операции.</returns>
+			<param name="completeAction">Действие, которое будет вызвано немедленно после завершения операции, причем в любом случае: при успешном завершении, отмене или ошибке. Этот параметр является необязательным.</param>
+			<param name="userState">Состояние будет установлено в значение <see cref="P:System.ServiceModel.DomainServices.Client.OperationBase.UserState"></see>. Этот параметр является необязательным.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.Login(System.ServiceModel.DomainServices.Client.ApplicationServices.LoginParameters)">
+			<summary>Асинхронно выполняет проверку подлинности и вход на сервер с указанными параметрами.</summary>
+			<returns>Результат операции.</returns>
+			<param name="parameters">Параметры входа, указанные пользователем при проверке подлинности.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.Login(System.String,System.String)">
+			<summary>Асинхронно выполняет проверку подлинности и вход на сервер с указанными именем пользователя и паролем.</summary>
+			<returns>Результат операции.</returns>
+			<param name="userName">Имя пользователя, подлинность которого проверяется.</param>
+			<param name="password">Пароль пользователя, подлинность которого проверяется.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.Login(System.ServiceModel.DomainServices.Client.ApplicationServices.LoginParameters,System.Action{System.ServiceModel.DomainServices.Client.ApplicationServices.LoginOperation},System.Object)">
+			<summary>Асинхронно выполняет проверку подлинности и вход на сервер с указанными параметрами, методом обратного вызова и состоянием пользователя.</summary>
+			<returns>Результат операции.</returns>
+			<param name="completeAction">Действие, которое будет вызвано немедленно после завершения операции, причем в любом случае: при успешном завершении, отмене или ошибке. Этот параметр является необязательным.</param>
+			<param name="userState">Состояние будет установлено в значение <see cref="P:System.ServiceModel.DomainServices.Client.OperationBase.UserState"></see>. Этот параметр является необязательным.</param>
+			<param name="parameters">Параметры входа, указанные пользователем при проверке подлинности.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.Logout(System.Boolean)">
+			<summary>Асинхронно выполняет выход из системы пользователя, прошедшего проверку подлинности с указанным значением, указывающим, вызываются ли исключения при ошибках.</summary>
+			<returns>Результат операции.</returns>
+			<param name="throwOnError">Значение true, если необработанная ошибка должна привести к исключению. В противном случае — значение false.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.Logout(System.Action{System.ServiceModel.DomainServices.Client.ApplicationServices.LogoutOperation},System.Object)">
+			<summary>Асинхронно выполняет выход из системы пользователя, прошедшего проверку подлинности, с указанным методом обратного вызова и состоянием.</summary>
+			<returns>Результат операции.</returns>
+			<param name="completeAction">Действие, которое будет вызвано немедленно после завершения операции, причем в любом случае: при успешном завершении, отмене или ошибке. Этот параметр является необязательным.</param>
+			<param name="userState">Состояние будет установлено в значение <see cref="P:System.ServiceModel.DomainServices.Client.OperationBase.UserState"></see>. Этот параметр является необязательным.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.OnPropertyChanged(System.ComponentModel.PropertyChangedEventArgs)">
+			<summary>Вызывает событие <see cref="E:System.ComponentModel.INotifyPropertyChanged.PropertyChanged"></see>.</summary>
+			<param name="e">Вызываемое событие.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.RaisePropertyChanged(System.String)">
+			<summary>Вызывает событие <see cref="E:System.ComponentModel.INotifyPropertyChanged.PropertyChanged"></see> для указанного свойства.</summary>
+			<param name="propertyName">Свойство, для которого вызывается событие.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.SaveUser(System.Boolean)">
+			<summary>Асинхронно выполняет сохранение на сервере пользователя, прошедшего проверку подлинности, с указанным значением, указывающим, вызываются ли исключения при ошибках.</summary>
+			<returns>Результат операции.</returns>
+			<param name="throwOnError">Значение true, если необработанная ошибка должна привести к исключению. В противном случае — значение false.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.SaveUser(System.Action{System.ServiceModel.DomainServices.Client.ApplicationServices.SaveUserOperation},System.Object)">
+			<summary>Асинхронно сохраняет на сервере пользователя, прошедшего проверку подлинности, с указанным методом обратного вызова и состоянием.</summary>
+			<returns>Результат операции.</returns>
+			<param name="completeAction">Действие, которое будет вызвано немедленно после завершения операции, причем в любом случае: при успешном завершении, отмене или ошибке. Этот параметр является необязательным.</param>
+			<param name="userState">Состояние будет установлено в значение <see cref="P:System.ServiceModel.DomainServices.Client.OperationBase.UserState"></see>. Этот параметр является необязательным.</param>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.IsBusy">
+			<summary>Возвращает значение, указывающее, выполняется ли асинхронная операция.</summary>
+			<returns>Значение true, если операция выполняется; в противном случае — значение false.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.IsLoadingUser">
+			<summary>Возвращает значение, указывающее, выполняется ли асинхронная операция <see cref="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.LoadUser"></see>.</summary>
+			<returns>Значение true, если операция выполняется; в противном случае — значение false.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.IsLoggingIn">
+			<summary>Возвращает значение, указывающее, выполняется ли асинхронная операция <see cref="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.Login(System.String,System.String)"></see>.</summary>
+			<returns>Значение true, если операция выполняется; в противном случае — значение false.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.IsLoggingOut">
+			<summary>Возвращает значение, указывающее, выполняется ли асинхронная операция <see cref="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.Logout(System.Action{System.ServiceModel.DomainServices.Client.ApplicationServices.LogoutOperation},System.Object)"></see>.</summary>
+			<returns>Значение true, если операция выполняется; в противном случае — значение false.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.IsSavingUser">
+			<summary>Возвращает значение, указывающее, выполняется ли асинхронная операция <see cref="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.SaveUser(System.Action{System.ServiceModel.DomainServices.Client.ApplicationServices.SaveUserOperation},System.Object)"></see>.</summary>
+			<returns>Значение true, если операция выполняется; в противном случае — значение false.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.SupportsCancellation">
+			<summary>Возвращает значение, указывающее, поддерживает ли реализация проверки подлинности отмену операции.</summary>
+			<returns>Значение true, если отмена поддерживается; в противном случае — значение false. Реализация в базовом классе во всех случаях возвращает значение false.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.User">
+			<summary>Возвращает участника, представляемого пользователем, прошедшим проверку подлинности.</summary>
+			<returns>Участник, представляемый пользователем, прошедшим проверку подлинности.</returns>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.ApplicationServices.LoadUserOperation">
+			<summary>Тип операции, возвращаемый из операций LoadUser в <see cref="T:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService"></see>.</summary>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.ApplicationServices.LoadUserResult">
+			<summary>Представляет результат, возвращенный методом <see cref="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.EndLoadUser(System.IAsyncResult)"></see>.</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.LoadUserResult.#ctor(System.Security.Principal.IPrincipal)">
+			<summary>Инициализирует новый экземпляр класса <see cref="T:System.ServiceModel.DomainServices.Client.ApplicationServices.LoadUserResult"></see>. </summary>
+			<param name="user">Загруженный пользователь.</param>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.ApplicationServices.LoginOperation">
+			<summary>Тип операции, возвращенный из операций Login объекту <see cref="T:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService"></see>.</summary>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.ApplicationServices.LoginOperation.LoginParameters">
+			<summary>Возвращает параметры входа, используемые при вызове этой операции.</summary>
+			<returns>Параметры входа.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.ApplicationServices.LoginOperation.LoginSuccess">
+			<summary>Возвращает значение, указывающее, смогла ли эта операция успешно выполнить вход.</summary>
+			<returns>Значение true, если вход выполнен успешно; в противном случае — значение false.</returns>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.ApplicationServices.LoginParameters">
+			<summary>Задает параметры для проверки подлинности пользователя методами Login в <see cref="T:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService"></see>.</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.LoginParameters.#ctor">
+			<summary>Инициализирует новый экземпляр класса <see cref="T:System.ServiceModel.DomainServices.Client.ApplicationServices.LoginParameters"></see> со значениями по умолчанию.</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.LoginParameters.#ctor(System.String,System.String)">
+			<summary>Инициализирует новый экземпляр класса <see cref="T:System.ServiceModel.DomainServices.Client.ApplicationServices.LoginParameters"></see> с указанными значениями имени и пароля.</summary>
+			<param name="userName">Имя пользователя, подлинность которого необходимо проверить.</param>
+			<param name="password">Пароль пользователя, подлинность которого необходимо проверить.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.LoginParameters.#ctor(System.String,System.String,System.Boolean,System.String)">
+			<summary>Инициализирует новый экземпляр класса <see cref="T:System.ServiceModel.DomainServices.Client.ApplicationServices.LoginParameters"></see> с заданными значениями имени, пароля и режима сохранения.</summary>
+			<param name="customData">Необязательные данные, зависящие от реализации.</param>
+			<param name="userName">Имя пользователя, подлинность которого необходимо проверить.</param>
+			<param name="isPersistent">Значение true, если имя входа сохраняется между сеансами; в противном случае значение false.</param>
+			<param name="password">Пароль пользователя, подлинность которого необходимо проверить.</param>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.ApplicationServices.LoginParameters.CustomData">
+			<summary>Возвращает необязательные данные, зависящие от реализации.</summary>
+			<returns>Необязательные данные, зависящие от реализации.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.ApplicationServices.LoginParameters.IsPersistent">
+			<summary>Возвращает значение, указывающее, должно ли имя входа сохраняться между сеансами.</summary>
+			<returns>Значение true, если имя входа должно сохраняться; в противном случае значение false.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.ApplicationServices.LoginParameters.Password">
+			<summary>Возвращает пароль пользователя, подлинность которого необходимо проверить.</summary>
+			<returns>Пароль пользователя, подлинность которого необходимо проверить.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.ApplicationServices.LoginParameters.UserName">
+			<summary>Возвращает имя пользователя, подлинность которого необходимо проверить.</summary>
+			<returns>Имя пользователя, подлинность которого необходимо проверить.</returns>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.ApplicationServices.LoginResult">
+			<summary>Результат, возвращенный из метода <see cref="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.EndLogin(System.IAsyncResult)"></see>.</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.LoginResult.#ctor(System.Security.Principal.IPrincipal,System.Boolean)">
+			<summary>Инициализирует новый экземпляр класса <see cref="T:System.ServiceModel.DomainServices.Client.ApplicationServices.LoginResult"></see>.</summary>
+			<param name="user">Вошедший в систему пользователь или значение null, если проверка подлинности не пройдена.</param>
+			<param name="loginSuccess">Значение true, если вызов метода Login завершился успешно; в противном случае — значение false.</param>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.ApplicationServices.LoginResult.LoginSuccess">
+			<summary>Возвращает значение, указывающее, успешно ли завершен вызов метода Login.</summary>
+			<returns>Значение true, если вход выполнен успешно; в противном случае — значение false.</returns>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.ApplicationServices.LogoutOperation">
+			<summary>Тип операции, возвращаемый из операции Logout в <see cref="T:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService"></see>.</summary>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.ApplicationServices.LogoutResult">
+			<summary>Представляет результат, возвращенный методом <see cref="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.EndLogout(System.IAsyncResult)"></see>.</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.LogoutResult.#ctor(System.Security.Principal.IPrincipal)">
+			<summary>Инициализирует новый экземпляр класса <see cref="T:System.ServiceModel.DomainServices.Client.ApplicationServices.LogoutResult"></see>. </summary>
+			<param name="user">Анонимный пользователь.</param>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.ApplicationServices.SaveUserOperation">
+			<summary>Представляет тип операции, возвращаемый из операции SaveUser службы <see cref="T:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService"></see>.</summary>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.ApplicationServices.SaveUserResult">
+			<summary>Представляет результат, возвращенный методом <see cref="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.EndSaveUser(System.IAsyncResult)"></see>.</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.SaveUserResult.#ctor(System.Security.Principal.IPrincipal)">
+			<summary>Инициализирует новый экземпляр класса <see cref="T:System.ServiceModel.DomainServices.Client.ApplicationServices.SaveUserResult"></see>. </summary>
+			<param name="user">Сохраненный пользователь.</param>
+		</member>
+	</members>
+</doc>

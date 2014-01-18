@@ -1,0 +1,593 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<doc>
+	<assembly>
+		<name>System.Windows.Controls.DomainServices</name>
+	</assembly>
+	<members>
+		<member name="N:System.Windows.Controls">
+			<summary>クライアント プロジェクトのユーザー インターフェイスと、ドメイン サービスから取得されたデータの間のやり取りを単純化するクラスを提供します。</summary>
+		</member>
+		<member name="T:System.Windows.Controls.DomainDataSource">
+			<summary>データ コレクションの読み込み、フィルター処理、グループ化、および並べ替えを行うためのオブジェクトを提供します。</summary>
+		</member>
+		<member name="M:System.Windows.Controls.DomainDataSource.#ctor">
+			<summary><see cref="T:System.Windows.Controls.DomainDataSource"></see> クラスの新しいインスタンスを初期化します。</summary>
+		</member>
+		<member name="E:System.Windows.Controls.DomainDataSource.LoadedData">
+			<summary>データ読み込み操作の完了時に発生します。</summary>
+		</member>
+		<member name="E:System.Windows.Controls.DomainDataSource.LoadingData">
+			<summary>データ読み込み操作の開始時に発生します。</summary>
+		</member>
+		<member name="E:System.Windows.Controls.DomainDataSource.SubmittedChanges">
+			<summary>送信操作の完了時に必ず発生します。</summary>
+		</member>
+		<member name="E:System.Windows.Controls.DomainDataSource.SubmittingChanges">
+			<summary>送信操作の開始時に必ず発生します。</summary>
+		</member>
+		<member name="F:System.Windows.Controls.DomainDataSource.AutoLoadProperty">
+			<summary><see cref="P:System.Windows.Controls.DomainDataSource.AutoLoad"></see> 依存関係プロパティを識別します。</summary>
+		</member>
+		<member name="F:System.Windows.Controls.DomainDataSource.CanLoadProperty">
+			<summary><see cref="M:System.Windows.Controls.DomainDataSource.CancelLoad"></see> 依存関係プロパティを識別します。</summary>
+		</member>
+		<member name="F:System.Windows.Controls.DomainDataSource.DataProperty">
+			<summary><see cref="P:System.Windows.Controls.DomainDataSource.Data"></see> 依存関係プロパティを識別します。</summary>
+		</member>
+		<member name="F:System.Windows.Controls.DomainDataSource.DataViewProperty">
+			<summary><see cref="P:System.Windows.Controls.DomainDataSource.DataView"></see> 依存関係プロパティを識別します。</summary>
+		</member>
+		<member name="F:System.Windows.Controls.DomainDataSource.DesignDataProperty">
+			<summary><see cref="P:System.Windows.Controls.DomainDataSource.DesignData"></see> 依存関係プロパティを識別します。</summary>
+		</member>
+		<member name="F:System.Windows.Controls.DomainDataSource.DomainContextProperty">
+			<summary><see cref="P:System.Windows.Controls.DomainDataSource.DomainContext"></see> 依存関係プロパティを識別します。</summary>
+		</member>
+		<member name="F:System.Windows.Controls.DomainDataSource.FilterOperatorProperty">
+			<summary><see cref="P:System.Windows.Controls.DomainDataSource.FilterOperator"></see> 依存関係プロパティを識別します。</summary>
+		</member>
+		<member name="F:System.Windows.Controls.DomainDataSource.HasChangesProperty">
+			<summary><see cref="P:System.Windows.Controls.DomainDataSource.HasChanges"></see> 依存関係プロパティを識別します。</summary>
+		</member>
+		<member name="F:System.Windows.Controls.DomainDataSource.IsBusyProperty">
+			<summary><see cref="P:System.Windows.Controls.DomainDataSource.IsBusy"></see> 依存関係プロパティを識別します。</summary>
+		</member>
+		<member name="F:System.Windows.Controls.DomainDataSource.IsLoadingDataProperty">
+			<summary><see cref="P:System.Windows.Controls.DomainDataSource.IsLoadingData"></see> 依存関係プロパティを識別します。</summary>
+		</member>
+		<member name="F:System.Windows.Controls.DomainDataSource.IsSubmittingChangesProperty">
+			<summary><see cref="P:System.Windows.Controls.DomainDataSource.IsSubmittingChanges"></see> 依存関係プロパティを識別します。</summary>
+		</member>
+		<member name="F:System.Windows.Controls.DomainDataSource.LoadDelayProperty">
+			<summary><see cref="P:System.Windows.Controls.DomainDataSource.LoadDelay"></see> 依存関係プロパティを識別します。</summary>
+		</member>
+		<member name="F:System.Windows.Controls.DomainDataSource.LoadIntervalProperty">
+			<summary><see cref="P:System.Windows.Controls.DomainDataSource.LoadInterval"></see> 依存関係プロパティを識別します。</summary>
+		</member>
+		<member name="F:System.Windows.Controls.DomainDataSource.LoadSizeProperty">
+			<summary><see cref="P:System.Windows.Controls.DomainDataSource.LoadSize"></see> 依存関係プロパティを識別します。</summary>
+		</member>
+		<member name="F:System.Windows.Controls.DomainDataSource.PageSizeProperty">
+			<summary><see cref="P:System.Windows.Controls.DomainDataSource.PageSize"></see> 依存関係プロパティを識別します。</summary>
+		</member>
+		<member name="F:System.Windows.Controls.DomainDataSource.QueryNameProperty">
+			<summary><see cref="P:System.Windows.Controls.DomainDataSource.QueryName"></see> 依存関係プロパティを識別します。</summary>
+		</member>
+		<member name="F:System.Windows.Controls.DomainDataSource.RefreshIntervalProperty">
+			<summary><see cref="P:System.Windows.Controls.DomainDataSource.RefreshInterval"></see> 依存関係プロパティを識別します。</summary>
+		</member>
+		<member name="M:System.Windows.Controls.DomainDataSource.CancelLoad">
+			<summary>この <see cref="T:System.Windows.Controls.DomainDataSource"></see> によって実行される現在のデータ読み込み操作がある場合、それを取り消します。</summary>
+		</member>
+		<member name="M:System.Windows.Controls.DomainDataSource.CancelSubmit">
+			<summary>この <see cref="T:System.Windows.Controls.DomainDataSource"></see> によって実行される現在の送信操作がある場合、それを取り消します。</summary>
+		</member>
+		<member name="M:System.Windows.Controls.DomainDataSource.Clear">
+			<summary><see cref="T:System.ServiceModel.DomainServices.Client.DomainContext"></see> 上の基になる <see cref="T:System.ServiceModel.DomainServices.Client.EntitySet"></see> および <see cref="T:System.Windows.Controls.DomainDataSource"></see> からデータをすべて消去します。</summary>
+		</member>
+		<member name="M:System.Windows.Controls.DomainDataSource.DeferLoad">
+			<summary>複数のデータ読み込み操作をグループ化して 1 つの読み込み操作にするために使用されます。</summary>
+			<returns>破棄されたときに 1 つのデータ読み込み操作をトリガーする破棄可能なオブジェクト。</returns>
+		</member>
+		<member name="M:System.Windows.Controls.DomainDataSource.Load">
+			<summary>同期データ読み込み操作を開始します。</summary>
+		</member>
+		<member name="M:System.Windows.Controls.DomainDataSource.OnApplyTemplate">
+			<summary>新しいテンプレートが適用されたときの <see cref="T:System.Windows.Controls.DomainDataSource"></see> のビジュアル ツリーを構築します。</summary>
+		</member>
+		<member name="M:System.Windows.Controls.DomainDataSource.RejectChanges">
+			<summary>基になる <see cref="P:System.Windows.Controls.DomainDataSource.DomainContext"></see> によって実行されたデータ変更を取り消します。</summary>
+		</member>
+		<member name="M:System.Windows.Controls.DomainDataSource.SubmitChanges">
+			<summary><see cref="T:System.ServiceModel.DomainServices.Client.DomainContext"></see> の各 <see cref="T:System.ServiceModel.DomainServices.Client.Entity"></see> について、変更内容を送信します。</summary>
+		</member>
+		<member name="P:System.Windows.Controls.DomainDataSource.AutoLoad">
+			<summary><see cref="T:System.Windows.Controls.DomainDataSource"></see> によって構成されたクエリに影響を及ぼす変更が発生したときに <see cref="M:System.Windows.Controls.DomainDataSource.Load"></see> が自動的に呼び出されるかどうかを示す値を取得または設定します。</summary>
+			<returns>自動的なデータ読み込みが発生する場合は true。それ以外の場合は false。</returns>
+		</member>
+		<member name="P:System.Windows.Controls.DomainDataSource.CanLoad">
+			<summary>コントロールが現在の状態に基づいて読み込み操作を実行できるかどうかを示す値を取得します。</summary>
+			<returns><see cref="P:System.Windows.Controls.DomainDataSource.HasChanges"></see> または <see cref="P:System.Windows.Controls.DomainDataSource.IsSubmittingChanges"></see> が true の場合は false。それ以外の場合は true。</returns>
+		</member>
+		<member name="P:System.Windows.Controls.DomainDataSource.Data">
+			<summary>前回の読み込み操作の結果として得られるエンティティを IEnumerable として取得します。</summary>
+			<returns>データ読み込み操作の結果として得られるデータ。</returns>
+		</member>
+		<member name="P:System.Windows.Controls.DomainDataSource.DataView">
+			<summary>前回の読み込み操作の結果として得られるエンティティの現在のビューを <see cref="T:System.Windows.Controls.DomainDataSourceView"></see> を使用して取得します。</summary>
+			<returns>読み込まれたデータのビュー。</returns>
+		</member>
+		<member name="P:System.Windows.Controls.DomainDataSource.DesignData">
+			<summary>デザイン時に使用されるデータを取得または設定します。</summary>
+			<returns>デザイン時に使用されるデータ。</returns>
+		</member>
+		<member name="P:System.Windows.Controls.DomainDataSource.DomainContext">
+			<summary> 読み込み操作と送信操作の実行に使用される <see cref="T:System.ServiceModel.DomainServices.Client.DomainContext"></see> インスタンスを取得または設定します。</summary>
+			<returns>データ読み込み操作と送信操作のデータ コンテキスト。</returns>
+		</member>
+		<member name="P:System.Windows.Controls.DomainDataSource.FilterDescriptors">
+			<summary>読み込み操作実行時に使用される <see cref="T:System.Windows.Controls.FilterDescriptor"></see> オブジェクトのコレクションを取得します。</summary>
+			<returns>データ セットに適用されるフィルターのコレクション。</returns>
+		</member>
+		<member name="P:System.Windows.Controls.DomainDataSource.FilterOperator">
+			<summary>フィルター コレクション内の <see cref="T:System.Windows.Controls.FilterDescriptor"></see> オブジェクトを組み合わせるために使用される論理演算子を取得または設定します。</summary>
+			<returns>フィルター コレクション内の <see cref="T:System.Windows.Controls.FilterDescriptor"></see> オブジェクトを組み合わせるために使用される論理演算子。</returns>
+		</member>
+		<member name="P:System.Windows.Controls.DomainDataSource.GroupDescriptors">
+			<summary>データをグループにまとめるために使用されるグループ化オブジェクトのコレクションを取得します。</summary>
+			<returns>データをグループにまとめるために使用されるグループ化オブジェクトのコレクション。</returns>
+		</member>
+		<member name="P:System.Windows.Controls.DomainDataSource.HasChanges">
+			<summary>この <see cref="T:System.Windows.Controls.DomainDataSource"></see> によって公開される項目に保留中の変更内容があるかどうかを示す値を取得します。</summary>
+			<returns>データ ソースに保留中の変更内容がある場合は true。それ以外の場合は false。</returns>
+		</member>
+		<member name="P:System.Windows.Controls.DomainDataSource.IsBusy">
+			<summary>この <see cref="T:System.Windows.Controls.DomainDataSource"></see> がデータを読み込んでいるかまたは変更内容を送信しているかどうかを示す値を取得します。</summary>
+			<returns>データ ソースがデータを読み込んでいるかまたは変更内容を送信している場合は true。それ以外の場合は false。</returns>
+		</member>
+		<member name="P:System.Windows.Controls.DomainDataSource.IsLoadingData">
+			<summary>この <see cref="T:System.Windows.Controls.DomainDataSource"></see> がデータを現在読み込んでいるかどうかを示す値を取得します。</summary>
+			<returns>データ ソースがデータ セットを読み込んでいる場合は true。それ以外の場合は false。</returns>
+		</member>
+		<member name="P:System.Windows.Controls.DomainDataSource.IsSubmittingChanges">
+			<summary><see cref="T:System.Windows.Controls.DomainDataSource"></see> が、<see cref="M:System.Windows.Controls.DomainDataSource.SubmitChanges"></see> の呼び出しの結果として変更内容を現在送信しているかどうかを示す値を取得します。</summary>
+			<returns>データ ソースが変更内容を送信している場合は true。それ以外の場合は false。</returns>
+		</member>
+		<member name="P:System.Windows.Controls.DomainDataSource.LoadCommand">
+			<summary>この <see cref="T:System.Windows.Controls.DomainDataSource"></see> 上に <see cref="M:System.Windows.Controls.DomainDataSource.Load"></see> を呼び出す ICommand を取得します。</summary>
+			<returns>この <see cref="T:System.Windows.Controls.DomainDataSource"></see> 上に <see cref="M:System.Windows.Controls.DomainDataSource.Load"></see> を呼び出す ICommand。</returns>
+		</member>
+		<member name="P:System.Windows.Controls.DomainDataSource.LoadDelay">
+			<summary>自動的なデータ読み込み操作が開始されるまでの遅延を取得または設定します。</summary>
+			<returns>自動読み込みの確認メッセージを表示する変更が発生してから、それ以降の <see cref="M:System.Windows.Controls.DomainDataSource.Load"></see> が呼び出されるまでの遅延。</returns>
+		</member>
+		<member name="P:System.Windows.Controls.DomainDataSource.LoadInterval">
+			<summary>データを徐々に読み込むシナリオで、データを 1 回読み込んでから次回読み込むまでの時間を取得または設定します。</summary>
+			<returns>データを徐々に読み込むシナリオで、データを 1 回読み込んでから次回読み込むまでの時間。</returns>
+		</member>
+		<member name="P:System.Windows.Controls.DomainDataSource.LoadSize">
+			<summary><see cref="M:System.Windows.Controls.DomainDataSource.Load"></see> が実行されるたびに読み込まれる項目の最大数を取得または設定します。ゼロの場合、要求されたエンティティがすべて読み込まれます。</summary>
+			<returns>1 つのデータ読み込み操作で読み込まれる項目の数。すべての項目が読み込まれる場合はゼロ。</returns>
+		</member>
+		<member name="P:System.Windows.Controls.DomainDataSource.PageSize">
+			<summary>ビューの各ページに表示される項目数を取得または設定します。このビューは <see cref="P:System.Windows.Controls.DomainDataSource.Data"></see> プロパティと <see cref="P:System.Windows.Controls.DomainDataSource.DataView"></see> プロパティから返されるものです。ゼロの場合、ページングが無効になります。</summary>
+			<returns>ビューの各ページに表示される項目数。このビューは <see cref="P:System.Windows.Controls.DomainDataSource.Data"></see> プロパティと <see cref="P:System.Windows.Controls.DomainDataSource.DataView"></see> プロパティから返されるものです。ゼロはページングがないことを示します。</returns>
+		</member>
+		<member name="P:System.Windows.Controls.DomainDataSource.QueryName">
+			<summary>読み込みに使用されるクエリの名前を取得または設定します。</summary>
+			<returns>データ読み込みに使用されるクエリの名前。</returns>
+		</member>
+		<member name="P:System.Windows.Controls.DomainDataSource.QueryParameters">
+			<summary><see cref="T:System.ServiceModel.DomainServices.Client.EntityQuery`1"></see> メソッドの引数を表す <see cref="T:System.Windows.Controls.Parameter"></see> オブジェクトのコレクションを取得します。このメソッドは、<see cref="P:System.Windows.Controls.DomainDataSource.QueryName"></see> プロパティによって指定されます。</summary>
+			<returns>クエリに渡されるパラメーターのコレクション。このクエリは、<see cref="P:System.Windows.Controls.DomainDataSource.QueryName"></see> プロパティによって指定されます。</returns>
+		</member>
+		<member name="P:System.Windows.Controls.DomainDataSource.RefreshInterval">
+			<summary>サーバー上で変更された可能性があるデータを更新する自動の <see cref="M:System.Windows.Controls.DomainDataSource.Load"></see> 操作の間隔を取得または設定します。</summary>
+			<returns>連続する 2 回のデータ更新操作の間隔。</returns>
+		</member>
+		<member name="P:System.Windows.Controls.DomainDataSource.RejectChangesCommand">
+			<summary>この <see cref="T:System.Windows.Controls.DomainDataSource"></see> 上に <see cref="M:System.Windows.Controls.DomainDataSource.RejectChanges"></see> を呼び出す ICommand を取得します。</summary>
+			<returns>この <see cref="T:System.Windows.Controls.DomainDataSource"></see> 上に <see cref="M:System.Windows.Controls.DomainDataSource.RejectChanges"></see> を呼び出す ICommand。</returns>
+		</member>
+		<member name="P:System.Windows.Controls.DomainDataSource.SortDescriptors">
+			<summary>データの並べ替えに使用される並べ替え記述子オブジェクトのコレクションを取得します。</summary>
+			<returns>データの並べ替えに使用される並べ替え記述子オブジェクトのコレクション。</returns>
+		</member>
+		<member name="P:System.Windows.Controls.DomainDataSource.SubmitChangesCommand">
+			<summary>この <see cref="T:System.Windows.Controls.DomainDataSource"></see> 上に <see cref="M:System.Windows.Controls.DomainDataSource.SubmitChanges"></see> を呼び出す ICommand を取得します。</summary>
+			<returns>この <see cref="T:System.Windows.Controls.DomainDataSource"></see> 上に <see cref="M:System.Windows.Controls.DomainDataSource.SubmitChanges"></see> を呼び出す ICommand。</returns>
+		</member>
+		<member name="T:System.Windows.Controls.DomainDataSourceView">
+			<summary><see cref="T:System.Windows.Controls.DomainDataSource"></see> のコレクション ビューを提供します。</summary>
+		</member>
+		<member name="E:System.Windows.Controls.DomainDataSourceView.CurrentChanged">
+			<summary><see cref="P:System.Windows.Controls.DomainDataSourceView.CurrentItem"></see> が変更された後に発生します。</summary>
+		</member>
+		<member name="E:System.Windows.Controls.DomainDataSourceView.CurrentChanging">
+			<summary><see cref="P:System.Windows.Controls.DomainDataSourceView.CurrentItem"></see> が変更される前に発生します。</summary>
+		</member>
+		<member name="E:System.Windows.Controls.DomainDataSourceView.PageChanged">
+			<summary><see cref="P:System.Windows.Controls.DomainDataSourceView.PageIndex"></see> が変更された後に発生します。</summary>
+		</member>
+		<member name="E:System.Windows.Controls.DomainDataSourceView.PageChanging">
+			<summary><see cref="P:System.Windows.Controls.DomainDataSourceView.PageIndex"></see> が変更される前に発生します。</summary>
+		</member>
+		<member name="M:System.Windows.Controls.DomainDataSourceView.Add(System.Object)">
+			<summary>指定された項目をコレクションに追加します。</summary>
+			<param name="item">追加する項目。</param>
+		</member>
+		<member name="M:System.Windows.Controls.DomainDataSourceView.Contains(System.Object)">
+			<summary>特定の項目がこのビューに属しているかどうかを示す値を返します。</summary>
+			<returns>項目がこのビューに属している場合は true。それ以外の場合は false。</returns>
+			<param name="item">確認する項目。</param>
+		</member>
+		<member name="M:System.Windows.Controls.DomainDataSourceView.GetItemAt(System.Int32)">
+			<summary>指定したインデックスにある項目を取得します。</summary>
+			<returns>指定したインデックスにある項目。</returns>
+			<param name="index">取得する項目のインデックス。</param>
+		</member>
+		<member name="M:System.Windows.Controls.DomainDataSourceView.IndexOf(System.Object)">
+			<summary>ビュー内の指定した項目の位置を表す序数を取得します。</summary>
+			<returns>ビュー内の指定した項目の位置を表す序数。</returns>
+			<param name="item">インデックスを取得する項目。</param>
+		</member>
+		<member name="M:System.Windows.Controls.DomainDataSourceView.MoveCurrentTo(System.Object)">
+			<summary>指定した項目がビュー内の <see cref="P:System.Windows.Controls.DomainDataSourceView.CurrentItem"></see> になるように設定します。</summary>
+			<returns>結果として得られる <see cref="P:System.Windows.Controls.DomainDataSourceView.CurrentItem"></see> がビュー内にある場合は true。それ以外の場合は false。</returns>
+			<param name="item"><see cref="P:System.Windows.Controls.DomainDataSourceView.CurrentItem"></see> として設定する項目。</param>
+		</member>
+		<member name="M:System.Windows.Controls.DomainDataSourceView.MoveCurrentToFirst">
+			<summary>ビュー内の最初の項目が <see cref="P:System.Windows.Controls.DomainDataSourceView.CurrentItem"></see> になるように設定します。</summary>
+			<returns>結果として得られる <see cref="P:System.Windows.Controls.DomainDataSourceView.CurrentItem"></see> がビュー内にある場合は true。それ以外の場合は false。</returns>
+		</member>
+		<member name="M:System.Windows.Controls.DomainDataSourceView.MoveCurrentToLast">
+			<summary>ビュー内の最後の項目が <see cref="P:System.Windows.Controls.DomainDataSourceView.CurrentItem"></see> になるように設定します。</summary>
+			<returns>結果として得られる <see cref="P:System.Windows.Controls.DomainDataSourceView.CurrentItem"></see> がビュー内にある場合は true。それ以外の場合は false。</returns>
+		</member>
+		<member name="M:System.Windows.Controls.DomainDataSourceView.MoveCurrentToNext">
+			<summary>ビュー内の <see cref="P:System.Windows.Controls.DomainDataSourceView.CurrentItem"></see> の後の項目を <see cref="P:System.Windows.Controls.DomainDataSourceView.CurrentItem"></see> として設定します。</summary>
+			<returns>結果として得られる <see cref="P:System.Windows.Controls.DomainDataSourceView.CurrentItem"></see> がビュー内にある場合は true。それ以外の場合は false。</returns>
+		</member>
+		<member name="M:System.Windows.Controls.DomainDataSourceView.MoveCurrentToPosition(System.Int32)">
+			<summary>指定したインデックスにある項目を、ビュー内の <see cref="P:System.Windows.Controls.DomainDataSourceView.CurrentItem"></see> になるように設定します。</summary>
+			<returns>結果として得られる <see cref="P:System.Windows.Controls.DomainDataSourceView.CurrentItem"></see> がビュー内にある場合は true。それ以外の場合は false。</returns>
+			<param name="position"><see cref="P:System.Windows.Controls.DomainDataSourceView.CurrentItem"></see> に設定するインデックス。</param>
+		</member>
+		<member name="M:System.Windows.Controls.DomainDataSourceView.MoveCurrentToPrevious">
+			<summary>ビュー内の <see cref="P:System.Windows.Controls.DomainDataSourceView.CurrentItem"></see> の前の項目を <see cref="P:System.Windows.Controls.DomainDataSourceView.CurrentItem"></see> として設定します。</summary>
+			<returns>結果として得られる <see cref="P:System.Windows.Controls.DomainDataSourceView.CurrentItem"></see> がビュー内にある場合は true。それ以外の場合は false。</returns>
+		</member>
+		<member name="M:System.Windows.Controls.DomainDataSourceView.MoveToFirstPage">
+			<summary>最初のページを現在のページとして設定します。</summary>
+			<returns>操作に成功した場合は true。それ以外の場合は false。</returns>
+		</member>
+		<member name="M:System.Windows.Controls.DomainDataSourceView.MoveToLastPage">
+			<summary>最後のページを現在のページとして設定します。</summary>
+			<returns>操作に成功した場合は true。それ以外の場合は false。</returns>
+		</member>
+		<member name="M:System.Windows.Controls.DomainDataSourceView.MoveToNextPage">
+			<summary>現在のページの後のページに移動します。</summary>
+			<returns>操作に成功した場合は true。それ以外の場合は false。</returns>
+		</member>
+		<member name="M:System.Windows.Controls.DomainDataSourceView.MoveToPage(System.Int32)">
+			<summary>指定したインデックスにあるページを移動します。</summary>
+			<returns>操作に成功した場合は true。それ以外の場合は false。</returns>
+			<param name="pageIndex">移動先のページのインデックス。</param>
+		</member>
+		<member name="M:System.Windows.Controls.DomainDataSourceView.MoveToPreviousPage">
+			<summary>現在のページの前のページに移動します。</summary>
+			<returns>操作に成功した場合は true。それ以外の場合は false。</returns>
+		</member>
+		<member name="M:System.Windows.Controls.DomainDataSourceView.Remove(System.Object)">
+			<summary>指定した項目をコレクションから削除します。</summary>
+			<param name="item">削除する項目。</param>
+		</member>
+		<member name="M:System.Windows.Controls.DomainDataSourceView.RemoveAt(System.Int32)">
+			<summary>コレクション内の指定した位置にある項目を削除します。</summary>
+			<param name="index">削除する項目の位置。</param>
+		</member>
+		<member name="P:System.Windows.Controls.DomainDataSourceView.CanAdd">
+			<summary>項目をコレクションに追加できるかどうかを示す値を取得します。</summary>
+			<returns>コレクションに項目を追加できる場合は true。それ以外の場合は false。</returns>
+		</member>
+		<member name="P:System.Windows.Controls.DomainDataSourceView.CanChangePage">
+			<summary><see cref="P:System.Windows.Controls.DomainDataSourceView.PageIndex"></see> の値が変更可能かどうかを示す値を取得します。</summary>
+			<returns><see cref="P:System.Windows.Controls.DomainDataSourceView.PageIndex"></see> の値が変更可能な場合は true。それ以外の場合は false。</returns>
+		</member>
+		<member name="P:System.Windows.Controls.DomainDataSourceView.CanRemove">
+			<summary>コレクションから項目を削除できるかどうかを示す値を取得します。</summary>
+			<returns>コレクションから項目を削除できる場合は true。それ以外の場合は false。</returns>
+		</member>
+		<member name="P:System.Windows.Controls.DomainDataSourceView.Count">
+			<summary>このビュー内の現在の項目数を取得します。</summary>
+			<returns>このビュー内の現在の項目数。</returns>
+		</member>
+		<member name="P:System.Windows.Controls.DomainDataSourceView.CurrentItem">
+			<summary>ビュー内の現在の項目を取得します。</summary>
+			<returns>ビューの現在の項目。現在の項目がない場合は null。</returns>
+		</member>
+		<member name="P:System.Windows.Controls.DomainDataSourceView.CurrentPosition">
+			<summary>ビュー内の <see cref="P:System.Windows.Controls.DomainDataSourceView.CurrentItem"></see> の位置を表す序数を取得します。</summary>
+			<returns>ビュー内の <see cref="P:System.Windows.Controls.DomainDataSourceView.CurrentItem"></see> の位置を表す序数。現在の項目がない場合は -1。</returns>
+		</member>
+		<member name="P:System.Windows.Controls.DomainDataSourceView.IsEmpty">
+			<summary>結果のビューが空かどうかを示す値を取得します。</summary>
+			<returns>ビューが空の場合は true。それ以外の場合は false。</returns>
+		</member>
+		<member name="P:System.Windows.Controls.DomainDataSourceView.IsPageChanging">
+			<summary>ページ インデックスが変更されているかどうかを示す値を取得します。</summary>
+			<returns>ページ インデックスが変更されている場合は true。それ以外の場合は false。</returns>
+		</member>
+		<member name="P:System.Windows.Controls.DomainDataSourceView.Item(System.Int32)">
+			<summary>指定したインデックスにある項目を取得します。</summary>
+			<returns>指定したインデックスにある項目。</returns>
+			<param name="index">取得する項目のインデックス。</param>
+		</member>
+		<member name="P:System.Windows.Controls.DomainDataSourceView.PageCount">
+			<summary>このビューのページ数を取得します。</summary>
+			<returns>このビューのページ数。</returns>
+		</member>
+		<member name="P:System.Windows.Controls.DomainDataSourceView.PageIndex">
+			<summary>現在のページのゼロから始まるインデックスを取得します。</summary>
+			<returns>現在のページのゼロから始まるインデックス。</returns>
+		</member>
+		<member name="P:System.Windows.Controls.DomainDataSourceView.PageSize">
+			<summary>1 ページに表示される項目数を取得または設定します。</summary>
+			<returns>1 ページに表示される項目数。</returns>
+		</member>
+		<member name="P:System.Windows.Controls.DomainDataSourceView.TotalItemCount">
+			<summary>ページングを適用する前のビューの項目の総数を取得し、総数が不明な場合は -1 を取得します。</summary>
+			<returns>ページングの前のビューの項目の総数。総数が不明な場合は -1。</returns>
+		</member>
+		<member name="T:System.Windows.Controls.FilterDescriptor">
+			<summary><see cref="T:System.Windows.Controls.DomainDataSource"></see> オブジェクトでクエリ操作のフィルター記述子を表します。</summary>
+		</member>
+		<member name="M:System.Windows.Controls.FilterDescriptor.#ctor">
+			<summary><see cref="T:System.Windows.Controls.FilterDescriptor"></see> クラスの新しいインスタンスを既定値で初期化します。</summary>
+		</member>
+		<member name="M:System.Windows.Controls.FilterDescriptor.#ctor(System.String,System.Windows.Controls.FilterOperator,System.Object)">
+			<summary>フィルター処理に使用するために指定したプロパティ、フィルター処理チェックの評価時に使用する演算子、およびフィルター値を使用して、<see cref="T:System.Windows.Controls.FilterDescriptor"></see> クラスの新しいインスタンスを初期化します。</summary>
+			<param name="propertyPath">フィルター処理に使用するプロパティ パス。</param>
+			<param name="filterOperator">使用する比較の種類。</param>
+			<param name="filterValue">フィルター処理時に使用する値。</param>
+		</member>
+		<member name="F:System.Windows.Controls.FilterDescriptor.DefaultIgnoredValue">
+			<summary><see cref="P:System.Windows.Controls.FilterDescriptor.IgnoredValue"></see> プロパティの既定値。</summary>
+		</member>
+		<member name="F:System.Windows.Controls.FilterDescriptor.IgnoredValueProperty">
+			<summary><see cref="P:System.Windows.Controls.FilterDescriptor.IgnoredValue"></see> 依存関係プロパティを識別します。</summary>
+		</member>
+		<member name="F:System.Windows.Controls.FilterDescriptor.IsCaseSensitiveProperty">
+			<summary><see cref="P:System.Windows.Controls.FilterDescriptor.IsCaseSensitive"></see> 依存関係プロパティを識別します。</summary>
+		</member>
+		<member name="F:System.Windows.Controls.FilterDescriptor.OperatorProperty">
+			<summary><see cref="P:System.Windows.Controls.FilterDescriptor.Operator"></see> 依存関係プロパティを識別します。</summary>
+		</member>
+		<member name="F:System.Windows.Controls.FilterDescriptor.PropertyPathProperty">
+			<summary><see cref="P:System.Windows.Controls.FilterDescriptor.PropertyPath"></see> 依存関係プロパティを識別します。</summary>
+		</member>
+		<member name="F:System.Windows.Controls.FilterDescriptor.ValueProperty">
+			<summary><see cref="P:System.Windows.Controls.FilterDescriptor.Value"></see> 依存関係プロパティを識別します。</summary>
+		</member>
+		<member name="P:System.Windows.Controls.FilterDescriptor.IgnoredValue">
+			<summary>フィルター処理のクエリ操作に適用されない値を取得または設定します。</summary>
+			<returns>フィルター処理のクエリ操作に適用されない値。</returns>
+		</member>
+		<member name="P:System.Windows.Controls.FilterDescriptor.IsCaseSensitive">
+			<summary><see cref="T:System.Windows.Controls.FilterDescriptor"></see> が文字列値の大文字と小文字を区別するかどうかを示す値を取得または設定します。</summary>
+			<returns><see cref="T:System.Windows.Controls.FilterDescriptor"></see> が文字列値の大文字と小文字を区別する場合は true。それ以外の場合は false。</returns>
+		</member>
+		<member name="P:System.Windows.Controls.FilterDescriptor.Operator">
+			<summary>フィルター演算子を取得または設定します。</summary>
+			<returns>フィルター演算子。</returns>
+		</member>
+		<member name="P:System.Windows.Controls.FilterDescriptor.PropertyPath">
+			<summary>エンティティがフィルター チェックを満たしているかどうかを評価するデータ値として使用されるプロパティ パスの名前を取得または設定します。</summary>
+			<returns>データ値として使用されるプロパティ パスの名前。</returns>
+		</member>
+		<member name="P:System.Windows.Controls.FilterDescriptor.Value">
+			<summary>フィルター条件の評価に使用する値を取得または設定します。</summary>
+			<returns>フィルター条件の評価に使用する値。</returns>
+		</member>
+		<member name="T:System.Windows.Controls.FilterDescriptorCollection">
+			<summary><see cref="T:System.Windows.Controls.FilterDescriptor"></see> 依存関係オブジェクトのコレクションを提供します。</summary>
+		</member>
+		<member name="M:System.Windows.Controls.FilterDescriptorCollection.#ctor">
+			<summary><see cref="T:System.Windows.Controls.FilterDescriptorCollection"></see> クラスの新しいインスタンスを初期化します。</summary>
+		</member>
+		<member name="T:System.Windows.Controls.FilterDescriptorLogicalOperator">
+			<summary>フィルター コレクションの論理演算子を表す値を定義します。</summary>
+		</member>
+		<member name="F:System.Windows.Controls.FilterDescriptorLogicalOperator.And">
+			<summary>フィルターは、AND 演算子を使用して結合されます。</summary>
+		</member>
+		<member name="F:System.Windows.Controls.FilterDescriptorLogicalOperator.Or">
+			<summary>フィルターは OR 演算子を使用して結合されます。</summary>
+		</member>
+		<member name="T:System.Windows.Controls.FilterOperator">
+			<summary><see cref="T:System.Windows.Controls.FilterDescriptor"></see> クラスで使用される演算子を説明する値を定義します。</summary>
+		</member>
+		<member name="F:System.Windows.Controls.FilterOperator.Contains">
+			<summary>データ値はフィルター値を含んでいる必要があります。</summary>
+		</member>
+		<member name="F:System.Windows.Controls.FilterOperator.EndsWith">
+			<summary>データ値の末尾はフィルター値である必要があります。</summary>
+		</member>
+		<member name="F:System.Windows.Controls.FilterOperator.IsContainedIn">
+			<summary>データ値はフィルター値に含まれている必要があります。</summary>
+		</member>
+		<member name="F:System.Windows.Controls.FilterOperator.IsEqualTo">
+			<summary>データ値はフィルター値と等しい必要があります。</summary>
+		</member>
+		<member name="F:System.Windows.Controls.FilterOperator.IsGreaterThan">
+			<summary>データ値はフィルター値より大きい必要があります。</summary>
+		</member>
+		<member name="F:System.Windows.Controls.FilterOperator.IsGreaterThanOrEqualTo">
+			<summary>データ値はフィルター値以上である必要があります。</summary>
+		</member>
+		<member name="F:System.Windows.Controls.FilterOperator.IsLessThan">
+			<summary>データ値はフィルター値より小さい必要があります。</summary>
+		</member>
+		<member name="F:System.Windows.Controls.FilterOperator.IsLessThanOrEqualTo">
+			<summary>データ値はフィルター値以下である必要があります。</summary>
+		</member>
+		<member name="F:System.Windows.Controls.FilterOperator.IsNotEqualTo">
+			<summary>データ値はフィルター値と異なる必要があります。</summary>
+		</member>
+		<member name="F:System.Windows.Controls.FilterOperator.StartsWith">
+			<summary>データ値の先頭はフィルター値である必要があります。</summary>
+		</member>
+		<member name="T:System.Windows.Controls.GroupDescriptor">
+			<summary>グループ化の基準について説明します。</summary>
+		</member>
+		<member name="M:System.Windows.Controls.GroupDescriptor.#ctor">
+			<summary><see cref="T:System.Windows.Controls.GroupDescriptor"></see> クラスの新しいインスタンスを既定値で初期化します。</summary>
+		</member>
+		<member name="M:System.Windows.Controls.GroupDescriptor.#ctor(System.String)">
+			<summary>指定したプロパティ パスを使用して <see cref="T:System.Windows.Controls.GroupDescriptor"></see> クラスの新しいインスタンスを初期化します。</summary>
+			<param name="propertyPath">基になるパラメーター オブジェクトの Value プロパティを設定します。</param>
+		</member>
+		<member name="F:System.Windows.Controls.GroupDescriptor.PropertyPathProperty">
+			<summary><see cref="P:System.Windows.Controls.GroupDescriptor.PropertyPath"></see> 依存関係プロパティを識別します。</summary>
+		</member>
+		<member name="P:System.Windows.Controls.GroupDescriptor.PropertyPath">
+			<summary>グループ化に使用するパブリック プロパティを取得または設定します。</summary>
+			<returns>グループ化に使用するパブリック プロパティ。</returns>
+		</member>
+		<member name="T:System.Windows.Controls.GroupDescriptorCollection">
+			<summary><see cref="T:System.Windows.Controls.GroupDescriptor"></see> 依存関係オブジェクトのコレクションを提供します。</summary>
+		</member>
+		<member name="M:System.Windows.Controls.GroupDescriptorCollection.#ctor">
+			<summary><see cref="T:System.Windows.Controls.GroupDescriptorCollection"></see> クラスの新しいインスタンスを初期化します。</summary>
+		</member>
+		<member name="T:System.Windows.Controls.LoadedDataEventArgs">
+			<summary><see cref="E:System.Windows.Controls.DomainDataSource.LoadedData"></see> イベントのデータを提供します。</summary>
+		</member>
+		<member name="M:System.Windows.Controls.LoadedDataEventArgs.MarkErrorAsHandled">
+			<summary>失敗した操作については、エラーを処理済みとマークし、例外がスローされないようにします。</summary>
+		</member>
+		<member name="P:System.Windows.Controls.LoadedDataEventArgs.AllEntities">
+			<summary>トップ レベルのエンティティが参照しているエンティティを含む、読み込まれたエンティティをすべて取得します。</summary>
+			<returns>トップ レベルのエンティティが参照しているエンティティを含む、読み込まれたエンティティ。</returns>
+		</member>
+		<member name="P:System.Windows.Controls.LoadedDataEventArgs.Entities">
+			<summary>読み込まれたトップ レベルのエンティティをすべて取得します。</summary>
+			<returns>読み込まれたトップ レベルのエンティティ。</returns>
+		</member>
+		<member name="P:System.Windows.Controls.LoadedDataEventArgs.HasError">
+			<summary>操作が失敗したかどうかを示す値を取得します。</summary>
+			<returns>操作が失敗した場合は true。それ以外の場合は false。</returns>
+		</member>
+		<member name="P:System.Windows.Controls.LoadedDataEventArgs.IsErrorHandled">
+			<summary><see cref="M:System.Windows.Controls.LoadedDataEventArgs.MarkErrorAsHandled"></see> メソッドを呼び出して操作エラーが処理済みとマークされているかどうかを示す値を取得します。</summary>
+			<returns>エラーが処理済みとマークされている場合は true。それ以外の場合は false。</returns>
+		</member>
+		<member name="P:System.Windows.Controls.LoadedDataEventArgs.TotalEntityCount">
+			<summary>読み込み操作の合計エンティティ数を取得します。</summary>
+			<returns>読み込み操作の合計エンティティ数。</returns>
+		</member>
+		<member name="T:System.Windows.Controls.LoadingDataEventArgs">
+			<summary><see cref="E:System.Windows.Controls.DomainDataSource.LoadingData"></see> イベントのデータを提供します。</summary>
+		</member>
+		<member name="P:System.Windows.Controls.LoadingDataEventArgs.LoadBehavior">
+			<summary>この読み込み操作に適用される読み込み動作を取得または設定します。</summary>
+			<returns>この読み込み操作に適用される読み込み動作。</returns>
+		</member>
+		<member name="P:System.Windows.Controls.LoadingDataEventArgs.Query">
+			<summary>リモートで実行されるクエリを取得または設定します。</summary>
+			<returns>リモートで実行されるクエリ。</returns>
+		</member>
+		<member name="P:System.Windows.Controls.LoadingDataEventArgs.RestoreLoadSettings">
+			<summary><see cref="T:System.Windows.Controls.DomainDataSource"></see> の読み込み、フィルター処理、並べ替え、およびグループ化の設定が、前回読み込み操作に成功したときと同じ値に復元されるかどうかを示す値を取得または設定します。</summary>
+			<returns><see cref="T:System.Windows.Controls.DomainDataSource"></see> の読み込み、フィルター処理、並べ替え、およびグループ化の設定が前回読み込み操作に成功したときと同じ値に復元される場合は true。それ以外の場合は false。</returns>
+		</member>
+		<member name="T:System.Windows.Controls.Parameter">
+			<summary><see cref="T:System.Windows.Controls.DomainDataSource"></see> が使用するドメイン サービス クエリのパラメーターを定義します。</summary>
+		</member>
+		<member name="M:System.Windows.Controls.Parameter.#ctor">
+			<summary><see cref="T:System.Windows.Controls.Parameter"></see> クラスの新しいインスタンスを初期化します。</summary>
+		</member>
+		<member name="F:System.Windows.Controls.Parameter.ParameterNameProperty">
+			<summary><see cref="P:System.Windows.Controls.Parameter.ParameterName"></see> 依存関係プロパティを識別します。</summary>
+		</member>
+		<member name="F:System.Windows.Controls.Parameter.ValueProperty">
+			<summary><see cref="P:System.Windows.Controls.Parameter.Value"></see> 依存関係プロパティを識別します。</summary>
+		</member>
+		<member name="P:System.Windows.Controls.Parameter.ParameterName">
+			<summary>パラメーターの名前を取得または設定します。</summary>
+			<returns>パラメーターの名前。</returns>
+		</member>
+		<member name="P:System.Windows.Controls.Parameter.Value">
+			<summary>パラメーターの値を取得または設定します。</summary>
+			<returns>パラメーターの値。</returns>
+		</member>
+		<member name="T:System.Windows.Controls.ParameterCollection">
+			<summary><see cref="T:System.Windows.Controls.Parameter"></see> オブジェクトのコレクションを表します。</summary>
+		</member>
+		<member name="M:System.Windows.Controls.ParameterCollection.#ctor">
+			<summary><see cref="T:System.Windows.Controls.ParameterCollection"></see> クラスの新しいインスタンスを初期化します。</summary>
+		</member>
+		<member name="T:System.Windows.Controls.SortDescriptor">
+			<summary>並べ替えの基準について説明します。</summary>
+		</member>
+		<member name="M:System.Windows.Controls.SortDescriptor.#ctor">
+			<summary><see cref="T:System.Windows.Controls.SortDescriptor"></see> クラスの新しいインスタンスを既定のプロパティ値で初期化します。</summary>
+		</member>
+		<member name="M:System.Windows.Controls.SortDescriptor.#ctor(System.String,System.ComponentModel.ListSortDirection)">
+			<summary>並べ替えに使用するプロパティと並べ替えの方向を指定して、<see cref="T:System.Windows.Controls.SortDescriptor"></see> クラスの新しいインスタンスを初期化します。</summary>
+			<param name="propertyPath">並べ替えプロパティのパス。</param>
+			<param name="direction">並べ替えの方向。</param>
+		</member>
+		<member name="F:System.Windows.Controls.SortDescriptor.DirectionProperty">
+			<summary><see cref="P:System.Windows.Controls.SortDescriptor.Direction"></see> 依存関係プロパティを識別します。</summary>
+			<returns><see cref="P:System.Windows.Controls.SortDescriptor.Direction"></see> 依存関係プロパティの識別子。</returns>
+		</member>
+		<member name="F:System.Windows.Controls.SortDescriptor.PropertyPathProperty">
+			<summary><see cref="P:System.Windows.Controls.SortDescriptor.PropertyPath"></see> 依存関係プロパティを識別します。</summary>
+			<returns><see cref="P:System.Windows.Controls.SortDescriptor.PropertyPath"></see> 依存関係プロパティの識別子。</returns>
+		</member>
+		<member name="P:System.Windows.Controls.SortDescriptor.Direction">
+			<summary>並べ替えの方向を取得または設定します。</summary>
+			<returns>並べ替えの方向。</returns>
+		</member>
+		<member name="P:System.Windows.Controls.SortDescriptor.PropertyPath">
+			<summary>並べ替えに使用するパブリック プロパティを取得または設定します。</summary>
+			<returns>並べ替えに使用するパブリック プロパティ。</returns>
+		</member>
+		<member name="T:System.Windows.Controls.SortDescriptorCollection">
+			<summary>コレクションと項目の両方の変更について通知を発生する、並べ替えに関する説明のコレクションを表します。</summary>
+		</member>
+		<member name="M:System.Windows.Controls.SortDescriptorCollection.#ctor">
+			<summary><see cref="T:System.Windows.Controls.SortDescriptorCollection"></see> クラスの新しいインスタンスを初期化します。</summary>
+		</member>
+		<member name="T:System.Windows.Controls.SubmittedChangesEventArgs">
+			<summary><see cref="E:System.Windows.Controls.DomainDataSource.SubmittedChanges"></see> イベントのデータを提供します。</summary>
+		</member>
+		<member name="M:System.Windows.Controls.SubmittedChangesEventArgs.MarkErrorAsHandled">
+			<summary>失敗した操作については、エラーを処理済みとマークし、例外がスローされないようにします。</summary>
+		</member>
+		<member name="P:System.Windows.Controls.SubmittedChangesEventArgs.ChangeSet">
+			<summary>データ セットに送信された変更のセットを取得します。</summary>
+			<returns>データ セットに送信された変更のセット。</returns>
+		</member>
+		<member name="P:System.Windows.Controls.SubmittedChangesEventArgs.EntitiesInError">
+			<summary>送信操作が失敗する原因となるエンティティを取得します。</summary>
+			<returns>送信操作が失敗する原因となるエンティティ。</returns>
+		</member>
+		<member name="P:System.Windows.Controls.SubmittedChangesEventArgs.HasError">
+			<summary>操作が失敗したかどうかを示す値を取得します。</summary>
+			<returns>操作が失敗した場合は true。それ以外の場合は false。</returns>
+		</member>
+		<member name="P:System.Windows.Controls.SubmittedChangesEventArgs.IsErrorHandled">
+			<summary><see cref="M:System.Windows.Controls.SubmittedChangesEventArgs.MarkErrorAsHandled"></see> メソッドを呼び出して操作エラーが処理済みとマークされているかどうかを示す値を取得します。</summary>
+			<returns>エラーが処理済みとマークされている場合は true。それ以外の場合は false。</returns>
+		</member>
+		<member name="T:System.Windows.Controls.SubmittingChangesEventArgs">
+			<summary><see cref="E:System.Windows.Controls.DomainDataSource.SubmittingChanges"></see> イベントのデータを提供します。</summary>
+		</member>
+		<member name="P:System.Windows.Controls.SubmittingChangesEventArgs.ChangeSet">
+			<summary>データ ソースに送信された変更のセットを取得します。</summary>
+			<returns>データ セットに送信された変更のセット。</returns>
+		</member>
+	</members>
+</doc>

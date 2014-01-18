@@ -1,0 +1,1858 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<doc>
+	<assembly>
+		<name>System.ServiceModel.DomainServices.Client</name>
+	</assembly>
+	<members>
+		<member name="T:System.ComponentModel.DataAnnotations.CompositionAttribute">
+			<summary>表示成員，該成員代表屬於複合階層之一部分的關聯。</summary>
+		</member>
+		<member name="M:System.ComponentModel.DataAnnotations.CompositionAttribute.#ctor">
+			<summary>初始化 <see cref="T:System.ComponentModel.DataAnnotations.CompositionAttribute"></see> 類別的新執行個體。</summary>
+		</member>
+		<member name="T:System.ComponentModel.DataAnnotations.RoundtripOriginalAttribute">
+			<summary>套用至成員時，此屬性會指出物件更新後成員的原始值應傳送回伺服器。套用至類別時，屬性會套用至該類別的每一個成員。</summary>
+		</member>
+		<member name="M:System.ComponentModel.DataAnnotations.RoundtripOriginalAttribute.#ctor">
+			<summary>初始化 <see cref="T:System.ComponentModel.DataAnnotations.RoundtripOriginalAttribute"></see> 類別的新執行個體。</summary>
+		</member>
+		<member name="N:System.ServiceModel.DomainServices">
+			<summary>提供用來定義網域服務的類別。</summary>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.DomainIdentifierAttribute">
+			<summary>將某個型別分類為位於特殊網域。</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.DomainIdentifierAttribute.#ctor(System.String)">
+			<summary>初始化 <see cref="T:System.ServiceModel.DomainServices.DomainIdentifierAttribute"></see> 類別的新執行個體。</summary>
+			<param name="name">網域識別項的名稱。這個字串未包含架構層級語意。應用程式開發人員可全權決定構成唯一性的項目，或者是否區分大小寫。這個字串可以是 null 或空的。</param>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.DomainIdentifierAttribute.IsApplicationService">
+			<summary>取得或設定值，這個值表示具屬性的型別是否代表應用程式服務。</summary>
+			<returns>如果具屬性的型別代表應用程式服務，則為 true，否則為 false。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.DomainIdentifierAttribute.Name">
+			<summary>取得網域識別項的名稱。</summary>
+			<returns>網域識別項的名稱。</returns>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.ExternalReferenceAttribute">
+			<summary>指出關聯參考了屬於外部 <see cref="T:System.ServiceModel.DomainServices.Client.DomainContext"></see> 的實體。</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.ExternalReferenceAttribute.#ctor">
+			<summary>初始化 <see cref="T:System.ServiceModel.DomainServices.ExternalReferenceAttribute"></see> 類別的新執行個體。</summary>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.ChangeSetEntry">
+			<summary>表示要在實體上執行的網域作業。</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ChangeSetEntry.#ctor(System.ServiceModel.DomainServices.Client.Entity,System.Int32,System.ServiceModel.DomainServices.Client.EntityOperationType)">
+			<summary>使用指定的參數，初始化 <see cref="T:System.ServiceModel.DomainServices.Client.ChangeSetEntry"></see> 類別的新執行個體。</summary>
+			<param name="operationType">要執行的作業。</param>
+			<param name="entity">正在操作的實體。</param>
+			<param name="id">實體的用戶端 ID，用來將伺服器結果與其用戶端實體執行個體相互關聯。</param>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.ChangeSetEntry.Associations">
+			<summary>取得或設定實體 ID 的集合，所有這些實體與作業中的實體相關聯。</summary>
+			<returns>實體 ID 的集合，所有這些實體與作業中的實體相關聯。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.ChangeSetEntry.ClientEntity">
+			<summary>取得或設定原本送出的實體。</summary>
+			<returns>原本送出的實體。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.ChangeSetEntry.ConflictMembers">
+			<summary>取得或設定相衝突成員的集合。</summary>
+			<returns>相衝突成員的集合。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.ChangeSetEntry.Entity">
+			<summary>取得或設定正在操作的實體。</summary>
+			<returns>正在操作的實體。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.ChangeSetEntry.EntityActions">
+			<summary>取得或設定實體上叫用的自訂方法。</summary>
+			<returns>實體上叫用的自訂方法集合。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.ChangeSetEntry.HasConflict">
+			<summary>取得值，這個值表示 <see cref="T:System.ServiceModel.DomainServices.Client.ChangeSetEntry"></see> 是否包含衝突。</summary>
+			<returns>如果 <see cref="T:System.ServiceModel.DomainServices.Client.ChangeSetEntry"></see> 包含衝突，則為 true，否則為 false。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.ChangeSetEntry.HasMemberChanges">
+			<summary>取得或設定值，這個值表示這個作業的實體是否有屬性修改。</summary>
+			<returns>如果這個作業的實體有屬性修改，則為 true，否則為 false。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.ChangeSetEntry.Id">
+			<summary>取得或設定實體的用戶端 ID。</summary>
+			<returns>實體的用戶端 ID。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.ChangeSetEntry.IsDeleteConflict">
+			<summary>取得或設定衝突是否為刪除衝突，這表示實體已不存在於存放區中。</summary>
+			<returns>如果衝突是刪除衝突，則為 true，否則為 false。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.ChangeSetEntry.Operation">
+			<summary>取得或設定此變更集的 <see cref="T:System.ServiceModel.DomainServices.Client.EntityOperationType"></see>。</summary>
+			<returns>此變更集的 <see cref="T:System.ServiceModel.DomainServices.Client.EntityOperationType"></see>。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.ChangeSetEntry.OriginalAssociations">
+			<summary>取得或設定實體 ID 的集合，這個集合表示 <see cref="P:System.ServiceModel.DomainServices.Client.ChangeSetEntry.OriginalEntity"></see> 的每個關聯的實體。</summary>
+			<returns>實體 ID 的集合，表示 <see cref="P:System.ServiceModel.DomainServices.Client.ChangeSetEntry.OriginalEntity"></see> 的每個關聯的實體。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.ChangeSetEntry.OriginalEntity">
+			<summary>取得或設定操作中實體的原始狀態。</summary>
+			<returns>操作中實體的原始狀態。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.ChangeSetEntry.StoreEntity">
+			<summary>取得或設定存放區中的實體狀態。</summary>
+			<returns>存放區中的實體狀態。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.ChangeSetEntry.ValidationErrors">
+			<summary>取得或設定在處理作業期間發生的驗證錯誤。</summary>
+			<returns>在處理作業期間發生的驗證錯誤。</returns>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.ComplexObject">
+			<summary>適用於所有複雜物件的基底類別。</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ComplexObject.#ctor">
+			<summary>建立 <see cref="T:System.ServiceModel.DomainServices.Client.ComplexObject"></see> 的執行個體。</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ComplexObject.BeginEdit">
+			<summary>開始編輯這個複雜物件執行個體。</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ComplexObject.CancelEdit">
+			<summary>取消自上次呼叫 <see cref="M:System.ServiceModel.DomainServices.Client.ComplexObject.BeginEdit"></see> 之後對此執行個體所做的任何編輯。</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ComplexObject.EndEdit">
+			<summary>認可自上次呼叫 <see cref="M:System.ServiceModel.DomainServices.Client.ComplexObject.BeginEdit"></see> 之後對此執行個體所做的編輯。</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ComplexObject.OnDeserialized(System.Runtime.Serialization.StreamingContext)">
+			<summary>已還原序列化複雜物件之後呼叫的方法。</summary>
+			<param name="context">序列化的內容。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ComplexObject.OnDeserializing(System.Runtime.Serialization.StreamingContext)">
+			<summary>正在還原序列化複雜物件時呼叫的方法。</summary>
+			<param name="context">序列化的內容。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ComplexObject.OnPropertyChanged(System.ComponentModel.PropertyChangedEventArgs)">
+			<summary>當複雜物件的屬性已變更時呼叫。</summary>
+			<param name="e">事件引數。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ComplexObject.RaiseDataMemberChanged(System.String)">
+			<summary>從屬性 setter 呼叫以通知架構，複雜物件的資料成員已變更。</summary>
+			<param name="propertyName">已變更之屬性的名稱。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ComplexObject.RaiseDataMemberChanging(System.String)">
+			<summary>從屬性 setter 呼叫以通知架構，複雜物件的資料成員即將變更。</summary>
+			<param name="propertyName">已變更之屬性的名稱。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ComplexObject.RaisePropertyChanged(System.String)">
+			<summary>從屬性 setter 呼叫以通知架構，複雜物件屬性已變更。</summary>
+			<param name="propertyName">已變更之屬性的名稱。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ComplexObject.ValidateProperty(System.String,System.Object)">
+			<summary>驗證指定的值是否為目前複雜物件之指定屬性的有效值。</summary>
+			<param name="value">要測試的值。如果 null 對指定屬性有效，值可以是 null。</param>
+			<param name="propertyName">要驗證的屬性名稱。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ComplexObject.ValidateProperty(System.ComponentModel.DataAnnotations.ValidationContext,System.Object)">
+			<summary>驗證指定的屬性值是否為指定 <see cref="T:System.ComponentModel.DataAnnotations.ValidationContext"></see> 的有效值。</summary>
+			<param name="validationContext"><see cref="T:System.ComponentModel.DataAnnotations.ValidationContext"></see>，表示要執行的驗證。</param>
+			<param name="value">要測試的值。如果 null 對指定屬性有效，值可以是 null。</param>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.ComplexObject.HasValidationErrors">
+			<summary>取得值，這個值表示這個實體是否有任何驗證錯誤。</summary>
+			<returns>如果有驗證錯誤，則為 true，否則為 false。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.ComplexObject.IsDeserializing">
+			<summary>取得值，這個值表示目前是否正在還原序列化這個執行個體。</summary>
+			<returns>如果正在還原序列化複雜物件，則為 true，否則為 false。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.ComplexObject.ValidationErrors">
+			<summary>取得這個執行個體的驗證錯誤集合。</summary>
+			<returns>這個執行個體的驗證錯誤 <see cref="T:System.Collections.Generic.ICollection`1"></see>。</returns>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.DomainClient">
+			<summary>做為所有 <see cref="T:System.ServiceModel.DomainServices.Client.DomainClient"></see> 實作的基底類別。</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.DomainClient.#ctor">
+			<summary>初始化 <see cref="T:System.ServiceModel.DomainServices.Client.DomainClient"></see> 類別的新執行個體。</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.DomainClient.BeginInvoke(System.ServiceModel.DomainServices.Client.InvokeArgs,System.AsyncCallback,System.Object)">
+			<summary>以非同步方式叫用作業。</summary>
+			<returns>可識別這個引動過程的非同步結果。</returns>
+			<param name="callback">完成引動過程時所要叫用的回呼。</param>
+			<param name="invokeArgs">叫用作業的引數。</param>
+			<param name="userState">與這項作業相關聯的選擇性使用者狀態。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.DomainClient.BeginInvokeCore(System.ServiceModel.DomainServices.Client.InvokeArgs,System.AsyncCallback,System.Object)">
+			<summary>以非同步方式開始叫用作業的架構所呼叫。</summary>
+			<returns>可識別這個引動過程的非同步結果。</returns>
+			<param name="callback">完成引動過程時所要叫用的回呼。</param>
+			<param name="invokeArgs">叫用作業的引數。</param>
+			<param name="userState">與這項作業相關聯的選擇性使用者狀態。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.DomainClient.BeginQuery(System.ServiceModel.DomainServices.Client.EntityQuery,System.AsyncCallback,System.Object)">
+			<summary>執行非同步的查詢作業。</summary>
+			<returns>可識別這個查詢的非同步結果。</returns>
+			<param name="callback">已經執行查詢時所要叫用的回呼。</param>
+			<param name="query">要叫用的查詢。</param>
+			<param name="userState">與這項作業相關聯的選擇性使用者狀態。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.DomainClient.BeginQueryCore(System.ServiceModel.DomainServices.Client.EntityQuery,System.AsyncCallback,System.Object)">
+			<summary>由開始非同步查詢作業的架構所呼叫。</summary>
+			<returns>可識別這個查詢的非同步結果。</returns>
+			<param name="callback">已經執行查詢時所要叫用的回呼。</param>
+			<param name="query">要叫用的查詢。</param>
+			<param name="userState">與這項作業相關聯的選擇性使用者狀態。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.DomainClient.BeginSubmit(System.ServiceModel.DomainServices.Client.EntityChangeSet,System.AsyncCallback,System.Object)">
+			<summary>以非同步方式將指定的 <see cref="T:System.ServiceModel.DomainServices.Client.EntityChangeSet"></see> 提交給 <see cref="T:System.ServiceModel.DomainServices.Server.DomainService"></see>。</summary>
+			<returns>可識別這項提交要求的非同步結果。</returns>
+			<param name="callback">已經執行提交時所要叫用的回呼。</param>
+			<param name="changeSet">要提交給 <see cref="T:System.ServiceModel.DomainServices.Server.DomainService"></see> 的 <see cref="T:System.ServiceModel.DomainServices.Client.EntityChangeSet"></see>。</param>
+			<param name="userState">與這項作業相關聯的選擇性使用者狀態。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.DomainClient.BeginSubmitCore(System.ServiceModel.DomainServices.Client.EntityChangeSet,System.AsyncCallback,System.Object)">
+			<summary>以非同步方式處理指定之 <see cref="T:System.ServiceModel.DomainServices.Client.EntityChangeSet"></see> 的結構所呼叫。</summary>
+			<returns>可識別這項提交要求的非同步結果。</returns>
+			<param name="callback">已經執行提交時所要叫用的回呼。</param>
+			<param name="changeSet">要提交給 <see cref="T:System.ServiceModel.DomainServices.Server.DomainService"></see> 的 <see cref="T:System.ServiceModel.DomainServices.Client.EntityChangeSet"></see>。</param>
+			<param name="userState">與這項作業相關聯的選擇性使用者狀態。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.DomainClient.CancelInvoke(System.IAsyncResult)">
+			<summary>嘗試取消 asyncResult 指定的引動過程要求。</summary>
+			<param name="asyncResult">指定要取消之引動過程作業的 IAsyncResult。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.DomainClient.CancelInvokeCore(System.IAsyncResult)">
+			<summary>嘗試取消 asyncResult 指定的引動過程要求。</summary>
+			<param name="asyncResult">指定要取消之引動過程作業的 IAsyncResult。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.DomainClient.CancelQuery(System.IAsyncResult)">
+			<summary>嘗試取消 asyncResult 指定的查詢要求。</summary>
+			<param name="asyncResult">指定要取消之查詢作業的 IAsyncResult。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.DomainClient.CancelQueryCore(System.IAsyncResult)">
+			<summary>嘗試取消 asyncResult 指定的查詢要求。</summary>
+			<param name="asyncResult">指定要取消之查詢作業的 IAsyncResult。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.DomainClient.CancelSubmit(System.IAsyncResult)">
+			<summary>嘗試取消 asyncResult 指定的提交要求。</summary>
+			<param name="asyncResult">指定要取消之提交作業的 IAsyncResult。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.DomainClient.CancelSubmitCore(System.IAsyncResult)">
+			<summary>嘗試取消 asyncResult 指定的提交要求。</summary>
+			<param name="asyncResult">指定要取消之提交作業的 IAsyncResult。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.DomainClient.EndInvoke(System.IAsyncResult)">
+			<summary>完成作業引動過程。</summary>
+			<returns>此作業的結果。</returns>
+			<param name="asyncResult">可識別引動過程的非同步結果。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.DomainClient.EndInvokeCore(System.IAsyncResult)">
+			<summary>由完成非同步引動過程的架構所呼叫。</summary>
+			<returns>此作業的結果。</returns>
+			<param name="asyncResult">可識別引動過程的非同步結果。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.DomainClient.EndQuery(System.IAsyncResult)">
+			<summary>取得非同步查詢作業的結果。</summary>
+			<returns>此作業的結果。</returns>
+			<param name="asyncResult">可識別查詢的非同步結果。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.DomainClient.EndQueryCore(System.IAsyncResult)">
+			<summary>由完成非同步查詢作業的架構所呼叫。</summary>
+			<returns>此作業的結果。</returns>
+			<param name="asyncResult">可識別查詢的非同步結果。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.DomainClient.EndSubmit(System.IAsyncResult)">
+			<summary>取得提交要求的結果。</summary>
+			<returns>此作業的結果。</returns>
+			<param name="asyncResult">可識別提交要求的非同步結果。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.DomainClient.EndSubmitCore(System.IAsyncResult)">
+			<summary>由完成非同步提交作業的架構所呼叫。</summary>
+			<returns>此作業的結果。</returns>
+			<param name="asyncResult">可識別提交要求的非同步結果。</param>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.DomainClient.EntityTypes">
+			<summary>取得或設定這個 <see cref="T:System.ServiceModel.DomainServices.Client.DomainClient"></see> 操作所在的實體類型集合。</summary>
+			<returns>這個物件操作所在的實體類型集合。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.DomainClient.SupportsCancellation">
+			<summary>取得值，這個值指出 <see cref="T:System.ServiceModel.DomainServices.Client.DomainClient"></see> 是否支援取消。</summary>
+			<returns>如果這個物件支援取消，則為 true，否則為 false。</returns>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.DomainClientResult">
+			<summary>表示 <see cref="T:System.ServiceModel.DomainServices.Client.DomainClient"></see> 作業的結果。</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.DomainClientResult.CreateInvokeResult(System.Object,System.Collections.Generic.IEnumerable{System.ComponentModel.DataAnnotations.ValidationResult})">
+			<summary>建立叫用作業結果。</summary>
+			<returns>叫用作業結果。</returns>
+			<param name="returnValue">叫用作業的傳回值。</param>
+			<param name="validationErrors">引動過程的驗證錯誤集合。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.DomainClientResult.CreateQueryResult(System.Collections.Generic.IEnumerable{System.ServiceModel.DomainServices.Client.Entity},System.Collections.Generic.IEnumerable{System.ServiceModel.DomainServices.Client.Entity},System.Int32,System.Collections.Generic.IEnumerable{System.ComponentModel.DataAnnotations.ValidationResult})">
+			<summary>建立查詢作業結果。</summary>
+			<returns>查詢作業結果。</returns>
+			<param name="allEntities">查詢傳回的所有實體，包括關聯的實體。</param>
+			<param name="validationErrors">查詢的驗證錯誤集合。</param>
+			<param name="totalEntityCount">伺服器實體總計數。</param>
+			<param name="entities">查詢傳回的最上層實體。</param>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.DomainClientResult.AllEntities">
+			<summary>取得所有實體結果，包括關聯的實體。</summary>
+			<returns>實體的集合。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.DomainClientResult.Entities">
+			<summary>取得最上層實體結果。</summary>
+			<returns>實體結果的集合。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.DomainClientResult.ReturnValue">
+			<summary>取得叫用作業的傳回值。</summary>
+			<returns>叫用作業的傳回值。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.DomainClientResult.TotalEntityCount">
+			<summary>取得原始查詢 (未套用任何分頁) 的伺服器實體總計數。</summary>
+			<returns>查詢的資料列總計數，如果伺服器不支援實體總計數則為 -1。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.DomainClientResult.ValidationErrors">
+			<summary>會取得驗證錯誤的集合。</summary>
+			<returns>驗證錯誤的集合。</returns>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.DomainContext">
+			<summary><see cref="T:System.ServiceModel.DomainServices.Client.DomainContext"></see> 是可設定狀態的網域服務用戶端表示，提供所有服務功能的存取。</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.DomainContext.#ctor(System.ServiceModel.DomainServices.Client.DomainClient)">
+			<summary>初始化 <see cref="T:System.ServiceModel.DomainServices.Client.DomainContext"></see> 類別的新執行個體。</summary>
+			<param name="domainClient">這個 <see cref="T:System.ServiceModel.DomainServices.Client.DomainContext"></see> 應該使用的 <see cref="P:System.ServiceModel.DomainServices.Client.DomainContext.DomainClient"></see> 執行個體。</param>
+		</member>
+		<member name="E:System.ServiceModel.DomainServices.Client.DomainContext.PropertyChanged">
+			<summary>當 <see cref="T:System.ServiceModel.DomainServices.Client.DomainContext"></see> 屬性變更時引發。</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.DomainContext.AddReference(System.Type,System.ServiceModel.DomainServices.Client.DomainContext)">
+			<summary>加入外部 <see cref="T:System.ServiceModel.DomainServices.Client.DomainContext"></see> 的參考。</summary>
+			<param name="entityType">要在 domainContext 中查閱的實體類型。</param>
+			<param name="domainContext">要註冊為外部參考的 <see cref="T:System.ServiceModel.DomainServices.Client.DomainContext"></see>。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.DomainContext.CreateEntityContainer">
+			<summary>針對這個 <see cref="T:System.ServiceModel.DomainServices.Client.DomainContext"></see> 將提供存取的所有實體，建立並傳回以 <see cref="T:System.ServiceModel.DomainServices.Client.EntitySet"></see> 物件設定的實體容器。</summary>
+			<returns>實體容器。</returns>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.DomainContext.CreateQuery``1(System.String,System.Collections.Generic.IDictionary{System.String,System.Object},System.Boolean,System.Boolean)">
+			<summary>建立 <see cref="T:System.ServiceModel.DomainServices.Client.EntityQuery"></see>。</summary>
+			<returns>新查詢。</returns>
+			<param name="hasSideEffects">如果查詢有副作用，則為 true，否則為 false。</param>
+			<param name="queryName">查詢方法的名稱。</param>
+			<param name="parameters">查詢方法的選擇性參數。如果查詢作業不接受任何參數，則指定 null。</param>
+			<param name="isComposable">如果查詢支援複合，則為 true，否則為 false。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.DomainContext.InvokeOperation(System.String,System.Type,System.Collections.Generic.IDictionary{System.String,System.Object},System.Boolean,System.Action{System.ServiceModel.DomainServices.Client.InvokeOperation},System.Object)">
+			<summary>執行叫用作業。</summary>
+			<returns>叫用作業。</returns>
+			<param name="hasSideEffects">如果作業有副作用，則為 true，否則為 false。</param>
+			<param name="callback">當作業完成時，要呼叫的選擇性回呼。</param>
+			<param name="returnType">作業的傳回型別。</param>
+			<param name="userState">作業的選擇性使用者狀態。</param>
+			<param name="parameters">作業的選擇性參數。如果作業不接受任何參數，則指定 null。</param>
+			<param name="operationName">作業的名稱。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.DomainContext.InvokeOperation``1(System.String,System.Type,System.Collections.Generic.IDictionary{System.String,System.Object},System.Boolean,System.Action{System.ServiceModel.DomainServices.Client.InvokeOperation{``0}},System.Object)">
+			<summary>執行叫用作業。</summary>
+			<returns>叫用作業。</returns>
+			<param name="hasSideEffects">如果作業有副作用，則為 true，否則為 false。</param>
+			<param name="callback">當作業完成時，要呼叫的選擇性回呼。</param>
+			<param name="returnType">作業的傳回型別。</param>
+			<param name="userState">作業的選擇性使用者狀態。</param>
+			<param name="parameters">作業的選擇性參數。如果作業不接受任何參數，則指定 null。</param>
+			<param name="operationName">作業的名稱。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.DomainContext.Load(System.ServiceModel.DomainServices.Client.EntityQuery,System.ServiceModel.DomainServices.Client.LoadBehavior,System.Action{System.ServiceModel.DomainServices.Client.LoadOperation},System.Object)">
+			<summary>使用指定的載入行為、回呼方法與使用者狀態，啟始指定之查詢的載入作業。</summary>
+			<returns>載入作業。</returns>
+			<param name="loadBehavior">要套用的 <see cref="T:System.ServiceModel.DomainServices.Client.LoadBehavior"></see>。</param>
+			<param name="callback">當載入作業完成時，要呼叫的選擇性回呼。回呼必須是委派，可使用單一參數接受所傳回 <see cref="T:System.ServiceModel.DomainServices.Client.LoadOperation"></see> 型別的執行個體。</param>
+			<param name="query">要叫用的查詢。</param>
+			<param name="userState">選擇性的使用者狀態。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.DomainContext.Load``1(System.ServiceModel.DomainServices.Client.EntityQuery{``0})">
+			<summary>啟始指定之查詢的載入作業。</summary>
+			<returns>載入作業。</returns>
+			<param name="query">要叫用的查詢。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.DomainContext.Load``1(System.ServiceModel.DomainServices.Client.EntityQuery{``0},System.Boolean)">
+			<summary>使用指出錯誤是否導致例外狀況的指定值，啟始指定之查詢的載入作業。</summary>
+			<returns>載入作業。</returns>
+			<param name="query">要叫用的查詢。</param>
+			<param name="throwOnError">如果未處理的錯誤應該會導致例外狀況，則為 true，否則為 false。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.DomainContext.Load``1(System.ServiceModel.DomainServices.Client.EntityQuery{``0},System.Action{System.ServiceModel.DomainServices.Client.LoadOperation{``0}},System.Object)">
+			<summary>使用指定的回呼方法與使用者狀態，啟始指定之查詢的載入作業。</summary>
+			<returns>載入作業。</returns>
+			<param name="callback">當載入作業完成時，要呼叫的選擇性回呼。</param>
+			<param name="query">要叫用的查詢。</param>
+			<param name="userState">選擇性的使用者狀態。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.DomainContext.Load``1(System.ServiceModel.DomainServices.Client.EntityQuery{``0},System.ServiceModel.DomainServices.Client.LoadBehavior,System.Boolean)">
+			<summary>使用指定的載入行為以及指出錯誤是否導致例外狀況的值，啟始指定之查詢的載入作業。</summary>
+			<returns>載入作業。</returns>
+			<param name="loadBehavior">要套用的 <see cref="T:System.ServiceModel.DomainServices.Client.LoadBehavior"></see>。</param>
+			<param name="query">要叫用的查詢。</param>
+			<param name="throwOnError">如果未處理的錯誤應該會導致例外狀況，則為 true，否則為 false。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.DomainContext.Load``1(System.ServiceModel.DomainServices.Client.EntityQuery{``0},System.ServiceModel.DomainServices.Client.LoadBehavior,System.Action{System.ServiceModel.DomainServices.Client.LoadOperation{``0}},System.Object)">
+			<summary>使用指定的載入行為、回呼方法與使用者狀態，啟始指定之查詢的載入作業。</summary>
+			<returns>載入作業。</returns>
+			<param name="loadBehavior">要套用的 <see cref="T:System.ServiceModel.DomainServices.Client.LoadBehavior"></see>。</param>
+			<param name="callback">當載入作業完成時，要呼叫的選擇性回呼。</param>
+			<param name="query">要叫用的查詢。</param>
+			<param name="userState">選擇性的使用者狀態。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.DomainContext.RaisePropertyChanged(System.String)">
+			<summary>引發指定之屬性的 <see cref="E:System.ServiceModel.DomainServices.Client.DomainContext.PropertyChanged"></see> 事件。</summary>
+			<param name="propertyName">要引發其事件的屬性。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.DomainContext.RejectChanges">
+			<summary>還原這個 <see cref="T:System.ServiceModel.DomainServices.Client.DomainContext"></see> 的所有暫止變更。</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.DomainContext.SubmitChanges">
+			<summary>將所有暫止的變更送出至網域服務。</summary>
+			<returns>送出作業。</returns>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.DomainContext.SubmitChanges(System.Action{System.ServiceModel.DomainServices.Client.SubmitOperation},System.Object)">
+			<summary>將所有暫止的變更送出至網域服務。</summary>
+			<returns>送出作業。</returns>
+			<param name="callback">送出作業的選擇性回呼。</param>
+			<param name="userState">要與作業產生關聯的選擇性使用者狀態。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.DomainContext.ValidateMethod(System.String,System.Collections.Generic.IDictionary{System.String,System.Object})">
+			<summary>驗證方法呼叫。</summary>
+			<param name="methodName">要驗證的方法。</param>
+			<param name="parameters">方法的參數。</param>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.DomainContext.DomainClient">
+			<summary>取得這個內容的 <see cref="T:System.ServiceModel.DomainServices.Client.DomainClient"></see>。</summary>
+			<returns>支援此物件的網域用戶端。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.DomainContext.EntityContainer">
+			<summary>取得 <see cref="T:System.ServiceModel.DomainServices.Client.EntityContainer"></see>，這個物件保存此內容載入的所有實體。</summary>
+			<returns>實體容器。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.DomainContext.HasChanges">
+			<summary>取得值，這個值表示這個內容目前是否有任何暫止的變更。</summary>
+			<returns>如果有暫止的變更，則為 true，否則為 false。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.DomainContext.IsLoading">
+			<summary>取得值，這個值表示這個 <see cref="T:System.ServiceModel.DomainServices.Client.DomainContext"></see> 目前是否正在執行載入作業。</summary>
+			<returns>如果有暫止的載入作業，則為 true，否則為 false。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.DomainContext.IsSubmitting">
+			<summary>取得值，這個值表示這個 <see cref="T:System.ServiceModel.DomainServices.Client.DomainContext"></see> 目前是否正在執行送出作業。</summary>
+			<returns>如果有暫止的送出作業，則為 true，否則為 false。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.DomainContext.ValidationContext">
+			<summary>取得或設定 <see cref="T:System.ComponentModel.DataAnnotations.ValidationContext"></see>，以便用於 <see cref="T:System.ServiceModel.DomainServices.Client.DomainContext"></see> 叫用的所有驗證作業。</summary>
+			<returns>物件，用於 <see cref="T:System.ServiceModel.DomainServices.Client.DomainContext"></see> 叫用的所有驗證作業。</returns>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.DomainException">
+			<summary>指出網域作業執行期間發生無法復原的錯誤。</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.DomainException.#ctor">
+			<summary>以系統提供的錯誤說明訊息，初始化 <see cref="T:System.ServiceModel.DomainServices.Client.DomainException"></see> 類別的新執行個體。</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.DomainException.#ctor(System.String)">
+			<summary>使用指定的錯誤說明訊息，初始化 <see cref="T:System.ServiceModel.DomainServices.Client.DomainException"></see> 類別的新執行個體。</summary>
+			<param name="message">當地語系化的錯誤訊息。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.DomainException.#ctor(System.String,System.Exception)">
+			<summary>使用指定的錯誤訊息和造成這個例外狀況的內部例外狀況參考，初始化 <see cref="T:System.ServiceModel.DomainServices.Client.DomainException"></see> 類別的新執行個體。</summary>
+			<param name="message">當地語系化的錯誤訊息。</param>
+			<param name="innerException">造成這個例外狀況的內部例外狀況。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.DomainException.#ctor(System.String,System.Int32)">
+			<summary>初始化擁有指定的錯誤訊息和自訂錯誤碼之 <see cref="T:System.ServiceModel.DomainServices.Client.DomainException"></see> 類別的新執行個體。</summary>
+			<param name="errorCode">例外狀況的自訂錯誤碼。</param>
+			<param name="message">當地語系化的錯誤訊息。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.DomainException.#ctor(System.String,System.Int32,System.Exception)">
+			<summary>初始化擁有指定之錯誤訊息、自訂錯誤碼以及造成這個例外狀況的內部例外狀況之 <see cref="T:System.ServiceModel.DomainServices.Client.DomainException"></see> 類別的新執行個體。</summary>
+			<param name="errorCode">例外狀況的自訂錯誤碼。</param>
+			<param name="message">當地語系化的錯誤訊息。</param>
+			<param name="innerException">造成這個例外狀況的內部例外狀況。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.DomainException.#ctor(System.String,System.Int32,System.String)">
+			<summary>使用當地語系化的例外狀況訊息、自訂錯誤碼和堆疊追蹤，初始化 <see cref="T:System.ServiceModel.DomainServices.Client.DomainException"></see> 類別的新執行個體。</summary>
+			<param name="errorCode">例外狀況的自訂錯誤碼。</param>
+			<param name="stackTrace">例外狀況堆疊追蹤。</param>
+			<param name="message">當地語系化的錯誤訊息。</param>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.DomainException.ErrorCode">
+			<summary>取得或設定這個例外狀況的自訂錯誤碼。</summary>
+			<returns>這個例外狀況的自訂錯誤碼。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.DomainException.StackTrace">
+			<summary>取得例外狀況堆疊追蹤。</summary>
+			<returns>例外狀況堆疊追蹤。</returns>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.DomainOperationException">
+			<summary>表示在伺服器上處理網域作業期間至少發生一個錯誤。</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.DomainOperationException.#ctor">
+			<summary>初始化 <see cref="T:System.ServiceModel.DomainServices.Client.DomainOperationException"></see> 類別的新執行個體。</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.DomainOperationException.#ctor(System.String)">
+			<summary>使用指定的錯誤說明訊息，初始化 <see cref="T:System.ServiceModel.DomainServices.Client.DomainOperationException"></see> 類別的新執行個體。</summary>
+			<param name="message">說明例外狀況的訊息。您需要這個建構函式的呼叫端，以確保這個字串已經當地語系化為目前系統的文化特性。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.DomainOperationException.#ctor(System.String,System.Exception)">
+			<summary>使用指定的錯誤訊息和造成這個例外狀況的內部例外狀況參考，初始化 <see cref="T:System.ServiceModel.DomainServices.Client.DomainOperationException"></see> 類別的新執行個體。</summary>
+			<param name="message">說明例外狀況的訊息。您需要這個建構函式的呼叫端，以確保這個字串已經當地語系化為目前系統的文化特性。</param>
+			<param name="innerException">造成目前例外狀況的例外狀況。如果 innerException 參數不是 null，則會在處理內部例外狀況的 catch 區塊中擲回目前的例外狀況。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.DomainOperationException.#ctor(System.String,System.ServiceModel.DomainServices.Client.OperationErrorStatus)">
+			<summary>使用當地語系化的例外狀況訊息和狀態，初始化 <see cref="T:System.ServiceModel.DomainServices.Client.DomainOperationException"></see> 類別的新執行個體。</summary>
+			<param name="message">當地語系化的例外狀況訊息。</param>
+			<param name="status">例外狀況的狀態。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.DomainOperationException.#ctor(System.String,System.ServiceModel.DomainServices.Client.OperationErrorStatus,System.Int32)">
+			<summary>使用當地語系化的例外狀況訊息、狀態和自訂錯誤碼，初始化 <see cref="T:System.ServiceModel.DomainServices.Client.DomainOperationException"></see> 類別的新執行個體。</summary>
+			<param name="errorCode">自訂錯誤碼。</param>
+			<param name="message">當地語系化的例外狀況訊息。</param>
+			<param name="status">例外狀況的狀態。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.DomainOperationException.#ctor(System.String,System.ServiceModel.DomainServices.Client.OperationErrorStatus,System.Int32,System.String)">
+			<summary>使用選擇性的當地語系化例外狀況訊息、狀態、自訂錯誤碼和堆疊追蹤，初始化 <see cref="T:System.ServiceModel.DomainServices.Client.DomainOperationException"></see> 類別的新執行個體。</summary>
+			<param name="errorCode">自訂錯誤碼。</param>
+			<param name="stackTrace">例外狀況的堆疊追蹤。</param>
+			<param name="message">當地語系化的錯誤訊息。</param>
+			<param name="status">例外狀況的狀態。</param>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.DomainOperationException.ErrorCode">
+			<summary>取得或設定這個例外狀況的自訂錯誤碼。錯誤碼可以是任何使用者定義的值。</summary>
+			<returns>自訂錯誤碼。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.DomainOperationException.StackTrace">
+			<summary>取得例外狀況的堆疊追蹤。</summary>
+			<returns>例外狀況的堆疊追蹤。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.DomainOperationException.Status">
+			<summary>取得或設定這個例外狀況的狀態碼。</summary>
+			<returns>這個例外狀況的狀態碼。</returns>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.Entity">
+			<summary>所有實體類型的基底類別。</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.Entity.#ctor">
+			<summary>初始化 <see cref="T:System.ServiceModel.DomainServices.Client.Entity"></see> 類別的新執行個體。</summary>
+		</member>
+		<member name="E:System.ServiceModel.DomainServices.Client.Entity.PropertyChanged">
+			<summary>當 <see cref="T:System.ServiceModel.DomainServices.Client.Entity"></see> 屬性已變更時發生。</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.Entity.AcceptChanges">
+			<summary>接受此 <see cref="T:System.ServiceModel.DomainServices.Client.Entity"></see> 的目前變更，並套用適當的狀態轉換。</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.Entity.BeginEdit">
+			<summary>開始編輯 <see cref="T:System.ServiceModel.DomainServices.Client.Entity"></see>。</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.Entity.CancelEdit">
+			<summary>取消自上次呼叫 <see cref="M:System.ServiceModel.DomainServices.Client.Entity.BeginEdit"></see> 之後對 <see cref="T:System.ServiceModel.DomainServices.Client.Entity"></see> 所做的任何編輯。</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.Entity.CanInvokeAction(System.String)">
+			<summary>取得值，這個值表示目前是否可叫用指定的動作。</summary>
+			<returns>如果可以叫用指定的動作，則為 true，否則為 false。</returns>
+			<param name="name">對應於自訂方法的動作名稱。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.Entity.EndEdit">
+			<summary>認可自上次呼叫 <see cref="M:System.ServiceModel.DomainServices.Client.Entity.EndEdit"></see> 之後對此實體所做的編輯。</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.Entity.GetIdentity">
+			<summary>傳回適用於雜湊的實體識別。</summary>
+			<returns>表示實體識別的物件。</returns>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.Entity.GetOriginal">
+			<summary>取得這個實體的原始狀態。</summary>
+			<returns>處於其原始狀態中的 <see cref="T:System.ServiceModel.DomainServices.Client.Entity"></see>。</returns>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.Entity.InvokeAction(System.String,System.Object[])">
+			<summary>呼叫以便於註冊送出變更時要為此實體叫用的動作。</summary>
+			<param name="actionName">要叫用的動作名稱。</param>
+			<param name="parameters">叫用指定之動作時搭配使用的參數值。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.Entity.IsActionInvoked(System.String)">
+			<summary>指出是否已叫用指定的動作。</summary>
+			<returns>如果已叫用指定的動作，則為 true，否則為 false。</returns>
+			<param name="name">對應於自訂方法的動作名稱。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.Entity.OnActionStateChanged">
+			<summary>此實體的叫用動作狀態變更時呼叫。</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.Entity.OnDeserialized(System.Runtime.Serialization.StreamingContext)">
+			<summary>已還原序列化此 <see cref="T:System.ServiceModel.DomainServices.Client.Entity"></see> 之後呼叫。</summary>
+			<param name="context">序列化的內容。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.Entity.OnDeserializing(System.Runtime.Serialization.StreamingContext)">
+			<summary>正在還原序列化此 <see cref="T:System.ServiceModel.DomainServices.Client.Entity"></see> 時呼叫。</summary>
+			<param name="context">序列化的內容。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.Entity.OnLoaded(System.Boolean)">
+			<summary>在 <see cref="T:System.ServiceModel.DomainServices.Client.EntitySet"></see> 中載入 <see cref="T:System.ServiceModel.DomainServices.Client.Entity"></see> 時呼叫。</summary>
+			<param name="isInitialLoad">如果在集合中第一次載入實體，則為 true，否則為 false。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.Entity.OnPropertyChanged(System.ComponentModel.PropertyChangedEventArgs)">
+			<summary>當 <see cref="T:System.ServiceModel.DomainServices.Client.Entity"></see> 屬性已變更時呼叫。</summary>
+			<param name="e">事件引數。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.Entity.RaiseDataMemberChanged(System.String)">
+			<summary>從屬性 setter 呼叫以通知架構，<see cref="T:System.ServiceModel.DomainServices.Client.Entity"></see> 資料成員已變更。</summary>
+			<param name="propertyName">已變更之屬性的名稱。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.Entity.RaiseDataMemberChanging(System.String)">
+			<summary>從屬性 setter 呼叫以通知架構，<see cref="T:System.ServiceModel.DomainServices.Client.Entity"></see> 資料成員即將變更。</summary>
+			<param name="propertyName">正在變更的屬性名稱。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.Entity.RaisePropertyChanged(System.String)">
+			<summary>從屬性 setter 呼叫以通知架構，<see cref="T:System.ServiceModel.DomainServices.Client.Entity"></see> 成員已變更。</summary>
+			<param name="propertyName">已變更之屬性的名稱。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.Entity.RejectChanges">
+			<summary>將對此實體所做的所有屬性變更還原成其原始值。</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.Entity.ToString">
+			<summary>取得目前實體的字串表示。</summary>
+			<returns>目前實體的字串表示。</returns>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.Entity.UpdateActionState(System.String,System.String,System.String)">
+			<summary>在 <see cref="M:System.ServiceModel.DomainServices.Client.Entity.OnActionStateChanged"></see> 覆寫的內容中呼叫。這個方法會針對對應於自訂方法的屬性引發適當的屬性變更通知。</summary>
+			<param name="name">自訂方法名稱。</param>
+			<param name="canInvokePropertyName">自訂方法的 "CanInvoke" 成立條件屬性名稱。</param>
+			<param name="isInvokedPropertyName">自訂方法的 "IsInvoked" 屬性名稱。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.Entity.ValidateProperty(System.String,System.Object)">
+			<summary>指出指定的值是否為目前實體之指定屬性的有效值。</summary>
+			<param name="value">要測試的值。如果 null 對指定屬性有效，值可以是 null。</param>
+			<param name="propertyName">這個實體上要設定的屬性名稱。這個名稱不可為 null 或空的。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.Entity.ValidateProperty(System.ComponentModel.DataAnnotations.ValidationContext,System.Object)">
+			<summary>指出指定的屬性值是否為指定驗證內容的有效值。</summary>
+			<param name="validationContext"><see cref="P:System.ServiceModel.DomainServices.Client.DomainContext.ValidationContext"></see>，表示要執行的驗證。<see cref="P:System.ComponentModel.DataAnnotations.ValidationContext.MemberName"></see> 必須指出要驗證的屬性名稱。</param>
+			<param name="value">要測試的值。如果 null 對指定屬性有效，值可以是 null。</param>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.Entity.EntityActions">
+			<summary>取得此實體的暫止自訂方法引動過程清單。</summary>
+			<returns>此實體的暫止自訂方法引動過程集合。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.Entity.EntityConflict">
+			<summary>取得此實體在送出作業後的衝突資訊。</summary>
+			<returns>此實體在送出作業後的 <see cref="T:System.ServiceModel.DomainServices.Client.EntityConflict"></see>。如果沒有衝突，則傳回 null。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.Entity.EntitySet">
+			<summary>取得此 <see cref="T:System.ServiceModel.DomainServices.Client.Entity"></see> 為其成員的  <see cref="P:System.ServiceModel.DomainServices.Client.Entity.EntitySet"></see>。</summary>
+			<returns>此 <see cref="T:System.ServiceModel.DomainServices.Client.Entity"></see> 為其成員的 <see cref="P:System.ServiceModel.DomainServices.Client.Entity.EntitySet"></see>。如果實體已中斷連結或已從集合移除，此值將是 null。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.Entity.EntityState">
+			<summary>取得這個 <see cref="T:System.ServiceModel.DomainServices.Client.Entity"></see> 的目前狀態。</summary>
+			<returns><see cref="T:System.ServiceModel.DomainServices.Client.EntityState"></see>，表示這個 <see cref="T:System.ServiceModel.DomainServices.Client.Entity"></see> 的目前狀態。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.Entity.HasChanges">
+			<summary>取得值，這個值表示這個實體目前是否有任何暫止變更。</summary>
+			<returns>如果實體有任何暫止變更，則為 true，否則為 false。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.Entity.HasValidationErrors">
+			<summary>取得值，這個值表示這個實體是否有任何驗證錯誤。</summary>
+			<returns>如果在上次送出作業期間實體有任何驗證錯誤，則為 true，否則為 false。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.Entity.IsDeserializing">
+			<summary>取得值，這個值表示目前是否正在還原序列化目前的實體。</summary>
+			<returns>如果目前正在還原序列化此實體，則為 true，否則為 false。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.Entity.IsReadOnly">
+			<summary>取得值，這個值表示此實體目前是否處於唯讀狀態。</summary>
+			<returns>如果此實體是唯讀的，則為 true，否則為 false。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.Entity.ValidationErrors">
+			<summary>取得這個實體的驗證錯誤集合。</summary>
+			<returns>在上次送出作業期間發生的驗證錯誤集合。</returns>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.EntityAction">
+			<summary>表示某個實體上的自訂方法引動過程。</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntityAction.#ctor(System.String,System.Object[])">
+			<summary>初始化 <see cref="T:System.ServiceModel.DomainServices.Client.EntityAction"></see> 類別的新執行個體。</summary>
+			<param name="name">實體動作的名稱。</param>
+			<param name="parameters">叫用實體動作的參數清單。</param>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.EntityAction.HasParameters">
+			<summary>取得值，這個值指出是否有任何參數與這個動作有關聯。</summary>
+			<returns>如果有任何參數與這個動作有關聯，則為 true，否則為 false。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.EntityAction.Name">
+			<summary>取得實體動作的名稱。</summary>
+			<returns>實體動作的名稱。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.EntityAction.Parameters">
+			<summary>取得要傳遞給實體動作的參數。</summary>
+			<returns>表示要傳遞給實體動作之參數的集合。</returns>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.EntityChangeSet">
+			<summary>表示 <see cref="T:System.ServiceModel.DomainServices.Client.Entity"></see> 的變更集合。</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntityChangeSet.GetChangeSetEntries">
+			<summary>取得這個變更集的 <see cref="T:System.ServiceModel.DomainServices.Client.ChangeSetEntry"></see> 項目集合。</summary>
+			<returns>這個變更集的 <see cref="T:System.ServiceModel.DomainServices.Client.ChangeSetEntry"></see> 項目集合。</returns>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntityChangeSet.ToString">
+			<summary>傳回 <see cref="T:System.ServiceModel.DomainServices.Client.EntityChangeSet"></see> 的文字表示。</summary>
+			<returns><see cref="T:System.ServiceModel.DomainServices.Client.EntityChangeSet"></see> 的文字表示。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.EntityChangeSet.AddedEntities">
+			<summary>取得已加入之實體的集合。</summary>
+			<returns>已加入之實體的集合。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.EntityChangeSet.IsEmpty">
+			<summary>取得值，這個值表示 <see cref="T:System.ServiceModel.DomainServices.Client.EntityChangeSet"></see> 是否有任何變更。</summary>
+			<returns>如果 <see cref="T:System.ServiceModel.DomainServices.Client.EntityChangeSet"></see> 有任何變更，則為 true，否則為 false。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.EntityChangeSet.ModifiedEntities">
+			<summary>取得已修改之實體的集合。</summary>
+			<returns>已修改之實體的集合。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.EntityChangeSet.RemovedEntities">
+			<summary>取得已移除之實體的集合。</summary>
+			<returns>已移除之實體的集合。</returns>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.EntityCollection`1">
+			<summary>表示關聯的實體集合。</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntityCollection`1.#ctor(System.ServiceModel.DomainServices.Client.Entity,System.String,System.Func{`0,System.Boolean})">
+			<summary>使用指定的父代、此父代上的集合名稱，以及篩選函式，初始化 <see cref="T:System.ServiceModel.DomainServices.Client.EntityCollection`1"></see> 類別的新執行個體。</summary>
+			<param name="memberName">父實體上這個 <see cref="T:System.ServiceModel.DomainServices.Client.EntityCollection`1"></see> 成員的名稱。</param>
+			<param name="entityPredicate">函式，用來篩選關聯的實體並判斷哪些實體為這個集合的成員。</param>
+			<param name="parent">這個集合為其成員的實體。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntityCollection`1.#ctor(System.ServiceModel.DomainServices.Client.Entity,System.String,System.Func{`0,System.Boolean},System.Action{`0},System.Action{`0})">
+			<summary>使用指定的父代、此父代上的集合名稱，以及用於篩選、附加和中斷連結的函式，初始化 <see cref="T:System.ServiceModel.DomainServices.Client.EntityCollection`1"></see> 類別的新執行個體。</summary>
+			<param name="memberName">父實體上這個 <see cref="T:System.ServiceModel.DomainServices.Client.EntityCollection`1"></see> 成員的名稱。</param>
+			<param name="entityPredicate">函式，用來篩選關聯的實體並判斷哪些實體為這個集合的成員。</param>
+			<param name="parent">這個集合為其成員的實體。</param>
+			<param name="detachAction">函式，用來移除從關聯的實體到父實體的反向參考。</param>
+			<param name="attachAction">函式，用來建立從關聯的實體到父實體的反向參考。</param>
+		</member>
+		<member name="E:System.ServiceModel.DomainServices.Client.EntityCollection`1.EntityAdded">
+			<summary>當 <see cref="T:System.ServiceModel.DomainServices.Client.Entity"></see> 加入至此集合時引發。</summary>
+		</member>
+		<member name="E:System.ServiceModel.DomainServices.Client.EntityCollection`1.EntityRemoved">
+			<summary>從此集合移除 <see cref="T:System.ServiceModel.DomainServices.Client.Entity"></see> 時引發。</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntityCollection`1.Add(`0)">
+			<summary>將指定的實體加入至此集合。</summary>
+			<param name="entity">要加入的實體。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntityCollection`1.GetEnumerator">
+			<summary>傳回這個集合的列舉值。</summary>
+			<returns>這個集合的 IEnumerator。</returns>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntityCollection`1.Remove(`0)">
+			<summary>從此集合中移除指定的實體。</summary>
+			<param name="entity">要移除的實體。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntityCollection`1.ToString">
+			<summary>傳回集合的文字表示。</summary>
+			<returns>表示 <see cref="T:System.ServiceModel.DomainServices.Client.EntityCollection`1"></see> 的字串。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.EntityCollection`1.Count">
+			<summary>取得這個集合中目前實體的計數。</summary>
+			<returns>整數，表示這個集合中目前實體的計數。</returns>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.EntityCollectionChangedEventArgs`1">
+			<summary>為包含實體的集合提供強型別加入或移除通知的事件引數。</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntityCollectionChangedEventArgs`1.#ctor(`0)">
+			<summary>初始化 <see cref="T:System.ServiceModel.DomainServices.Client.EntityCollectionChangedEventArgs`1"></see> 類別的新執行個體。</summary>
+			<param name="entity">受影響的 <see cref="P:System.ServiceModel.DomainServices.Client.EntityCollectionChangedEventArgs`1.Entity"></see>。</param>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.EntityCollectionChangedEventArgs`1.Entity">
+			<summary>取得受影響的 <see cref="P:System.ServiceModel.DomainServices.Client.EntityCollectionChangedEventArgs`1.Entity"></see>。</summary>
+			<returns>受影響的 <see cref="P:System.ServiceModel.DomainServices.Client.EntityCollectionChangedEventArgs`1.Entity"></see>。</returns>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.EntityConflict">
+			<summary>表示實體衝突。</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntityConflict.Resolve">
+			<summary>透過用目前存放區狀態更新實體的原始狀態來解決衝突。</summary>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.EntityConflict.CurrentEntity">
+			<summary>取得目前的 <see cref="T:System.ServiceModel.DomainServices.Client.Entity"></see> 執行個體。</summary>
+			<returns>目前的 <see cref="T:System.ServiceModel.DomainServices.Client.Entity"></see> 執行個體。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.EntityConflict.IsDeleted">
+			<summary>取得值，這個值表示實體是否不再存在於存放區中。</summary>
+			<returns>如果已從存放區刪除實體，則為 true，否則為 false。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.EntityConflict.OriginalEntity">
+			<summary>取得原始 <see cref="T:System.ServiceModel.DomainServices.Client.Entity"></see> 執行個體。</summary>
+			<returns>原始 <see cref="T:System.ServiceModel.DomainServices.Client.Entity"></see> 執行個體。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.EntityConflict.PropertyNames">
+			<summary>取得相衝突屬性名稱的集合。</summary>
+			<returns>相衝突屬性名稱的集合。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.EntityConflict.StoreEntity">
+			<summary>取得存放區 <see cref="T:System.ServiceModel.DomainServices.Client.Entity"></see> 執行個體。</summary>
+			<returns>存放區 <see cref="T:System.ServiceModel.DomainServices.Client.Entity"></see> 執行個體，如果實體不再存在於存放區中，則為 null。</returns>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.EntityContainer">
+			<summary>表示 <see cref="T:System.ServiceModel.DomainServices.Client.EntitySet"></see> 物件集合形式的實體快取。</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntityContainer.#ctor">
+			<summary>初始化 <see cref="T:System.ServiceModel.DomainServices.Client.EntityContainer"></see> 類別的新執行個體。</summary>
+		</member>
+		<member name="E:System.ServiceModel.DomainServices.Client.EntityContainer.PropertyChanged">
+			<summary>發生於屬性變更時。</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntityContainer.AcceptChanges">
+			<summary>接受對實體或此容器中的 <see cref="T:System.ServiceModel.DomainServices.Client.EntitySet"></see> 物件所做的所有變更。</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntityContainer.AddReference(System.ServiceModel.DomainServices.Client.EntitySet)">
+			<summary>加入外部 <see cref="T:System.ServiceModel.DomainServices.Client.EntitySet"></see> 的參考。</summary>
+			<param name="entitySet">實體集。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntityContainer.Clear">
+			<summary>取得這個容器中所有 <see cref="T:System.ServiceModel.DomainServices.Client.EntitySet"></see> 物件的內容。</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntityContainer.CreateEntitySet``1">
+			<summary>在這個容器中建立指定之實體類型的新 <see cref="T:System.ServiceModel.DomainServices.Client.EntitySet"></see>。</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntityContainer.CreateEntitySet``1(System.ServiceModel.DomainServices.Client.EntitySetOperations)">
+			<summary>在這個容器中建立指定之 <see cref="T:System.ServiceModel.DomainServices.Client.EntitySetOperations"></see> 的新 <see cref="T:System.ServiceModel.DomainServices.Client.EntitySet"></see>。</summary>
+			<param name="supportedOperations">實體類型支援的作業。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntityContainer.GetChanges">
+			<summary>傳回 <see cref="T:System.ServiceModel.DomainServices.Client.EntityChangeSet"></see>，包含目前暫止變更的集合。</summary>
+			<returns><see cref="T:System.ServiceModel.DomainServices.Client.EntityChangeSet"></see>，包含目前暫止變更的集合。</returns>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntityContainer.GetEntitySet(System.Type)">
+			<summary>取得指定之 <see cref="T:System.ServiceModel.DomainServices.Client.Entity"></see> 型別的 <see cref="T:System.ServiceModel.DomainServices.Client.EntitySet"></see>。</summary>
+			<returns>指定之 <see cref="T:System.ServiceModel.DomainServices.Client.Entity"></see> 型別的 <see cref="T:System.ServiceModel.DomainServices.Client.EntitySet"></see>。</returns>
+			<param name="entityType">實體類型。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntityContainer.GetEntitySet``1">
+			<summary>取得指定之 <see cref="T:System.ServiceModel.DomainServices.Client.Entity"></see> 型別的 <see cref="T:System.ServiceModel.DomainServices.Client.EntitySet"></see>。</summary>
+			<returns>指定之 <see cref="T:System.ServiceModel.DomainServices.Client.Entity"></see> 型別的 <see cref="T:System.ServiceModel.DomainServices.Client.EntitySet"></see>。</returns>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntityContainer.LoadEntities(System.Collections.IEnumerable)">
+			<summary>將指定的實體集合載入到這個 <see cref="T:System.ServiceModel.DomainServices.Client.EntityContainer"></see> 中。</summary>
+			<returns>表示實體集合的 IEnumerable。</returns>
+			<param name="entities">要載入的實體。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntityContainer.LoadEntities(System.Collections.IEnumerable,System.ServiceModel.DomainServices.Client.LoadBehavior)">
+			<summary>使用指定的載入行為，將指定的實體集合載入到這個 <see cref="T:System.ServiceModel.DomainServices.Client.EntityContainer"></see> 中。</summary>
+			<returns>表示實體集合的 IEnumerable。</returns>
+			<param name="loadBehavior">要使用的 <see cref="T:System.ServiceModel.DomainServices.Client.LoadBehavior"></see>。</param>
+			<param name="entities">要載入的實體。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntityContainer.RaisePropertyChanged(System.String)">
+			<summary>引發指定之屬性的 <see cref="E:System.ServiceModel.DomainServices.Client.EntityContainer.PropertyChanged"></see> 事件。</summary>
+			<param name="propertyName">已變更之屬性的名稱。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntityContainer.RejectChanges">
+			<summary>還原對實體或此容器中的 <see cref="T:System.ServiceModel.DomainServices.Client.EntitySet"></see> 物件所做的所有變更。</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntityContainer.TryGetEntitySet(System.Type,System.ServiceModel.DomainServices.Client.EntitySet@)">
+			<summary>嘗試取得指定之 <see cref="T:System.ServiceModel.DomainServices.Client.Entity"></see> 型別的實體集。</summary>
+			<returns>如果找到實體集則為 true，否則為 false。</returns>
+			<param name="entityType"><see cref="T:System.ServiceModel.DomainServices.Client.Entity"></see> 型別。</param>
+			<param name="entitySet">如果存在則為實體集，否則為 null。</param>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.EntityContainer.EntitySets">
+			<summary>取得這個 <see cref="T:System.ServiceModel.DomainServices.Client.EntityContainer"></see> 中的 <see cref="T:System.ServiceModel.DomainServices.Client.EntitySet"></see> 物件集合。</summary>
+			<returns>這個 <see cref="T:System.ServiceModel.DomainServices.Client.EntityContainer"></see> 中的 <see cref="T:System.ServiceModel.DomainServices.Client.EntitySet"></see> 物件集合。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.EntityContainer.HasChanges">
+			<summary>取得值，這個值表示這個 <see cref="T:System.ServiceModel.DomainServices.Client.EntityContainer"></see> 目前是否有任何暫止變更。</summary>
+			<returns>如果 <see cref="T:System.ServiceModel.DomainServices.Client.EntityContainer"></see> 目前有任何暫止變更，則為 true，否則為 false。</returns>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.EntityKey">
+			<summary>索引鍵的基底類別，表示唯一的實體識別。適合用於雜湊的索引鍵。</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntityKey.#ctor">
+			<summary>初始化 <see cref="T:System.ServiceModel.DomainServices.Client.EntityKey"></see> 類別的新執行個體。</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntityKey.Create(System.Object[])">
+			<summary>使用指定的索引鍵值來建立索引鍵。</summary>
+			<returns>根據指定之索引鍵值的索引鍵。</returns>
+			<param name="keyValues">索引鍵值的陣列。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntityKey.Create``2(``0,``1)">
+			<summary>使用指定的索引鍵值來建立索引鍵。</summary>
+			<returns>根據指定之索引鍵值的索引鍵。</returns>
+			<param name="v1">第一個索引鍵值。</param>
+			<param name="v2">第二個索引鍵值。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntityKey.Create``3(``0,``1,``2)">
+			<summary>使用指定的索引鍵值來建立索引鍵。</summary>
+			<returns>根據指定之索引鍵值的索引鍵。</returns>
+			<param name="v1">第一個索引鍵值。</param>
+			<param name="v2">第二個索引鍵值。</param>
+			<param name="v3">第三個索引鍵值。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntityKey.ToString">
+			<summary>將索引鍵格式化成一組索引鍵值。</summary>
+			<returns>表示格式化之索引鍵的字串。</returns>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.EntityOperationType">
+			<summary>描述可在 <see cref="T:System.ServiceModel.DomainServices.Client.Entity"></see> 上執行的作業類型。</summary>
+		</member>
+		<member name="F:System.ServiceModel.DomainServices.Client.EntityOperationType.Delete">
+			<summary>刪除現有 <see cref="T:System.ServiceModel.DomainServices.Client.Entity"></see> 的作業。</summary>
+		</member>
+		<member name="F:System.ServiceModel.DomainServices.Client.EntityOperationType.Insert">
+			<summary>插入新 <see cref="T:System.ServiceModel.DomainServices.Client.Entity"></see> 的作業。</summary>
+		</member>
+		<member name="F:System.ServiceModel.DomainServices.Client.EntityOperationType.None">
+			<summary>不會在 <see cref="T:System.ServiceModel.DomainServices.Client.Entity"></see> 上執行作業。</summary>
+		</member>
+		<member name="F:System.ServiceModel.DomainServices.Client.EntityOperationType.Update">
+			<summary>更新現有 <see cref="T:System.ServiceModel.DomainServices.Client.Entity"></see> 的作業。</summary>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.EntityQuery">
+			<summary>表示查詢方法引動過程。</summary>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.EntityQuery.DomainClient">
+			<summary>取得這個查詢的 <see cref="T:System.ServiceModel.DomainServices.Client.DomainClient"></see>。</summary>
+			<returns>這個查詢的 <see cref="T:System.ServiceModel.DomainServices.Client.DomainClient"></see>。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.EntityQuery.EntityType">
+			<summary>取得這個查詢從中擷取資料的型別。</summary>
+			<returns>這個查詢從中擷取資料的型別。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.EntityQuery.HasSideEffects">
+			<summary>取得值，這個值表示查詢是否有副作用。</summary>
+			<returns>如果查詢有副作用，則為 true，否則為 false。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.EntityQuery.IncludeTotalCount">
+			<summary>取得或設定值，這個值表示 <see cref="P:System.ServiceModel.DomainServices.Client.DomainClientResult.TotalEntityCount"></see> 屬性是否為必要項。</summary>
+			<returns>如果 <see cref="P:System.ServiceModel.DomainServices.Client.DomainClientResult.TotalEntityCount"></see> 屬性是必要項，則為 true，否則為 false。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.EntityQuery.IsComposable">
+			<summary>取得值，這個值表示查詢是否支援複合。</summary>
+			<returns>如果查詢支援複合，則為 true，否則為 false。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.EntityQuery.Parameters">
+			<summary>取得查詢方法所需的參數。</summary>
+			<returns>字典，表示查詢方法所需的選擇性參數。如果方法不接受任何參數，則傳回 null。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.EntityQuery.Query">
+			<summary>取得查詢的基礎 IQueryable。</summary>
+			<returns>查詢方法引動過程的物件，如果查詢不存在則為 null。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.EntityQuery.QueryName">
+			<summary>取得查詢方法的名稱。</summary>
+			<returns>查詢方法的名稱。</returns>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.EntityQuery`1">
+			<summary>表示對實體集合進行的 LINQ 查詢。</summary>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.EntityQueryable">
+			<summary>包含靜態擴充方法，這些方法實作 <see cref="T:System.ServiceModel.DomainServices.Client.EntityQuery"></see> 的 LINQ 模式子集。</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntityQueryable.OrderBy``2(System.ServiceModel.DomainServices.Client.EntityQuery{``0},System.Linq.Expressions.Expression{System.Func{``0,``1}})">
+			<summary>將指定的遞增順序子句套用至來源查詢。</summary>
+			<returns>撰寫的查詢。</returns>
+			<param name="source">來源查詢。</param>
+			<param name="keySelector">選取排序依據成員的運算式。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntityQueryable.OrderByDescending``2(System.ServiceModel.DomainServices.Client.EntityQuery{``0},System.Linq.Expressions.Expression{System.Func{``0,``1}})">
+			<summary>將指定的遞減順序子句套用至來源查詢。</summary>
+			<returns>有指定之遞減順序子句的 <see cref="T:System.ServiceModel.DomainServices.Client.EntityQuery`1"></see>。</returns>
+			<param name="source">來源查詢。</param>
+			<param name="keySelector">選取排序依據成員的運算式。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntityQueryable.Select``1(System.ServiceModel.DomainServices.Client.EntityQuery{``0},System.Linq.Expressions.Expression{System.Func{``0,``0}})">
+			<summary>將指定的選取範圍套用至來源查詢。</summary>
+			<returns>有指定之選取範圍的 <see cref="T:System.ServiceModel.DomainServices.Client.EntityQuery`1"></see>。</returns>
+			<param name="source">來源查詢。</param>
+			<param name="selector">選取器函式。請注意，不支援投影。選取範圍必須是實體本身。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntityQueryable.Skip``1(System.ServiceModel.DomainServices.Client.EntityQuery{``0},System.Int32)">
+			<summary>將指定的 Skip 子句套用至來源查詢。</summary>
+			<returns>有指定之 Skip 子句的 <see cref="T:System.ServiceModel.DomainServices.Client.EntityQuery`1"></see>。</returns>
+			<param name="source">來源查詢。</param>
+			<param name="count">要略過的數字。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntityQueryable.Take``1(System.ServiceModel.DomainServices.Client.EntityQuery{``0},System.Int32)">
+			<summary>將指定的 Take 子句套用至來源查詢。</summary>
+			<returns>有指定之 Take 子句的 <see cref="T:System.ServiceModel.DomainServices.Client.EntityQuery`1"></see>。</returns>
+			<param name="source">來源查詢。</param>
+			<param name="count">要接受的數字。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntityQueryable.ThenBy``2(System.ServiceModel.DomainServices.Client.EntityQuery{``0},System.Linq.Expressions.Expression{System.Func{``0,``1}})">
+			<summary>將指定的遞增順序子句套用至來源查詢。</summary>
+			<returns>有指定之遞增順序子句的 <see cref="T:System.ServiceModel.DomainServices.Client.EntityQuery`1"></see>。</returns>
+			<param name="source">來源查詢。</param>
+			<param name="keySelector">選取排序依據成員的運算式。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntityQueryable.ThenByDescending``2(System.ServiceModel.DomainServices.Client.EntityQuery{``0},System.Linq.Expressions.Expression{System.Func{``0,``1}})">
+			<summary>將指定的遞減順序子句套用至來源查詢。</summary>
+			<returns>有指定之遞減順序子句的 <see cref="T:System.ServiceModel.DomainServices.Client.EntityQuery`1"></see>。</returns>
+			<param name="source">來源查詢。</param>
+			<param name="keySelector">選取排序依據成員的運算式。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntityQueryable.Where``1(System.ServiceModel.DomainServices.Client.EntityQuery{``0},System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}})">
+			<summary>將指定的篩選條件套用至來源查詢。</summary>
+			<returns>有指定之篩選條件的 <see cref="T:System.ServiceModel.DomainServices.Client.EntityQuery`1"></see>。</returns>
+			<param name="predicate">篩選述詞 (Predicate)。</param>
+			<param name="source">來源查詢。</param>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.EntityRef`1">
+			<summary>表示相關實體的參考。</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntityRef`1.#ctor(System.ServiceModel.DomainServices.Client.Entity,System.String,System.Func{`0,System.Boolean})">
+			<summary>初始化 <see cref="T:System.ServiceModel.DomainServices.Client.EntityRef`1"></see> 類別的執行個體。</summary>
+			<param name="memberName">父實體上這個 <see cref="T:System.ServiceModel.DomainServices.Client.EntityRef`1"></see> 成員的名稱。</param>
+			<param name="entityPredicate">用來篩選相關實體的函式。</param>
+			<param name="parent">這個關聯為其成員的實體。</param>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.EntityRef`1.Entity">
+			<summary>取得或設定相關聯的 <see cref="P:System.ServiceModel.DomainServices.Client.EntityRef`1.Entity"></see>。</summary>
+			<returns>相關聯的實體。</returns>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.EntitySet">
+			<summary>表示 <see cref="T:System.ServiceModel.DomainServices.Client.Entity"></see> 執行個體的集合。</summary>
+		</member>
+		<member name="E:System.ServiceModel.DomainServices.Client.EntitySet.PropertyChanged">
+			<summary>發生於屬性變更時。</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntitySet.AcceptChanges">
+			<summary>接受對此 <see cref="T:System.ServiceModel.DomainServices.Client.EntitySet"></see> 所做的所有變更。</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntitySet.Add(System.ServiceModel.DomainServices.Client.Entity)">
+			<summary>將指定的 <see cref="T:System.ServiceModel.DomainServices.Client.Entity"></see> 加入至這個 <see cref="T:System.ServiceModel.DomainServices.Client.EntitySet"></see>。</summary>
+			<param name="entity">要加入的實體。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntitySet.Attach(System.ServiceModel.DomainServices.Client.Entity)">
+			<summary>以未修改狀態將指定的 <see cref="T:System.ServiceModel.DomainServices.Client.Entity"></see> 附加至這個 <see cref="T:System.ServiceModel.DomainServices.Client.EntitySet"></see>。</summary>
+			<param name="entity">要附加的實體。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntitySet.Clear">
+			<summary>清除集合中的所有實體。</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntitySet.CreateEntity">
+			<summary>建立新的實體。</summary>
+			<returns>已建立的實體。</returns>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntitySet.CreateList">
+			<summary>建立集合的儲存清單。</summary>
+			<returns>建立的儲存清單執行個體。</returns>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntitySet.Detach(System.ServiceModel.DomainServices.Client.Entity)">
+			<summary>從這個 <see cref="T:System.ServiceModel.DomainServices.Client.EntitySet"></see> 將指定的 <see cref="T:System.ServiceModel.DomainServices.Client.Entity"></see> 中斷連結。</summary>
+			<param name="entity">要中斷連結的實體。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntitySet.GetEnumerator">
+			<summary>取得此集合的列舉值。</summary>
+			<returns>集合的列舉值。</returns>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntitySet.OnCollectionChanged(System.Collections.Specialized.NotifyCollectionChangedAction,System.Object,System.Int32)">
+			<summary>當集合變更時呼叫。</summary>
+			<param name="affectedObject">如果是重設事件，這個參數將是已移除之實體的集合。如果是所有其他事件，這個參數將是受影響的單一實體。</param>
+			<param name="action">變更動作。</param>
+			<param name="index">受影響的索引。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntitySet.OnPropertyChanged(System.ComponentModel.PropertyChangedEventArgs)">
+			<summary>當 <see cref="T:System.ServiceModel.DomainServices.Client.EntitySet"></see> 屬性已變更時呼叫。</summary>
+			<param name="e">事件引數。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntitySet.RaisePropertyChanged(System.String)">
+			<summary>引發指定之屬性的 <see cref="E:System.ServiceModel.DomainServices.Client.EntitySet.PropertyChanged"></see> 事件。</summary>
+			<param name="propertyName">已變更的屬性。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntitySet.RejectChanges">
+			<summary>還原對此 <see cref="T:System.ServiceModel.DomainServices.Client.EntitySet"></see> 所做的所有變更。</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntitySet.Remove(System.ServiceModel.DomainServices.Client.Entity)">
+			<summary>從集合移除指定的實體。</summary>
+			<param name="entity">要移除的實體。</param>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.EntitySet.CanAdd">
+			<summary>取得值，這個值表示集合是否允許加入新實體。</summary>
+			<returns>如果集合允許加入新項目，則為 true，否則為 false。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.EntitySet.CanEdit">
+			<summary>取得值，這個值表示集合中的實體是否可以編輯。</summary>
+			<returns>如果集合允許編輯成員，則為 true，否則為 false。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.EntitySet.CanRemove">
+			<summary>取得值，這個值表示集合是否允許移除實體。</summary>
+			<returns>如果集合允許移除項目，則為 true，否則為 false。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.EntitySet.Count">
+			<summary>取得集合中目前實體的計數。</summary>
+			<returns>整數，表示集合中的實體計數。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.EntitySet.EntityContainer">
+			<summary>取得這個 <see cref="T:System.ServiceModel.DomainServices.Client.EntitySet"></see> 的容器。</summary>
+			<returns>這個 <see cref="T:System.ServiceModel.DomainServices.Client.EntitySet"></see> 的容器。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.EntitySet.EntityType">
+			<summary>取得這個 <see cref="T:System.ServiceModel.DomainServices.Client.EntitySet"></see> 所包含的實體類型。</summary>
+			<returns>這個 <see cref="T:System.ServiceModel.DomainServices.Client.EntitySet"></see> 所包含的實體類型。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.EntitySet.HasChanges">
+			<summary>取得值，這個值表示這個 <see cref="T:System.ServiceModel.DomainServices.Client.EntitySet"></see> 目前是否有任何暫止變更。</summary>
+			<returns>如果集合有任何暫止變更，則為 true，否則為 false。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.EntitySet.IsReadOnly">
+			<summary>取得值，這個值表示這個集合是否支援更新作業。</summary>
+			<returns>如果不支援更新作業，則為 true，否則為 false。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.EntitySet.List">
+			<summary>取得這個 <see cref="T:System.ServiceModel.DomainServices.Client.EntitySet"></see> 的支援清單。</summary>
+			<returns>這個 <see cref="T:System.ServiceModel.DomainServices.Client.EntitySet"></see> 的支援清單。</returns>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.EntitySet`1">
+			<summary>表示提供變更追蹤和其他服務的 <see cref="T:System.ServiceModel.DomainServices.Client.Entity"></see> 執行個體集合。</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntitySet`1.#ctor">
+			<summary>初始化 <see cref="T:System.ServiceModel.DomainServices.Client.EntitySet`1"></see> 類別的新執行個體。</summary>
+		</member>
+		<member name="E:System.ServiceModel.DomainServices.Client.EntitySet`1.EntityAdded">
+			<summary>在 <see cref="T:System.ServiceModel.DomainServices.Client.Entity"></see> 加入至此實體集時發生。</summary>
+		</member>
+		<member name="E:System.ServiceModel.DomainServices.Client.EntitySet`1.EntityRemoved">
+			<summary>從此實體集移除 <see cref="T:System.ServiceModel.DomainServices.Client.Entity"></see> 時發生。</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntitySet`1.Add(`0)">
+			<summary>將指定的實體加入至此實體集。此外，也會以遞迴方式加入所有可透過關聯取得的未附加實體。</summary>
+			<param name="entity">要加入的實體。entity 必須是 TEntity 型別，而且不能是子類別。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntitySet`1.Attach(`0)">
+			<summary>以未修改狀態將指定的 <see cref="T:System.ServiceModel.DomainServices.Client.Entity"></see> 附加至這個實體集。此外，也會以遞迴方式附加所有可透過關聯取得的未附加實體。</summary>
+			<param name="entity">要附加的實體。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntitySet`1.Detach(`0)">
+			<summary>從此實體集將 <see cref="T:System.ServiceModel.DomainServices.Client.Entity"></see> 中斷連結。</summary>
+			<param name="entity">要中斷連結的實體。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntitySet`1.GetEnumerator">
+			<summary>傳回此實體集的列舉值。</summary>
+			<returns>可用來逐一查看此實體集的列舉值。</returns>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntitySet`1.Remove(`0)">
+			<summary>從集合移除指定的實體。如果實體是複合階層的根，同時也會移除所有子實體。</summary>
+			<param name="entity">要移除的實體。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntitySet`1.System.Collections.Generic.IEnumerable`1.GetEnumerator">
+			<summary>取得此集合的列舉值。</summary>
+			<returns>集合的列舉值。</returns>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.EntitySetOperations">
+			<summary><see cref="T:System.ServiceModel.DomainServices.Client.EntitySet"></see> 上允許之作業的型別列舉。</summary>
+		</member>
+		<member name="F:System.ServiceModel.DomainServices.Client.EntitySetOperations.Add">
+			<summary>可加入新的實體。</summary>
+		</member>
+		<member name="F:System.ServiceModel.DomainServices.Client.EntitySetOperations.All">
+			<summary>可加入、更新及移除實體。</summary>
+		</member>
+		<member name="F:System.ServiceModel.DomainServices.Client.EntitySetOperations.Edit">
+			<summary>可更新實體。</summary>
+		</member>
+		<member name="F:System.ServiceModel.DomainServices.Client.EntitySetOperations.None">
+			<summary>只允許讀取作業。不允許更新作業。</summary>
+		</member>
+		<member name="F:System.ServiceModel.DomainServices.Client.EntitySetOperations.Remove">
+			<summary>可移除實體。</summary>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.EntityState">
+			<summary>描述 <see cref="T:System.ServiceModel.DomainServices.Client.Entity"></see> 的可能狀態。</summary>
+		</member>
+		<member name="F:System.ServiceModel.DomainServices.Client.EntityState.Deleted">
+			<summary>實體標示刪除。</summary>
+		</member>
+		<member name="F:System.ServiceModel.DomainServices.Client.EntityState.Detached">
+			<summary>實體未附加，目前未追蹤。</summary>
+		</member>
+		<member name="F:System.ServiceModel.DomainServices.Client.EntityState.Modified">
+			<summary>實體已修改。</summary>
+		</member>
+		<member name="F:System.ServiceModel.DomainServices.Client.EntityState.New">
+			<summary>實體以新狀態附加。</summary>
+		</member>
+		<member name="F:System.ServiceModel.DomainServices.Client.EntityState.Unmodified">
+			<summary>實體處於原始、未修改狀態。</summary>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.InvokeArgs">
+			<summary>表示呼叫叫用作業所需的資訊。</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.InvokeArgs.#ctor(System.String,System.Type,System.Collections.Generic.IDictionary{System.String,System.Object},System.Boolean)">
+			<summary>初始化 <see cref="T:System.ServiceModel.DomainServices.Client.InvokeArgs"></see> 類別的新執行個體。</summary>
+			<param name="hasSideEffects">如果作業有副作用，則為 true，否則為 false。</param>
+			<param name="returnType">叫用作業的傳回型別。</param>
+			<param name="parameters">作業的選擇性參數。如果此方法不接受任何參數，請指定 null。</param>
+			<param name="operationName">叫用作業的名稱。</param>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.InvokeArgs.HasSideEffects">
+			<summary>取得值，這個值指出此作業是否有副作用。</summary>
+			<returns>如果此作業有副作用，則為 true，否則為 false。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.InvokeArgs.OperationName">
+			<summary>取得此作業的名稱。</summary>
+			<returns>此作業的名稱。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.InvokeArgs.Parameters">
+			<summary>取得此作業所需的參數 (如果有的話)。</summary>
+			<returns>此作業所需的參數，如果此方法不接受任何參數則為 null。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.InvokeArgs.ReturnType">
+			<summary>取得此作業的傳回型別。</summary>
+			<returns>此作業的傳回型別。</returns>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.InvokeCompletedResult">
+			<summary>表示叫用作業的結果。</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.InvokeCompletedResult.#ctor(System.Object)">
+			<summary>使用指定的傳回值，初始化 <see cref="T:System.ServiceModel.DomainServices.Client.InvokeCompletedResult"></see> 類別的新執行個體。</summary>
+			<param name="returnValue">伺服器傳回的值。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.InvokeCompletedResult.#ctor(System.Object,System.Collections.Generic.IEnumerable{System.ComponentModel.DataAnnotations.ValidationResult})">
+			<summary>使用指定的傳回值和驗證錯誤，初始化 <see cref="T:System.ServiceModel.DomainServices.Client.InvokeCompletedResult"></see> 類別的新執行個體。</summary>
+			<param name="returnValue">伺服器傳回的值。</param>
+			<param name="validationErrors">驗證錯誤的集合。</param>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.InvokeCompletedResult.ReturnValue">
+			<summary>取得伺服器傳回的值。</summary>
+			<returns>物件，表示伺服器傳回的值。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.InvokeCompletedResult.ValidationErrors">
+			<summary>取得驗證錯誤。</summary>
+			<returns>表示驗證錯誤的 <see cref="T:System.Collections.Generic.IEnumerable`1"></see>。</returns>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.InvokeOperation">
+			<summary>代表非同步叫用作業。</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.InvokeOperation.CancelCore">
+			<summary>叫用取消回呼。</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.InvokeOperation.InvokeCompleteAction">
+			<summary>叫用完成回呼。</summary>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.InvokeOperation.OperationName">
+			<summary>取得作業的名稱。</summary>
+			<returns>表示作業名稱的字串。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.InvokeOperation.Parameters">
+			<summary>取得作業的參數集合。</summary>
+			<returns><see cref="T: System.Collections.Generic.IDictionary`2"></see>，表示作業的參數集合。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.InvokeOperation.Result">
+			<summary>取得這個作業的 <see cref="T:System.ServiceModel.DomainServices.Client.DomainClientResult"></see>。</summary>
+			<returns>物件，表示這個作業的結果。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.InvokeOperation.SupportsCancellation">
+			<summary>取得值，這個值表示這個作業是否支援取消。</summary>
+			<returns>如果作業支援取消，則為 true，否則為 false。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.InvokeOperation.ValidationErrors">
+			<summary>取得這個作業的驗證錯誤。</summary>
+			<returns><see cref="T: System.Collections.Generic.IEnumerable`1"></see>，表示這個作業的驗證錯誤。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.InvokeOperation.Value">
+			<summary>取得叫用作業的傳回值。</summary>
+			<returns>物件，表示叫用作業的傳回值。</returns>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.InvokeOperation`1">
+			<summary>代表非同步叫用作業。</summary>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.InvokeOperation`1.Value">
+			<summary>取得叫用作業的傳回值。</summary>
+			<returns>叫用作業的傳回值。</returns>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.LoadBehavior">
+			<summary>指定載入實體時的控制項識別快取行為。</summary>
+		</member>
+		<member name="F:System.ServiceModel.DomainServices.Client.LoadBehavior.KeepCurrent">
+			<summary>快取的執行個體未變更，而且捨棄新讀取的執行個體。</summary>
+		</member>
+		<member name="F:System.ServiceModel.DomainServices.Client.LoadBehavior.MergeIntoCurrent">
+			<summary>新讀取之執行個體的值合併至未修改之屬性值的快取執行個體。在此合併中不會遺失任何變更。</summary>
+		</member>
+		<member name="F:System.ServiceModel.DomainServices.Client.LoadBehavior.RefreshCurrent">
+			<summary>無論快取執行個體的成員是否已經修改，一律都會將它們全部覆寫成新讀取之執行個體的目前值。此外，實體的原始狀態也會設為新讀取的執行個體。</summary>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.LoadOperation">
+			<summary>表示非同步載入作業。</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.LoadOperation.UpdateResults(System.ServiceModel.DomainServices.Client.DomainClientResult)">
+			<summary>更新可觀察的結果集合。</summary>
+			<param name="result">已完成之載入作業的結果。</param>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.LoadOperation.AllEntities">
+			<summary>取得作業載入的所有實體，包括最上層實體所參考的任何實體。</summary>
+			<returns>可列舉項目，表示作業載入的所有實體，包括最上層實體所參考的任何實體。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.LoadOperation.Entities">
+			<summary>取得作業載入的所有最上層實體。</summary>
+			<returns>可列舉項目，表示作業載入的所有最上層實體。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.LoadOperation.EntityQuery">
+			<summary>取得這個載入作業的 <see cref="T:System.ServiceModel.DomainServices.Client.EntityQuery"></see>。</summary>
+			<returns>這個載入作業的 <see cref="T:System.ServiceModel.DomainServices.Client.EntityQuery"></see>。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.LoadOperation.LoadBehavior">
+			<summary>取得這個載入作業的 <see cref="T:System.ServiceModel.DomainServices.Client.LoadBehavior"></see>。</summary>
+			<returns>這個載入作業的 <see cref="T:System.ServiceModel.DomainServices.Client.LoadBehavior"></see>。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.LoadOperation.Result">
+			<summary>取得這個作業的 <see cref="T:System.ServiceModel.DomainServices.Client.DomainClientResult"></see>。</summary>
+			<returns>這個作業的 <see cref="T:System.ServiceModel.DomainServices.Client.DomainClientResult"></see>。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.LoadOperation.TotalEntityCount">
+			<summary>取得這個作業所用查詢的伺服器實體總計數。</summary>
+			<returns>這個作業所用查詢的伺服器實體總計數。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.LoadOperation.ValidationErrors">
+			<summary>取得驗證錯誤。</summary>
+			<returns>表示驗證錯誤的可列舉項目。</returns>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.LoadOperation`1">
+			<summary>表示非同步載入作業。</summary>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.LoadOperation`1.Entities">
+			<summary>取得作業載入的所有實體，包括最上層實體所參考的任何實體。</summary>
+			<returns><see cref="T:System.Collections.Generic.IEnumerable`1"></see>，表示作業載入的所有實體。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.LoadOperation`1.EntityQuery">
+			<summary>取得這個載入作業的 <see cref="P:System.ServiceModel.DomainServices.Client.LoadOperation`1.EntityQuery"></see>。</summary>
+			<returns>這個載入作業的 <see cref="T:System.ServiceModel.DomainServices.Client.EntityQuery`1"></see>。</returns>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.OperationBase">
+			<summary>表示非同步作業。</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.OperationBase.#ctor(System.Object)">
+			<summary>初始化 <see cref="T:System.ServiceModel.DomainServices.Client.OperationBase"></see> 類別的新執行個體。</summary>
+			<param name="userState">選擇性的使用者狀態。</param>
+		</member>
+		<member name="E:System.ServiceModel.DomainServices.Client.OperationBase.Completed">
+			<summary>在作業完成時呼叫。</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.OperationBase.Cancel">
+			<summary>取消作業。</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.OperationBase.CancelCore">
+			<summary>在衍生類別中覆寫時，提供取消作業的邏輯。</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.OperationBase.Complete(System.Exception)">
+			<summary>完成具有指定之錯誤的失敗作業。</summary>
+			<param name="error">導致作業失敗的錯誤。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.OperationBase.Complete(System.Object)">
+			<summary>完成具有指定之結果的成功作業。</summary>
+			<param name="result">作業的結果。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.OperationBase.InvokeCompleteAction">
+			<summary>叫用完成回呼。</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.OperationBase.MarkErrorAsHandled">
+			<summary>指定作業中發生的錯誤已處理。</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.OperationBase.OnPropertyChanged(System.ComponentModel.PropertyChangedEventArgs)">
+			<summary>在屬性值變更時呼叫。</summary>
+			<param name="e">事件資料。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.OperationBase.RaisePropertyChanged(System.String)">
+			<summary>引發 <see cref="E:System.Windows.Controls.Ria.DomainDataSourceView.System#ComponentModel#INotifyPropertyChanged#PropertyChanged"></see> 事件。</summary>
+			<param name="propertyName">已變更之屬性的名稱。</param>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.OperationBase.CanCancel">
+			<summary>取得值，這個值表示這個 <see cref="T:System.ServiceModel.DomainServices.Client.OperationBase"></see> 目前是否處於可取消的狀態。</summary>
+			<returns>如果這個 <see cref="T:System.ServiceModel.DomainServices.Client.OperationBase"></see> 目前處於可取消的狀態，則為 true，否則為 false。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.OperationBase.Error">
+			<summary>取得作業失敗時的作業錯誤。</summary>
+			<returns>導致作業失敗的錯誤，否則為 null。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.OperationBase.HasError">
+			<summary>取得值，這個值表示作業是否失敗。</summary>
+			<returns>如果作業失敗，則為 true，否則為 false。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.OperationBase.IsCanceled">
+			<summary>取得值，這個值表示是否已取消這個作業。</summary>
+			<returns>如果已取消作業則為 true，否則為 false。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.OperationBase.IsComplete">
+			<summary>取得值，這個值指出這個作業是否已經完成。</summary>
+			<returns>如果作業已經完成，則為 true，否則為 false。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.OperationBase.IsErrorHandled">
+			<summary>取得或設定值，這個值表示是否已處理作業錯誤。</summary>
+			<returns>如果已處理錯誤，則為 true，否則為 false。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.OperationBase.Result">
+			<summary>取得非同步作業的結果。</summary>
+			<returns>非同步作業的結果。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.OperationBase.SupportsCancellation">
+			<summary>取得值，這個值表示這個作業是否支援取消。</summary>
+			<returns>如果作業支援取消，則為 true，否則為 false。這個實作永遠傳回 false。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.OperationBase.UserState">
+			<summary>取得這個作業的選擇性使用者狀態。</summary>
+			<returns>這個作業的使用者狀態，如果未指定使用者狀態則為 null。</returns>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.OperationErrorStatus">
+			<summary>描述在作業期間發生的錯誤。</summary>
+		</member>
+		<member name="F:System.ServiceModel.DomainServices.Client.OperationErrorStatus.Conflicts">
+			<summary>發生衝突。請參閱 <see cref="P:System.ServiceModel.DomainServices.Client.Entity.EntityConflict"></see>，以取得指定之實體的衝突。</summary>
+		</member>
+		<member name="F:System.ServiceModel.DomainServices.Client.OperationErrorStatus.NotFound">
+			<summary>找不到資源。</summary>
+		</member>
+		<member name="F:System.ServiceModel.DomainServices.Client.OperationErrorStatus.NotSupported">
+			<summary>不支援此作業。</summary>
+		</member>
+		<member name="F:System.ServiceModel.DomainServices.Client.OperationErrorStatus.ServerError">
+			<summary>在處理作業期間發生伺服器錯誤。</summary>
+		</member>
+		<member name="F:System.ServiceModel.DomainServices.Client.OperationErrorStatus.Unauthorized">
+			<summary>未授權作業執行。</summary>
+		</member>
+		<member name="F:System.ServiceModel.DomainServices.Client.OperationErrorStatus.ValidationFailed">
+			<summary>作業驗證失敗。</summary>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.QueryCompletedResult">
+			<summary>表示查詢作業的結果。</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.QueryCompletedResult.#ctor(System.Collections.Generic.IEnumerable{System.ServiceModel.DomainServices.Client.Entity},System.Collections.Generic.IEnumerable{System.ServiceModel.DomainServices.Client.Entity},System.Int32,System.Collections.Generic.IEnumerable{System.ComponentModel.DataAnnotations.ValidationResult})">
+			<summary>初始化 <see cref="T:System.ServiceModel.DomainServices.Client.QueryCompletedResult"></see> 類別的新執行個體。</summary>
+			<param name="validationErrors">驗證錯誤的集合。</param>
+			<param name="includedEntities">從查詢傳回的內含實體。</param>
+			<param name="entities">從查詢傳回的實體。</param>
+			<param name="totalCount">原始查詢 (未套用任何分頁) 的資料列總數。</param>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.QueryCompletedResult.Entities">
+			<summary>取得從查詢傳回的實體。</summary>
+			<returns>從查詢傳回的實體。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.QueryCompletedResult.IncludedEntities">
+			<summary>取得從查詢傳回的內含實體。</summary>
+			<returns>從查詢傳回的內含實體。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.QueryCompletedResult.TotalCount">
+			<summary>取得原始查詢 (未套用任何分頁) 的資料列總數。</summary>
+			<returns>原始查詢的資料列總數，如果伺服器不支援總計數則為 -1。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.QueryCompletedResult.ValidationErrors">
+			<summary>取得驗證錯誤。</summary>
+			<returns>驗證錯誤的集合。</returns>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.QueryResult">
+			<summary>用於伺服器和用戶端之間傳達查詢結果的訊息類型。</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.QueryResult.#ctor">
+			<summary>初始化 <see cref="T:System.ServiceModel.DomainServices.Client.QueryResult"></see> 類別的新執行個體。</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.QueryResult.GetIncludedResults">
+			<summary>取得包含的結果。</summary>
+			<returns>包含的結果。</returns>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.QueryResult.GetRootResults">
+			<summary>取得根結果。</summary>
+			<returns>根結果。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.QueryResult.TotalCount">
+			<summary>取得或設定原始查詢 (未套用任何分頁) 的資料列總數。</summary>
+			<returns>原始查詢 (未套用任何分頁) 的資料列總數。</returns>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.QueryResult`1">
+			<summary>用於伺服器和用戶端之間傳達查詢結果的訊息類型。</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.QueryResult`1.#ctor">
+			<summary>使用預設值，初始化 <see cref="T:System.ServiceModel.DomainServices.Client.QueryResult`1"></see> 類別的新執行個體。</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.QueryResult`1.#ctor(System.Collections.Generic.IEnumerable{`0})">
+			<summary>使用指定的結果項目集合，初始化 <see cref="T:System.ServiceModel.DomainServices.Client.QueryResult`1"></see> 類別的新執行個體。</summary>
+			<param name="results">查詢結果。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.QueryResult`1.#ctor(System.Collections.Generic.IEnumerable{`0},System.Int32)">
+			<summary>使用指定的結果項目集合和總計數，初始化 <see cref="T:System.ServiceModel.DomainServices.Client.QueryResult`1"></see> 類別的新執行個體。</summary>
+			<param name="results">查詢結果。</param>
+			<param name="totalCount">依據輸入查詢但未套用任何分頁的資料列總數。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.QueryResult`1.GetIncludedResults">
+			<summary>擷取包含的結果。</summary>
+			<returns>包含的結果。</returns>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.QueryResult`1.GetRootResults">
+			<summary>擷取根結果。</summary>
+			<returns>根結果。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.QueryResult`1.IncludedResults">
+			<summary>取得或設定包含的查詢結果。</summary>
+			<returns>包含的查詢結果。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.QueryResult`1.RootResults">
+			<summary>取得或設定最上層查詢結果。</summary>
+			<returns>最上層查詢結果。</returns>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.SubmitCompletedResult">
+			<summary>表示送出作業的結果。</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.SubmitCompletedResult.#ctor(System.ServiceModel.DomainServices.Client.EntityChangeSet,System.Collections.Generic.IEnumerable{System.ServiceModel.DomainServices.Client.ChangeSetEntry})">
+			<summary>使用指定的變更集和作業結果，初始化 <see cref="T:System.ServiceModel.DomainServices.Client.SubmitCompletedResult"></see> 類別的新執行個體。</summary>
+			<param name="operationResults">送出作業中從 <see cref="T:System.ServiceModel.DomainServices.Server.DomainService"></see> 傳送的 <see cref="T:System.ServiceModel.DomainServices.Client.ChangeSetEntry"></see> 結果。</param>
+			<param name="changeSet">送出的變更集。</param>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.SubmitCompletedResult.ChangeSet">
+			<summary>取得已送出之變更集的值。</summary>
+			<returns>已送出之變更集的值。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.SubmitCompletedResult.Results">
+			<summary>取得 <see cref="T:System.ServiceModel.DomainServices.Server.DomainService"></see> 傳回的 <see cref="T:System.ServiceModel.DomainServices.Server.ChangeSetEntry"></see> 結果。</summary>
+			<returns><see cref="T:System.ServiceModel.DomainServices.Server.DomainService"></see> 傳回的 <see cref="T:System.ServiceModel.DomainServices.Server.ChangeSetEntry"></see> 結果。</returns>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.SubmitOperation">
+			<summary>代表非同步送出作業。</summary>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.SubmitOperation.ChangeSet">
+			<summary>取得正在送出的變更集。</summary>
+			<returns>正在送出的變更集。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.SubmitOperation.EntitiesInError">
+			<summary>取得送出作業完成後發生錯誤的任何實體。</summary>
+			<returns>送出作業完成後發生錯誤的任何實體。</returns>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.ValidationResultInfo">
+			<summary>包含在伺服器上執行作業時所發生錯誤的相關資訊。</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ValidationResultInfo.#ctor">
+			<summary>初始化 <see cref="T:System.ServiceModel.DomainServices.Client.ValidationResultInfo"></see> 類別的新執行個體。</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ValidationResultInfo.#ctor(System.String,System.Collections.Generic.IEnumerable{System.String})">
+			<summary>使用當地語系化的錯誤訊息以及產生錯誤之成員的名稱集合，初始化 <see cref="T:System.ServiceModel.DomainServices.Client.ValidationResultInfo"></see> 類別的新執行個體。</summary>
+			<param name="message">當地語系化的錯誤訊息。</param>
+			<param name="sourceMemberNames">產生錯誤的成員名稱。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ValidationResultInfo.#ctor(System.String,System.Int32,System.String,System.Collections.Generic.IEnumerable{System.String})">
+			<summary>使用當地語系化的錯誤、錯誤碼、堆疊追蹤以及產生錯誤之成員的名稱集合，初始化 <see cref="T:System.ServiceModel.DomainServices.Client.ValidationResultInfo"></see> 類別的新執行個體。</summary>
+			<param name="errorCode">自訂錯誤碼。</param>
+			<param name="stackTrace">錯誤堆疊追蹤。</param>
+			<param name="message">當地語系化的錯誤訊息。</param>
+			<param name="sourceMemberNames">產生錯誤的成員名稱集合。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ValidationResultInfo.GetHashCode">
+			<summary>傳回這個物件的雜湊程式碼。</summary>
+			<returns>這個物件的雜湊程式碼。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.ValidationResultInfo.ErrorCode">
+			<summary>取得或設定自訂錯誤碼。</summary>
+			<returns>自訂錯誤碼。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.ValidationResultInfo.Message">
+			<summary>取得或設定錯誤訊息。</summary>
+			<returns>錯誤訊息。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.ValidationResultInfo.SourceMemberNames">
+			<summary>取得或設定產生錯誤的成員名稱。</summary>
+			<returns>產生錯誤的成員名稱。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.ValidationResultInfo.StackTrace">
+			<summary>取得或設定錯誤的堆疊追蹤。</summary>
+			<returns>錯誤的堆疊追蹤。</returns>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationEventArgs">
+			<summary>針對 <see cref="T:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService"></see> 類別所引發的事件提供事件引數。</summary>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationEventArgs.User">
+			<summary>取得事件發生時的使用者。</summary>
+			<returns>事件發生時的使用者。</returns>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationOperation">
+			<summary>針對 <see cref="T:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService"></see> 支援的所有作業提供基底作業類型。</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationOperation.BeginCore(System.AsyncCallback)">
+			<summary>在基礎非同步結果實作中叫用對應的 Begin 方法。</summary>
+			<returns>基礎 Begin 呼叫所傳回的非同步結果。</returns>
+			<param name="callback">當完成非同步呼叫時所要叫用的 <see cref="T:System.AsyncCallback"></see>。這個參數可以直接傳遞給基礎 Begin 方法。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationOperation.EndCore(System.IAsyncResult)">
+			<summary>在基礎非同步結果實作中叫用對應的 End 方法。</summary>
+			<returns>要儲存於 OperationBase.Result 中的 End 呼叫結果。</returns>
+			<param name="asyncResult">基礎 Begin 呼叫所傳回的非同步結果。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationOperation.RaiseCompletionPropertyChanges">
+			<summary>在作業完成之後引發屬性變更。</summary>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationOperation.AsyncResult">
+			<summary>取得從 <see cref="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationOperation.BeginCore(System.AsyncCallback)"></see> 傳回的非同步結果。</summary>
+			<returns>從 <see cref="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationOperation.BeginCore(System.AsyncCallback)"></see> 傳回的非同步結果。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationOperation.Result">
+			<summary>取得 <see cref="T:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationResult"></see> 形式的結果。</summary>
+			<returns><see cref="T:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationResult"></see> 形式的結果。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationOperation.Service">
+			<summary>取得這項作業將用來實作 Begin、Cancel 和 End 的服務。</summary>
+			<returns>這項作業將用來實作 Begin、Cancel 和 End 的服務。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationOperation.SupportsCancellation">
+			<summary>取得值，這個值指出此作業是否支援取消。</summary>
+			<returns>如果作業支援取消，則為 true，否則為 false。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationOperation.User">
+			<summary>取得使用者主體。</summary>
+			<returns>使用者主體。如果已取消作業或是作業有錯誤，此值在作業完成之前會是 null。</returns>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationResult">
+			<summary>針對 <see cref="T:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService"></see> 中非同步作業的 End 呼叫所傳回的所有結果提供抽象基底型別。</summary>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationResult.User">
+			<summary>取得已驗證的使用者。</summary>
+			<returns>已驗證的使用者。</returns>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService">
+			<summary>針對驗證、載入及儲存目前使用者的服務提供基底類別。</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.#ctor">
+			<summary>初始化 <see cref="T:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService"></see> 類別的新執行個體。</summary>
+		</member>
+		<member name="E:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.LoggedIn">
+			<summary>當新的使用者成功登入時發生。</summary>
+		</member>
+		<member name="E:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.LoggedOut">
+			<summary>當使用者成功登出時發生。</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.BeginLoadUser(System.AsyncCallback,System.Object)">
+			<summary>開始非同步的 <see cref="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.LoadUser"></see> 作業。</summary>
+			<returns>可用來參考這個非同步呼叫的控制代碼。</returns>
+			<param name="callback">當非同步呼叫完成時應該叫用的回呼。</param>
+			<param name="state">應該設定為這個方法傳回之 <see cref="T:System.IAsyncResult"></see> 的狀態。這是選擇性參數。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.BeginLogin(System.ServiceModel.DomainServices.Client.ApplicationServices.LoginParameters,System.AsyncCallback,System.Object)">
+			<summary>開始非同步的 <see cref="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.Login(System.ServiceModel.DomainServices.Client.ApplicationServices.LoginParameters,System.Action{System.ServiceModel.DomainServices.Client.ApplicationServices.LoginOperation},System.Object)"></see> 作業。</summary>
+			<returns>可用來參考這個非同步呼叫的控制代碼。</returns>
+			<param name="callback">當非同步呼叫完成時應該叫用的回呼。</param>
+			<param name="state">應該設定為這個方法傳回之 <see cref="T:System.IAsyncResult"></see> 的狀態。這是選擇性參數。</param>
+			<param name="parameters">指定要驗證之使用者的登入參數。這是選擇性參數。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.BeginLogout(System.AsyncCallback,System.Object)">
+			<summary>開始非同步的 <see cref="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.Logout(System.Action{System.ServiceModel.DomainServices.Client.ApplicationServices.LogoutOperation},System.Object)"></see> 作業。</summary>
+			<returns>可用來參考這個非同步呼叫的控制代碼。</returns>
+			<param name="callback">當非同步呼叫完成時應該叫用的回呼。</param>
+			<param name="state">應該設定為這個方法傳回之 <see cref="T:System.IAsyncResult"></see> 的狀態。這是選擇性參數。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.BeginSaveUser(System.Security.Principal.IPrincipal,System.AsyncCallback,System.Object)">
+			<summary>開始非同步的 <see cref="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.SaveUser(System.Action{System.ServiceModel.DomainServices.Client.ApplicationServices.SaveUserOperation},System.Object)"></see> 作業。</summary>
+			<returns>可用來參考這個非同步呼叫的控制代碼。</returns>
+			<param name="callback">當非同步呼叫完成時應該叫用的回呼。</param>
+			<param name="user">要儲存的使用者。此參數不得為 null。</param>
+			<param name="state">應該設定為這個方法傳回之 <see cref="T:System.IAsyncResult"></see> 的狀態。這是選擇性參數。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.CancelLoadUser(System.IAsyncResult)">
+			<summary>取消非同步的 <see cref="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.LoadUser"></see> 作業。</summary>
+			<param name="asyncResult">從 <see cref="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.BeginLoadUser(System.AsyncCallback,System.Object)"></see> 傳回的結果，代表要取消的非同步呼叫。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.CancelLogin(System.IAsyncResult)">
+			<summary>取消非同步的 <see cref="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.Login(System.ServiceModel.DomainServices.Client.ApplicationServices.LoginParameters,System.Action{System.ServiceModel.DomainServices.Client.ApplicationServices.LoginOperation},System.Object)"></see> 作業。</summary>
+			<param name="asyncResult">從 <see cref="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.BeginLogin(System.ServiceModel.DomainServices.Client.ApplicationServices.LoginParameters,System.AsyncCallback,System.Object)"></see> 傳回的結果，代表要取消的非同步呼叫。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.CancelLogout(System.IAsyncResult)">
+			<summary>取消非同步的 <see cref="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.Logout(System.Action{System.ServiceModel.DomainServices.Client.ApplicationServices.LogoutOperation},System.Object)"></see> 作業。</summary>
+			<param name="asyncResult">從 <see cref="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.BeginLogout(System.AsyncCallback,System.Object)"></see> 傳回的結果，代表要取消的非同步呼叫。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.CancelSaveUser(System.IAsyncResult)">
+			<summary>取消非同步的 <see cref="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.SaveUser(System.Action{System.ServiceModel.DomainServices.Client.ApplicationServices.SaveUserOperation},System.Object)"></see> 作業。</summary>
+			<param name="asyncResult">從 <see cref="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.BeginSaveUser(System.Security.Principal.IPrincipal,System.AsyncCallback,System.Object)"></see> 傳回的結果，代表要取消的非同步呼叫。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.CreateDefaultUser">
+			<summary>建立預設使用者。</summary>
+			<returns>已建立的使用者。</returns>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.EndLoadUser(System.IAsyncResult)">
+			<summary>結束非同步的 <see cref="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.LoadUser"></see> 作業。</summary>
+			<returns>此作業的結果。</returns>
+			<param name="asyncResult">從 <see cref="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.BeginLoadUser(System.AsyncCallback,System.Object)"></see> 傳回的結果，代表要結束的非同步呼叫。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.EndLogin(System.IAsyncResult)">
+			<summary>結束非同步的 <see cref="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.Login(System.ServiceModel.DomainServices.Client.ApplicationServices.LoginParameters,System.Action{System.ServiceModel.DomainServices.Client.ApplicationServices.LoginOperation},System.Object)"></see> 作業。</summary>
+			<returns>此作業的結果。</returns>
+			<param name="asyncResult">從 <see cref="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.BeginLogin(System.ServiceModel.DomainServices.Client.ApplicationServices.LoginParameters,System.AsyncCallback,System.Object)"></see> 傳回的結果，代表要結束的非同步呼叫。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.EndLogout(System.IAsyncResult)">
+			<summary>結束非同步的 <see cref="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.Logout(System.Action{System.ServiceModel.DomainServices.Client.ApplicationServices.LogoutOperation},System.Object)"></see> 作業。</summary>
+			<returns>此作業的結果。</returns>
+			<param name="asyncResult">從 <see cref="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.BeginLogout(System.AsyncCallback,System.Object)"></see> 傳回的結果，代表要結束的非同步呼叫。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.EndSaveUser(System.IAsyncResult)">
+			<summary>結束非同步的 <see cref="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.SaveUser(System.Action{System.ServiceModel.DomainServices.Client.ApplicationServices.SaveUserOperation},System.Object)"></see> 作業。</summary>
+			<returns>此作業的結果。</returns>
+			<param name="asyncResult">從 <see cref="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.BeginSaveUser(System.Security.Principal.IPrincipal,System.AsyncCallback,System.Object)"></see> 傳回的結果，代表要結束的非同步呼叫。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.LoadUser">
+			<summary>以非同步方式從伺服器載入已驗證的使用者。</summary>
+			<returns>此作業的結果。</returns>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.LoadUser(System.Action{System.ServiceModel.DomainServices.Client.ApplicationServices.LoadUserOperation},System.Object)">
+			<summary>使用指定的回呼方法和使用者狀態，以非同步方式從伺服器載入已驗證的使用者。</summary>
+			<returns>此作業的結果。</returns>
+			<param name="completeAction">當此作業完成而且在所有情況下呼叫之後 (包括成功、取消和錯誤)，將會立即叫用的動作。這是選擇性參數。</param>
+			<param name="userState">將要設定為 <see cref="P:System.ServiceModel.DomainServices.Client.OperationBase.UserState"></see> 的狀態。這是選擇性參數。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.Login(System.ServiceModel.DomainServices.Client.ApplicationServices.LoginParameters)">
+			<summary>使用指定的參數，以非同步方式驗證及登入伺服器。</summary>
+			<returns>此作業的結果。</returns>
+			<param name="parameters">指定要驗證之使用者的登入參數。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.Login(System.String,System.String)">
+			<summary>使用指定的使用者名稱和密碼，以非同步方式驗證及登入伺服器。</summary>
+			<returns>此作業的結果。</returns>
+			<param name="userName">與要驗證之使用者相關聯的使用者名稱。</param>
+			<param name="password">與要驗證之使用者相關聯的密碼。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.Login(System.ServiceModel.DomainServices.Client.ApplicationServices.LoginParameters,System.Action{System.ServiceModel.DomainServices.Client.ApplicationServices.LoginOperation},System.Object)">
+			<summary>使用指定的參數、回呼方法和使用者狀態，以非同步方式驗證及登入伺服器。</summary>
+			<returns>此作業的結果。</returns>
+			<param name="completeAction">當此作業完成而且在所有情況下呼叫之後 (包括成功、取消和錯誤)，將會立即叫用的動作。這是選擇性參數。</param>
+			<param name="userState">將要設定為 <see cref="P:System.ServiceModel.DomainServices.Client.OperationBase.UserState"></see> 的狀態。這是選擇性參數。</param>
+			<param name="parameters">指定要驗證之使用者的登入參數。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.Logout(System.Boolean)">
+			<summary>使用可指出是否針對錯誤擲回例外狀況的指定值，以非同步方式從伺服器登出已驗證的使用者。</summary>
+			<returns>此作業的結果。</returns>
+			<param name="throwOnError">如果未處理的錯誤應該會導致例外狀況，則為 true，否則為 false。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.Logout(System.Action{System.ServiceModel.DomainServices.Client.ApplicationServices.LogoutOperation},System.Object)">
+			<summary>使用指定的回呼方法和使用者狀態，以非同步方式從伺服器登出已驗證的使用者。</summary>
+			<returns>此作業的結果。</returns>
+			<param name="completeAction">當此作業完成而且在所有情況下呼叫之後 (包括成功、取消和錯誤)，將會立即叫用的動作。這是選擇性參數。</param>
+			<param name="userState">將要設定為 <see cref="P:System.ServiceModel.DomainServices.Client.OperationBase.UserState"></see> 的狀態。這是選擇性參數。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.OnPropertyChanged(System.ComponentModel.PropertyChangedEventArgs)">
+			<summary>引發 <see cref="E:System.ComponentModel.INotifyPropertyChanged.PropertyChanged"></see> 事件。</summary>
+			<param name="e">要引發的事件。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.RaisePropertyChanged(System.String)">
+			<summary>引發指定之屬性的 <see cref="E:System.ComponentModel.INotifyPropertyChanged.PropertyChanged"></see> 事件。</summary>
+			<param name="propertyName">要引發事件的屬性。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.SaveUser(System.Boolean)">
+			<summary>使用可指出是否針對錯誤擲回例外狀況的指定值，以非同步方式將已驗證的使用者儲存至伺服器。</summary>
+			<returns>此作業的結果。</returns>
+			<param name="throwOnError">如果未處理的錯誤應該會導致例外狀況，則為 true，否則為 false。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.SaveUser(System.Action{System.ServiceModel.DomainServices.Client.ApplicationServices.SaveUserOperation},System.Object)">
+			<summary>使用指定的回呼方法和使用者狀態，以非同步方式將已驗證的使用者儲存至伺服器。</summary>
+			<returns>此作業的結果。</returns>
+			<param name="completeAction">當此作業完成而且在所有情況下呼叫之後 (包括成功、取消和錯誤)，將會立即叫用的動作。這是選擇性參數。</param>
+			<param name="userState">將要設定為 <see cref="P:System.ServiceModel.DomainServices.Client.OperationBase.UserState"></see> 的狀態。這是選擇性參數。</param>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.IsBusy">
+			<summary>取得值，指出非同步作業是否正在進行中。</summary>
+			<returns>如果作業正在進行中則為 true，否則為 false。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.IsLoadingUser">
+			<summary>取得值，指出非同步的 <see cref="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.LoadUser"></see> 作業是否正在進行中。</summary>
+			<returns>如果作業正在進行中則為 true，否則為 false。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.IsLoggingIn">
+			<summary>取得值，指出非同步的 <see cref="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.Login(System.String,System.String)"></see> 作業是否正在進行中。</summary>
+			<returns>如果作業正在進行中則為 true，否則為 false。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.IsLoggingOut">
+			<summary>取得值，指出非同步的 <see cref="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.Logout(System.Action{System.ServiceModel.DomainServices.Client.ApplicationServices.LogoutOperation},System.Object)"></see> 作業是否正在進行中。</summary>
+			<returns>如果作業正在進行中則為 true，否則為 false。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.IsSavingUser">
+			<summary>取得值，指出非同步的 <see cref="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.SaveUser(System.Action{System.ServiceModel.DomainServices.Client.ApplicationServices.SaveUserOperation},System.Object)"></see> 作業是否正在進行中。</summary>
+			<returns>如果作業正在進行中則為 true，否則為 false。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.SupportsCancellation">
+			<summary>取得值，指出這個驗證實作是否支援取消。</summary>
+			<returns>如果支援取消則為 true，否則為 false。基底實作在所有情況下都會傳回 false。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.User">
+			<summary>取得表示已驗證之使用者的主體。</summary>
+			<returns>表示已驗證之使用者的主體。</returns>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.ApplicationServices.LoadUserOperation">
+			<summary>從 <see cref="T:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService"></see> 上的 LoadUser 作業傳回的作業類型。</summary>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.ApplicationServices.LoadUserResult">
+			<summary>表示從 <see cref="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.EndLoadUser(System.IAsyncResult)"></see> 傳回的結果。</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.LoadUserResult.#ctor(System.Security.Principal.IPrincipal)">
+			<summary>初始化 <see cref="T:System.ServiceModel.DomainServices.Client.ApplicationServices.LoadUserResult"></see> 類別的新執行個體。</summary>
+			<param name="user">載入的使用者。</param>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.ApplicationServices.LoginOperation">
+			<summary>從 <see cref="T:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService"></see> 上的 Login 作業傳回的作業類型。</summary>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.ApplicationServices.LoginOperation.LoginParameters">
+			<summary>取得叫用這個作業時所使用的登入參數。</summary>
+			<returns>登入參數。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.ApplicationServices.LoginOperation.LoginSuccess">
+			<summary>取得值，這個值指出這項作業是否能夠成功登入。</summary>
+			<returns>如果已登入成功則為 true，否則為 false。</returns>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.ApplicationServices.LoginParameters">
+			<summary>指定要在 <see cref="T:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService"></see> 上的 Login 方法中驗證使用者的參數。</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.LoginParameters.#ctor">
+			<summary>使用預設值，初始化 <see cref="T:System.ServiceModel.DomainServices.Client.ApplicationServices.LoginParameters"></see> 類別的新執行個體。</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.LoginParameters.#ctor(System.String,System.String)">
+			<summary>使用指定的名稱和密碼來初始化 <see cref="T:System.ServiceModel.DomainServices.Client.ApplicationServices.LoginParameters"></see> 類別的新執行個體。</summary>
+			<param name="userName">要驗證的使用者名稱。</param>
+			<param name="password">要驗證之使用者的密碼。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.LoginParameters.#ctor(System.String,System.String,System.Boolean,System.String)">
+			<summary>使用指定的名稱、密碼和持續性來初始化 <see cref="T:System.ServiceModel.DomainServices.Client.ApplicationServices.LoginParameters"></see> 類別的新執行個體。</summary>
+			<param name="customData">選擇性的實作特定資料。</param>
+			<param name="userName">要驗證的使用者名稱。</param>
+			<param name="isPersistent">如果應該在工作階段之間保存登入則為 true，否則為 false。</param>
+			<param name="password">要驗證之使用者的密碼。</param>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.ApplicationServices.LoginParameters.CustomData">
+			<summary>取得選擇性的實作特有資料。</summary>
+			<returns>選擇性實作特有資料。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.ApplicationServices.LoginParameters.IsPersistent">
+			<summary>取得值，指出是否應該在工作階段之間保存登入。</summary>
+			<returns>如果應該保存登入則為 true，否則為 false。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.ApplicationServices.LoginParameters.Password">
+			<summary>取得要驗證之使用者的密碼。</summary>
+			<returns>要驗證之使用者的密碼。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.ApplicationServices.LoginParameters.UserName">
+			<summary>取得要驗證的使用者名稱。</summary>
+			<returns>要驗證的使用者名稱。</returns>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.ApplicationServices.LoginResult">
+			<summary>從 <see cref="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.EndLogin(System.IAsyncResult)"></see> 傳回的結果。</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.LoginResult.#ctor(System.Security.Principal.IPrincipal,System.Boolean)">
+			<summary>初始化 <see cref="T:System.ServiceModel.DomainServices.Client.ApplicationServices.LoginResult"></see> 類別的新執行個體。</summary>
+			<param name="user">已登入的使用者，如果驗證失敗則為 null。</param>
+			<param name="loginSuccess">如果 Login 呼叫已成功完成則為 true，否則為 false。</param>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.ApplicationServices.LoginResult.LoginSuccess">
+			<summary>取得值，指出 Login 呼叫是否已成功完成。</summary>
+			<returns>如果已登入成功則為 true，否則為 false。</returns>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.ApplicationServices.LogoutOperation">
+			<summary>從 <see cref="T:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService"></see> 上的 Logout 作業傳回的作業類型。</summary>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.ApplicationServices.LogoutResult">
+			<summary>表示從 <see cref="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.EndLogout(System.IAsyncResult)"></see> 傳回的結果。</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.LogoutResult.#ctor(System.Security.Principal.IPrincipal)">
+			<summary>初始化 <see cref="T:System.ServiceModel.DomainServices.Client.ApplicationServices.LogoutResult"></see> 類別的新執行個體。</summary>
+			<param name="user">匿名使用者。</param>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.ApplicationServices.SaveUserOperation">
+			<summary>表示從 <see cref="T:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService"></see> 上的 SaveUser 作業傳回的作業類型。</summary>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.ApplicationServices.SaveUserResult">
+			<summary>表示從 <see cref="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.EndSaveUser(System.IAsyncResult)"></see> 傳回的結果。</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.SaveUserResult.#ctor(System.Security.Principal.IPrincipal)">
+			<summary>初始化 <see cref="T:System.ServiceModel.DomainServices.Client.ApplicationServices.SaveUserResult"></see> 類別的新執行個體。</summary>
+			<param name="user">儲存的使用者。</param>
+		</member>
+	</members>
+</doc>

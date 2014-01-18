@@ -1,0 +1,1858 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<doc>
+	<assembly>
+		<name>System.ServiceModel.DomainServices.Client</name>
+	</assembly>
+	<members>
+		<member name="T:System.ComponentModel.DataAnnotations.CompositionAttribute">
+			<summary>メンバーが構成階層の一部である関連付けを表すことを示します。</summary>
+		</member>
+		<member name="M:System.ComponentModel.DataAnnotations.CompositionAttribute.#ctor">
+			<summary><see cref="T:System.ComponentModel.DataAnnotations.CompositionAttribute"></see> クラスの新しいインスタンスを初期化します。</summary>
+		</member>
+		<member name="T:System.ComponentModel.DataAnnotations.RoundtripOriginalAttribute">
+			<summary>メンバーに適用する場合、この属性は、オブジェクトの更新時にメンバーの元の値をサーバーに送り返す必要があることを示します。クラスに適用する場合、この属性はそのクラスの各メンバーに適用されます。</summary>
+		</member>
+		<member name="M:System.ComponentModel.DataAnnotations.RoundtripOriginalAttribute.#ctor">
+			<summary><see cref="T:System.ComponentModel.DataAnnotations.RoundtripOriginalAttribute"></see> クラスの新しいインスタンスを初期化します。</summary>
+		</member>
+		<member name="N:System.ServiceModel.DomainServices">
+			<summary>ドメイン サービスを定義するために使用するクラスを提供します。</summary>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.DomainIdentifierAttribute">
+			<summary>特定のドメイン内にあるものとして型を分類します。</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.DomainIdentifierAttribute.#ctor(System.String)">
+			<summary><see cref="T:System.ServiceModel.DomainServices.DomainIdentifierAttribute"></see> クラスの新しいインスタンスを初期化します。</summary>
+			<param name="name">ドメイン識別子の名前。この文字列にはフレームワークレベルのセマンティクスがありません。一意性の要素は何か、また大文字と小文字を区別するかどうかは、アプリケーション開発者が決定します。null または空にすることはできません。</param>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.DomainIdentifierAttribute.IsApplicationService">
+			<summary>属性付き型がアプリケーション サービスを表すかどうかを示す値を取得または設定します。</summary>
+			<returns>属性付き型がアプリケーション サービスを表す場合は true。それ以外の場合は false。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.DomainIdentifierAttribute.Name">
+			<summary>ドメイン識別子の名前を取得します。</summary>
+			<returns>ドメイン識別子の名前。</returns>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.ExternalReferenceAttribute">
+			<summary>関連付けが外部 <see cref="T:System.ServiceModel.DomainServices.Client.DomainContext"></see> に属するエンティティを参照することを示します。</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.ExternalReferenceAttribute.#ctor">
+			<summary><see cref="T:System.ServiceModel.DomainServices.ExternalReferenceAttribute"></see> クラスの新しいインスタンスを初期化します。</summary>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.ChangeSetEntry">
+			<summary>エンティティに対して実行されるドメイン操作を表します。</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ChangeSetEntry.#ctor(System.ServiceModel.DomainServices.Client.Entity,System.Int32,System.ServiceModel.DomainServices.Client.EntityOperationType)">
+			<summary>指定したパラメーターを使用して、<see cref="T:System.ServiceModel.DomainServices.Client.ChangeSetEntry"></see> クラスの新しいインスタンスを初期化します。</summary>
+			<param name="operationType">実行される操作。</param>
+			<param name="entity">操作中のエンティティ。</param>
+			<param name="id">サーバーの結果とクライアント エンティティ インスタンスを関連付けるために使用される、エンティティのクライアント ID。</param>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.ChangeSetEntry.Associations">
+			<summary>操作内のエンティティに関連付けられているすべてのエンティティの ID のコレクションを取得または設定します。</summary>
+			<returns>操作内のエンティティに関連付けられているすべてのエンティティの ID のコレクション。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.ChangeSetEntry.ClientEntity">
+			<summary>最初に送信されたエンティティを取得または設定します。</summary>
+			<returns>最初に送信されたエンティティ。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.ChangeSetEntry.ConflictMembers">
+			<summary>競合内のメンバーのコレクションを取得または設定します。</summary>
+			<returns>競合内のメンバーのコレクション。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.ChangeSetEntry.Entity">
+			<summary>操作中のエンティティを取得または設定します。</summary>
+			<returns>操作中のエンティティ。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.ChangeSetEntry.EntityActions">
+			<summary>エンティティで呼び出されたカスタム メソッドを取得または設定します。</summary>
+			<returns>エンティティで呼び出されたカスタム メソッドのコレクション。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.ChangeSetEntry.HasConflict">
+			<summary><see cref="T:System.ServiceModel.DomainServices.Client.ChangeSetEntry"></see> に競合が含まれているかどうかを示す値を取得します。</summary>
+			<returns><see cref="T:System.ServiceModel.DomainServices.Client.ChangeSetEntry"></see> に競合が含まれている場合は true。それ以外の場合は false。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.ChangeSetEntry.HasMemberChanges">
+			<summary>この操作のエンティティにプロパティの変更が含まれているかどうかを示す値を取得または設定します。</summary>
+			<returns>この操作のエンティティにプロパティの変更が含まれている場合は true。それ以外の場合は false。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.ChangeSetEntry.Id">
+			<summary>エンティティのクライアント ID を取得または設定します。</summary>
+			<returns>エンティティのクライアント ID。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.ChangeSetEntry.IsDeleteConflict">
+			<summary>競合が削除競合であるかどうかを取得または設定します。これは、エンティティがストア内にもう存在していないことを意味します。</summary>
+			<returns>競合が削除競合である場合は true。それ以外の場合は false。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.ChangeSetEntry.Operation">
+			<summary>この変更セットの <see cref="T:System.ServiceModel.DomainServices.Client.EntityOperationType"></see> を取得または設定します。</summary>
+			<returns>この変更セットに対する <see cref="T:System.ServiceModel.DomainServices.Client.EntityOperationType"></see>。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.ChangeSetEntry.OriginalAssociations">
+			<summary><see cref="P:System.ServiceModel.DomainServices.Client.ChangeSetEntry.OriginalEntity"></see> の各関連付けのエンティティを表すエンティティ ID のコレクションを取得または設定します。</summary>
+			<returns><see cref="P:System.ServiceModel.DomainServices.Client.ChangeSetEntry.OriginalEntity"></see> の各関連付けのエンティティを表すエンティティ ID のコレクション。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.ChangeSetEntry.OriginalEntity">
+			<summary>操作中のエンティティの元の状態を取得または設定します。</summary>
+			<returns>操作中のエンティティの元の状態。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.ChangeSetEntry.StoreEntity">
+			<summary>ストア内のエンティティの状態を取得または設定します。</summary>
+			<returns>ストア内のエンティティの状態。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.ChangeSetEntry.ValidationErrors">
+			<summary>操作の処理中に検出された検証エラーを取得または設定します。</summary>
+			<returns>操作の処理中に検出された検証エラー。</returns>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.ComplexObject">
+			<summary>すべての複合オブジェクトの基本クラスです。</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ComplexObject.#ctor">
+			<summary><see cref="T:System.ServiceModel.DomainServices.Client.ComplexObject"></see> のインスタンスを作成します。</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ComplexObject.BeginEdit">
+			<summary>この複合オブジェクト インスタンスの編集を開始します。</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ComplexObject.CancelEdit">
+			<summary><see cref="M:System.ServiceModel.DomainServices.Client.ComplexObject.BeginEdit"></see> への最後の呼び出し以降にこのインスタンスに加えられた編集をキャンセルします。</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ComplexObject.EndEdit">
+			<summary><see cref="M:System.ServiceModel.DomainServices.Client.ComplexObject.BeginEdit"></see> への最後の呼び出し以降にこのインスタンスに加えられた編集をコミットします。</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ComplexObject.OnDeserialized(System.Runtime.Serialization.StreamingContext)">
+			<summary>複合オブジェクトが逆シリアル化された後に呼び出されるメソッド。</summary>
+			<param name="context">シリアル化コンテキスト。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ComplexObject.OnDeserializing(System.Runtime.Serialization.StreamingContext)">
+			<summary>複合オブジェクトが逆シリアル化されているときに呼び出されるメソッド。</summary>
+			<param name="context">シリアル化コンテキスト。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ComplexObject.OnPropertyChanged(System.ComponentModel.PropertyChangedEventArgs)">
+			<summary>複合オブジェクトのプロパティが変更されたときに呼び出されます。</summary>
+			<param name="e">イベント引数。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ComplexObject.RaiseDataMemberChanged(System.String)">
+			<summary>プロパティ Set アクセス操作子から呼び出され、複合オブジェクトのデータ メンバーが変更されたことをフレームワークに通知します。</summary>
+			<param name="propertyName">変更されたプロパティの名前。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ComplexObject.RaiseDataMemberChanging(System.String)">
+			<summary>プロパティ Set アクセス操作子から呼び出され、複合オブジェクトのデータ メンバーがすぐに変更されることをフレームワークに通知します。</summary>
+			<param name="propertyName">変更されたプロパティの名前。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ComplexObject.RaisePropertyChanged(System.String)">
+			<summary>プロパティ Set アクセス操作子から呼び出され、複合オブジェクト プロパティが変更されたことをフレームワークに通知します。</summary>
+			<param name="propertyName">変更されたプロパティの名前。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ComplexObject.ValidateProperty(System.String,System.Object)">
+			<summary>指定した値が現在の複合オブジェクトの指定したプロパティで有効かどうかを検証します。</summary>
+			<param name="value">テストする値。指定されたプロパティで null が有効であれば、null の可能性があります。</param>
+			<param name="propertyName">検証するプロパティの名前。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ComplexObject.ValidateProperty(System.ComponentModel.DataAnnotations.ValidationContext,System.Object)">
+			<summary>指定したプロパティ値が指定した <see cref="T:System.ComponentModel.DataAnnotations.ValidationContext"></see> で有効かどうかを検証します。</summary>
+			<param name="validationContext">実行される検証を表す <see cref="T:System.ComponentModel.DataAnnotations.ValidationContext"></see>。</param>
+			<param name="value">テストする値。指定されたプロパティで null が有効であれば、null の可能性があります。</param>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.ComplexObject.HasValidationErrors">
+			<summary>このエンティティに検証エラーがあるかどうかを示す値を取得します。</summary>
+			<returns>検証エラーが存在する場合は true、それ以外の場合は false。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.ComplexObject.IsDeserializing">
+			<summary>このインスタンスが現在逆シリアライズ化されている最中かどうかを示す値を取得します。</summary>
+			<returns>複合オブジェクトが逆シリアライズ化している場合は true、それ以外の場合は false。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.ComplexObject.ValidationErrors">
+			<summary>このインスタンスの検証エラーのコレクションを取得します。</summary>
+			<returns>このインスタンスの検証エラーの <see cref="T:System.Collections.Generic.ICollection`1"></see>。</returns>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.DomainClient">
+			<summary>すべての <see cref="T:System.ServiceModel.DomainServices.Client.DomainClient"></see> 実装の基本クラスとして機能します。</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.DomainClient.#ctor">
+			<summary><see cref="T:System.ServiceModel.DomainServices.Client.DomainClient"></see> クラスの新しいインスタンスを初期化します。</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.DomainClient.BeginInvoke(System.ServiceModel.DomainServices.Client.InvokeArgs,System.AsyncCallback,System.Object)">
+			<summary>操作を非同期で呼び出します。</summary>
+			<returns>この呼び出しを識別する非同期要求。</returns>
+			<param name="callback">呼び出しが完了したときに呼び出すコールバック。</param>
+			<param name="invokeArgs">呼び出し操作への引数。</param>
+			<param name="userState">この操作に関連付けられた省略可能なユーザー状態。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.DomainClient.BeginInvokeCore(System.ServiceModel.DomainServices.Client.InvokeArgs,System.AsyncCallback,System.Object)">
+			<summary>非同期呼び出し操作を開始するために、フレームワークが呼び出します。</summary>
+			<returns>この呼び出しを識別する非同期要求。</returns>
+			<param name="callback">呼び出しが完了したときに呼び出すコールバック。</param>
+			<param name="invokeArgs">呼び出し操作への引数。</param>
+			<param name="userState">この操作に関連付けられた省略可能なユーザー状態。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.DomainClient.BeginQuery(System.ServiceModel.DomainServices.Client.EntityQuery,System.AsyncCallback,System.Object)">
+			<summary>非同期クエリ操作を実行します。</summary>
+			<returns>このクエリを識別する非同期結果。</returns>
+			<param name="callback">クエリが実行されたときに呼び出すコールバック。</param>
+			<param name="query">呼び出すクエリ。</param>
+			<param name="userState">この操作に関連付けられた省略可能なユーザー状態。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.DomainClient.BeginQueryCore(System.ServiceModel.DomainServices.Client.EntityQuery,System.AsyncCallback,System.Object)">
+			<summary>非同期クエリ操作を開始するために、フレームワークが呼び出します。</summary>
+			<returns>このクエリを識別する非同期結果。</returns>
+			<param name="callback">クエリが実行されたときに呼び出すコールバック。</param>
+			<param name="query">呼び出すクエリ。</param>
+			<param name="userState">この操作に関連付けられた省略可能なユーザー状態。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.DomainClient.BeginSubmit(System.ServiceModel.DomainServices.Client.EntityChangeSet,System.AsyncCallback,System.Object)">
+			<summary>指定された <see cref="T:System.ServiceModel.DomainServices.Client.EntityChangeSet"></see> を <see cref="T:System.ServiceModel.DomainServices.Server.DomainService"></see> に非同期で送信します。</summary>
+			<returns>この送信要求を識別する非同期結果。</returns>
+			<param name="callback">送信が実行されたときに呼び出すコールバック。</param>
+			<param name="changeSet"><see cref="T:System.ServiceModel.DomainServices.Server.DomainService"></see> に送信するための <see cref="T:System.ServiceModel.DomainServices.Client.EntityChangeSet"></see>。</param>
+			<param name="userState">この操作に関連付けられた省略可能なユーザー状態。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.DomainClient.BeginSubmitCore(System.ServiceModel.DomainServices.Client.EntityChangeSet,System.AsyncCallback,System.Object)">
+			<summary>指定された <see cref="T:System.ServiceModel.DomainServices.Client.EntityChangeSet"></see> を非同期に処理するため、フレームワークが呼び出します。</summary>
+			<returns>この送信要求を識別する非同期結果。</returns>
+			<param name="callback">送信が実行されたときに呼び出すコールバック。</param>
+			<param name="changeSet"><see cref="T:System.ServiceModel.DomainServices.Server.DomainService"></see> に送信するための <see cref="T:System.ServiceModel.DomainServices.Client.EntityChangeSet"></see>。</param>
+			<param name="userState">この操作に関連付けられた省略可能なユーザー状態。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.DomainClient.CancelInvoke(System.IAsyncResult)">
+			<summary>asyncResult によって指定された呼び出し要求の取り消しを試みます。</summary>
+			<param name="asyncResult">取り消し対象の呼び出し操作を指定する IAsyncResult。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.DomainClient.CancelInvokeCore(System.IAsyncResult)">
+			<summary>asyncResult によって指定された呼び出し要求の取り消しを試みます。</summary>
+			<param name="asyncResult">取り消し対象の呼び出し操作を指定する IAsyncResult。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.DomainClient.CancelQuery(System.IAsyncResult)">
+			<summary>asyncResult によって指定されたクエリ要求の取り消しを試みます。</summary>
+			<param name="asyncResult">取り消し対象のクエリ操作を指定する IAsyncResult。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.DomainClient.CancelQueryCore(System.IAsyncResult)">
+			<summary>asyncResult によって指定されたクエリ要求の取り消しを試みます。</summary>
+			<param name="asyncResult">取り消し対象のクエリ操作を指定する IAsyncResult。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.DomainClient.CancelSubmit(System.IAsyncResult)">
+			<summary>asyncResult によって指定された送信要求の取り消しを試みます。</summary>
+			<param name="asyncResult">取り消し対象の送信操作を指定する IAsyncResult。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.DomainClient.CancelSubmitCore(System.IAsyncResult)">
+			<summary>asyncResult によって指定された送信要求の取り消しを試みます。</summary>
+			<param name="asyncResult">取り消し対象の送信操作を指定する IAsyncResult。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.DomainClient.EndInvoke(System.IAsyncResult)">
+			<summary>操作の呼び出しを完了します。</summary>
+			<returns>演算の結果。</returns>
+			<param name="asyncResult">呼び出しを識別する非同期要求。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.DomainClient.EndInvokeCore(System.IAsyncResult)">
+			<summary>非同期呼び出しを完了するために、フレームワークが呼び出します。</summary>
+			<returns>演算の結果。</returns>
+			<param name="asyncResult">呼び出しを識別する非同期要求。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.DomainClient.EndQuery(System.IAsyncResult)">
+			<summary>非同期クエリ操作の結果を取得します。</summary>
+			<returns>演算の結果。</returns>
+			<param name="asyncResult">クエリを識別する非同期結果。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.DomainClient.EndQueryCore(System.IAsyncResult)">
+			<summary>非同期クエリ操作を完了するために、フレームワークが呼び出します。</summary>
+			<returns>演算の結果。</returns>
+			<param name="asyncResult">クエリを識別する非同期結果。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.DomainClient.EndSubmit(System.IAsyncResult)">
+			<summary>送信要求の結果を取得します。</summary>
+			<returns>演算の結果。</returns>
+			<param name="asyncResult">送信要求を識別する非同期結果。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.DomainClient.EndSubmitCore(System.IAsyncResult)">
+			<summary>非同期送信操作を完了するために、フレームワークが呼び出します。</summary>
+			<returns>演算の結果。</returns>
+			<param name="asyncResult">送信要求を識別する非同期結果。</param>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.DomainClient.EntityTypes">
+			<summary>この <see cref="T:System.ServiceModel.DomainServices.Client.DomainClient"></see> が操作するエンティティ型のコレクションを取得または設定します。</summary>
+			<returns>このオブジェクトが操作するエンティティ型のコレクション。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.DomainClient.SupportsCancellation">
+			<summary><see cref="T:System.ServiceModel.DomainServices.Client.DomainClient"></see> でキャンセルがサポートされているかどうかを示す値を取得します。</summary>
+			<returns>このオブジェクトがキャンセルをサポートする場合は true。それ以外の場合は false。</returns>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.DomainClientResult">
+			<summary><see cref="T:System.ServiceModel.DomainServices.Client.DomainClient"></see> 操作の結果を表します。</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.DomainClientResult.CreateInvokeResult(System.Object,System.Collections.Generic.IEnumerable{System.ComponentModel.DataAnnotations.ValidationResult})">
+			<summary>呼び出し操作の結果を作成します。</summary>
+			<returns>呼び出し操作の結果。</returns>
+			<param name="returnValue">呼び出し操作の戻り値。</param>
+			<param name="validationErrors">呼び出しの検証エラーのコレクション。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.DomainClientResult.CreateQueryResult(System.Collections.Generic.IEnumerable{System.ServiceModel.DomainServices.Client.Entity},System.Collections.Generic.IEnumerable{System.ServiceModel.DomainServices.Client.Entity},System.Int32,System.Collections.Generic.IEnumerable{System.ComponentModel.DataAnnotations.ValidationResult})">
+			<summary>クエリ操作の結果を作成します。</summary>
+			<returns>クエリ操作の結果。</returns>
+			<param name="allEntities">関連付けられたエンティティを含む、クエリによって返されるすべてのエンティティ。</param>
+			<param name="validationErrors">クエリの検証エラーのコレクション。</param>
+			<param name="totalEntityCount">エンティティのサーバーの総数。</param>
+			<param name="entities">クエリによって返されるトップレベルのエンティティ。</param>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.DomainClientResult.AllEntities">
+			<summary>関連付けられたエンティティを含む、すべてのエンティティの結果を取得します。</summary>
+			<returns>エンティティのコレクション。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.DomainClientResult.Entities">
+			<summary>トップレベルのエンティティ結果を取得します。</summary>
+			<returns>エンティティ結果のコレクション。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.DomainClientResult.ReturnValue">
+			<summary>呼び出し操作の戻り値を取得します。</summary>
+			<returns>呼び出し操作の戻り値。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.DomainClientResult.TotalEntityCount">
+			<summary>ページングが適用されない、元のクエリのサーバー エンティティの合計数を取得します。</summary>
+			<returns>クエリの合計行数。サーバーが合計エンティティ数をサポートしていない場合は -1。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.DomainClientResult.ValidationErrors">
+			<summary>検証エラーのコレクションを取得します。</summary>
+			<returns>検証エラーのコレクション。</returns>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.DomainContext">
+			<summary><see cref="T:System.ServiceModel.DomainServices.Client.DomainContext"></see> はドメイン サービスのステートフルなクライアント側表現であり、サービスのすべての機能へのアクセスを提供します。</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.DomainContext.#ctor(System.ServiceModel.DomainServices.Client.DomainClient)">
+			<summary><see cref="T:System.ServiceModel.DomainServices.Client.DomainContext"></see> クラスの新しいインスタンスを初期化します。</summary>
+			<param name="domainClient">この <see cref="T:System.ServiceModel.DomainServices.Client.DomainContext"></see> で使用する必要のある <see cref="P:System.ServiceModel.DomainServices.Client.DomainContext.DomainClient"></see> インスタンス。</param>
+		</member>
+		<member name="E:System.ServiceModel.DomainServices.Client.DomainContext.PropertyChanged">
+			<summary><see cref="T:System.ServiceModel.DomainServices.Client.DomainContext"></see> プロパティが変更されるたびに発生します。</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.DomainContext.AddReference(System.Type,System.ServiceModel.DomainServices.Client.DomainContext)">
+			<summary>外部 <see cref="T:System.ServiceModel.DomainServices.Client.DomainContext"></see> への参照を追加します。</summary>
+			<param name="entityType">domainContext で検索するエンティティ型。</param>
+			<param name="domainContext">外部参照として登録する <see cref="T:System.ServiceModel.DomainServices.Client.DomainContext"></see>。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.DomainContext.CreateEntityContainer">
+			<summary>この <see cref="T:System.ServiceModel.DomainServices.Client.DomainContext"></see> がアクセスを提供するすべてのエンティティの <see cref="T:System.ServiceModel.DomainServices.Client.EntitySet"></see> オブジェクトによって構成されたエンティティ コンテナーを作成し、返します。</summary>
+			<returns>エンティティ コンテナー。</returns>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.DomainContext.CreateQuery``1(System.String,System.Collections.Generic.IDictionary{System.String,System.Object},System.Boolean,System.Boolean)">
+			<summary><see cref="T:System.ServiceModel.DomainServices.Client.EntityQuery"></see> を作成します。</summary>
+			<returns>新しいクエリ。</returns>
+			<param name="hasSideEffects">クエリに副作用がある場合は true、それ以外の場合は false。</param>
+			<param name="queryName">クエリ メソッドの名前。</param>
+			<param name="parameters">クエリ メソッドの省略可能なパラメーター。クエリ操作がパラメーターを受け取らない場合は、null を指定します。</param>
+			<param name="isComposable">クエリで構築がサポートされている場合は true。それ以外の場合は false。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.DomainContext.InvokeOperation(System.String,System.Type,System.Collections.Generic.IDictionary{System.String,System.Object},System.Boolean,System.Action{System.ServiceModel.DomainServices.Client.InvokeOperation},System.Object)">
+			<summary>呼び出し操作を実行します。</summary>
+			<returns>呼び出し操作。</returns>
+			<param name="hasSideEffects">操作に副作用がある場合は true、それ以外の場合は false。</param>
+			<param name="callback">操作が完了したときに呼び出される省略可能なコールバック。</param>
+			<param name="returnType">操作の戻り値の型。</param>
+			<param name="userState">操作の省略可能なユーザー状態。</param>
+			<param name="parameters">操作に対するオプションのパラメーター。操作がパラメーターを受け取らない場合は、null を指定します。</param>
+			<param name="operationName">操作の名前。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.DomainContext.InvokeOperation``1(System.String,System.Type,System.Collections.Generic.IDictionary{System.String,System.Object},System.Boolean,System.Action{System.ServiceModel.DomainServices.Client.InvokeOperation{``0}},System.Object)">
+			<summary>呼び出し操作を実行します。</summary>
+			<returns>呼び出し操作。</returns>
+			<param name="hasSideEffects">操作に副作用がある場合は true、それ以外の場合は false。</param>
+			<param name="callback">操作が完了したときに呼び出される省略可能なコールバック。</param>
+			<param name="returnType">操作の戻り値の型。</param>
+			<param name="userState">操作の省略可能なユーザー状態。</param>
+			<param name="parameters">操作に対するオプションのパラメーター。操作がパラメーターを受け取らない場合は、null を指定します。</param>
+			<param name="operationName">操作の名前。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.DomainContext.Load(System.ServiceModel.DomainServices.Client.EntityQuery,System.ServiceModel.DomainServices.Client.LoadBehavior,System.Action{System.ServiceModel.DomainServices.Client.LoadOperation},System.Object)">
+			<summary>指定された読み込み動作、コールバック メソッド、およびユーザー状態を使用して、指定されたクエリの読み込み操作を実行します。</summary>
+			<returns>読み込み操作。</returns>
+			<param name="loadBehavior">適用する <see cref="T:System.ServiceModel.DomainServices.Client.LoadBehavior"></see>。</param>
+			<param name="callback">読み込み操作が完了したときに呼び出される省略可能なコールバック。コールバックは、返された <see cref="T:System.ServiceModel.DomainServices.Client.LoadOperation"></see> 型のインスタンスを指定することのできる単一のパラメーターを受け取るデリゲートである必要があります。</param>
+			<param name="query">呼び出すクエリ。</param>
+			<param name="userState">省略可能なユーザー状態。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.DomainContext.Load``1(System.ServiceModel.DomainServices.Client.EntityQuery{``0})">
+			<summary>指定されたクエリの読み込み操作を実行します。</summary>
+			<returns>読み込み操作。</returns>
+			<param name="query">呼び出すクエリ。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.DomainContext.Load``1(System.ServiceModel.DomainServices.Client.EntityQuery{``0},System.Boolean)">
+			<summary>エラーの結果が例外になるかどうかを示す指定された値を使用して、指定されたクエリの読み込み操作を実行します。</summary>
+			<returns>読み込み操作。</returns>
+			<param name="query">呼び出すクエリ。</param>
+			<param name="throwOnError">ハンドルされないエラーの結果が例外になる場合は true。それ以外の場合は false。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.DomainContext.Load``1(System.ServiceModel.DomainServices.Client.EntityQuery{``0},System.Action{System.ServiceModel.DomainServices.Client.LoadOperation{``0}},System.Object)">
+			<summary>指定されたコールバック メソッドとユーザー状態を使用して、指定されたクエリの読み込み操作を実行します。</summary>
+			<returns>読み込み操作。</returns>
+			<param name="callback">読み込み操作が完了したときに呼び出される省略可能なコールバック。</param>
+			<param name="query">呼び出すクエリ。</param>
+			<param name="userState">省略可能なユーザー状態。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.DomainContext.Load``1(System.ServiceModel.DomainServices.Client.EntityQuery{``0},System.ServiceModel.DomainServices.Client.LoadBehavior,System.Boolean)">
+			<summary>指定された読み込み動作と、エラーの結果が例外になるかどうかを示す値を使用して、指定されたクエリの読み込み操作を実行します。</summary>
+			<returns>読み込み操作。</returns>
+			<param name="loadBehavior">適用する <see cref="T:System.ServiceModel.DomainServices.Client.LoadBehavior"></see>。</param>
+			<param name="query">呼び出すクエリ。</param>
+			<param name="throwOnError">ハンドルされないエラーの結果が例外になる場合は true。それ以外の場合は false。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.DomainContext.Load``1(System.ServiceModel.DomainServices.Client.EntityQuery{``0},System.ServiceModel.DomainServices.Client.LoadBehavior,System.Action{System.ServiceModel.DomainServices.Client.LoadOperation{``0}},System.Object)">
+			<summary>指定された読み込み動作、コールバック メソッド、およびユーザー状態を使用して、指定されたクエリの読み込み操作を実行します。</summary>
+			<returns>読み込み操作。</returns>
+			<param name="loadBehavior">適用する <see cref="T:System.ServiceModel.DomainServices.Client.LoadBehavior"></see>。</param>
+			<param name="callback">読み込み操作が完了したときに呼び出される省略可能なコールバック。</param>
+			<param name="query">呼び出すクエリ。</param>
+			<param name="userState">省略可能なユーザー状態。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.DomainContext.RaisePropertyChanged(System.String)">
+			<summary>指定されたプロパティの <see cref="E:System.ServiceModel.DomainServices.Client.DomainContext.PropertyChanged"></see> イベントを発生させます。</summary>
+			<param name="propertyName">イベントを発生させるプロパティ。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.DomainContext.RejectChanges">
+			<summary>この <see cref="T:System.ServiceModel.DomainServices.Client.DomainContext"></see> の保留中のすべての変更を取り消します。</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.DomainContext.SubmitChanges">
+			<summary>保留中のすべての変更をドメイン サービスに送信します。</summary>
+			<returns>送信操作。</returns>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.DomainContext.SubmitChanges(System.Action{System.ServiceModel.DomainServices.Client.SubmitOperation},System.Object)">
+			<summary>保留中のすべての変更をドメイン サービスに送信します。</summary>
+			<returns>送信操作。</returns>
+			<param name="callback">送信操作の省略可能なコールバック。</param>
+			<param name="userState">操作に関連付ける省略可能なユーザー状態。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.DomainContext.ValidateMethod(System.String,System.Collections.Generic.IDictionary{System.String,System.Object})">
+			<summary>メソッド呼び出しを検証します。</summary>
+			<param name="methodName">検証するメソッド。</param>
+			<param name="parameters">メソッドのパラメーター。</param>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.DomainContext.DomainClient">
+			<summary>このコンテキストの <see cref="T:System.ServiceModel.DomainServices.Client.DomainClient"></see> を取得します。</summary>
+			<returns>このオブジェクトをサポートするドメイン クライアント。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.DomainContext.EntityContainer">
+			<summary>このコンテキストで読み込まれたすべてのエンティティを格納する <see cref="T:System.ServiceModel.DomainServices.Client.EntityContainer"></see> を取得します。</summary>
+			<returns>エンティティ コンテナー。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.DomainContext.HasChanges">
+			<summary>このコンテキストに保留中の変更があるかどうかを示す値を取得します。</summary>
+			<returns>保留中の変更がある場合は true。それ以外の場合は false。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.DomainContext.IsLoading">
+			<summary>この <see cref="T:System.ServiceModel.DomainServices.Client.DomainContext"></see> が読み込み操作を現在実行しているかどうかを示す値を取得します。</summary>
+			<returns>保留中の読み込み操作がある場合は true。それ以外の場合は false。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.DomainContext.IsSubmitting">
+			<summary>この <see cref="T:System.ServiceModel.DomainServices.Client.DomainContext"></see> が送信操作を現在実行しているかどうかを示す値を取得します。</summary>
+			<returns>保留中の送信操作がある場合は true。それ以外の場合は false。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.DomainContext.ValidationContext">
+			<summary><see cref="T:System.ServiceModel.DomainServices.Client.DomainContext"></see> によって呼び出されるすべての検証操作で使用する <see cref="T:System.ComponentModel.DataAnnotations.ValidationContext"></see> を取得または設定します。</summary>
+			<returns><see cref="T:System.ServiceModel.DomainServices.Client.DomainContext"></see> によって呼び出されるすべての検証操作で使用するオブジェクト。</returns>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.DomainException">
+			<summary>ドメイン操作の実行時に回復不能なエラーが発生したことを示します。</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.DomainException.#ctor">
+			<summary>エラーを説明するシステム提供のメッセージを使用して、<see cref="T:System.ServiceModel.DomainServices.Client.DomainException"></see> クラスの新しいインスタンスを初期化します。</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.DomainException.#ctor(System.String)">
+			<summary>エラーを説明するメッセージを指定して <see cref="T:System.ServiceModel.DomainServices.Client.DomainException"></see> クラスの新しいインスタンスを初期化します。</summary>
+			<param name="message">ローカライズされたエラー メッセージ。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.DomainException.#ctor(System.String,System.Exception)">
+			<summary>エラー メッセージと、この例外の原因である内部例外の参照を指定して <see cref="T:System.ServiceModel.DomainServices.Client.DomainException"></see> クラスの新しいインスタンスを初期化します。</summary>
+			<param name="message">ローカライズされたエラー メッセージ。</param>
+			<param name="innerException">この例外の原因である内部例外。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.DomainException.#ctor(System.String,System.Int32)">
+			<summary>エラー メッセージおよびカスタム エラー コードを指定して <see cref="T:System.ServiceModel.DomainServices.Client.DomainException"></see> クラスの新しいインスタンスを初期化します。</summary>
+			<param name="errorCode">例外のカスタム エラー コード。</param>
+			<param name="message">ローカライズされたエラー メッセージ。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.DomainException.#ctor(System.String,System.Int32,System.Exception)">
+			<summary>エラー メッセージ、カスタム エラー コード、この例外の原因である内部例外を指定して <see cref="T:System.ServiceModel.DomainServices.Client.DomainException"></see> クラスの新しいインスタンスを初期化します。</summary>
+			<param name="errorCode">例外のカスタム エラー コード。</param>
+			<param name="message">ローカライズされたエラー メッセージ。</param>
+			<param name="innerException">この例外の原因である内部例外。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.DomainException.#ctor(System.String,System.Int32,System.String)">
+			<summary>ローカライズされた例外メッセージ、カスタム エラー コード、スタック トレースを使用して <see cref="T:System.ServiceModel.DomainServices.Client.DomainException"></see> クラスの新しいインスタンスを初期化します。</summary>
+			<param name="errorCode">例外のカスタム エラー コード。</param>
+			<param name="stackTrace">例外スタック トレース。</param>
+			<param name="message">ローカライズされたエラー メッセージ。</param>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.DomainException.ErrorCode">
+			<summary>この例外のカスタム エラー コードを取得または設定します。</summary>
+			<returns>この例外のカスタム エラー コード。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.DomainException.StackTrace">
+			<summary>例外スタック トレースを取得します。</summary>
+			<returns>例外スタック トレース。</returns>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.DomainOperationException">
+			<summary>サーバーのドメイン操作の処理中に 1 つ以上のエラーが発生したことを示します。</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.DomainOperationException.#ctor">
+			<summary><see cref="T:System.ServiceModel.DomainServices.Client.DomainOperationException"></see> クラスの新しいインスタンスを初期化します。</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.DomainOperationException.#ctor(System.String)">
+			<summary>エラーを説明するメッセージを指定して <see cref="T:System.ServiceModel.DomainServices.Client.DomainOperationException"></see> クラスの新しいインスタンスを初期化します。</summary>
+			<param name="message">例外を説明するメッセージ。このコンストラクターの呼び出し元は、この文字列が現在のシステムのカルチャに合わせてローカライズ済みであることを確認しておく必要があります。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.DomainOperationException.#ctor(System.String,System.Exception)">
+			<summary>エラー メッセージと、この例外の原因である内部例外の参照を指定して <see cref="T:System.ServiceModel.DomainServices.Client.DomainOperationException"></see> クラスの新しいインスタンスを初期化します。</summary>
+			<param name="message">例外を説明するメッセージ。このコンストラクターの呼び出し元は、この文字列が現在のシステムのカルチャに合わせてローカライズ済みであることを確認しておく必要があります。</param>
+			<param name="innerException">現在の例外の原因である例外。innerException パラメーターが null でない場合は、内部例外を処理する catch ブロックで現在の例外がスローされます。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.DomainOperationException.#ctor(System.String,System.ServiceModel.DomainServices.Client.OperationErrorStatus)">
+			<summary>ローカライズされた例外メッセージとステータスを使用して、<see cref="T:System.ServiceModel.DomainServices.Client.DomainOperationException"></see> クラスの新しいインスタンスを初期化します。</summary>
+			<param name="message">ローカライズされた例外のメッセージ。</param>
+			<param name="status">例外のステータス。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.DomainOperationException.#ctor(System.String,System.ServiceModel.DomainServices.Client.OperationErrorStatus,System.Int32)">
+			<summary>ローカライズされた例外メッセージ、ステータス、およびカスタム エラー コードを使用して、<see cref="T:System.ServiceModel.DomainServices.Client.DomainOperationException"></see> クラスの新しいインスタンスを初期化します。</summary>
+			<param name="errorCode">カスタム エラー コード。</param>
+			<param name="message">ローカライズされた例外のメッセージ。</param>
+			<param name="status">例外のステータス。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.DomainOperationException.#ctor(System.String,System.ServiceModel.DomainServices.Client.OperationErrorStatus,System.Int32,System.String)">
+			<summary>例外のオプションのローカライズされたメッセージ、ステータス、カスタム エラー コード、およびスタック トレースを使用して、<see cref="T:System.ServiceModel.DomainServices.Client.DomainOperationException"></see> クラスの新しいインスタンスを初期化します。</summary>
+			<param name="errorCode">カスタム エラー コード。</param>
+			<param name="stackTrace">例外のスタック トレース。</param>
+			<param name="message">ローカライズされたエラー メッセージ。</param>
+			<param name="status">例外のステータス。</param>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.DomainOperationException.ErrorCode">
+			<summary>この例外のカスタム エラー コードを取得または設定します。エラー コードには、ユーザー定義の値も使用できます。</summary>
+			<returns>カスタム エラー コード。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.DomainOperationException.StackTrace">
+			<summary>例外のスタック トレースを取得します。</summary>
+			<returns>例外のスタック トレース。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.DomainOperationException.Status">
+			<summary>この例外のステータス コードを取得または設定します。</summary>
+			<returns>この例外のステータス コード。</returns>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.Entity">
+			<summary>すべてのエンティティ型の基本クラスです。</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.Entity.#ctor">
+			<summary><see cref="T:System.ServiceModel.DomainServices.Client.Entity"></see> クラスの新しいインスタンスを初期化します。</summary>
+		</member>
+		<member name="E:System.ServiceModel.DomainServices.Client.Entity.PropertyChanged">
+			<summary><see cref="T:System.ServiceModel.DomainServices.Client.Entity"></see> プロパティが変更されたときに発生します。</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.Entity.AcceptChanges">
+			<summary>この <see cref="T:System.ServiceModel.DomainServices.Client.Entity"></see> への現在の変更を受け入れて、適切な状態遷移を適用します。</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.Entity.BeginEdit">
+			<summary><see cref="T:System.ServiceModel.DomainServices.Client.Entity"></see> の編集を開始します。</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.Entity.CancelEdit">
+			<summary><see cref="M:System.ServiceModel.DomainServices.Client.Entity.BeginEdit"></see> への最後の呼び出し以降に <see cref="T:System.ServiceModel.DomainServices.Client.Entity"></see> に加えられたすべての変更をキャンセルします。</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.Entity.CanInvokeAction(System.String)">
+			<summary>指定したアクションを現在呼び出すことができるかどうかを示す値を取得します。</summary>
+			<returns>指定したアクションを呼び出すことができる場合は true、それ以外の場合は false。</returns>
+			<param name="name">カスタム メソッドに対応するアクションの名前。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.Entity.EndEdit">
+			<summary><see cref="M:System.ServiceModel.DomainServices.Client.Entity.EndEdit"></see> への最後の呼び出し以降にこのエンティティに加えられた編集をコミットします。</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.Entity.GetIdentity">
+			<summary>ハッシュに適したエンティティ ID を返します。</summary>
+			<returns>エンティティ ID を示すオブジェクト。</returns>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.Entity.GetOriginal">
+			<summary>このエンティティの元の状態を取得します。</summary>
+			<returns>元の状態にある <see cref="T:System.ServiceModel.DomainServices.Client.Entity"></see>。</returns>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.Entity.InvokeAction(System.String,System.Object[])">
+			<summary>変更内容の送信時に、このエンティティで呼び出すアクションを登録するために呼び出されます。</summary>
+			<param name="actionName">呼び出されるアクションの名前。</param>
+			<param name="parameters">指定したアクションを呼び出すためのパラメーター値。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.Entity.IsActionInvoked(System.String)">
+			<summary>指定したアクションが呼び出されたかどうかを示します。</summary>
+			<returns>指定したアクションが呼び出されている場合は true、それ以外の場合は false。</returns>
+			<param name="name">カスタム メソッドに対応するアクションの名前。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.Entity.OnActionStateChanged">
+			<summary>このエンティティで呼び出されたアクションの状態が変更された場合に呼び出されます。</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.Entity.OnDeserialized(System.Runtime.Serialization.StreamingContext)">
+			<summary>この <see cref="T:System.ServiceModel.DomainServices.Client.Entity"></see> が逆シリアル化された後に呼び出されます。</summary>
+			<param name="context">シリアル化コンテキスト。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.Entity.OnDeserializing(System.Runtime.Serialization.StreamingContext)">
+			<summary>この <see cref="T:System.ServiceModel.DomainServices.Client.Entity"></see> が逆シリアル化されているときに呼び出されます。</summary>
+			<param name="context">シリアル化コンテキスト。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.Entity.OnLoaded(System.Boolean)">
+			<summary><see cref="T:System.ServiceModel.DomainServices.Client.Entity"></see> が <see cref="T:System.ServiceModel.DomainServices.Client.EntitySet"></see> に読み込まれたときに呼び出されます。</summary>
+			<param name="isInitialLoad">エンティティが初めてセットに読み込まれている場合は true、それ以外の場合は false。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.Entity.OnPropertyChanged(System.ComponentModel.PropertyChangedEventArgs)">
+			<summary><see cref="T:System.ServiceModel.DomainServices.Client.Entity"></see> プロパティが変更されたときに呼び出されます。</summary>
+			<param name="e">イベント引数。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.Entity.RaiseDataMemberChanged(System.String)">
+			<summary>プロパティ Set アクセス操作子から呼び出され、<see cref="T:System.ServiceModel.DomainServices.Client.Entity"></see> のデータ メンバーが変更されたことをフレームワークに通知します。</summary>
+			<param name="propertyName">変更されたプロパティの名前。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.Entity.RaiseDataMemberChanging(System.String)">
+			<summary>プロパティ Set アクセス操作子から呼び出され、<see cref="T:System.ServiceModel.DomainServices.Client.Entity"></see> データ メンバーがすぐに変更されることをフレーム ワークに通知します。</summary>
+			<param name="propertyName">変更中のプロパティの名前。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.Entity.RaisePropertyChanged(System.String)">
+			<summary>プロパティ Set アクセス操作子から呼び出され、<see cref="T:System.ServiceModel.DomainServices.Client.Entity"></see> メンバーが変更されたことをフレームワークに通知します。</summary>
+			<param name="propertyName">変更されたプロパティの名前。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.Entity.RejectChanges">
+			<summary>このエンティティに加えられたプロパティの変更をすべて元の値に戻します。</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.Entity.ToString">
+			<summary>現在のエンティティの名前空間の文字列形式を取得します。</summary>
+			<returns>現在のエンティティの名前空間の文字列形式。</returns>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.Entity.UpdateActionState(System.String,System.String,System.String)">
+			<summary><see cref="M:System.ServiceModel.DomainServices.Client.Entity.OnActionStateChanged"></see> オーバーライドのコンテキスト内で呼び出されます。このメソッドは、カスタム メソッドに対応するプロパティの適切なプロパティ変更通知を発生させます。</summary>
+			<param name="name">カスタム メソッド名。</param>
+			<param name="canInvokePropertyName">カスタム メソッドの "CanInvoke" 保護プロパティの名前。</param>
+			<param name="isInvokedPropertyName">カスタム メソッドの "IsInvoked" プロパティの名前。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.Entity.ValidateProperty(System.String,System.Object)">
+			<summary>指定した値が現在のエンティティの指定したプロパティで有効かどうかを示します。</summary>
+			<param name="value">テストする値。指定されたプロパティで null が有効であれば、null の可能性があります。</param>
+			<param name="propertyName">設定するこのエンティティのプロパティ名。この名前を null または空にすることはできません。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.Entity.ValidateProperty(System.ComponentModel.DataAnnotations.ValidationContext,System.Object)">
+			<summary>指定したプロパティ値が指定した検証コンテキストで有効かどうかを示します。</summary>
+			<param name="validationContext">実行する検証を表す <see cref="P:System.ServiceModel.DomainServices.Client.DomainContext.ValidationContext"></see>。 <see cref="P:System.ComponentModel.DataAnnotations.ValidationContext.MemberName"></see> は検証するプロパティの名前を示している必要があります。</param>
+			<param name="value">テストする値。指定されたプロパティで null が有効であれば、null の可能性があります。</param>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.Entity.EntityActions">
+			<summary>このエンティティで保留中のカスタム メソッド呼び出しの一覧を取得します。</summary>
+			<returns>このエンティティで保留中のカスタム メソッド呼び出しのコレクション。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.Entity.EntityConflict">
+			<summary>送信操作の後、このエンティティの競合情報を取得します。</summary>
+			<returns>送信操作後のこのエンティティの <see cref="T:System.ServiceModel.DomainServices.Client.EntityConflict"></see>。競合がない場合は null を返します。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.Entity.EntitySet">
+			<summary>この <see cref="T:System.ServiceModel.DomainServices.Client.Entity"></see> がメンバーである <see cref="P:System.ServiceModel.DomainServices.Client.Entity.EntitySet"></see> を取得します。</summary>
+			<returns>この <see cref="T:System.ServiceModel.DomainServices.Client.Entity"></see> がメンバーである <see cref="P:System.ServiceModel.DomainServices.Client.Entity.EntitySet"></see>。エンティティがデタッチされている場合、またはセットから削除されている場合、値は null になります。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.Entity.EntityState">
+			<summary>この <see cref="T:System.ServiceModel.DomainServices.Client.Entity"></see> の現在の状態を取得します。</summary>
+			<returns>この <see cref="T:System.ServiceModel.DomainServices.Client.Entity"></see> の現在の状態を表す <see cref="T:System.ServiceModel.DomainServices.Client.EntityState"></see>。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.Entity.HasChanges">
+			<summary>このエンティティに現在保留中の変更があるかどうかを示す値を取得します。</summary>
+			<returns>エンティティに保留中の変更がある場合は true。それ以外の場合は false。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.Entity.HasValidationErrors">
+			<summary>このエンティティに検証エラーがあるかどうかを示す値を取得します。</summary>
+			<returns>前回の送信操作の処理中にエンティティで検証エラーがあった場合は true。それ以外の場合は false。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.Entity.IsDeserializing">
+			<summary>現在のエンティティが逆シリアライズ化されている最中かどうかを示す値を取得します。</summary>
+			<returns>エンティティが現在逆シリアライズ化されている場合は true、それ以外の場合は false。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.Entity.IsReadOnly">
+			<summary>このエンティティが現在読み取り専用の状態であるかどうかを示す値を取得します。</summary>
+			<returns>エンティティが読み取り専用の場合は true。それ以外の場合は false。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.Entity.ValidationErrors">
+			<summary>このエンティティの検証エラーのコレクションを取得します。</summary>
+			<returns>前回の送信操作の処理中に検出された検証エラーのコレクション。</returns>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.EntityAction">
+			<summary>エンティティのカスタム メソッドの呼び出しを表します。</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntityAction.#ctor(System.String,System.Object[])">
+			<summary><see cref="T:System.ServiceModel.DomainServices.Client.EntityAction"></see> クラスの新しいインスタンスを初期化します。</summary>
+			<param name="name">エンティティ アクションの名前。</param>
+			<param name="parameters">エンティティ アクションを呼び出すパラメーターの一覧。</param>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.EntityAction.HasParameters">
+			<summary>パラメーターがこのアクションに関連付けられているかどうかを示す値を取得します。</summary>
+			<returns>パラメーターがこのアクションに関連付けられている場合は true。それ以外の場合は false。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.EntityAction.Name">
+			<summary>エンティティ アクションの名前を取得します。</summary>
+			<returns>エンティティ アクションの名前。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.EntityAction.Parameters">
+			<summary>エンティティ アクションに渡されるパラメーターを取得します。</summary>
+			<returns>エンティティ アクションに渡されるパラメーターを表すコレクション。</returns>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.EntityChangeSet">
+			<summary><see cref="T:System.ServiceModel.DomainServices.Client.Entity"></see> に対する変更のコレクションを表します。</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntityChangeSet.GetChangeSetEntries">
+			<summary>この変更セットの <see cref="T:System.ServiceModel.DomainServices.Client.ChangeSetEntry"></see> アイテムのコレクションを取得します。</summary>
+			<returns>この変更セットの <see cref="T:System.ServiceModel.DomainServices.Client.ChangeSetEntry"></see> アイテムのコレクション。</returns>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntityChangeSet.ToString">
+			<summary><see cref="T:System.ServiceModel.DomainServices.Client.EntityChangeSet"></see> のテキスト表現を返します。</summary>
+			<returns><see cref="T:System.ServiceModel.DomainServices.Client.EntityChangeSet"></see> のテキスト表現。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.EntityChangeSet.AddedEntities">
+			<summary>追加されたエンティティのコレクションを取得します。</summary>
+			<returns>追加されたエンティティのコレクション。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.EntityChangeSet.IsEmpty">
+			<summary><see cref="T:System.ServiceModel.DomainServices.Client.EntityChangeSet"></see>が変更されたかどうかを示す値を取得します。</summary>
+			<returns><see cref="T:System.ServiceModel.DomainServices.Client.EntityChangeSet"></see> が変更された場合は true。それ以外の場合は false。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.EntityChangeSet.ModifiedEntities">
+			<summary>変更されたエンティティのコレクションを取得します。</summary>
+			<returns>変更されたエンティティのコレクション。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.EntityChangeSet.RemovedEntities">
+			<summary>削除されたエンティティのコレクションを取得します。</summary>
+			<returns>削除されたエンティティのコレクション。</returns>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.EntityCollection`1">
+			<summary>関連付けられたエンティティのコレクションを表します。</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntityCollection`1.#ctor(System.ServiceModel.DomainServices.Client.Entity,System.String,System.Func{`0,System.Boolean})">
+			<summary>親、親でのコレクション名、フィルター関数を指定して <see cref="T:System.ServiceModel.DomainServices.Client.EntityCollection`1"></see> クラスの新しいインスタンスを初期化します。</summary>
+			<param name="memberName">親エンティティでのこの <see cref="T:System.ServiceModel.DomainServices.Client.EntityCollection`1"></see> メンバーの名前。</param>
+			<param name="entityPredicate">関連付けられたエンティティをフィルター処理して、このコレクションのメンバーであるエンティティを決定するために使用する関数。</param>
+			<param name="parent">このコレクションをメンバーに持つエンティティ。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntityCollection`1.#ctor(System.ServiceModel.DomainServices.Client.Entity,System.String,System.Func{`0,System.Boolean},System.Action{`0},System.Action{`0})">
+			<summary>親、親でのコレクション名、フィルター、アタッチ、およびデタッチ用の各関数を指定して <see cref="T:System.ServiceModel.DomainServices.Client.EntityCollection`1"></see> クラスの新しいインスタンスを初期化します。</summary>
+			<param name="memberName">親エンティティでのこの <see cref="T:System.ServiceModel.DomainServices.Client.EntityCollection`1"></see> メンバーの名前。</param>
+			<param name="entityPredicate">関連付けられたエンティティをフィルター処理して、このコレクションのメンバーであるエンティティを決定するために使用する関数。</param>
+			<param name="parent">このコレクションをメンバーに持つエンティティ。</param>
+			<param name="detachAction">関連付けられたエンティティから親エンティティへの後方参照を削除するために使用する関数。</param>
+			<param name="attachAction">関連付けられたエンティティから親エンティティへの後方参照を確立するために使用する関数。</param>
+		</member>
+		<member name="E:System.ServiceModel.DomainServices.Client.EntityCollection`1.EntityAdded">
+			<summary><see cref="T:System.ServiceModel.DomainServices.Client.Entity"></see> がこのコレクションに追加されるときに発生します。</summary>
+		</member>
+		<member name="E:System.ServiceModel.DomainServices.Client.EntityCollection`1.EntityRemoved">
+			<summary><see cref="T:System.ServiceModel.DomainServices.Client.Entity"></see> がこのコレクションから削除されたときに発生します。</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntityCollection`1.Add(`0)">
+			<summary>指定したエンティティをこのコレクションに追加します。</summary>
+			<param name="entity">追加するエンティティ。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntityCollection`1.GetEnumerator">
+			<summary>コレクションの列挙子を返します。</summary>
+			<returns>このコレクションの IEnumerator。</returns>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntityCollection`1.Remove(`0)">
+			<summary>指定したエンティティをこのコレクションから削除します。</summary>
+			<param name="entity">削除するエンティティ。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntityCollection`1.ToString">
+			<summary>コレクションのテキスト表現を返します。</summary>
+			<returns><see cref="T:System.ServiceModel.DomainServices.Client.EntityCollection`1"></see> を表す文字列。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.EntityCollection`1.Count">
+			<summary>このコレクション内の現在のエンティティ数を取得します。</summary>
+			<returns>このコレクション内の現在のエンティティ数を表す整数。</returns>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.EntityCollectionChangedEventArgs`1">
+			<summary>エンティティを含むコレクションの厳密に型指定された追加通知または削除通知のイベント引数を提供します。</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntityCollectionChangedEventArgs`1.#ctor(`0)">
+			<summary><see cref="T:System.ServiceModel.DomainServices.Client.EntityCollectionChangedEventArgs`1"></see> クラスの新しいインスタンスを初期化します。</summary>
+			<param name="entity">影響を受ける <see cref="P:System.ServiceModel.DomainServices.Client.EntityCollectionChangedEventArgs`1.Entity"></see>。</param>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.EntityCollectionChangedEventArgs`1.Entity">
+			<summary>影響を受ける <see cref="P:System.ServiceModel.DomainServices.Client.EntityCollectionChangedEventArgs`1.Entity"></see> を取得します。</summary>
+			<returns>影響を受ける <see cref="P:System.ServiceModel.DomainServices.Client.EntityCollectionChangedEventArgs`1.Entity"></see>。</returns>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.EntityConflict">
+			<summary>エンティティの競合を表します。</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntityConflict.Resolve">
+			<summary>エンティティの元の状態を現在のストアの状態で更新して競合を解決します。</summary>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.EntityConflict.CurrentEntity">
+			<summary>現在の <see cref="T:System.ServiceModel.DomainServices.Client.Entity"></see> インスタンスを取得します。</summary>
+			<returns>現在の <see cref="T:System.ServiceModel.DomainServices.Client.Entity"></see> インスタンス。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.EntityConflict.IsDeleted">
+			<summary>エンティティがストアに存在するかどうかを示す値を取得します。</summary>
+			<returns>エンティティがストアから削除されている場合は true、それ以外の場合は false。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.EntityConflict.OriginalEntity">
+			<summary>元の <see cref="T:System.ServiceModel.DomainServices.Client.Entity"></see> インスタンスを取得します。</summary>
+			<returns>元の <see cref="T:System.ServiceModel.DomainServices.Client.Entity"></see> インスタンス。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.EntityConflict.PropertyNames">
+			<summary>競合内のプロパティの名前のコレクションを取得します。</summary>
+			<returns>競合内のプロパティの名前のコレクション。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.EntityConflict.StoreEntity">
+			<summary>ストアの <see cref="T:System.ServiceModel.DomainServices.Client.Entity"></see> のインスタンスを取得します。</summary>
+			<returns>ストアの <see cref="T:System.ServiceModel.DomainServices.Client.Entity"></see> インスタンス、またはエンティティがストアに存在しない場合は null。</returns>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.EntityContainer">
+			<summary><see cref="T:System.ServiceModel.DomainServices.Client.EntitySet"></see> オブジェクトのコレクション形式のエンティティのキャッシュを表します。</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntityContainer.#ctor">
+			<summary><see cref="T:System.ServiceModel.DomainServices.Client.EntityContainer"></see> クラスの新しいインスタンスを初期化します。</summary>
+		</member>
+		<member name="E:System.ServiceModel.DomainServices.Client.EntityContainer.PropertyChanged">
+			<summary>プロパティが変更されると発生します。</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntityContainer.AcceptChanges">
+			<summary>エンティティまたはこのコンテナーの <see cref="T:System.ServiceModel.DomainServices.Client.EntitySet"></see> オブジェクトに加えられたすべての変更を受け入れます。</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntityContainer.AddReference(System.ServiceModel.DomainServices.Client.EntitySet)">
+			<summary>外部 <see cref="T:System.ServiceModel.DomainServices.Client.EntitySet"></see> への参照を追加します。</summary>
+			<param name="entitySet">エンティティ セット。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntityContainer.Clear">
+			<summary>このコンテナーのすべての <see cref="T:System.ServiceModel.DomainServices.Client.EntitySet"></see> オブジェクトのコンテンツを消去します。</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntityContainer.CreateEntitySet``1">
+			<summary>指定したエンティティ型のこのコンテナーに新しい <see cref="T:System.ServiceModel.DomainServices.Client.EntitySet"></see> を作成します。</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntityContainer.CreateEntitySet``1(System.ServiceModel.DomainServices.Client.EntitySetOperations)">
+			<summary>指定した <see cref="T:System.ServiceModel.DomainServices.Client.EntitySetOperations"></see> のこのコンテナーに <see cref="T:System.ServiceModel.DomainServices.Client.EntitySet"></see> を作成します。</summary>
+			<param name="supportedOperations">エンティティ型でサポートされる操作。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntityContainer.GetChanges">
+			<summary>保留中の変更の現在のセットが格納された <see cref="T:System.ServiceModel.DomainServices.Client.EntityChangeSet"></see> を返します。</summary>
+			<returns>保留中の変更の現在のセットが格納された <see cref="T:System.ServiceModel.DomainServices.Client.EntityChangeSet"></see>。</returns>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntityContainer.GetEntitySet(System.Type)">
+			<summary>指定した <see cref="T:System.ServiceModel.DomainServices.Client.Entity"></see> 型の <see cref="T:System.ServiceModel.DomainServices.Client.EntitySet"></see> を取得します。</summary>
+			<returns>指定した <see cref="T:System.ServiceModel.DomainServices.Client.Entity"></see> 型の <see cref="T:System.ServiceModel.DomainServices.Client.EntitySet"></see>。</returns>
+			<param name="entityType">エンティティ型。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntityContainer.GetEntitySet``1">
+			<summary>指定した <see cref="T:System.ServiceModel.DomainServices.Client.Entity"></see> 型の <see cref="T:System.ServiceModel.DomainServices.Client.EntitySet"></see> を取得します。</summary>
+			<returns>指定した <see cref="T:System.ServiceModel.DomainServices.Client.Entity"></see> 型の <see cref="T:System.ServiceModel.DomainServices.Client.EntitySet"></see>。</returns>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntityContainer.LoadEntities(System.Collections.IEnumerable)">
+			<summary>指定したエンティティのコレクションをこの <see cref="T:System.ServiceModel.DomainServices.Client.EntityContainer"></see> に読み込みます。</summary>
+			<returns>エンティティのコレクションを表す IEnumerable。</returns>
+			<param name="entities">読み込むエンティティ。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntityContainer.LoadEntities(System.Collections.IEnumerable,System.ServiceModel.DomainServices.Client.LoadBehavior)">
+			<summary>指定した読み込み動作を使用して、指定したエンティティのコレクションをこの <see cref="T:System.ServiceModel.DomainServices.Client.EntityContainer"></see> に読み込みます。</summary>
+			<returns>エンティティのコレクションを表す IEnumerable。</returns>
+			<param name="loadBehavior">使用する <see cref="T:System.ServiceModel.DomainServices.Client.LoadBehavior"></see>。</param>
+			<param name="entities">読み込むエンティティ。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntityContainer.RaisePropertyChanged(System.String)">
+			<summary>指定されたプロパティの <see cref="E:System.ServiceModel.DomainServices.Client.EntityContainer.PropertyChanged"></see> イベントを発生させます。</summary>
+			<param name="propertyName">変更されたプロパティの名前。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntityContainer.RejectChanges">
+			<summary>エンティティまたはこのコンテナーの <see cref="T:System.ServiceModel.DomainServices.Client.EntitySet"></see> オブジェクトに加えられたすべての変更を元に戻します。</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntityContainer.TryGetEntitySet(System.Type,System.ServiceModel.DomainServices.Client.EntitySet@)">
+			<summary>指定した <see cref="T:System.ServiceModel.DomainServices.Client.Entity"></see> 型のエンティティ セットの取得を試みます。</summary>
+			<returns>エンティティセットが見つかった場合は true、それ以外の場合は false。</returns>
+			<param name="entityType"><see cref="T:System.ServiceModel.DomainServices.Client.Entity"></see> 型。</param>
+			<param name="entitySet">存在している場合はエンティティ セット、それ以外の場合は null。</param>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.EntityContainer.EntitySets">
+			<summary>この <see cref="T:System.ServiceModel.DomainServices.Client.EntityContainer"></see> 内の <see cref="T:System.ServiceModel.DomainServices.Client.EntitySet"></see> オブジェクトのコレクションを取得します。</summary>
+			<returns>この <see cref="T:System.ServiceModel.DomainServices.Client.EntityContainer"></see> 内の <see cref="T:System.ServiceModel.DomainServices.Client.EntitySet"></see> オブジェクトのコレクション。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.EntityContainer.HasChanges">
+			<summary>この <see cref="T:System.ServiceModel.DomainServices.Client.EntityContainer"></see> に現在保留中の変更があるかどうかを示す値を取得します。</summary>
+			<returns><see cref="T:System.ServiceModel.DomainServices.Client.EntityContainer"></see> に現在保留中の変更がある場合は true、それ以外の場合は false。</returns>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.EntityKey">
+			<summary>一意のエンティティ ID を表すキーの基本クラス。キーはハッシュに適します。</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntityKey.#ctor">
+			<summary><see cref="T:System.ServiceModel.DomainServices.Client.EntityKey"></see> クラスの新しいインスタンスを初期化します。</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntityKey.Create(System.Object[])">
+			<summary>指定されたキー値を使用してキーを作成します。</summary>
+			<returns>指定されたキー値に基づくキー。</returns>
+			<param name="keyValues">キー値の配列。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntityKey.Create``2(``0,``1)">
+			<summary>指定されたキー値を使用してキーを作成します。</summary>
+			<returns>指定されたキー値に基づくキー。</returns>
+			<param name="v1">最初のキー値。</param>
+			<param name="v2">2 番目のキー値。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntityKey.Create``3(``0,``1,``2)">
+			<summary>指定されたキー値を使用してキーを作成します。</summary>
+			<returns>指定されたキー値に基づくキー。</returns>
+			<param name="v1">最初のキー値。</param>
+			<param name="v2">2 番目のキー値。</param>
+			<param name="v3">3 番目のキー値。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntityKey.ToString">
+			<summary>キー値のセットとして形式設定します。</summary>
+			<returns>形式設定されたキーを表す文字列。</returns>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.EntityOperationType">
+			<summary><see cref="T:System.ServiceModel.DomainServices.Client.Entity"></see> で実行できる操作の種類を記述します。</summary>
+		</member>
+		<member name="F:System.ServiceModel.DomainServices.Client.EntityOperationType.Delete">
+			<summary>既存の <see cref="T:System.ServiceModel.DomainServices.Client.Entity"></see> での削除操作。</summary>
+		</member>
+		<member name="F:System.ServiceModel.DomainServices.Client.EntityOperationType.Insert">
+			<summary>新しい <see cref="T:System.ServiceModel.DomainServices.Client.Entity"></see> での挿入操作。</summary>
+		</member>
+		<member name="F:System.ServiceModel.DomainServices.Client.EntityOperationType.None">
+			<summary><see cref="T:System.ServiceModel.DomainServices.Client.Entity"></see> で操作は実行されません。</summary>
+		</member>
+		<member name="F:System.ServiceModel.DomainServices.Client.EntityOperationType.Update">
+			<summary>既存の <see cref="T:System.ServiceModel.DomainServices.Client.Entity"></see> での更新操作。</summary>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.EntityQuery">
+			<summary>クエリ メソッドの呼び出しを表します。</summary>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.EntityQuery.DomainClient">
+			<summary>このクエリの <see cref="T:System.ServiceModel.DomainServices.Client.DomainClient"></see> を取得します。</summary>
+			<returns>このクエリの <see cref="T:System.ServiceModel.DomainServices.Client.DomainClient"></see>。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.EntityQuery.EntityType">
+			<summary>このクエリのデータ取得元の型を取得します。</summary>
+			<returns>このクエリのデータ取得元の型。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.EntityQuery.HasSideEffects">
+			<summary>クエリに副作用があるかどうかを示す値を取得します。</summary>
+			<returns>クエリに副作用がある場合は true、それ以外の場合は false。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.EntityQuery.IncludeTotalCount">
+			<summary><see cref="P:System.ServiceModel.DomainServices.Client.DomainClientResult.TotalEntityCount"></see> プロパティが必要かどうかを示す値を取得または設定します。</summary>
+			<returns><see cref="P:System.ServiceModel.DomainServices.Client.DomainClientResult.TotalEntityCount"></see> プロパティが必要な場合は true、それ以外の場合は false。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.EntityQuery.IsComposable">
+			<summary>クエリで構築がサポートされているかどうかを示す値を取得します。</summary>
+			<returns>クエリで構築がサポートされている場合は true。それ以外の場合は false。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.EntityQuery.Parameters">
+			<summary>クエリ メソッドで必要なパラメーターを取得します。</summary>
+			<returns>クエリ メソッドで必要な省略可能なパラメーターを表すディクショナリ。メソッドがパラメーターを受け取らない場合は、null を返します。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.EntityQuery.Query">
+			<summary>クエリの基になる IQueryable を取得します。</summary>
+			<returns>クエリ メソッド呼び出しのオブジェクト、または、クエリが存在していない場合は null。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.EntityQuery.QueryName">
+			<summary>クエリ メソッドの名前を取得します。</summary>
+			<returns>クエリ メソッドの名前。</returns>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.EntityQuery`1">
+			<summary>エンティティのコレクションに対する LINQ クエリを表します。</summary>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.EntityQueryable">
+			<summary><see cref="T:System.ServiceModel.DomainServices.Client.EntityQuery"></see> の LINQ パターンのサブセットを実装する静的拡張メソッドを含みます。</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntityQueryable.OrderBy``2(System.ServiceModel.DomainServices.Client.EntityQuery{``0},System.Linq.Expressions.Expression{System.Func{``0,``1}})">
+			<summary>指定した ascending order 句をソース クエリに適用します。</summary>
+			<returns>作成されたクエリ。</returns>
+			<param name="source">ソース クエリ。</param>
+			<param name="keySelector">並べ替えるメンバーを選択する式。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntityQueryable.OrderByDescending``2(System.ServiceModel.DomainServices.Client.EntityQuery{``0},System.Linq.Expressions.Expression{System.Func{``0,``1}})">
+			<summary>指定した descending order 句をソース クエリに適用します。</summary>
+			<returns>指定された descending order 句を持つ <see cref="T:System.ServiceModel.DomainServices.Client.EntityQuery`1"></see>。</returns>
+			<param name="source">ソース クエリ。</param>
+			<param name="keySelector">並べ替えるメンバーを選択する式。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntityQueryable.Select``1(System.ServiceModel.DomainServices.Client.EntityQuery{``0},System.Linq.Expressions.Expression{System.Func{``0,``0}})">
+			<summary>指定した選択をソース クエリに適用します。</summary>
+			<returns>指定した選択を持つ <see cref="T:System.ServiceModel.DomainServices.Client.EntityQuery`1"></see>。</returns>
+			<param name="source">ソース クエリ。</param>
+			<param name="selector">selector 関数。射影はサポートされていません。選択はエンティティ自体である必要があります。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntityQueryable.Skip``1(System.ServiceModel.DomainServices.Client.EntityQuery{``0},System.Int32)">
+			<summary>指定した skip 句をソース クエリに適用します。</summary>
+			<returns>指定された skip 句を持つ <see cref="T:System.ServiceModel.DomainServices.Client.EntityQuery`1"></see>。</returns>
+			<param name="source">ソース クエリ。</param>
+			<param name="count">skip の数値。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntityQueryable.Take``1(System.ServiceModel.DomainServices.Client.EntityQuery{``0},System.Int32)">
+			<summary>指定した take 句をソース クエリに適用します。</summary>
+			<returns>指定された take 句を持つ <see cref="T:System.ServiceModel.DomainServices.Client.EntityQuery`1"></see>。</returns>
+			<param name="source">ソース クエリ。</param>
+			<param name="count">take の数値。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntityQueryable.ThenBy``2(System.ServiceModel.DomainServices.Client.EntityQuery{``0},System.Linq.Expressions.Expression{System.Func{``0,``1}})">
+			<summary>指定した ascending order 句をソース クエリに適用します。</summary>
+			<returns>指定された ascending order 句を持つ <see cref="T:System.ServiceModel.DomainServices.Client.EntityQuery`1"></see>。</returns>
+			<param name="source">ソース クエリ。</param>
+			<param name="keySelector">並べ替えるメンバーを選択する式。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntityQueryable.ThenByDescending``2(System.ServiceModel.DomainServices.Client.EntityQuery{``0},System.Linq.Expressions.Expression{System.Func{``0,``1}})">
+			<summary>指定した descending order 句をソース クエリに適用します。</summary>
+			<returns>指定された descending order 句を持つ <see cref="T:System.ServiceModel.DomainServices.Client.EntityQuery`1"></see>。</returns>
+			<param name="source">ソース クエリ。</param>
+			<param name="keySelector">並べ替えるメンバーを選択する式。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntityQueryable.Where``1(System.ServiceModel.DomainServices.Client.EntityQuery{``0},System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}})">
+			<summary>指定したフィルターをソース クエリに適用します。</summary>
+			<returns>指定したフィルターを持つ <see cref="T:System.ServiceModel.DomainServices.Client.EntityQuery`1"></see>。</returns>
+			<param name="predicate">フィルター述語。</param>
+			<param name="source">ソース クエリ。</param>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.EntityRef`1">
+			<summary>関連付けられたエンティティへの参照を表します。</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntityRef`1.#ctor(System.ServiceModel.DomainServices.Client.Entity,System.String,System.Func{`0,System.Boolean})">
+			<summary><see cref="T:System.ServiceModel.DomainServices.Client.EntityRef`1"></see> クラスのインスタンスを初期化します。</summary>
+			<param name="memberName">親エンティティでのこの <see cref="T:System.ServiceModel.DomainServices.Client.EntityRef`1"></see> メンバーの名前。</param>
+			<param name="entityPredicate">関連付けられたエンティティのフィルター処理に使用する関数。</param>
+			<param name="parent">この関連付けをメンバーに持つエンティティ。</param>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.EntityRef`1.Entity">
+			<summary>関連付けられた <see cref="P:System.ServiceModel.DomainServices.Client.EntityRef`1.Entity"></see> を取得または設定します。</summary>
+			<returns>関連付けられたエンティティ。</returns>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.EntitySet">
+			<summary><see cref="T:System.ServiceModel.DomainServices.Client.Entity"></see> インスタンスのコレクションを表します。</summary>
+		</member>
+		<member name="E:System.ServiceModel.DomainServices.Client.EntitySet.PropertyChanged">
+			<summary>プロパティが変更されると発生します。</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntitySet.AcceptChanges">
+			<summary>この <see cref="T:System.ServiceModel.DomainServices.Client.EntitySet"></see> で行われたすべての変更を受け入れます。</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntitySet.Add(System.ServiceModel.DomainServices.Client.Entity)">
+			<summary>指定した <see cref="T:System.ServiceModel.DomainServices.Client.Entity"></see> をこの <see cref="T:System.ServiceModel.DomainServices.Client.EntitySet"></see> に追加します。</summary>
+			<param name="entity">追加するエンティティ。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntitySet.Attach(System.ServiceModel.DomainServices.Client.Entity)">
+			<summary>指定された <see cref="T:System.ServiceModel.DomainServices.Client.Entity"></see> を変更されていない状態のこの <see cref="T:System.ServiceModel.DomainServices.Client.EntitySet"></see> にアタッチします。</summary>
+			<param name="entity">アタッチするエンティティ。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntitySet.Clear">
+			<summary>セットからすべてのエンティティを消去します。</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntitySet.CreateEntity">
+			<summary>新しいエンティティを作成します。</summary>
+			<returns>作成されたエンティティ。</returns>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntitySet.CreateList">
+			<summary>セットのストレージ リストを作成します。</summary>
+			<returns>作成されたストレージ リスト インスタンス。</returns>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntitySet.Detach(System.ServiceModel.DomainServices.Client.Entity)">
+			<summary>指定された <see cref="T:System.ServiceModel.DomainServices.Client.Entity"></see> をこの <see cref="T:System.ServiceModel.DomainServices.Client.EntitySet"></see> からデタッチします。</summary>
+			<param name="entity">デタッチするエンティティ。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntitySet.GetEnumerator">
+			<summary>コレクションの列挙子を取得します。</summary>
+			<returns>コレクションの列挙子。</returns>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntitySet.OnCollectionChanged(System.Collections.Specialized.NotifyCollectionChangedAction,System.Object,System.Int32)">
+			<summary>コレクションが変更されるたびに呼び出されます。</summary>
+			<param name="affectedObject">リセット イベントの場合、このパラメーターは削除されたエンティティのコレクションになります。その他のすべてのイベントの場合、このパラメーターは単一の影響を受けたエンティティになります。</param>
+			<param name="action">変更アクション。</param>
+			<param name="index">影響を受けたインデックス。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntitySet.OnPropertyChanged(System.ComponentModel.PropertyChangedEventArgs)">
+			<summary><see cref="T:System.ServiceModel.DomainServices.Client.EntitySet"></see> プロパティが変更されたときに呼び出されます。</summary>
+			<param name="e">イベント引数。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntitySet.RaisePropertyChanged(System.String)">
+			<summary>指定されたプロパティの <see cref="E:System.ServiceModel.DomainServices.Client.EntitySet.PropertyChanged"></see> イベントを発生させます。</summary>
+			<param name="propertyName">変更されたプロパティ。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntitySet.RejectChanges">
+			<summary>この <see cref="T:System.ServiceModel.DomainServices.Client.EntitySet"></see> で行われたすべての変更を取り消します。</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntitySet.Remove(System.ServiceModel.DomainServices.Client.Entity)">
+			<summary>セットから指定されたエンティティを削除します。</summary>
+			<param name="entity">削除するエンティティ。</param>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.EntitySet.CanAdd">
+			<summary>新しいエンティティをセットに追加できるかどうかを示す値を取得します。</summary>
+			<returns>コレクションの新しいアイテムが許可される場合は true。それ以外の場合は false。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.EntitySet.CanEdit">
+			<summary>セット内のエンティティを編集できるかどうかを示す値を取得します。</summary>
+			<returns>コレクションのメンバーを編集できる場合は true。それ以外の場合は false。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.EntitySet.CanRemove">
+			<summary>セットのエンティティを削除できるかどうかを示す値を取得します。</summary>
+			<returns>コレクションのアイテムを削除できる場合は true。それ以外の場合は false。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.EntitySet.Count">
+			<summary>セット内の現在のエンティティ数を取得します。</summary>
+			<returns>セット内のエンティティ数を示す整数。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.EntitySet.EntityContainer">
+			<summary>この <see cref="T:System.ServiceModel.DomainServices.Client.EntitySet"></see> のコンテナーを取得します。</summary>
+			<returns>この <see cref="T:System.ServiceModel.DomainServices.Client.EntitySet"></see> のコンテナー。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.EntitySet.EntityType">
+			<summary>この <see cref="T:System.ServiceModel.DomainServices.Client.EntitySet"></see> に含まれているエンティティの型を取得します。</summary>
+			<returns>この <see cref="T:System.ServiceModel.DomainServices.Client.EntitySet"></see> に含まれているエンティティの型。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.EntitySet.HasChanges">
+			<summary>この <see cref="T:System.ServiceModel.DomainServices.Client.EntitySet"></see> に現在保留中の変更があるかどうかを示す値を取得します。</summary>
+			<returns>コレクションに保留中の変更がある場合は true。それ以外の場合は false。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.EntitySet.IsReadOnly">
+			<summary>このセットが更新操作をサポートしているかどうかを示す値を取得します。</summary>
+			<returns>更新操作がサポートされない場合は true。それ以外の場合は false。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.EntitySet.List">
+			<summary>この <see cref="T:System.ServiceModel.DomainServices.Client.EntitySet"></see> のバッキング リストを取得します。</summary>
+			<returns>この <see cref="T:System.ServiceModel.DomainServices.Client.EntitySet"></see> のバッキング リスト。</returns>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.EntitySet`1">
+			<summary>変更追跡やその他のサービスを提供する <see cref="T:System.ServiceModel.DomainServices.Client.Entity"></see> インスタンスのコレクションを表します。</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntitySet`1.#ctor">
+			<summary><see cref="T:System.ServiceModel.DomainServices.Client.EntitySet`1"></see> クラスの新しいインスタンスを初期化します。</summary>
+		</member>
+		<member name="E:System.ServiceModel.DomainServices.Client.EntitySet`1.EntityAdded">
+			<summary><see cref="T:System.ServiceModel.DomainServices.Client.Entity"></see> がこのエンティティ セットに追加されるときに発生します。</summary>
+		</member>
+		<member name="E:System.ServiceModel.DomainServices.Client.EntitySet`1.EntityRemoved">
+			<summary><see cref="T:System.ServiceModel.DomainServices.Client.Entity"></see> がこのエンティティ セットから削除されるときに発生します。</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntitySet`1.Add(`0)">
+			<summary>指定したエンティティをこのエンティティ セットに追加します。また、関連付けによって到達可能なアタッチされていないすべてのエンティティも再帰的に追加します。</summary>
+			<param name="entity">追加するエンティティ。entity は TEntity 型である必要があり、サブクラスは指定できません。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntitySet`1.Attach(`0)">
+			<summary>指定された <see cref="T:System.ServiceModel.DomainServices.Client.Entity"></see> を変更されていない状態のこのエンティティ セットにアタッチします。また、関連付けによって到達可能なアタッチされていないすべてのエンティティも再帰的にアタッチします。</summary>
+			<param name="entity">アタッチするエンティティ。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntitySet`1.Detach(`0)">
+			<summary>このエンティティ セットから <see cref="T:System.ServiceModel.DomainServices.Client.Entity"></see> をデタッチします。</summary>
+			<param name="entity">デタッチするエンティティ。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntitySet`1.GetEnumerator">
+			<summary>このエンティティ セットの列挙子を返します。</summary>
+			<returns>このエンティティ セットの反復処理に使用できる列挙子。</returns>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntitySet`1.Remove(`0)">
+			<summary>セットから指定されたエンティティを削除します。エンティティが合成階層のルートである場合は、すべての子エンティティも削除されます。</summary>
+			<param name="entity">削除するエンティティ。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntitySet`1.System.Collections.Generic.IEnumerable`1.GetEnumerator">
+			<summary>コレクションの列挙子を取得します。</summary>
+			<returns>コレクションの列挙子。</returns>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.EntitySetOperations">
+			<summary><see cref="T:System.ServiceModel.DomainServices.Client.EntitySet"></see> で許可される操作の型の列挙体。</summary>
+		</member>
+		<member name="F:System.ServiceModel.DomainServices.Client.EntitySetOperations.Add">
+			<summary>新規エンティティが追加できます。</summary>
+		</member>
+		<member name="F:System.ServiceModel.DomainServices.Client.EntitySetOperations.All">
+			<summary>エンティティは、追加、更新、および削除できます。</summary>
+		</member>
+		<member name="F:System.ServiceModel.DomainServices.Client.EntitySetOperations.Edit">
+			<summary>エンティティは更新できます。</summary>
+		</member>
+		<member name="F:System.ServiceModel.DomainServices.Client.EntitySetOperations.None">
+			<summary>読み取り操作のみが許可されます。更新操作は許可されません。</summary>
+		</member>
+		<member name="F:System.ServiceModel.DomainServices.Client.EntitySetOperations.Remove">
+			<summary>エンティティは削除できます。</summary>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.EntityState">
+			<summary><see cref="T:System.ServiceModel.DomainServices.Client.Entity"></see> に設定できる状態について説明します。</summary>
+		</member>
+		<member name="F:System.ServiceModel.DomainServices.Client.EntityState.Deleted">
+			<summary>エンティティは削除対象としてマークされています。</summary>
+		</member>
+		<member name="F:System.ServiceModel.DomainServices.Client.EntityState.Detached">
+			<summary>エンティティがアタッチおよび追跡されていません。</summary>
+		</member>
+		<member name="F:System.ServiceModel.DomainServices.Client.EntityState.Modified">
+			<summary>エンティティが変更されています。</summary>
+		</member>
+		<member name="F:System.ServiceModel.DomainServices.Client.EntityState.New">
+			<summary>エンティティが新しい状態にアタッチされています。</summary>
+		</member>
+		<member name="F:System.ServiceModel.DomainServices.Client.EntityState.Unmodified">
+			<summary>エンティティは元の状態、変更されていない状態にあります。</summary>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.InvokeArgs">
+			<summary>呼び出し操作を呼び出すために必要な情報を表します。</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.InvokeArgs.#ctor(System.String,System.Type,System.Collections.Generic.IDictionary{System.String,System.Object},System.Boolean)">
+			<summary><see cref="T:System.ServiceModel.DomainServices.Client.InvokeArgs"></see> クラスの新しいインスタンスを初期化します。</summary>
+			<param name="hasSideEffects">操作に副作用がある場合は true、それ以外の場合は false。</param>
+			<param name="returnType">呼び出し操作の戻り値の型。</param>
+			<param name="parameters">操作に対するオプションのパラメーター。メソッドがパラメーターを受け取らない場合は、null を指定します。</param>
+			<param name="operationName">呼び出し操作の名前。</param>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.InvokeArgs.HasSideEffects">
+			<summary>操作に副作用があるかどうかを示す値を取得します。</summary>
+			<returns>操作に副作用がある場合は true、それ以外の場合は false。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.InvokeArgs.OperationName">
+			<summary>操作の名前を取得します。</summary>
+			<returns>操作の名前。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.InvokeArgs.Parameters">
+			<summary>操作に必要なパラメーター (存在する場合) を取得します。</summary>
+			<returns>メソッドがパラメーターを受け取らない場合、操作に必要なパラメーターまたは null。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.InvokeArgs.ReturnType">
+			<summary>操作の戻り値の型を取得します。</summary>
+			<returns>操作の戻り値の型。</returns>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.InvokeCompletedResult">
+			<summary>呼び出し操作の結果を表します。</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.InvokeCompletedResult.#ctor(System.Object)">
+			<summary>指定した戻り値を使用して、<see cref="T:System.ServiceModel.DomainServices.Client.InvokeCompletedResult"></see> クラスの新しいインスタンスを初期化します。</summary>
+			<param name="returnValue">サーバーが返す値。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.InvokeCompletedResult.#ctor(System.Object,System.Collections.Generic.IEnumerable{System.ComponentModel.DataAnnotations.ValidationResult})">
+			<summary>指定した戻り値と検証エラーを使用して、<see cref="T:System.ServiceModel.DomainServices.Client.InvokeCompletedResult"></see> クラスの新しいインスタンスを初期化します。</summary>
+			<param name="returnValue">サーバーが返す値。</param>
+			<param name="validationErrors">検証エラーのコレクション。</param>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.InvokeCompletedResult.ReturnValue">
+			<summary>サーバーが返す値を取得します。</summary>
+			<returns>サーバーが返す値を表すオブジェクト。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.InvokeCompletedResult.ValidationErrors">
+			<summary>検証エラーを取得します。</summary>
+			<returns>検証エラーを表す <see cref="T:System.Collections.Generic.IEnumerable`1"></see>。</returns>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.InvokeOperation">
+			<summary>非同期呼び出し操作を表します。</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.InvokeOperation.CancelCore">
+			<summary>キャンセル コールバックを呼び出します。</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.InvokeOperation.InvokeCompleteAction">
+			<summary>完了コールバックを呼び出します。</summary>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.InvokeOperation.OperationName">
+			<summary>操作の名前を取得します。</summary>
+			<returns>操作の名前を表す文字列。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.InvokeOperation.Parameters">
+			<summary>操作のパラメーターのコレクションを取得します。</summary>
+			<returns>操作のパラメーターのコレクションを表す <see cref="T: System.Collections.Generic.IDictionary`2"></see>。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.InvokeOperation.Result">
+			<summary>この操作の <see cref="T:System.ServiceModel.DomainServices.Client.DomainClientResult"></see> を取得します。</summary>
+			<returns>この操作の結果を表すオブジェクト。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.InvokeOperation.SupportsCancellation">
+			<summary>この操作がキャンセルをサポートしているかどうかを示す値を取得します。</summary>
+			<returns>この操作がキャンセルをサポートする場合は true。それ以外の場合は false。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.InvokeOperation.ValidationErrors">
+			<summary>この操作の検証エラーを取得します。</summary>
+			<returns>この操作の検証エラーを表す <see cref="T: System.Collections.Generic.IEnumerable`1"></see>。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.InvokeOperation.Value">
+			<summary>呼び出し操作の戻り値を取得します。</summary>
+			<returns>呼び出し操作の戻り値を表すオブジェクト。</returns>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.InvokeOperation`1">
+			<summary>非同期呼び出し操作を表します。</summary>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.InvokeOperation`1.Value">
+			<summary>呼び出し操作の戻り値を取得します。</summary>
+			<returns>呼び出し操作の戻り値。</returns>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.LoadBehavior">
+			<summary>エンティティを読み込む際のコントロール ID キャッシュの動作を指定します。</summary>
+		</member>
+		<member name="F:System.ServiceModel.DomainServices.Client.LoadBehavior.KeepCurrent">
+			<summary>キャッシュされたインスタンスは変更されず、新しく読み取られたインスタンスは破棄されます。</summary>
+		</member>
+		<member name="F:System.ServiceModel.DomainServices.Client.LoadBehavior.MergeIntoCurrent">
+			<summary>新しく読み取られたインスタンスの値は、キャッシュされたインスタンスの変更されていないプロパティ値にマージされます。このマージで変更が失われることはありません。</summary>
+		</member>
+		<member name="F:System.ServiceModel.DomainServices.Client.LoadBehavior.RefreshCurrent">
+			<summary>キャッシュされたインスタンスのすべてのメンバーは、新しく読み取られたインスタンスの現在の値によって上書きされます。それらの値が変更されているかどうかは関係ありません。また、エンティティの元の状態は新しく読み取られたインスタンスに設定されます。</summary>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.LoadOperation">
+			<summary>非同期の読み込み操作を表します。</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.LoadOperation.UpdateResults(System.ServiceModel.DomainServices.Client.DomainClientResult)">
+			<summary>観察可能な結果コレクションを更新します。</summary>
+			<param name="result">完了した読み込み操作の結果。</param>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.LoadOperation.AllEntities">
+			<summary>トップ レベルのエンティティが参照しているエンティティを含め、操作で読み込まれたエンティティをすべて取得します。</summary>
+			<returns>トップ レベルのエンティティが参照しているエンティティを含め、操作で読み込まれたすべてのエンティティを表す列挙型。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.LoadOperation.Entities">
+			<summary>操作で読み込まれたトップ レベルのエンティティをすべて取得します。</summary>
+			<returns>操作で読み込まれたすべてのトップレベルのエンティティを表す列挙型。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.LoadOperation.EntityQuery">
+			<summary>この読み込み操作の <see cref="T:System.ServiceModel.DomainServices.Client.EntityQuery"></see> を取得します。</summary>
+			<returns>この読み込み操作の <see cref="T:System.ServiceModel.DomainServices.Client.EntityQuery"></see>。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.LoadOperation.LoadBehavior">
+			<summary>この読み込み操作の <see cref="T:System.ServiceModel.DomainServices.Client.LoadBehavior"></see> を取得します。</summary>
+			<returns>この読み込み操作の <see cref="T:System.ServiceModel.DomainServices.Client.LoadBehavior"></see>。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.LoadOperation.Result">
+			<summary>この操作の <see cref="T:System.ServiceModel.DomainServices.Client.DomainClientResult"></see> を取得します。</summary>
+			<returns>この操作の <see cref="T:System.ServiceModel.DomainServices.Client.DomainClientResult"></see>。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.LoadOperation.TotalEntityCount">
+			<summary>この操作で使用されるクエリの合計サーバー エンティティ数を取得します。</summary>
+			<returns>この操作で使用されるクエリの合計サーバー エンティティ数。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.LoadOperation.ValidationErrors">
+			<summary>検証エラーを取得します。</summary>
+			<returns>検証エラーを表す列挙型。</returns>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.LoadOperation`1">
+			<summary>非同期の読み込み操作を表します。</summary>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.LoadOperation`1.Entities">
+			<summary>トップ レベルのエンティティが参照しているエンティティを含め、操作で読み込まれたエンティティをすべて取得します。</summary>
+			<returns>操作で読み込まれたすべてのエンティティを表す <see cref="T:System.Collections.Generic.IEnumerable`1"></see>。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.LoadOperation`1.EntityQuery">
+			<summary>この読み込み操作の <see cref="P:System.ServiceModel.DomainServices.Client.LoadOperation`1.EntityQuery"></see> を取得します。</summary>
+			<returns>この読み込み操作の <see cref="T:System.ServiceModel.DomainServices.Client.EntityQuery`1"></see>。</returns>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.OperationBase">
+			<summary>非同期操作を表します。</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.OperationBase.#ctor(System.Object)">
+			<summary><see cref="T:System.ServiceModel.DomainServices.Client.OperationBase"></see> クラスの新しいインスタンスを初期化します。</summary>
+			<param name="userState">省略可能なユーザー状態。</param>
+		</member>
+		<member name="E:System.ServiceModel.DomainServices.Client.OperationBase.Completed">
+			<summary>操作が完了するときに発生します。</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.OperationBase.Cancel">
+			<summary>操作を取り消します。</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.OperationBase.CancelCore">
+			<summary>派生クラスでオーバーライドされると、操作を取り消すロジックを用意します。</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.OperationBase.Complete(System.Exception)">
+			<summary>指定したエラーで失敗した操作を完了します。</summary>
+			<param name="error">操作の失敗の原因となったエラー。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.OperationBase.Complete(System.Object)">
+			<summary>指定した結果で成功した操作を完了します。</summary>
+			<param name="result">演算の結果。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.OperationBase.InvokeCompleteAction">
+			<summary>完了コールバックを呼び出します。</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.OperationBase.MarkErrorAsHandled">
+			<summary>操作で検出されたエラーが処理されていることを指定します。</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.OperationBase.OnPropertyChanged(System.ComponentModel.PropertyChangedEventArgs)">
+			<summary>プロパティの値が変更されたときに呼び出されます。</summary>
+			<param name="e">イベントのデータ。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.OperationBase.RaisePropertyChanged(System.String)">
+			<summary><see cref="E:System.Windows.Controls.Ria.DomainDataSourceView.System#ComponentModel#INotifyPropertyChanged#PropertyChanged"></see> イベントを発生させます。</summary>
+			<param name="propertyName">変更されたプロパティの名前。</param>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.OperationBase.CanCancel">
+			<summary>この <see cref="T:System.ServiceModel.DomainServices.Client.OperationBase"></see> が現在取り消し可能な状態であるかどうかを示す値を取得します。</summary>
+			<returns>この <see cref="T:System.ServiceModel.DomainServices.Client.OperationBase"></see> が現在取り消し可能な状態である場合は true。それ以外の場合は false。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.OperationBase.Error">
+			<summary>操作が失敗した場合に、操作のエラーを取得します。</summary>
+			<returns>操作の失敗の原因となったエラー。それ以外の場合は null。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.OperationBase.HasError">
+			<summary>操作に失敗したかどうかを示す値を取得します。</summary>
+			<returns>操作に失敗した場合は true、それ以外の場合は false。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.OperationBase.IsCanceled">
+			<summary>この操作が取り消されたかどうかを示す値を取得します。</summary>
+			<returns>操作が取り消された場合は true。それ以外の場合は false。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.OperationBase.IsComplete">
+			<summary>この操作が完了したかどうかを示す値を取得します。</summary>
+			<returns>操作が完了した場合は true。それ以外の場合は false。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.OperationBase.IsErrorHandled">
+			<summary>操作エラーが処理されたかどうかを示す値を取得または設定します。</summary>
+			<returns>エラーが処理された場合は true。それ以外の場合は false。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.OperationBase.Result">
+			<summary>非同期操作の結果を取得します。</summary>
+			<returns>非同期操作の結果。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.OperationBase.SupportsCancellation">
+			<summary>この操作でキャンセルがサポートされているかどうかを示す値を取得します。</summary>
+			<returns>この操作がキャンセルをサポートする場合は true。それ以外の場合は false。この実装は常に false を返します。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.OperationBase.UserState">
+			<summary>この操作の省略可能なユーザー状態を取得します。</summary>
+			<returns>この操作のユーザー状態。ユーザー状態が指定されていない場合は null。</returns>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.OperationErrorStatus">
+			<summary>操作中に発生するエラーを記述します。</summary>
+		</member>
+		<member name="F:System.ServiceModel.DomainServices.Client.OperationErrorStatus.Conflicts">
+			<summary>競合が発生しました。特定のエンティティの競合については、<see cref="P:System.ServiceModel.DomainServices.Client.Entity.EntityConflict"></see> を参照してください。</summary>
+		</member>
+		<member name="F:System.ServiceModel.DomainServices.Client.OperationErrorStatus.NotFound">
+			<summary>リソースが見つかりません。</summary>
+		</member>
+		<member name="F:System.ServiceModel.DomainServices.Client.OperationErrorStatus.NotSupported">
+			<summary>操作はサポートされていません。</summary>
+		</member>
+		<member name="F:System.ServiceModel.DomainServices.Client.OperationErrorStatus.ServerError">
+			<summary>操作の処理中にサーバー エラーが発生しました。</summary>
+		</member>
+		<member name="F:System.ServiceModel.DomainServices.Client.OperationErrorStatus.Unauthorized">
+			<summary>操作の実行は許可されていません。</summary>
+		</member>
+		<member name="F:System.ServiceModel.DomainServices.Client.OperationErrorStatus.ValidationFailed">
+			<summary>操作の検証が失敗しました。</summary>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.QueryCompletedResult">
+			<summary>クエリ操作の結果を表します。</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.QueryCompletedResult.#ctor(System.Collections.Generic.IEnumerable{System.ServiceModel.DomainServices.Client.Entity},System.Collections.Generic.IEnumerable{System.ServiceModel.DomainServices.Client.Entity},System.Int32,System.Collections.Generic.IEnumerable{System.ComponentModel.DataAnnotations.ValidationResult})">
+			<summary><see cref="T:System.ServiceModel.DomainServices.Client.QueryCompletedResult"></see> クラスの新しいインスタンスを初期化します。</summary>
+			<param name="validationErrors">検証エラーのコレクション。</param>
+			<param name="includedEntities">クエリによって返される付加済みエンティティ。</param>
+			<param name="entities">クエリによって返されるエンティティ。</param>
+			<param name="totalCount">ページングが適用されない、元のクエリの合計行数。</param>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.QueryCompletedResult.Entities">
+			<summary>クエリによって返されるエンティティを取得します。</summary>
+			<returns>クエリによって返されるエンティティ。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.QueryCompletedResult.IncludedEntities">
+			<summary>クエリによって返される付加済みエンティティを取得します。</summary>
+			<returns>クエリによって返される付加済みエンティティ。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.QueryCompletedResult.TotalCount">
+			<summary>ページングが適用されない、元のクエリの合計行数を取得します。</summary>
+			<returns>元のクエリの合計行数。サーバーが合計数をサポートしていない場合は -1。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.QueryCompletedResult.ValidationErrors">
+			<summary>検証エラーを取得します。</summary>
+			<returns>検証エラーのコレクション。</returns>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.QueryResult">
+			<summary>サーバーとクライアントの間でクエリの結果の伝達に使用されるメッセージ型。</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.QueryResult.#ctor">
+			<summary><see cref="T:System.ServiceModel.DomainServices.Client.QueryResult"></see> クラスの新しいインスタンスを初期化します。</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.QueryResult.GetIncludedResults">
+			<summary>付加済み結果を取得します。</summary>
+			<returns>付加済み結果。</returns>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.QueryResult.GetRootResults">
+			<summary>ルート結果を取得します。</summary>
+			<returns>ルート結果。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.QueryResult.TotalCount">
+			<summary>ページングが適用されない、元のクエリの合計行数を取得または設定します。</summary>
+			<returns>ページングが適用されない、元のクエリの合計行数。</returns>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.QueryResult`1">
+			<summary>サーバーとクライアントの間でクエリの結果の伝達に使用されるメッセージ型。</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.QueryResult`1.#ctor">
+			<summary><see cref="T:System.ServiceModel.DomainServices.Client.QueryResult`1"></see> クラスの新しいインスタンスを既定値で初期化します。</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.QueryResult`1.#ctor(System.Collections.Generic.IEnumerable{`0})">
+			<summary>結果項目の指定したコレクションを使用して、<see cref="T:System.ServiceModel.DomainServices.Client.QueryResult`1"></see> クラスの新しいインスタンスを初期化します。</summary>
+			<param name="results">クエリ結果。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.QueryResult`1.#ctor(System.Collections.Generic.IEnumerable{`0},System.Int32)">
+			<summary>結果項目および総数の指定したコレクションを使用して、<see cref="T:System.ServiceModel.DomainServices.Client.QueryResult`1"></see> クラスの新しいインスタンスを初期化します。</summary>
+			<param name="results">クエリ結果。</param>
+			<param name="totalCount">ページングが適用されない、入力クエリに基づく合計行数。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.QueryResult`1.GetIncludedResults">
+			<summary>付加済み結果を取得します。</summary>
+			<returns>付加済み結果。</returns>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.QueryResult`1.GetRootResults">
+			<summary>ルート結果を取得します。</summary>
+			<returns>ルート結果。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.QueryResult`1.IncludedResults">
+			<summary>付加済みクエリ結果を取得または設定します。</summary>
+			<returns>付加済みクエリ結果。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.QueryResult`1.RootResults">
+			<summary>トップレベルのクエリ結果を取得または設定します。</summary>
+			<returns>トップレベルのクエリ結果。</returns>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.SubmitCompletedResult">
+			<summary>送信操作の結果を表します。</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.SubmitCompletedResult.#ctor(System.ServiceModel.DomainServices.Client.EntityChangeSet,System.Collections.Generic.IEnumerable{System.ServiceModel.DomainServices.Client.ChangeSetEntry})">
+			<summary>変更セットと操作結果を指定して、<see cref="T:System.ServiceModel.DomainServices.Client.SubmitCompletedResult"></see> クラスの新しいインスタンスを初期化します。</summary>
+			<param name="operationResults">送信操作に対して <see cref="T:System.ServiceModel.DomainServices.Server.DomainService"></see> から送信された <see cref="T:System.ServiceModel.DomainServices.Client.ChangeSetEntry"></see> の結果。</param>
+			<param name="changeSet">送信された変更セット。</param>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.SubmitCompletedResult.ChangeSet">
+			<summary>送信された変更セットの値を取得します。</summary>
+			<returns>送信された変更セットの値。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.SubmitCompletedResult.Results">
+			<summary><see cref="T:System.ServiceModel.DomainServices.Server.DomainService"></see> が返す <see cref="T:System.ServiceModel.DomainServices.Server.ChangeSetEntry"></see> の結果を取得します。</summary>
+			<returns><see cref="T:System.ServiceModel.DomainServices.Server.DomainService"></see> が返す <see cref="T:System.ServiceModel.DomainServices.Server.ChangeSetEntry"></see> の結果。</returns>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.SubmitOperation">
+			<summary>非同期送信操作を表します。</summary>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.SubmitOperation.ChangeSet">
+			<summary>送信される変更セットを取得します。</summary>
+			<returns>送信される変更セット。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.SubmitOperation.EntitiesInError">
+			<summary>送信操作の完了後、エラーがあるエンティティを取得します。</summary>
+			<returns>送信操作の完了後、エラーがあるエンティティ。</returns>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.ValidationResultInfo">
+			<summary>サーバー上での操作実行時に発生したエラーに関する情報が含まれます。</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ValidationResultInfo.#ctor">
+			<summary><see cref="T:System.ServiceModel.DomainServices.Client.ValidationResultInfo"></see> クラスの新しいインスタンスを初期化します。</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ValidationResultInfo.#ctor(System.String,System.Collections.Generic.IEnumerable{System.String})">
+			<summary>ローカライズされたエラー メッセージおよびエラーの発生元メンバーの名前のコレクションを使用して、<see cref="T:System.ServiceModel.DomainServices.Client.ValidationResultInfo"></see> クラスの新しいインスタンスを初期化します。</summary>
+			<param name="message">ローカライズされたエラー メッセージ。</param>
+			<param name="sourceMemberNames">エラーの発生元のメンバーの名前。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ValidationResultInfo.#ctor(System.String,System.Int32,System.String,System.Collections.Generic.IEnumerable{System.String})">
+			<summary>ローカライズされたエラー、エラー コード、スタック トレース、エラーの発生元のメンバーの名前のコレクションを使用して、<see cref="T:System.ServiceModel.DomainServices.Client.ValidationResultInfo"></see> クラスの新しいインスタンスを初期化します。</summary>
+			<param name="errorCode">カスタム エラー コード。</param>
+			<param name="stackTrace">エラーのスタック トレース。</param>
+			<param name="message">ローカライズされたエラー メッセージ。</param>
+			<param name="sourceMemberNames">エラーの発生元のメンバー名の名前のコレクション。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ValidationResultInfo.GetHashCode">
+			<summary>このオブジェクトのハッシュ コードを返します。</summary>
+			<returns>このオブジェクトのハッシュ コード。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.ValidationResultInfo.ErrorCode">
+			<summary>カスタム エラー コードを取得または設定します。</summary>
+			<returns>カスタム エラー コード。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.ValidationResultInfo.Message">
+			<summary>エラー メッセージを取得または設定します。</summary>
+			<returns>エラー メッセージ。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.ValidationResultInfo.SourceMemberNames">
+			<summary>エラーの発生元のメンバーの名前を取得または設定します。</summary>
+			<returns>エラーの発生元のメンバーの名前。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.ValidationResultInfo.StackTrace">
+			<summary>エラーのスタック トレースを取得または設定します。</summary>
+			<returns>エラーのスタック トレース。</returns>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationEventArgs">
+			<summary><see cref="T:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService"></see> クラスで発生したイベントのイベント引数を提供します。</summary>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationEventArgs.User">
+			<summary>イベント発生時のユーザーを取得します。</summary>
+			<returns>イベント発生時のユーザー。</returns>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationOperation">
+			<summary><see cref="T:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService"></see> でサポートされたすべての操作の基本操作の型を提供します。</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationOperation.BeginCore(System.AsyncCallback)">
+			<summary>基になる非同期結果の実装では対応する Begin メソッドを呼び出します。</summary>
+			<returns>基になる Begin 呼び出しから返される非同期の結果。</returns>
+			<param name="callback">非同期呼び出しが完了したときに呼び出す <see cref="T:System.AsyncCallback"></see>。このパラメーターは、基になる Begin メソッドに直接渡すことができます。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationOperation.EndCore(System.IAsyncResult)">
+			<summary>基になる非同期結果の実装では対応する End メソッドを呼び出します。</summary>
+			<returns>OperationBase.Result に格納する End 呼び出しの結果。</returns>
+			<param name="asyncResult">基になる Begin 呼び出しから返される非同期の結果。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationOperation.RaiseCompletionPropertyChanges">
+			<summary>操作が完了した後にプロパティの変更を発生させます。</summary>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationOperation.AsyncResult">
+			<summary><see cref="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationOperation.BeginCore(System.AsyncCallback)"></see> から返された非同期結果を取得します。</summary>
+			<returns><see cref="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationOperation.BeginCore(System.AsyncCallback)"></see> から返された非同期結果。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationOperation.Result">
+			<summary><see cref="T:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationResult"></see> として結果を取得します。</summary>
+			<returns><see cref="T:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationResult"></see> としての結果。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationOperation.Service">
+			<summary>この操作が Begin、Cancel、および End を実装するために使用するサービスを取得します。</summary>
+			<returns>この操作が Begin、Cancel、および End を実装するために使用するサービス。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationOperation.SupportsCancellation">
+			<summary>キャンセルが操作でサポートされているかどうかを示す値を取得します。</summary>
+			<returns>この操作がキャンセルをサポートする場合は true。それ以外の場合は false。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationOperation.User">
+			<summary>ユーザーのプリンシパルを取得します。</summary>
+			<returns>ユーザーのプリンシパル。操作が完了する前にキャンセルされた場合またはエラーになった場合、値は null です。</returns>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationResult">
+			<summary><see cref="T:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService"></see> で非同期操作の End 呼び出しから返されたすべての結果の抽象基本型を提供します。</summary>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationResult.User">
+			<summary>認証済みユーザーを取得します。</summary>
+			<returns>認証済みユーザー。</returns>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService">
+			<summary>現在のユーザーの認証、読み込み、保存を行うサービスの基本クラスを提供します。</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.#ctor">
+			<summary><see cref="T:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService"></see> クラスの新しいインスタンスを初期化します。</summary>
+		</member>
+		<member name="E:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.LoggedIn">
+			<summary>新しいユーザーがログインに成功したときに発生します。</summary>
+		</member>
+		<member name="E:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.LoggedOut">
+			<summary>ユーザーがログアウトに成功したときに発生します。</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.BeginLoadUser(System.AsyncCallback,System.Object)">
+			<summary>非同期の <see cref="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.LoadUser"></see> 操作を開始します。</summary>
+			<returns>この非同期呼び出しを参照するために使用できるハンドル。</returns>
+			<param name="callback">非同期呼び出しが完了したときに呼び出される必要があるコールバック。</param>
+			<param name="state">このメソッドが返す <see cref="T:System.IAsyncResult"></see> に設定する必要がある状態。このパラメーターはオプションです。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.BeginLogin(System.ServiceModel.DomainServices.Client.ApplicationServices.LoginParameters,System.AsyncCallback,System.Object)">
+			<summary>非同期の <see cref="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.Login(System.ServiceModel.DomainServices.Client.ApplicationServices.LoginParameters,System.Action{System.ServiceModel.DomainServices.Client.ApplicationServices.LoginOperation},System.Object)"></see> 操作を開始します。</summary>
+			<returns>この非同期呼び出しを参照するために使用できるハンドル。</returns>
+			<param name="callback">非同期呼び出しが完了したときに呼び出される必要があるコールバック。</param>
+			<param name="state">このメソッドが返す <see cref="T:System.IAsyncResult"></see> に設定する必要がある状態。このパラメーターはオプションです。</param>
+			<param name="parameters">認証するユーザーを指定する Login パラメーター。このパラメーターはオプションです。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.BeginLogout(System.AsyncCallback,System.Object)">
+			<summary>非同期の <see cref="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.Logout(System.Action{System.ServiceModel.DomainServices.Client.ApplicationServices.LogoutOperation},System.Object)"></see> 操作を開始します。</summary>
+			<returns>この非同期呼び出しを参照するために使用できるハンドル。</returns>
+			<param name="callback">非同期呼び出しが完了したときに呼び出される必要があるコールバック。</param>
+			<param name="state">このメソッドが返す <see cref="T:System.IAsyncResult"></see> に設定する必要がある状態。このパラメーターはオプションです。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.BeginSaveUser(System.Security.Principal.IPrincipal,System.AsyncCallback,System.Object)">
+			<summary>非同期の <see cref="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.SaveUser(System.Action{System.ServiceModel.DomainServices.Client.ApplicationServices.SaveUserOperation},System.Object)"></see> 操作を開始します。</summary>
+			<returns>この非同期呼び出しを参照するために使用できるハンドル。</returns>
+			<param name="callback">非同期呼び出しが完了したときに呼び出される必要があるコールバック。</param>
+			<param name="user">保存するユーザー。このパラメーターは null にすることはできません。</param>
+			<param name="state">このメソッドが返す <see cref="T:System.IAsyncResult"></see> に設定する必要がある状態。このパラメーターはオプションです。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.CancelLoadUser(System.IAsyncResult)">
+			<summary>非同期の <see cref="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.LoadUser"></see> 操作をキャンセルします。</summary>
+			<param name="asyncResult">キャンセルする非同期呼び出しを表す <see cref="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.BeginLoadUser(System.AsyncCallback,System.Object)"></see> から返された結果。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.CancelLogin(System.IAsyncResult)">
+			<summary>非同期の <see cref="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.Login(System.ServiceModel.DomainServices.Client.ApplicationServices.LoginParameters,System.Action{System.ServiceModel.DomainServices.Client.ApplicationServices.LoginOperation},System.Object)"></see> 操作をキャンセルします。</summary>
+			<param name="asyncResult">キャンセルする非同期呼び出しを表す <see cref="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.BeginLogin(System.ServiceModel.DomainServices.Client.ApplicationServices.LoginParameters,System.AsyncCallback,System.Object)"></see> から返された結果。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.CancelLogout(System.IAsyncResult)">
+			<summary>非同期の <see cref="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.Logout(System.Action{System.ServiceModel.DomainServices.Client.ApplicationServices.LogoutOperation},System.Object)"></see> 操作をキャンセルします。</summary>
+			<param name="asyncResult">キャンセルする非同期呼び出しを表す <see cref="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.BeginLogout(System.AsyncCallback,System.Object)"></see> から返された結果。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.CancelSaveUser(System.IAsyncResult)">
+			<summary>非同期の <see cref="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.SaveUser(System.Action{System.ServiceModel.DomainServices.Client.ApplicationServices.SaveUserOperation},System.Object)"></see> 操作をキャンセルします。</summary>
+			<param name="asyncResult">キャンセルする非同期呼び出しを表す <see cref="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.BeginSaveUser(System.Security.Principal.IPrincipal,System.AsyncCallback,System.Object)"></see> から返された結果。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.CreateDefaultUser">
+			<summary>既定のユーザーを作成します。</summary>
+			<returns>作成されたユーザー。</returns>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.EndLoadUser(System.IAsyncResult)">
+			<summary>非同期の <see cref="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.LoadUser"></see> 操作を終了します。</summary>
+			<returns>演算の結果。</returns>
+			<param name="asyncResult">終了する非同期呼び出しを表す <see cref="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.BeginLoadUser(System.AsyncCallback,System.Object)"></see> から返された結果。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.EndLogin(System.IAsyncResult)">
+			<summary>非同期の <see cref="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.Login(System.ServiceModel.DomainServices.Client.ApplicationServices.LoginParameters,System.Action{System.ServiceModel.DomainServices.Client.ApplicationServices.LoginOperation},System.Object)"></see> 操作を終了します。</summary>
+			<returns>演算の結果。</returns>
+			<param name="asyncResult">終了する非同期呼び出しを表す <see cref="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.BeginLogin(System.ServiceModel.DomainServices.Client.ApplicationServices.LoginParameters,System.AsyncCallback,System.Object)"></see> から返された結果。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.EndLogout(System.IAsyncResult)">
+			<summary>非同期の <see cref="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.Logout(System.Action{System.ServiceModel.DomainServices.Client.ApplicationServices.LogoutOperation},System.Object)"></see> 操作を終了します。</summary>
+			<returns>演算の結果。</returns>
+			<param name="asyncResult">終了する非同期呼び出しを表す <see cref="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.BeginLogout(System.AsyncCallback,System.Object)"></see> から返された結果。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.EndSaveUser(System.IAsyncResult)">
+			<summary>非同期の <see cref="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.SaveUser(System.Action{System.ServiceModel.DomainServices.Client.ApplicationServices.SaveUserOperation},System.Object)"></see> 操作を終了します。</summary>
+			<returns>演算の結果。</returns>
+			<param name="asyncResult">終了する非同期呼び出しを表す <see cref="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.BeginSaveUser(System.Security.Principal.IPrincipal,System.AsyncCallback,System.Object)"></see> から返された結果。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.LoadUser">
+			<summary>認証済みのユーザーをサーバーから非同期で読み込みます。</summary>
+			<returns>演算の結果。</returns>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.LoadUser(System.Action{System.ServiceModel.DomainServices.Client.ApplicationServices.LoadUserOperation},System.Object)">
+			<summary>指定したコールバック メソッドとユーザー状態を使用して認証済みのユーザーをサーバーから非同期で読み込みます。</summary>
+			<returns>演算の結果。</returns>
+			<param name="completeAction">操作が完了した直後に、正常な完了、キャンセル、エラーなどのすべての場合に呼び出されるアクション。このパラメーターはオプションです。</param>
+			<param name="userState"><see cref="P:System.ServiceModel.DomainServices.Client.OperationBase.UserState"></see> に設定する状態。このパラメーターはオプションです。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.Login(System.ServiceModel.DomainServices.Client.ApplicationServices.LoginParameters)">
+			<summary>指定したパラメーターを使用し、非同期で認証してサーバーにログインします。</summary>
+			<returns>演算の結果。</returns>
+			<param name="parameters">認証するユーザーを指定する Login パラメーター。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.Login(System.String,System.String)">
+			<summary>指定したユーザー名とパスワードを使用し、非同期で認証してサーバーにログインします。</summary>
+			<returns>演算の結果。</returns>
+			<param name="userName">認証するユーザーに関連付けられているユーザー名。</param>
+			<param name="password">認証するユーザーに関連付けられているパスワード。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.Login(System.ServiceModel.DomainServices.Client.ApplicationServices.LoginParameters,System.Action{System.ServiceModel.DomainServices.Client.ApplicationServices.LoginOperation},System.Object)">
+			<summary>指定したパラメーター、コールバック メソッド、およびユーザー状態を使用し、非同期で認証してサーバーにログインします。</summary>
+			<returns>演算の結果。</returns>
+			<param name="completeAction">操作が完了した直後に、正常な完了、キャンセル、エラーなどのすべての場合に呼び出されるアクション。このパラメーターはオプションです。</param>
+			<param name="userState"><see cref="P:System.ServiceModel.DomainServices.Client.OperationBase.UserState"></see> に設定する状態。このパラメーターはオプションです。</param>
+			<param name="parameters">認証するユーザーを指定する Login パラメーター。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.Logout(System.Boolean)">
+			<summary>エラーに対して例外がスローされたかどうかを示す指定した値を使用して認証済みのユーザーをサーバーから非同期でログアウトします。</summary>
+			<returns>演算の結果。</returns>
+			<param name="throwOnError">ハンドルされないエラーの結果が例外になる場合は true。それ以外の場合は false。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.Logout(System.Action{System.ServiceModel.DomainServices.Client.ApplicationServices.LogoutOperation},System.Object)">
+			<summary>指定したコールバック メソッドとユーザー状態を使用して認証済みのユーザーをサーバーから非同期でログアウトします。</summary>
+			<returns>演算の結果。</returns>
+			<param name="completeAction">操作が完了した直後に、正常な完了、キャンセル、エラーなどのすべての場合に呼び出されるアクション。このパラメーターはオプションです。</param>
+			<param name="userState"><see cref="P:System.ServiceModel.DomainServices.Client.OperationBase.UserState"></see> に設定する状態。このパラメーターはオプションです。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.OnPropertyChanged(System.ComponentModel.PropertyChangedEventArgs)">
+			<summary><see cref="E:System.ComponentModel.INotifyPropertyChanged.PropertyChanged"></see> イベントを発生させます。</summary>
+			<param name="e">発生させるイベント。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.RaisePropertyChanged(System.String)">
+			<summary>指定されたプロパティの <see cref="E:System.ComponentModel.INotifyPropertyChanged.PropertyChanged"></see> イベントを発生させます。</summary>
+			<param name="propertyName">プロパティによるイベントの発生対象。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.SaveUser(System.Boolean)">
+			<summary>エラーに対して例外がスローされたかどうかを示す指定した値を使用して認証済みのユーザーをサーバーに非同期で保存します。</summary>
+			<returns>演算の結果。</returns>
+			<param name="throwOnError">ハンドルされないエラーの結果が例外になる場合は true。それ以外の場合は false。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.SaveUser(System.Action{System.ServiceModel.DomainServices.Client.ApplicationServices.SaveUserOperation},System.Object)">
+			<summary>指定したコールバック メソッドとユーザー状態を使用して認証済みのユーザーをサーバーに非同期で保存します。</summary>
+			<returns>演算の結果。</returns>
+			<param name="completeAction">操作が完了した直後に、正常な完了、キャンセル、エラーなどのすべての場合に呼び出されるアクション。このパラメーターはオプションです。</param>
+			<param name="userState"><see cref="P:System.ServiceModel.DomainServices.Client.OperationBase.UserState"></see> に設定する状態。このパラメーターはオプションです。</param>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.IsBusy">
+			<summary>非同期操作が進行中かどうかを示す値を取得します。</summary>
+			<returns>進行中の操作が存在する場合 true、それ以外の場合は false。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.IsLoadingUser">
+			<summary>非同期の <see cref="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.LoadUser"></see> 操作が進行中かどうかを示す値を取得します。</summary>
+			<returns>進行中の操作が存在する場合 true、それ以外の場合は false。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.IsLoggingIn">
+			<summary>非同期の <see cref="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.Login(System.String,System.String)"></see> 操作が進行中かどうかを示す値を取得します。</summary>
+			<returns>進行中の操作が存在する場合 true、それ以外の場合は false。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.IsLoggingOut">
+			<summary>非同期の <see cref="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.Logout(System.Action{System.ServiceModel.DomainServices.Client.ApplicationServices.LogoutOperation},System.Object)"></see> 操作が進行中かどうかを示す値を取得します。</summary>
+			<returns>進行中の操作が存在する場合 true、それ以外の場合は false。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.IsSavingUser">
+			<summary>非同期の <see cref="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.SaveUser(System.Action{System.ServiceModel.DomainServices.Client.ApplicationServices.SaveUserOperation},System.Object)"></see> 操作が進行中かどうかを示す値を取得します。</summary>
+			<returns>進行中の操作が存在する場合 true、それ以外の場合は false。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.SupportsCancellation">
+			<summary>この認証実装がキャンセルをサポートしているかどうかを示す値を取得します。</summary>
+			<returns>キャンセルがサポートされている場合は true、それ以外の場合は false。基本実装では常に、false が返されます。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.User">
+			<summary>認証ユーザーを表すプリンシパルを取得します。</summary>
+			<returns>認証ユーザーを表すプリンシパル。</returns>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.ApplicationServices.LoadUserOperation">
+			<summary><see cref="T:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService"></see> の LoadUser 操作から返された操作の型。</summary>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.ApplicationServices.LoadUserResult">
+			<summary><see cref="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.EndLoadUser(System.IAsyncResult)"></see> から返された結果を表します。</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.LoadUserResult.#ctor(System.Security.Principal.IPrincipal)">
+			<summary><see cref="T:System.ServiceModel.DomainServices.Client.ApplicationServices.LoadUserResult"></see> クラスの新しいインスタンスを初期化します。</summary>
+			<param name="user">読み込まれたユーザー。</param>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.ApplicationServices.LoginOperation">
+			<summary><see cref="T:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService"></see> の Login 操作から返された操作の型。</summary>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.ApplicationServices.LoginOperation.LoginParameters">
+			<summary>この操作の呼び出し時に使用される login パラメーターを取得します。</summary>
+			<returns>login パラメーター。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.ApplicationServices.LoginOperation.LoginSuccess">
+			<summary>この操作が正常にログインできたかどうかを示す値を取得します。</summary>
+			<returns>ログインに成功した場合は true、それ以外の場合は false。</returns>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.ApplicationServices.LoginParameters">
+			<summary><see cref="T:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService"></see> の Login メソッドでユーザーを認証するパラメーターを指定します。</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.LoginParameters.#ctor">
+			<summary><see cref="T:System.ServiceModel.DomainServices.Client.ApplicationServices.LoginParameters"></see> クラスの新しいインスタンスを既定値で初期化します。</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.LoginParameters.#ctor(System.String,System.String)">
+			<summary>指定した名前とパスワードを使用して、<see cref="T:System.ServiceModel.DomainServices.Client.ApplicationServices.LoginParameters"></see> クラスの新しいインスタンスを初期化します。</summary>
+			<param name="userName">認証するユーザーの名前。</param>
+			<param name="password">認証するユーザーのパスワード。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.LoginParameters.#ctor(System.String,System.String,System.Boolean,System.String)">
+			<summary>指定した名前、パスワード、および永続性を使用して、<see cref="T:System.ServiceModel.DomainServices.Client.ApplicationServices.LoginParameters"></see> クラスの新しいインスタンスを初期化します。</summary>
+			<param name="customData">省略可能な実装固有のデータ。</param>
+			<param name="userName">認証するユーザーの名前。</param>
+			<param name="isPersistent">ログインがセッションの間で保持される場合は true。それ以外の場合は  false。</param>
+			<param name="password">認証するユーザーのパスワード。</param>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.ApplicationServices.LoginParameters.CustomData">
+			<summary>省略可能な実装固有のデータを取得します。</summary>
+			<returns>省略可能な実装固有のデータ。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.ApplicationServices.LoginParameters.IsPersistent">
+			<summary>ログインをセッションの間で保持する必要があるかどうかを示す値を取得します。</summary>
+			<returns>ログインがセッションの間で保持される必要がある場合は true。それ以外の場合は  false。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.ApplicationServices.LoginParameters.Password">
+			<summary>認証するユーザーのパスワードを取得します。</summary>
+			<returns>認証するユーザーのパスワード。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.ApplicationServices.LoginParameters.UserName">
+			<summary>認証するユーザーの名前を取得します。</summary>
+			<returns>認証するユーザーの名前。</returns>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.ApplicationServices.LoginResult">
+			<summary><see cref="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.EndLogin(System.IAsyncResult)"></see>から返された結果。</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.LoginResult.#ctor(System.Security.Principal.IPrincipal,System.Boolean)">
+			<summary><see cref="T:System.ServiceModel.DomainServices.Client.ApplicationServices.LoginResult"></see> クラスの新しいインスタンスを初期化します。</summary>
+			<param name="user">認証が失敗した場合は、ログインしたユーザーまたは null。</param>
+			<param name="loginSuccess">Login 呼び出しが正常に完了した場合は true、それ以外の場合は false。</param>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.ApplicationServices.LoginResult.LoginSuccess">
+			<summary>Login 呼び出しが正常に完了したかどうかを示す値を取得します。</summary>
+			<returns>ログインに成功した場合は true、それ以外の場合は false。</returns>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.ApplicationServices.LogoutOperation">
+			<summary><see cref="T:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService"></see> の Logout 操作から返された操作の型。</summary>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.ApplicationServices.LogoutResult">
+			<summary><see cref="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.EndLogout(System.IAsyncResult)"></see> から返された結果を表します。</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.LogoutResult.#ctor(System.Security.Principal.IPrincipal)">
+			<summary><see cref="T:System.ServiceModel.DomainServices.Client.ApplicationServices.LogoutResult"></see> クラスの新しいインスタンスを初期化します。</summary>
+			<param name="user">匿名ユーザー。</param>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.ApplicationServices.SaveUserOperation">
+			<summary><see cref="T:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService"></see> の SaveUser 操作から戻された操作型を表します。</summary>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.ApplicationServices.SaveUserResult">
+			<summary><see cref="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.EndSaveUser(System.IAsyncResult)"></see> から返された結果を表します。</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.SaveUserResult.#ctor(System.Security.Principal.IPrincipal)">
+			<summary><see cref="T:System.ServiceModel.DomainServices.Client.ApplicationServices.SaveUserResult"></see> クラスの新しいインスタンスを初期化します。</summary>
+			<param name="user">保存されたユーザー。</param>
+		</member>
+	</members>
+</doc>

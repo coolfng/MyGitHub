@@ -1,0 +1,1858 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<doc>
+	<assembly>
+		<name>System.ServiceModel.DomainServices.Client</name>
+	</assembly>
+	<members>
+		<member name="T:System.ComponentModel.DataAnnotations.CompositionAttribute">
+			<summary>멤버가 구성 계층 구조의 일부인 연결을 나타냄을 표시합니다.</summary>
+		</member>
+		<member name="M:System.ComponentModel.DataAnnotations.CompositionAttribute.#ctor">
+			<summary><see cref="T:System.ComponentModel.DataAnnotations.CompositionAttribute"></see> 클래스의 새 인스턴스를 초기화합니다. </summary>
+		</member>
+		<member name="T:System.ComponentModel.DataAnnotations.RoundtripOriginalAttribute">
+			<summary>멤버에 적용할 경우 이 특성은 개체를 업데이트할 때 멤버의 원래 값이 다시 서버로 전송되어야 함을 나타냅니다. 클래스에 적용할 경우 이 특성은 해당 클래스의 각 멤버에 적용됩니다. </summary>
+		</member>
+		<member name="M:System.ComponentModel.DataAnnotations.RoundtripOriginalAttribute.#ctor">
+			<summary><see cref="T:System.ComponentModel.DataAnnotations.RoundtripOriginalAttribute"></see> 클래스의 새 인스턴스를 초기화합니다. </summary>
+		</member>
+		<member name="N:System.ServiceModel.DomainServices">
+			<summary>도메인 서비스를 정의하는 데 사용되는 클래스를 제공합니다.</summary>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.DomainIdentifierAttribute">
+			<summary>형식이 특정 도메인에 속하도록 범주화합니다.</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.DomainIdentifierAttribute.#ctor(System.String)">
+			<summary><see cref="T:System.ServiceModel.DomainServices.DomainIdentifierAttribute"></see> 클래스의 새 인스턴스를 초기화합니다. </summary>
+			<param name="name">도메인 식별자의 이름입니다. 이 문자열에는 프레임워크 수준의 의미 체계가 없으며, 고유 요소나 이름이 대/소문자를 구분하는지 여부는 전적으로 응용 프로그램 개발자가 결정합니다. 이 이름은 null이거나 비어 있을 수 없습니다.</param>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.DomainIdentifierAttribute.IsApplicationService">
+			<summary>특성 사용 형식이 응용 프로그램 서비스를 나타내는지 여부를 표시하는 값을 가져오거나 설정합니다.</summary>
+			<returns>특성 사용 형식이 응용 프로그램 서비스를 나타내면 true이고, 그렇지 않으면 false입니다.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.DomainIdentifierAttribute.Name">
+			<summary>도메인 식별자의 이름을 가져옵니다.</summary>
+			<returns>도메인 식별자의 이름입니다.</returns>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.ExternalReferenceAttribute">
+			<summary>연결이 외부 <see cref="T:System.ServiceModel.DomainServices.Client.DomainContext"></see>에 속하는 엔터티를 참조함을 나타냅니다.</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.ExternalReferenceAttribute.#ctor">
+			<summary><see cref="T:System.ServiceModel.DomainServices.ExternalReferenceAttribute"></see> 클래스의 새 인스턴스를 초기화합니다. </summary>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.ChangeSetEntry">
+			<summary>엔터티에 대해 수행할 도메인 작업을 나타냅니다.</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ChangeSetEntry.#ctor(System.ServiceModel.DomainServices.Client.Entity,System.Int32,System.ServiceModel.DomainServices.Client.EntityOperationType)">
+			<summary>지정된 매개 변수를 사용하여 <see cref="T:System.ServiceModel.DomainServices.Client.ChangeSetEntry"></see> 클래스의 새 인스턴스를 초기화합니다.</summary>
+			<param name="operationType">수행할 작업입니다.</param>
+			<param name="entity">작업이 수행되는 엔터티입니다.</param>
+			<param name="id">서버 결과를 클라이언트 엔터티 인스턴스와 상호 관련시키는 데 사용되는 엔터티의 클라이언트 ID입니다.</param>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.ChangeSetEntry.Associations">
+			<summary>작업의 엔터티와 연결된 모든 엔터티 ID의 컬렉션을 가져오거나 설정합니다.</summary>
+			<returns>작업의 엔터티와 연결된 모든 엔터티 ID의 컬렉션입니다.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.ChangeSetEntry.ClientEntity">
+			<summary>전송된 원래 엔터티를 가져오거나 설정합니다.</summary>
+			<returns>전송된 원래 엔터티입니다.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.ChangeSetEntry.ConflictMembers">
+			<summary>충돌하는 멤버 컬렉션을 가져오거나 설정합니다.</summary>
+			<returns>충돌하는 멤버 컬렉션입니다.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.ChangeSetEntry.Entity">
+			<summary>작업이 수행되는 엔터티를 가져오거나 설정합니다.</summary>
+			<returns>작업이 수행되는 엔터티입니다.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.ChangeSetEntry.EntityActions">
+			<summary>엔터티에 대해 호출된 사용자 지정 메서드를 가져오거나 설정합니다.</summary>
+			<returns>엔터티에 대해 호출된 사용자 지정 메서드의 컬렉션입니다.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.ChangeSetEntry.HasConflict">
+			<summary><see cref="T:System.ServiceModel.DomainServices.Client.ChangeSetEntry"></see>에 충돌이 있는지 여부를 나타내는 값을 가져옵니다.</summary>
+			<returns><see cref="T:System.ServiceModel.DomainServices.Client.ChangeSetEntry"></see>에 충돌이 있으면 true이고, 그렇지 않으면 false입니다.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.ChangeSetEntry.HasMemberChanges">
+			<summary>이 작업의 엔터티에 속성 수정 내용이 있는지 여부를 나타내는 값을 가져오거나 설정합니다.</summary>
+			<returns>이 작업의 엔터티에 속성 수정 내용이 있으면 true이고, 그렇지 않으면 false입니다.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.ChangeSetEntry.Id">
+			<summary>엔터티의 클라이언트 ID를 가져오거나 설정합니다.</summary>
+			<returns>엔터티의 클라이언트 ID입니다.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.ChangeSetEntry.IsDeleteConflict">
+			<summary>충돌이 삭제 충돌인지 여부를 가져오거나 설정합니다. 이 경우 엔터티가 더 이상 저장소에 없습니다.</summary>
+			<returns>충돌이 삭제 충돌이면 true이고, 그렇지 않으면 false입니다.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.ChangeSetEntry.Operation">
+			<summary>이 변경 집합에 대한 <see cref="T:System.ServiceModel.DomainServices.Client.EntityOperationType"></see>을 가져오거나 설정합니다.</summary>
+			<returns>이 변경 집합에 대한 <see cref="T:System.ServiceModel.DomainServices.Client.EntityOperationType"></see>입니다.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.ChangeSetEntry.OriginalAssociations">
+			<summary><see cref="P:System.ServiceModel.DomainServices.Client.ChangeSetEntry.OriginalEntity"></see>의 각 연결에 대한 엔터티를 나타내는 엔터티 ID의 컬렉션을 가져오거나 설정합니다.</summary>
+			<returns><see cref="P:System.ServiceModel.DomainServices.Client.ChangeSetEntry.OriginalEntity"></see>의 각 연결에 대한 엔터티를 나타내는 엔터티 ID의 컬렉션입니다.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.ChangeSetEntry.OriginalEntity">
+			<summary>작업이 수행되는 엔터티의 원래 상태를 가져오거나 설정합니다.</summary>
+			<returns>작업이 수행되는 엔터티의 원래 상태입니다.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.ChangeSetEntry.StoreEntity">
+			<summary>저장소에 있는 엔터티의 상태를 가져오거나 설정합니다.</summary>
+			<returns>저장소에 있는 엔터티의 상태입니다.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.ChangeSetEntry.ValidationErrors">
+			<summary>작업을 처리하는 동안 발생한 유효성 검사 오류를 가져오거나 설정합니다.</summary>
+			<returns>작업을 처리하는 동안 발생한 유효성 검사 오류입니다.</returns>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.ComplexObject">
+			<summary>모든 복합 개체의 기본 클래스입니다.</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ComplexObject.#ctor">
+			<summary><see cref="T:System.ServiceModel.DomainServices.Client.ComplexObject"></see>의 인스턴스를 만듭니다.</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ComplexObject.BeginEdit">
+			<summary>이 복합 개체 인스턴스 편집을 시작합니다.</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ComplexObject.CancelEdit">
+			<summary><see cref="M:System.ServiceModel.DomainServices.Client.ComplexObject.BeginEdit"></see>를 마지막으로 호출한 이후 이 인스턴스에 대한 편집 내용을 취소합니다.</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ComplexObject.EndEdit">
+			<summary><see cref="M:System.ServiceModel.DomainServices.Client.ComplexObject.BeginEdit"></see>를 마지막으로 호출한 이후 이 인스턴스에 대한 편집 내용을 커밋합니다.</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ComplexObject.OnDeserialized(System.Runtime.Serialization.StreamingContext)">
+			<summary>복합 개체가 deserialize된 후 호출되는 메서드입니다.</summary>
+			<param name="context">serialization 컨텍스트입니다.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ComplexObject.OnDeserializing(System.Runtime.Serialization.StreamingContext)">
+			<summary>복합 개체가 deserialize되는 동안 호출되는 메서드입니다.</summary>
+			<param name="context">serialization 컨텍스트입니다.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ComplexObject.OnPropertyChanged(System.ComponentModel.PropertyChangedEventArgs)">
+			<summary>복합 개체의 속성이 변경되면 호출됩니다.</summary>
+			<param name="e">이벤트 인수입니다.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ComplexObject.RaiseDataMemberChanged(System.String)">
+			<summary>복합 개체의 데이터 멤버가 변경되었음을 프레임워크에 알리기 위해 속성 setter에서 호출됩니다. </summary>
+			<param name="propertyName">변경된 속성의 이름입니다.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ComplexObject.RaiseDataMemberChanging(System.String)">
+			<summary>복합 개체의 데이터 멤버가 변경됨을 프레임워크에 알리기 위해 속성 setter에서 호출됩니다.</summary>
+			<param name="propertyName">변경된 속성의 이름입니다.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ComplexObject.RaisePropertyChanged(System.String)">
+			<summary>복합 개체 속성이 변경되었음을 프레임워크에 알리기 위해 속성 setter에서 호출됩니다. </summary>
+			<param name="propertyName">변경된 속성의 이름입니다.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ComplexObject.ValidateProperty(System.String,System.Object)">
+			<summary>지정된 값이 현재 복합 개체의 지정된 속성에 유효한지 여부를 확인합니다.</summary>
+			<param name="value">테스트할 값입니다. null이 지정된 속성에 유효한 경우 null일 수 있습니다.</param>
+			<param name="propertyName">유효성을 검사할 속성의 이름입니다.  </param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ComplexObject.ValidateProperty(System.ComponentModel.DataAnnotations.ValidationContext,System.Object)">
+			<summary>지정된 속성 값이 지정된 <see cref="T:System.ComponentModel.DataAnnotations.ValidationContext"></see>에 유효한지 여부를 확인합니다.</summary>
+			<param name="validationContext">수행할 유효성 검사를 나타내는 <see cref="T:System.ComponentModel.DataAnnotations.ValidationContext"></see>입니다.</param>
+			<param name="value">테스트할 값입니다. null이 지정된 속성에 유효한 경우 null일 수 있습니다.</param>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.ComplexObject.HasValidationErrors">
+			<summary>이 엔터티에 유효성 검사 오류가 있는지 여부를 나타내는 값을 가져옵니다.</summary>
+			<returns>유효성 검사 오류가 있으면 true이고, 그렇지 않으면 false입니다.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.ComplexObject.IsDeserializing">
+			<summary>이 인스턴스가 현재 deserialize되고 있는지 여부를 나타내는 값을 가져옵니다.</summary>
+			<returns>복합 개체가 deserialize되고 있으면 true이고, 그렇지 않으면 false입니다.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.ComplexObject.ValidationErrors">
+			<summary>이 인스턴스에 대한 유효성 검사 오류의 컬렉션을 가져옵니다.</summary>
+			<returns>이 인스턴스에 대한 유효성 검사 오류의 <see cref="T:System.Collections.Generic.ICollection`1"></see>입니다.</returns>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.DomainClient">
+			<summary>모든 <see cref="T:System.ServiceModel.DomainServices.Client.DomainClient"></see> 구현의 기본 클래스 역할을 합니다.</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.DomainClient.#ctor">
+			<summary><see cref="T:System.ServiceModel.DomainServices.Client.DomainClient"></see> 클래스의 새 인스턴스를 초기화합니다. </summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.DomainClient.BeginInvoke(System.ServiceModel.DomainServices.Client.InvokeArgs,System.AsyncCallback,System.Object)">
+			<summary>비동기적으로 작업을 호출합니다.</summary>
+			<returns>이 호출을 식별하는 비동기 결과입니다.</returns>
+			<param name="callback">호출이 완료된 경우 호출할 콜백입니다.</param>
+			<param name="invokeArgs">호출 작업에 대한 인수입니다.</param>
+			<param name="userState">이 작업과 연결된 선택적 사용자 상태입니다.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.DomainClient.BeginInvokeCore(System.ServiceModel.DomainServices.Client.InvokeArgs,System.AsyncCallback,System.Object)">
+			<summary>비동기적으로 호출 작업을 시작하기 위해 프레임워크에서 호출됩니다.</summary>
+			<returns>이 호출을 식별하는 비동기 결과입니다.</returns>
+			<param name="callback">호출이 완료된 경우 호출할 콜백입니다.</param>
+			<param name="invokeArgs">호출 작업에 대한 인수입니다.</param>
+			<param name="userState">이 작업과 연결된 선택적 사용자 상태입니다.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.DomainClient.BeginQuery(System.ServiceModel.DomainServices.Client.EntityQuery,System.AsyncCallback,System.Object)">
+			<summary>비동기 쿼리 작업을 실행합니다.</summary>
+			<returns>이 쿼리를 식별하는 비동기 결과입니다.</returns>
+			<param name="callback">쿼리가 실행된 경우 호출할 콜백입니다.</param>
+			<param name="query">호출할 쿼리입니다.</param>
+			<param name="userState">이 작업과 연결된 선택적 사용자 상태입니다.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.DomainClient.BeginQueryCore(System.ServiceModel.DomainServices.Client.EntityQuery,System.AsyncCallback,System.Object)">
+			<summary>비동기 쿼리 작업을 시작하기 위해 프레임워크에서 호출됩니다.</summary>
+			<returns>이 쿼리를 식별하는 비동기 결과입니다.</returns>
+			<param name="callback">쿼리가 실행된 경우 호출할 콜백입니다.</param>
+			<param name="query">호출할 쿼리입니다.</param>
+			<param name="userState">이 작업과 연결된 선택적 사용자 상태입니다.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.DomainClient.BeginSubmit(System.ServiceModel.DomainServices.Client.EntityChangeSet,System.AsyncCallback,System.Object)">
+			<summary>지정된 <see cref="T:System.ServiceModel.DomainServices.Client.EntityChangeSet"></see>를 <see cref="T:System.ServiceModel.DomainServices.Server.DomainService"></see>에 비동기적으로 전송합니다.</summary>
+			<returns>이 전송 요청을 식별하는 비동기 결과입니다.</returns>
+			<param name="callback">전송이 실행된 경우 호출할 콜백입니다.</param>
+			<param name="changeSet"><see cref="T:System.ServiceModel.DomainServices.Server.DomainService"></see>에 전송할 <see cref="T:System.ServiceModel.DomainServices.Client.EntityChangeSet"></see>입니다.</param>
+			<param name="userState">이 작업과 연결된 선택적 사용자 상태입니다.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.DomainClient.BeginSubmitCore(System.ServiceModel.DomainServices.Client.EntityChangeSet,System.AsyncCallback,System.Object)">
+			<summary>지정된 <see cref="T:System.ServiceModel.DomainServices.Client.EntityChangeSet"></see>를 비동기적으로 처리하기 위해 프레임워크에서 호출됩니다.</summary>
+			<returns>이 전송 요청을 식별하는 비동기 결과입니다.</returns>
+			<param name="callback">전송이 실행된 경우 호출할 콜백입니다.</param>
+			<param name="changeSet"><see cref="T:System.ServiceModel.DomainServices.Server.DomainService"></see>에 전송할 <see cref="T:System.ServiceModel.DomainServices.Client.EntityChangeSet"></see>입니다.</param>
+			<param name="userState">이 작업과 연결된 선택적 사용자 상태입니다.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.DomainClient.CancelInvoke(System.IAsyncResult)">
+			<summary>asyncResult로 지정된 호출 요청을 취소하려고 합니다.</summary>
+			<param name="asyncResult">취소할 호출 작업을 지정하는 IAsyncResult입니다.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.DomainClient.CancelInvokeCore(System.IAsyncResult)">
+			<summary>asyncResult로 지정된 호출 요청을 취소하려고 합니다.</summary>
+			<param name="asyncResult">취소할 호출 작업을 지정하는 IAsyncResult입니다.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.DomainClient.CancelQuery(System.IAsyncResult)">
+			<summary>asyncResult로 지정된 쿼리 요청을 취소하려고 합니다.</summary>
+			<param name="asyncResult">취소할 쿼리 작업을 지정하는 IAsyncResult입니다.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.DomainClient.CancelQueryCore(System.IAsyncResult)">
+			<summary>asyncResult로 지정된 쿼리 요청을 취소하려고 합니다.</summary>
+			<param name="asyncResult">취소할 쿼리 작업을 지정하는 IAsyncResult입니다.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.DomainClient.CancelSubmit(System.IAsyncResult)">
+			<summary>asyncResult로 지정된 전송 요청을 취소하려고 합니다.</summary>
+			<param name="asyncResult">취소할 전송 작업을 지정하는 IAsyncResult입니다.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.DomainClient.CancelSubmitCore(System.IAsyncResult)">
+			<summary>asyncResult로 지정된 전송 요청을 취소하려고 합니다.</summary>
+			<param name="asyncResult">취소할 전송 작업을 지정하는 IAsyncResult입니다.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.DomainClient.EndInvoke(System.IAsyncResult)">
+			<summary>작업 호출을 완료합니다.</summary>
+			<returns>작업의 결과입니다.</returns>
+			<param name="asyncResult">호출을 식별하는 비동기 결과입니다.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.DomainClient.EndInvokeCore(System.IAsyncResult)">
+			<summary>비동기 호출을 완료하기 위해 프레임워크에서 호출됩니다.</summary>
+			<returns>작업의 결과입니다.</returns>
+			<param name="asyncResult">호출을 식별하는 비동기 결과입니다.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.DomainClient.EndQuery(System.IAsyncResult)">
+			<summary>비동기 쿼리 작업의 결과를 가져옵니다.</summary>
+			<returns>작업의 결과입니다.</returns>
+			<param name="asyncResult">쿼리를 식별하는 비동기 결과입니다.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.DomainClient.EndQueryCore(System.IAsyncResult)">
+			<summary>비동기 쿼리 작업을 완료하기 위해 프레임워크에서 호출됩니다.</summary>
+			<returns>작업의 결과입니다.</returns>
+			<param name="asyncResult">쿼리를 식별하는 비동기 결과입니다.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.DomainClient.EndSubmit(System.IAsyncResult)">
+			<summary>전송 요청의 결과를 가져옵니다.</summary>
+			<returns>작업의 결과입니다.</returns>
+			<param name="asyncResult">전송 요청을 식별하는 비동기 결과입니다.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.DomainClient.EndSubmitCore(System.IAsyncResult)">
+			<summary>비동기 전송 작업을 완료하기 위해 프레임워크에서 호출됩니다.</summary>
+			<returns>작업의 결과입니다.</returns>
+			<param name="asyncResult">전송 요청을 식별하는 비동기 결과입니다.</param>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.DomainClient.EntityTypes">
+			<summary>이 <see cref="T:System.ServiceModel.DomainServices.Client.DomainClient"></see>에서 작업을 수행할 엔터티 형식의 컬렉션을 가져오거나 설정합니다.</summary>
+			<returns>이 개체에서 작업을 수행할 엔터티 형식의 컬렉션입니다.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.DomainClient.SupportsCancellation">
+			<summary><see cref="T:System.ServiceModel.DomainServices.Client.DomainClient"></see>에서 취소를 지원하는지 여부를 나타내는 값을 가져옵니다.</summary>
+			<returns>이 개체에서 취소를 지원하면 true이고, 그렇지 않으면 false입니다.</returns>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.DomainClientResult">
+			<summary><see cref="T:System.ServiceModel.DomainServices.Client.DomainClient"></see> 작업의 결과를 나타냅니다.</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.DomainClientResult.CreateInvokeResult(System.Object,System.Collections.Generic.IEnumerable{System.ComponentModel.DataAnnotations.ValidationResult})">
+			<summary>호출 작업 결과를 만듭니다.</summary>
+			<returns>호출 작업 결과입니다.</returns>
+			<param name="returnValue">호출 작업의 반환 값입니다.</param>
+			<param name="validationErrors">호출에 대한 유효성 검사 오류의 컬렉션입니다.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.DomainClientResult.CreateQueryResult(System.Collections.Generic.IEnumerable{System.ServiceModel.DomainServices.Client.Entity},System.Collections.Generic.IEnumerable{System.ServiceModel.DomainServices.Client.Entity},System.Int32,System.Collections.Generic.IEnumerable{System.ComponentModel.DataAnnotations.ValidationResult})">
+			<summary>쿼리 작업 결과를 만듭니다.</summary>
+			<returns>쿼리 작업 결과입니다.</returns>
+			<param name="allEntities">연결된 엔터티를 포함하여 쿼리에서 반환된 모든 엔터티입니다.</param>
+			<param name="validationErrors">쿼리에 대한 유효성 검사 오류의 컬렉션입니다.</param>
+			<param name="totalEntityCount">엔터티의 총 서버 수입니다.</param>
+			<param name="entities">쿼리에서 반환된 최상위 엔터티입니다.</param>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.DomainClientResult.AllEntities">
+			<summary>연결된 엔터티를 포함하여 모든 엔터티 결과를 가져옵니다.</summary>
+			<returns>엔터티의 컬렉션입니다.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.DomainClientResult.Entities">
+			<summary>최상위 엔터티 결과를 가져옵니다.</summary>
+			<returns>엔터티 결과의 컬렉션입니다.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.DomainClientResult.ReturnValue">
+			<summary>호출 작업의 반환 값을 가져옵니다.</summary>
+			<returns>호출 작업의 반환 값입니다.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.DomainClientResult.TotalEntityCount">
+			<summary>페이징이 적용되지 않은 원래 쿼리의 총 서버 엔터티 수를 가져옵니다.</summary>
+			<returns>쿼리의 총 행 수나, 총 엔터티 수가 서버에서 지원되지 않는 경우 -1입니다.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.DomainClientResult.ValidationErrors">
+			<summary>유효성 검사 오류의 컬렉션을 가져옵니다.</summary>
+			<returns>유효성 검사 오류의 컬렉션입니다.</returns>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.DomainContext">
+			<summary><see cref="T:System.ServiceModel.DomainServices.Client.DomainContext"></see>는 도메인 서비스의 상태 저장 클라이언트측 표현으로, 서비스의 모든 기능에 대한 액세스를 제공합니다.</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.DomainContext.#ctor(System.ServiceModel.DomainServices.Client.DomainClient)">
+			<summary><see cref="T:System.ServiceModel.DomainServices.Client.DomainContext"></see> 클래스의 새 인스턴스를 초기화합니다. </summary>
+			<param name="domainClient">이 <see cref="T:System.ServiceModel.DomainServices.Client.DomainContext"></see>에서 사용할 <see cref="P:System.ServiceModel.DomainServices.Client.DomainContext.DomainClient"></see> 인스턴스입니다.</param>
+		</member>
+		<member name="E:System.ServiceModel.DomainServices.Client.DomainContext.PropertyChanged">
+			<summary><see cref="T:System.ServiceModel.DomainServices.Client.DomainContext"></see> 속성이 변경될 때마다 발생합니다.</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.DomainContext.AddReference(System.Type,System.ServiceModel.DomainServices.Client.DomainContext)">
+			<summary>외부 <see cref="T:System.ServiceModel.DomainServices.Client.DomainContext"></see>에 대한 참조를 추가합니다.</summary>
+			<param name="entityType">domainContext에서 조회할 엔터티 형식입니다.</param>
+			<param name="domainContext">외부 참조로 등록할 <see cref="T:System.ServiceModel.DomainServices.Client.DomainContext"></see>입니다.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.DomainContext.CreateEntityContainer">
+			<summary>이 <see cref="T:System.ServiceModel.DomainServices.Client.DomainContext"></see>에서 액세스를 제공할 모든 엔터티에 대해 <see cref="T:System.ServiceModel.DomainServices.Client.EntitySet"></see> 개체를 사용하여 구성된 엔터티 컨테이너를 만들어 반환합니다. </summary>
+			<returns>엔터티 컨테이너입니다.</returns>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.DomainContext.CreateQuery``1(System.String,System.Collections.Generic.IDictionary{System.String,System.Object},System.Boolean,System.Boolean)">
+			<summary><see cref="T:System.ServiceModel.DomainServices.Client.EntityQuery"></see>를 만듭니다.</summary>
+			<returns>새 쿼리입니다.</returns>
+			<param name="hasSideEffects">쿼리에 파생 작업이 있으면 true이고, 그렇지 않으면 false입니다.</param>
+			<param name="queryName">쿼리 메서드의 이름입니다.</param>
+			<param name="parameters">쿼리 메서드에 대한 선택적 매개 변수입니다. 쿼리 작업에서 매개 변수를 사용하지 않는 경우 null을 지정합니다.</param>
+			<param name="isComposable">쿼리에서 구성을 지원하면 true이고, 그렇지 않으면 false입니다.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.DomainContext.InvokeOperation(System.String,System.Type,System.Collections.Generic.IDictionary{System.String,System.Object},System.Boolean,System.Action{System.ServiceModel.DomainServices.Client.InvokeOperation},System.Object)">
+			<summary>호출 작업을 실행합니다.</summary>
+			<returns>호출 작업입니다.</returns>
+			<param name="hasSideEffects">작업에 파생 작업이 있으면 true이고, 그렇지 않으면 false입니다.</param>
+			<param name="callback">작업이 완료된 경우 호출할 선택적 콜백입니다.</param>
+			<param name="returnType">작업의 반환 형식입니다.</param>
+			<param name="userState">작업에 대한 선택적 사용자 상태입니다.</param>
+			<param name="parameters">작업에 대한 선택적 매개 변수입니다. 작업에서 매개 변수를 사용하지 않는 경우 null을 지정합니다.</param>
+			<param name="operationName">작업의 이름입니다.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.DomainContext.InvokeOperation``1(System.String,System.Type,System.Collections.Generic.IDictionary{System.String,System.Object},System.Boolean,System.Action{System.ServiceModel.DomainServices.Client.InvokeOperation{``0}},System.Object)">
+			<summary>호출 작업을 실행합니다.</summary>
+			<returns>호출 작업입니다.</returns>
+			<param name="hasSideEffects">작업에 파생 작업이 있으면 true이고, 그렇지 않으면 false입니다.</param>
+			<param name="callback">작업이 완료된 경우 호출할 선택적 콜백입니다.</param>
+			<param name="returnType">작업의 반환 형식입니다.</param>
+			<param name="userState">작업에 대한 선택적 사용자 상태입니다.</param>
+			<param name="parameters">작업에 대한 선택적 매개 변수입니다. 작업에서 매개 변수를 사용하지 않는 경우 null을 지정합니다.</param>
+			<param name="operationName">작업의 이름입니다.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.DomainContext.Load(System.ServiceModel.DomainServices.Client.EntityQuery,System.ServiceModel.DomainServices.Client.LoadBehavior,System.Action{System.ServiceModel.DomainServices.Client.LoadOperation},System.Object)">
+			<summary>지정된 로드 동작, 콜백 메서드 및 사용자 상태를 사용하여 지정된 쿼리에 대한 로드 작업을 시작합니다.</summary>
+			<returns>로드 작업입니다.</returns>
+			<param name="loadBehavior">적용할 <see cref="T:System.ServiceModel.DomainServices.Client.LoadBehavior"></see>입니다.</param>
+			<param name="callback">로드 작업이 완료된 경우 호출할 선택적 콜백입니다. 콜백은 반환된 <see cref="T:System.ServiceModel.DomainServices.Client.LoadOperation"></see> 형식의 인스턴스를 수락할 수 있는 단일 매개 변수를 사용하는 대리자여야 합니다.</param>
+			<param name="query">호출할 쿼리입니다.</param>
+			<param name="userState">선택적 사용자 상태입니다.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.DomainContext.Load``1(System.ServiceModel.DomainServices.Client.EntityQuery{``0})">
+			<summary>지정된 쿼리에 대한 로드 작업을 시작합니다. </summary>
+			<returns>로드 작업입니다.</returns>
+			<param name="query">호출할 쿼리입니다.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.DomainContext.Load``1(System.ServiceModel.DomainServices.Client.EntityQuery{``0},System.Boolean)">
+			<summary>오류로 인해 예외가 발생하는지 여부를 나타내는 지정된 값을 사용하여 지정된 쿼리에 대한 로드 작업을 시작합니다.</summary>
+			<returns>로드 작업입니다.</returns>
+			<param name="query">호출할 쿼리입니다.</param>
+			<param name="throwOnError">처리되지 않은 오류로 인해 예외가 발생하면 true이고, 그렇지 않으면 false입니다.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.DomainContext.Load``1(System.ServiceModel.DomainServices.Client.EntityQuery{``0},System.Action{System.ServiceModel.DomainServices.Client.LoadOperation{``0}},System.Object)">
+			<summary>지정된 콜백 메서드와 사용자 상태를 사용하여 지정된 쿼리에 대한 로드 작업을 시작합니다.</summary>
+			<returns>로드 작업입니다.</returns>
+			<param name="callback">로드 작업이 완료된 경우 호출할 선택적 콜백입니다.</param>
+			<param name="query">호출할 쿼리입니다.</param>
+			<param name="userState">선택적 사용자 상태입니다.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.DomainContext.Load``1(System.ServiceModel.DomainServices.Client.EntityQuery{``0},System.ServiceModel.DomainServices.Client.LoadBehavior,System.Boolean)">
+			<summary>지정된 로드 동작 및 오류로 인해 예외가 발생하는지 여부를 나타내는 값을 사용하여 지정된 쿼리에 대한 로드 작업을 시작합니다.</summary>
+			<returns>로드 작업입니다.</returns>
+			<param name="loadBehavior">적용할 <see cref="T:System.ServiceModel.DomainServices.Client.LoadBehavior"></see>입니다.</param>
+			<param name="query">호출할 쿼리입니다.</param>
+			<param name="throwOnError">처리되지 않은 오류로 인해 예외가 발생하면 true이고, 그렇지 않으면 false입니다.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.DomainContext.Load``1(System.ServiceModel.DomainServices.Client.EntityQuery{``0},System.ServiceModel.DomainServices.Client.LoadBehavior,System.Action{System.ServiceModel.DomainServices.Client.LoadOperation{``0}},System.Object)">
+			<summary>지정된 로드 동작, 콜백 메서드 및 사용자 상태를 사용하여 지정된 쿼리에 대한 로드 작업을 시작합니다.</summary>
+			<returns>로드 작업입니다.</returns>
+			<param name="loadBehavior">적용할 <see cref="T:System.ServiceModel.DomainServices.Client.LoadBehavior"></see>입니다.</param>
+			<param name="callback">로드 작업이 완료된 경우 호출할 선택적 콜백입니다.</param>
+			<param name="query">호출할 쿼리입니다.</param>
+			<param name="userState">선택적 사용자 상태입니다.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.DomainContext.RaisePropertyChanged(System.String)">
+			<summary>지정된 속성에 대해 <see cref="E:System.ServiceModel.DomainServices.Client.DomainContext.PropertyChanged"></see> 이벤트를 발생시킵니다.</summary>
+			<param name="propertyName">이벤트를 발생시킬 속성입니다.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.DomainContext.RejectChanges">
+			<summary>이 <see cref="T:System.ServiceModel.DomainServices.Client.DomainContext"></see>에 대해 보류 중인 모든 변경 내용을 되돌립니다.</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.DomainContext.SubmitChanges">
+			<summary>도메인 서비스에 대해 보류 중인 모든 변경 내용을 전송합니다. </summary>
+			<returns>전송 작업입니다.</returns>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.DomainContext.SubmitChanges(System.Action{System.ServiceModel.DomainServices.Client.SubmitOperation},System.Object)">
+			<summary>도메인 서비스에 대해 보류 중인 모든 변경 내용을 전송합니다.</summary>
+			<returns>전송 작업입니다.</returns>
+			<param name="callback">전송 작업에 대한 선택적 콜백입니다.</param>
+			<param name="userState">작업과 연결할 선택적 사용자 상태입니다.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.DomainContext.ValidateMethod(System.String,System.Collections.Generic.IDictionary{System.String,System.Object})">
+			<summary>메서드 호출의 유효성을 검사합니다.</summary>
+			<param name="methodName">유효성을 검사할 메서드입니다.</param>
+			<param name="parameters">메서드에 대한 매개 변수입니다.</param>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.DomainContext.DomainClient">
+			<summary>이 컨텍스트에 대한 <see cref="T:System.ServiceModel.DomainServices.Client.DomainClient"></see>를 가져옵니다.</summary>
+			<returns>이 개체를 지원하는 도메인 클라이언트입니다.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.DomainContext.EntityContainer">
+			<summary>이 컨텍스트에서 로드된 모든 엔터티를 포함하는 <see cref="T:System.ServiceModel.DomainServices.Client.EntityContainer"></see>를 가져옵니다.</summary>
+			<returns>엔터티 컨테이너입니다.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.DomainContext.HasChanges">
+			<summary>이 컨텍스트에 보류 중인 변경 내용이 있는지 여부를 나타내는 값을 가져옵니다.</summary>
+			<returns>보류 중인 변경 내용이 있으면 true이고, 그렇지 않으면 false입니다.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.DomainContext.IsLoading">
+			<summary>이 <see cref="T:System.ServiceModel.DomainServices.Client.DomainContext"></see>에서 현재 로드 작업을 수행하고 있는지 여부를 나타내는 값을 가져옵니다.</summary>
+			<returns>보류 중인 로드 작업이 있으면 true이고, 그렇지 않으면 false입니다.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.DomainContext.IsSubmitting">
+			<summary>이 <see cref="T:System.ServiceModel.DomainServices.Client.DomainContext"></see>에서 현재 전송 작업을 수행하고 있는지 여부를 나타내는 값을 가져옵니다.</summary>
+			<returns>보류 중인 전송 작업이 있으면 true이고, 그렇지 않으면 false입니다.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.DomainContext.ValidationContext">
+			<summary><see cref="T:System.ServiceModel.DomainServices.Client.DomainContext"></see>에서 호출된 모든 유효성 검사 작업에 사용할 <see cref="T:System.ComponentModel.DataAnnotations.ValidationContext"></see>를 가져오거나 설정합니다.</summary>
+			<returns><see cref="T:System.ServiceModel.DomainServices.Client.DomainContext"></see>에서 호출된 모든 유효성 검사 작업에 사용할 개체입니다.</returns>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.DomainException">
+			<summary>도메인 작업을 실행하는 동안 복구할 수 없는 오류가 발생했음을 나타냅니다.</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.DomainException.#ctor">
+			<summary>오류를 설명하는 시스템 제공 메시지를 사용하여 <see cref="T:System.ServiceModel.DomainServices.Client.DomainException"></see> 클래스의 새 인스턴스를 초기화합니다.</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.DomainException.#ctor(System.String)">
+			<summary>오류를 설명하는 지정된 메시지를 사용하여 <see cref="T:System.ServiceModel.DomainServices.Client.DomainException"></see> 클래스의 새 인스턴스를 초기화합니다.</summary>
+			<param name="message">지역화된 오류 메시지입니다.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.DomainException.#ctor(System.String,System.Exception)">
+			<summary>지정된 오류 메시지 및 이 예외의 원인이 되는 내부 예외에 대한 참조를 사용하여 <see cref="T:System.ServiceModel.DomainServices.Client.DomainException"></see> 클래스의 새 인스턴스를 초기화합니다.</summary>
+			<param name="message">지역화된 오류 메시지입니다.</param>
+			<param name="innerException">이 예외의 원인이 되는 내부 예외입니다.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.DomainException.#ctor(System.String,System.Int32)">
+			<summary>지정된 오류 메시지와 사용자 지정 오류 코드를 사용하여 <see cref="T:System.ServiceModel.DomainServices.Client.DomainException"></see> 클래스의 새 인스턴스를 초기화합니다. </summary>
+			<param name="errorCode">예외에 대한 사용자 지정 오류 코드입니다.</param>
+			<param name="message">지역화된 오류 메시지입니다.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.DomainException.#ctor(System.String,System.Int32,System.Exception)">
+			<summary>지정된 오류 메시지, 사용자 지정 오류 코드 및 이 예외의 원인이 되는 내부 예외를 사용하여 <see cref="T:System.ServiceModel.DomainServices.Client.DomainException"></see> 클래스의 새 인스턴스를 초기화합니다. </summary>
+			<param name="errorCode">예외에 대한 사용자 지정 오류 코드입니다.</param>
+			<param name="message">지역화된 오류 메시지입니다.</param>
+			<param name="innerException">이 예외의 원인이 되는 내부 예외입니다.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.DomainException.#ctor(System.String,System.Int32,System.String)">
+			<summary>지역화된 예외 메시지, 사용자 지정 오류 코드 및 스택 추적을 사용하여 <see cref="T:System.ServiceModel.DomainServices.Client.DomainException"></see> 클래스의 새 인스턴스를 초기화합니다.</summary>
+			<param name="errorCode">예외에 대한 사용자 지정 오류 코드입니다.</param>
+			<param name="stackTrace">예외 스택 추적입니다.</param>
+			<param name="message">지역화된 오류 메시지입니다.</param>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.DomainException.ErrorCode">
+			<summary>이 예외에 대한 사용자 지정 오류 코드를 가져오거나 설정합니다.</summary>
+			<returns>이 예외에 대한 사용자 지정 오류 코드입니다.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.DomainException.StackTrace">
+			<summary>예외 스택 추적을 가져옵니다.</summary>
+			<returns>예외 스택 추적입니다.</returns>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.DomainOperationException">
+			<summary>서버에서 도메인 작업을 처리하는 동안 하나 이상의 오류가 발생했음을 나타냅니다.</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.DomainOperationException.#ctor">
+			<summary><see cref="T:System.ServiceModel.DomainServices.Client.DomainOperationException"></see> 클래스의 새 인스턴스를 초기화합니다.</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.DomainOperationException.#ctor(System.String)">
+			<summary>오류를 설명하는 지정된 메시지를 사용하여 <see cref="T:System.ServiceModel.DomainServices.Client.DomainOperationException"></see> 클래스의 새 인스턴스를 초기화합니다.</summary>
+			<param name="message">예외를 설명하는 메시지입니다. 이 생성자의 호출자는 이 문자열이 현재 시스템 문화권에 맞게 지역화되었는지 확인하는 데 필요합니다.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.DomainOperationException.#ctor(System.String,System.Exception)">
+			<summary>지정된 오류 메시지 및 이 예외의 원인인 내부 예외에 대한 참조를 사용하여 <see cref="T:System.ServiceModel.DomainServices.Client.DomainOperationException"></see> 클래스의 새 인스턴스를 초기화합니다.</summary>
+			<param name="message">예외를 설명하는 메시지입니다. 이 생성자의 호출자는 이 문자열이 현재 시스템 문화권에 맞게 지역화되었는지 확인하는 데 필요합니다. </param>
+			<param name="innerException">현재 예외의 원인인 예외입니다. innerException 매개 변수가 null이 아닌 경우 내부 예외를 처리하는 catch 블록에서 현재 예외가 throw됩니다. </param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.DomainOperationException.#ctor(System.String,System.ServiceModel.DomainServices.Client.OperationErrorStatus)">
+			<summary>지역화된 예외 메시지와 상태를 사용하여 <see cref="T:System.ServiceModel.DomainServices.Client.DomainOperationException"></see> 클래스의 새 인스턴스를 초기화합니다.</summary>
+			<param name="message">지역화된 예외 메시지입니다.</param>
+			<param name="status">예외의 상태입니다.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.DomainOperationException.#ctor(System.String,System.ServiceModel.DomainServices.Client.OperationErrorStatus,System.Int32)">
+			<summary>지역화된 예외 메시지, 상태 및 사용자 지정 오류 코드를 사용하여 <see cref="T:System.ServiceModel.DomainServices.Client.DomainOperationException"></see> 클래스의 새 인스턴스를 초기화합니다.</summary>
+			<param name="errorCode">사용자 지정 오류 코드입니다.</param>
+			<param name="message">지역화된 예외 메시지입니다.</param>
+			<param name="status">예외의 상태입니다.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.DomainOperationException.#ctor(System.String,System.ServiceModel.DomainServices.Client.OperationErrorStatus,System.Int32,System.String)">
+			<summary>예외의 지역화된 선택적 메시지, 상태, 사용자 지정 오류 코드 및 스택 추적을 사용하여 <see cref="T:System.ServiceModel.DomainServices.Client.DomainOperationException"></see> 클래스의 새 인스턴스를 초기화합니다.</summary>
+			<param name="errorCode">사용자 지정 오류 코드입니다.</param>
+			<param name="stackTrace">예외의 스택 추적입니다.</param>
+			<param name="message">지역화된 오류 메시지입니다.</param>
+			<param name="status">예외의 상태입니다.</param>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.DomainOperationException.ErrorCode">
+			<summary>이 예외에 대한 사용자 지정 오류 코드를 가져오거나 설정합니다. 오류 코드는 사용자 정의 값일 수 있습니다.</summary>
+			<returns>사용자 지정 오류 코드입니다.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.DomainOperationException.StackTrace">
+			<summary>예외의 스택 추적을 가져옵니다.</summary>
+			<returns>예외의 스택 추적입니다.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.DomainOperationException.Status">
+			<summary>이 예외에 대한 상태 코드를 가져오거나 설정합니다.</summary>
+			<returns>이 예외에 대한 상태 코드입니다.</returns>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.Entity">
+			<summary>모든 엔터티 형식의 기본 클래스입니다.</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.Entity.#ctor">
+			<summary><see cref="T:System.ServiceModel.DomainServices.Client.Entity"></see> 클래스의 새 인스턴스를 초기화합니다.</summary>
+		</member>
+		<member name="E:System.ServiceModel.DomainServices.Client.Entity.PropertyChanged">
+			<summary><see cref="T:System.ServiceModel.DomainServices.Client.Entity"></see> 속성이 변경된 경우 발생합니다.</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.Entity.AcceptChanges">
+			<summary>이 <see cref="T:System.ServiceModel.DomainServices.Client.Entity"></see>에 대한 현재 변경 내용을 허용하고 적절하게 상태를 전환합니다.</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.Entity.BeginEdit">
+			<summary><see cref="T:System.ServiceModel.DomainServices.Client.Entity"></see> 편집을 시작합니다.</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.Entity.CancelEdit">
+			<summary><see cref="M:System.ServiceModel.DomainServices.Client.Entity.BeginEdit"></see>를 마지막으로 호출한 이후 <see cref="T:System.ServiceModel.DomainServices.Client.Entity"></see>에 대한 모든 편집 내용을 취소합니다.</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.Entity.CanInvokeAction(System.String)">
+			<summary>지정된 작업을 현재 호출할 수 있는지 여부를 나타내는 값을 가져옵니다.</summary>
+			<returns>지정된 작업을 호출할 수 있으면 true이고, 그렇지 않으면 false입니다.</returns>
+			<param name="name">사용자 지정 메서드에 해당하는 작업의 이름입니다.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.Entity.EndEdit">
+			<summary><see cref="M:System.ServiceModel.DomainServices.Client.Entity.EndEdit"></see>를 마지막으로 호출한 이후 이 엔터티에 대한 편집 내용을 커밋합니다.</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.Entity.GetIdentity">
+			<summary>해싱에 적합한 엔터티 ID를 반환합니다.</summary>
+			<returns>엔터티 ID를 나타내는 개체입니다.</returns>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.Entity.GetOriginal">
+			<summary>이 엔터티의 원래 상태를 가져옵니다.</summary>
+			<returns>원래 상태의 <see cref="T:System.ServiceModel.DomainServices.Client.Entity"></see>입니다.</returns>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.Entity.InvokeAction(System.String,System.Object[])">
+			<summary>변경 내용을 전송할 때 이 엔터티에 대해 호출할 작업을 등록하기 위해 호출됩니다.</summary>
+			<param name="actionName">호출할 작업의 이름입니다.</param>
+			<param name="parameters">지정된 작업을 호출하는 데 사용할 매개 변수 값입니다.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.Entity.IsActionInvoked(System.String)">
+			<summary>지정된 작업이 호출되었는지 여부를 나타냅니다.</summary>
+			<returns>지정된 작업이 호출되었으면 true이고, 그렇지 않으면 false입니다.</returns>
+			<param name="name">사용자 지정 메서드에 해당하는 작업의 이름입니다.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.Entity.OnActionStateChanged">
+			<summary>이 엔터티에 대해 호출된 작업 상태가 변경된 경우 호출됩니다.</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.Entity.OnDeserialized(System.Runtime.Serialization.StreamingContext)">
+			<summary>이 <see cref="T:System.ServiceModel.DomainServices.Client.Entity"></see>가 deserialize된 후 호출됩니다.</summary>
+			<param name="context">serialization 컨텍스트입니다.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.Entity.OnDeserializing(System.Runtime.Serialization.StreamingContext)">
+			<summary>이 <see cref="T:System.ServiceModel.DomainServices.Client.Entity"></see>가 deserialize되고 있는 경우 호출됩니다.</summary>
+			<param name="context">serialization 컨텍스트입니다.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.Entity.OnLoaded(System.Boolean)">
+			<summary><see cref="T:System.ServiceModel.DomainServices.Client.Entity"></see>가 <see cref="T:System.ServiceModel.DomainServices.Client.EntitySet"></see>에 로드된 경우 호출됩니다.</summary>
+			<param name="isInitialLoad">엔터티가 처음으로 집합에 로드되고 있으면 true이고, 그렇지 않으면 false입니다.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.Entity.OnPropertyChanged(System.ComponentModel.PropertyChangedEventArgs)">
+			<summary><see cref="T:System.ServiceModel.DomainServices.Client.Entity"></see> 속성이 변경된 경우 호출됩니다.</summary>
+			<param name="e">이벤트 인수입니다.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.Entity.RaiseDataMemberChanged(System.String)">
+			<summary><see cref="T:System.ServiceModel.DomainServices.Client.Entity"></see> 데이터 멤버가 변경되었음을 프레임워크에 알리기 위해 속성 setter에서 호출됩니다. </summary>
+			<param name="propertyName">변경된 속성의 이름입니다.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.Entity.RaiseDataMemberChanging(System.String)">
+			<summary><see cref="T:System.ServiceModel.DomainServices.Client.Entity"></see> 데이터 멤버가 변경됨을 프레임워크에 알리기 위해 속성 setter에서 호출됩니다. </summary>
+			<param name="propertyName">변경되고 있는 속성의 이름입니다.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.Entity.RaisePropertyChanged(System.String)">
+			<summary><see cref="T:System.ServiceModel.DomainServices.Client.Entity"></see> 멤버가 변경되었음을 프레임워크에 알리기 위해 속성 setter에서 호출됩니다. </summary>
+			<param name="propertyName">변경된 속성의 이름입니다.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.Entity.RejectChanges">
+			<summary>이 엔터티에 적용된 모든 속성 변경 내용을 원래 값으로 되돌립니다. </summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.Entity.ToString">
+			<summary>현재 엔터티의 문자열 표현을 가져옵니다.</summary>
+			<returns>현재 엔터티의 문자열 표현입니다.</returns>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.Entity.UpdateActionState(System.String,System.String,System.String)">
+			<summary><see cref="M:System.ServiceModel.DomainServices.Client.Entity.OnActionStateChanged"></see> 재정의 컨텍스트 내에서 호출됩니다. 이 메서드는 사용자 지정 메서드에 해당하는 속성에 대해 적절한 속성 변경 알림을 발생시킵니다.</summary>
+			<param name="name">사용자 지정 메서드 이름입니다.</param>
+			<param name="canInvokePropertyName">사용자 지정 메서드에 대한 "CanInvoke" 가드 속성의 이름입니다.</param>
+			<param name="isInvokedPropertyName">사용자 지정 메서드에 대한 "IsInvoked" 속성의 이름입니다.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.Entity.ValidateProperty(System.String,System.Object)">
+			<summary>지정된 값이 현재 엔터티의 지정된 속성에 유효한지 여부를 나타냅니다.</summary>
+			<param name="value">테스트할 값입니다. null이 지정된 속성에 유효한 경우 null일 수 있습니다.</param>
+			<param name="propertyName">설정할 이 엔터티의 속성 이름입니다. 이 이름은 null이거나 비어 있을 수 없습니다.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.Entity.ValidateProperty(System.ComponentModel.DataAnnotations.ValidationContext,System.Object)">
+			<summary>지정된 속성 값이 지정된 유효성 검사 컨텍스트에 유효한지 여부를 나타냅니다.</summary>
+			<param name="validationContext">수행할 유효성 검사를 나타내는 <see cref="P:System.ServiceModel.DomainServices.Client.DomainContext.ValidationContext"></see>입니다. <see cref="P:System.ComponentModel.DataAnnotations.ValidationContext.MemberName"></see>은 유효성을 검사할 속성의 이름을 나타내야 합니다.</param>
+			<param name="value">테스트할 값입니다. null이 지정된 속성에 유효한 경우 null일 수 있습니다.</param>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.Entity.EntityActions">
+			<summary>이 엔터티에 대해 보류 중인 사용자 지정 메서드 호출 목록을 가져옵니다.</summary>
+			<returns>이 엔터티에 대해 보류 중인 사용자 지정 메서드 호출 컬렉션입니다.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.Entity.EntityConflict">
+			<summary>전송 작업 후 이 엔터티에 대한 충돌 정보를 가져옵니다.</summary>
+			<returns>전송 작업 후 이 엔터티에 대한 <see cref="T:System.ServiceModel.DomainServices.Client.EntityConflict"></see>입니다. 충돌이 없는 경우 null을 반환합니다.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.Entity.EntitySet">
+			<summary>이 <see cref="T:System.ServiceModel.DomainServices.Client.Entity"></see>가 멤버인 <see cref="P:System.ServiceModel.DomainServices.Client.Entity.EntitySet"></see>를 가져옵니다. </summary>
+			<returns>이 <see cref="T:System.ServiceModel.DomainServices.Client.Entity"></see>가 멤버인 <see cref="P:System.ServiceModel.DomainServices.Client.Entity.EntitySet"></see>입니다. 엔터티가 분리되어 있거나 집합에서 제거되었으면 이 값은 null입니다.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.Entity.EntityState">
+			<summary>이 <see cref="T:System.ServiceModel.DomainServices.Client.Entity"></see>의 현재 상태를 가져옵니다.</summary>
+			<returns>이 <see cref="T:System.ServiceModel.DomainServices.Client.Entity"></see>의 현재 상태를 나타내는 <see cref="T:System.ServiceModel.DomainServices.Client.EntityState"></see>입니다.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.Entity.HasChanges">
+			<summary>이 엔터티에 현재 보류 중인 변경 내용이 있는지 여부를 나타내는 값을 가져옵니다.</summary>
+			<returns>엔터티에 보류 중인 변경 내용이 있으면 true이고, 그렇지 않으면 false입니다.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.Entity.HasValidationErrors">
+			<summary>이 엔터티에 유효성 검사 오류가 있는지 여부를 나타내는 값을 가져옵니다.</summary>
+			<returns>마지막 전송 작업 중 엔터티에 유효성 검사 오류가 있으면 true이고, 그렇지 않으면 false입니다.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.Entity.IsDeserializing">
+			<summary>현재 엔터티가 현재 deserialize되고 있는지 여부를 나타내는 값을 가져옵니다.</summary>
+			<returns>엔터티가 현재 deserialize되고 있으면 true이고, 그렇지 않으면 false입니다.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.Entity.IsReadOnly">
+			<summary>이 엔터티가 현재 읽기 전용 상태인지 여부를 나타내는 값을 가져옵니다.</summary>
+			<returns>엔터티가 읽기 전용이면 true이고, 그렇지 않으면 false입니다.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.Entity.ValidationErrors">
+			<summary>이 엔터티에 대한 유효성 검사 오류의 컬렉션을 가져옵니다.</summary>
+			<returns>마지막 전송 작업 중에 발생한 유효성 검사 오류 컬렉션입니다.</returns>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.EntityAction">
+			<summary>엔터티에 대한 사용자 지정 메서드 호출을 나타냅니다.</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntityAction.#ctor(System.String,System.Object[])">
+			<summary><see cref="T:System.ServiceModel.DomainServices.Client.EntityAction"></see> 클래스의 새 인스턴스를 초기화합니다.</summary>
+			<param name="name">엔터티 작업의 이름입니다.</param>
+			<param name="parameters">엔터티 작업을 호출할 매개 변수 목록입니다.</param>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.EntityAction.HasParameters">
+			<summary>매개 변수가 이 작업과 연결되었는지 여부를 나타내는 값을 가져옵니다.</summary>
+			<returns>매개 변수가 이 작업과 연결되어 있으면 true이고, 그렇지 않으면 false입니다.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.EntityAction.Name">
+			<summary>엔터티 작업의 이름을 가져옵니다.</summary>
+			<returns>엔터티 작업의 이름입니다.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.EntityAction.Parameters">
+			<summary>엔터티 작업에 전달할 매개 변수를 가져옵니다.</summary>
+			<returns>엔터티 작업에 전달할 매개 변수를 나타내는 컬렉션입니다.</returns>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.EntityChangeSet">
+			<summary><see cref="T:System.ServiceModel.DomainServices.Client.Entity"></see>에 대한 변경 내용 컬렉션을 나타냅니다.</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntityChangeSet.GetChangeSetEntries">
+			<summary>이 변경 집합에 대한 <see cref="T:System.ServiceModel.DomainServices.Client.ChangeSetEntry"></see> 항목의 컬렉션을 가져옵니다.</summary>
+			<returns>이 변경 집합에 대한 <see cref="T:System.ServiceModel.DomainServices.Client.ChangeSetEntry"></see> 항목의 컬렉션입니다.</returns>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntityChangeSet.ToString">
+			<summary><see cref="T:System.ServiceModel.DomainServices.Client.EntityChangeSet"></see>의 텍스트 표현을 반환합니다. </summary>
+			<returns><see cref="T:System.ServiceModel.DomainServices.Client.EntityChangeSet"></see>의 텍스트 표현입니다.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.EntityChangeSet.AddedEntities">
+			<summary>추가된 엔터티의 컬렉션을 가져옵니다.</summary>
+			<returns>추가된 엔터티의 컬렉션입니다.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.EntityChangeSet.IsEmpty">
+			<summary><see cref="T:System.ServiceModel.DomainServices.Client.EntityChangeSet"></see>에 변경 내용이 있는지 여부를 나타내는 값을 가져옵니다.</summary>
+			<returns><see cref="T:System.ServiceModel.DomainServices.Client.EntityChangeSet"></see>에 변경 내용이 있으면 true이고, 그렇지 않으면 false입니다.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.EntityChangeSet.ModifiedEntities">
+			<summary>수정된 엔터티의 컬렉션을 가져옵니다.</summary>
+			<returns>수정된 엔터티의 컬렉션입니다.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.EntityChangeSet.RemovedEntities">
+			<summary>제거된 엔터티의 컬렉션을 가져옵니다.</summary>
+			<returns>제거된 엔터티의 컬렉션입니다.</returns>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.EntityCollection`1">
+			<summary>연결된 엔터티의 컬렉션을 나타냅니다.</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntityCollection`1.#ctor(System.ServiceModel.DomainServices.Client.Entity,System.String,System.Func{`0,System.Boolean})">
+			<summary>지정된 부모, 부모의 컬렉션 이름 및 필터 함수를 사용하여 <see cref="T:System.ServiceModel.DomainServices.Client.EntityCollection`1"></see> 클래스의 새 인스턴스를 초기화합니다. </summary>
+			<param name="memberName">부모 엔터티에 대한 이 <see cref="T:System.ServiceModel.DomainServices.Client.EntityCollection`1"></see> 멤버의 이름입니다.</param>
+			<param name="entityPredicate">연결된 엔터티를 필터링하고 이 컬렉션의 멤버인 엔터티를 확인하는 데 사용되는 함수입니다.</param>
+			<param name="parent">이 컬렉션이 멤버로 속해 있는 엔터티입니다.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntityCollection`1.#ctor(System.ServiceModel.DomainServices.Client.Entity,System.String,System.Func{`0,System.Boolean},System.Action{`0},System.Action{`0})">
+			<summary>지정된 부모, 부모의 컬렉션 이름과 필터링, 연결 및 분리 함수를 사용하여 <see cref="T:System.ServiceModel.DomainServices.Client.EntityCollection`1"></see> 클래스의 새 인스턴스를 초기화합니다. </summary>
+			<param name="memberName">부모 엔터티에 대한 이 <see cref="T:System.ServiceModel.DomainServices.Client.EntityCollection`1"></see> 멤버의 이름입니다.</param>
+			<param name="entityPredicate">연결된 엔터티를 필터링하고 이 컬렉션의 멤버인 엔터티를 확인하는 데 사용되는 함수입니다.</param>
+			<param name="parent">이 컬렉션이 멤버로 속해 있는 엔터티입니다.</param>
+			<param name="detachAction">연결된 엔터티에서 부모 엔터티로의 역참조를 제거하는 데 사용되는 함수입니다.</param>
+			<param name="attachAction">연결된 엔터티에서 부모 엔터티로의 역참조를 설정하는 데 사용되는 함수입니다.</param>
+		</member>
+		<member name="E:System.ServiceModel.DomainServices.Client.EntityCollection`1.EntityAdded">
+			<summary><see cref="T:System.ServiceModel.DomainServices.Client.Entity"></see>가 이 컬렉션에 추가된 경우 발생합니다.</summary>
+		</member>
+		<member name="E:System.ServiceModel.DomainServices.Client.EntityCollection`1.EntityRemoved">
+			<summary><see cref="T:System.ServiceModel.DomainServices.Client.Entity"></see>가 이 컬렉션에서 제거된 경우 발생합니다.</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntityCollection`1.Add(`0)">
+			<summary>지정된 엔터티를 이 컬렉션에 추가합니다. </summary>
+			<param name="entity">추가할 엔터티입니다.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntityCollection`1.GetEnumerator">
+			<summary>이 컬렉션에 대한 열거자를 반환합니다.</summary>
+			<returns>이 컬렉션에 대한 IEnumerator입니다.</returns>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntityCollection`1.Remove(`0)">
+			<summary>이 컬렉션에서 지정된 엔터티를 제거합니다.</summary>
+			<param name="entity">제거할 엔터티입니다.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntityCollection`1.ToString">
+			<summary>컬렉션의 텍스트 표현을 반환합니다.</summary>
+			<returns><see cref="T:System.ServiceModel.DomainServices.Client.EntityCollection`1"></see>을 나타내는 문자열입니다.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.EntityCollection`1.Count">
+			<summary>이 컬렉션의 현재 엔터티 수를 가져옵니다.</summary>
+			<returns>이 컬렉션의 현재 엔터티 수를 나타내는 정수입니다.</returns>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.EntityCollectionChangedEventArgs`1">
+			<summary>엔터티가 포함된 컬렉션의 강력한 형식 추가 또는 제거 알림에 대한 이벤트 인수를 제공합니다.</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntityCollectionChangedEventArgs`1.#ctor(`0)">
+			<summary><see cref="T:System.ServiceModel.DomainServices.Client.EntityCollectionChangedEventArgs`1"></see> 클래스의 새 인스턴스를 초기화합니다.</summary>
+			<param name="entity">영향을 받는 <see cref="P:System.ServiceModel.DomainServices.Client.EntityCollectionChangedEventArgs`1.Entity"></see>입니다.</param>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.EntityCollectionChangedEventArgs`1.Entity">
+			<summary>영향을 받는 <see cref="P:System.ServiceModel.DomainServices.Client.EntityCollectionChangedEventArgs`1.Entity"></see>를 가져옵니다.</summary>
+			<returns>영향을 받는 <see cref="P:System.ServiceModel.DomainServices.Client.EntityCollectionChangedEventArgs`1.Entity"></see>입니다.</returns>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.EntityConflict">
+			<summary>엔터티 충돌을 나타냅니다.</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntityConflict.Resolve">
+			<summary>엔터티의 원래 상태를 현재 저장소 상태로 업데이트하여 충돌을 해결합니다.</summary>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.EntityConflict.CurrentEntity">
+			<summary>현재 <see cref="T:System.ServiceModel.DomainServices.Client.Entity"></see> 인스턴스를 가져옵니다.</summary>
+			<returns>현재 <see cref="T:System.ServiceModel.DomainServices.Client.Entity"></see> 인스턴스입니다.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.EntityConflict.IsDeleted">
+			<summary>엔터티가 더 이상 저장소에 없는지 여부를 나타내는 값을 가져옵니다.</summary>
+			<returns>엔터티가 저장소에서 삭제되었으면 true이고, 그렇지 않으면 false입니다.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.EntityConflict.OriginalEntity">
+			<summary>원래 <see cref="T:System.ServiceModel.DomainServices.Client.Entity"></see> 인스턴스를 가져옵니다.</summary>
+			<returns>원래 <see cref="T:System.ServiceModel.DomainServices.Client.Entity"></see> 인스턴스입니다.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.EntityConflict.PropertyNames">
+			<summary>충돌하는 속성 이름의 컬렉션을 가져옵니다.</summary>
+			<returns>충돌하는 속성 이름의 컬렉션입니다.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.EntityConflict.StoreEntity">
+			<summary>저장소 <see cref="T:System.ServiceModel.DomainServices.Client.Entity"></see> 인스턴스를 가져옵니다. </summary>
+			<returns>저장소 <see cref="T:System.ServiceModel.DomainServices.Client.Entity"></see> 인스턴스이거나, 엔터티가 더 이상 저장소에 없는 경우 null입니다.</returns>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.EntityContainer">
+			<summary><see cref="T:System.ServiceModel.DomainServices.Client.EntitySet"></see> 개체의 컬렉션 형식으로 엔터티의 캐시를 나타냅니다.</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntityContainer.#ctor">
+			<summary><see cref="T:System.ServiceModel.DomainServices.Client.EntityContainer"></see> 클래스의 새 인스턴스를 초기화합니다.</summary>
+		</member>
+		<member name="E:System.ServiceModel.DomainServices.Client.EntityContainer.PropertyChanged">
+			<summary>속성이 변경된 경우 발생합니다.</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntityContainer.AcceptChanges">
+			<summary>이 컨테이너에 있는 <see cref="T:System.ServiceModel.DomainServices.Client.EntitySet"></see> 개체나 엔터티에 대한 모든 변경 내용을 적용합니다.</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntityContainer.AddReference(System.ServiceModel.DomainServices.Client.EntitySet)">
+			<summary>외부 <see cref="T:System.ServiceModel.DomainServices.Client.EntitySet"></see>에 대한 참조를 추가합니다.</summary>
+			<param name="entitySet">엔터티 집합입니다.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntityContainer.Clear">
+			<summary>이 컨테이너에 있는 모든 <see cref="T:System.ServiceModel.DomainServices.Client.EntitySet"></see> 개체의 내용을 지웁니다.</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntityContainer.CreateEntitySet``1">
+			<summary>이 컨테이너에 지정된 엔터티 형식에 대한 새 <see cref="T:System.ServiceModel.DomainServices.Client.EntitySet"></see>를 만듭니다.</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntityContainer.CreateEntitySet``1(System.ServiceModel.DomainServices.Client.EntitySetOperations)">
+			<summary>이 컨테이너에 지정된 <see cref="T:System.ServiceModel.DomainServices.Client.EntitySetOperations"></see>에 대한 <see cref="T:System.ServiceModel.DomainServices.Client.EntitySet"></see>를 만듭니다.</summary>
+			<param name="supportedOperations">엔터티 형식에 대해 지원되는 작업입니다.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntityContainer.GetChanges">
+			<summary>현재 보류 중인 변경 내용 집합이 포함된 <see cref="T:System.ServiceModel.DomainServices.Client.EntityChangeSet"></see>를 반환합니다.</summary>
+			<returns>현재 보류 중인 변경 내용 집합이 포함된 <see cref="T:System.ServiceModel.DomainServices.Client.EntityChangeSet"></see>입니다.</returns>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntityContainer.GetEntitySet(System.Type)">
+			<summary>지정된 <see cref="T:System.ServiceModel.DomainServices.Client.Entity"></see> 형식에 대한 새 <see cref="T:System.ServiceModel.DomainServices.Client.EntitySet"></see>를 가져옵니다. </summary>
+			<returns>지정된 <see cref="T:System.ServiceModel.DomainServices.Client.Entity"></see> 형식에 대한 <see cref="T:System.ServiceModel.DomainServices.Client.EntitySet"></see>입니다.</returns>
+			<param name="entityType">엔터티 형식입니다.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntityContainer.GetEntitySet``1">
+			<summary>지정된 <see cref="T:System.ServiceModel.DomainServices.Client.Entity"></see> 형식에 대한 새 <see cref="T:System.ServiceModel.DomainServices.Client.EntitySet"></see>를 가져옵니다. </summary>
+			<returns>지정된 <see cref="T:System.ServiceModel.DomainServices.Client.Entity"></see> 형식에 대한 <see cref="T:System.ServiceModel.DomainServices.Client.EntitySet"></see>입니다.</returns>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntityContainer.LoadEntities(System.Collections.IEnumerable)">
+			<summary>지정된 엔터티 컬렉션을 이 <see cref="T:System.ServiceModel.DomainServices.Client.EntityContainer"></see>에 로드합니다.</summary>
+			<returns>엔터티 컬렉션을 나타내는 IEnumerable입니다.</returns>
+			<param name="entities">로드할 엔터티입니다.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntityContainer.LoadEntities(System.Collections.IEnumerable,System.ServiceModel.DomainServices.Client.LoadBehavior)">
+			<summary>지정된 로드 동작을 사용하여 지정된 엔터티 컬렉션을 이 <see cref="T:System.ServiceModel.DomainServices.Client.EntityContainer"></see>에 로드합니다.</summary>
+			<returns>엔터티 컬렉션을 나타내는 IEnumerable입니다.</returns>
+			<param name="loadBehavior">사용할 <see cref="T:System.ServiceModel.DomainServices.Client.LoadBehavior"></see>입니다.</param>
+			<param name="entities">로드할 엔터티입니다.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntityContainer.RaisePropertyChanged(System.String)">
+			<summary>지정된 속성에 대해 <see cref="E:System.ServiceModel.DomainServices.Client.EntityContainer.PropertyChanged"></see> 이벤트를 발생시킵니다.</summary>
+			<param name="propertyName">변경된 속성의 이름입니다.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntityContainer.RejectChanges">
+			<summary>이 컨테이너에 있는 <see cref="T:System.ServiceModel.DomainServices.Client.EntitySet"></see> 개체나 엔터티에 대한 모든 변경 내용 적용을 되돌립니다.</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntityContainer.TryGetEntitySet(System.Type,System.ServiceModel.DomainServices.Client.EntitySet@)">
+			<summary>지정된 <see cref="T:System.ServiceModel.DomainServices.Client.Entity"></see> 형식에 대한 엔터티 집합을 가져오려고 합니다.</summary>
+			<returns>엔터티 집합을 찾을 수 있으면 true이고, 그렇지 않으면 false입니다.</returns>
+			<param name="entityType"><see cref="T:System.ServiceModel.DomainServices.Client.Entity"></see> 형식입니다.</param>
+			<param name="entitySet">엔터티 집합이 있으면 엔터티 집합이고, 그렇지 않으면 null입니다.</param>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.EntityContainer.EntitySets">
+			<summary>이 <see cref="T:System.ServiceModel.DomainServices.Client.EntityContainer"></see>에 있는 <see cref="T:System.ServiceModel.DomainServices.Client.EntitySet"></see> 개체의 컬렉션을 가져옵니다.</summary>
+			<returns>이 <see cref="T:System.ServiceModel.DomainServices.Client.EntityContainer"></see>에 있는 <see cref="T:System.ServiceModel.DomainServices.Client.EntitySet"></see> 개체의 컬렉션입니다.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.EntityContainer.HasChanges">
+			<summary>이 <see cref="T:System.ServiceModel.DomainServices.Client.EntityContainer"></see>에 현재 보류 중인 변경 내용이 있는지 여부를 나타내는 값을 가져옵니다.</summary>
+			<returns><see cref="T:System.ServiceModel.DomainServices.Client.EntityContainer"></see>에 현재 보류 중인 변경 내용이 있으면 true이고, 그렇지 않으면 false입니다.</returns>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.EntityKey">
+			<summary>고유한 엔터티 ID를 나타내는 키의 기본 클래스입니다. 이 키는 해싱에 적합합니다. </summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntityKey.#ctor">
+			<summary><see cref="T:System.ServiceModel.DomainServices.Client.EntityKey"></see> 클래스의 새 인스턴스를 초기화합니다.</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntityKey.Create(System.Object[])">
+			<summary>지정된 키 값을 사용하여 키를 만듭니다.</summary>
+			<returns>지정된 키 값을 기반으로 하는 키입니다.</returns>
+			<param name="keyValues">키 값의 배열입니다.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntityKey.Create``2(``0,``1)">
+			<summary>지정된 키 값을 사용하여 키를 만듭니다.</summary>
+			<returns>지정된 키 값을 기반으로 하는 키입니다.</returns>
+			<param name="v1">첫 번째 키 값입니다.</param>
+			<param name="v2">두 번째 키 값입니다.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntityKey.Create``3(``0,``1,``2)">
+			<summary>지정된 키 값을 사용하여 키를 만듭니다.</summary>
+			<returns>지정된 키 값을 기반으로 하는 키입니다.</returns>
+			<param name="v1">첫 번째 키 값입니다.</param>
+			<param name="v2">두 번째 키 값입니다.</param>
+			<param name="v3">세 번째 키 값입니다.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntityKey.ToString">
+			<summary>키 값 집합으로 키 서식을 지정합니다.</summary>
+			<returns>서식 있는 키를 나타내는 문자열입니다.</returns>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.EntityOperationType">
+			<summary><see cref="T:System.ServiceModel.DomainServices.Client.Entity"></see>에 대해 수행할 수 있는 작업의 형식을 설명합니다.</summary>
+		</member>
+		<member name="F:System.ServiceModel.DomainServices.Client.EntityOperationType.Delete">
+			<summary>기존 <see cref="T:System.ServiceModel.DomainServices.Client.Entity"></see>에 대한 삭제 작업입니다.</summary>
+		</member>
+		<member name="F:System.ServiceModel.DomainServices.Client.EntityOperationType.Insert">
+			<summary>새 <see cref="T:System.ServiceModel.DomainServices.Client.Entity"></see>에 대한 삽입 작업입니다.</summary>
+		</member>
+		<member name="F:System.ServiceModel.DomainServices.Client.EntityOperationType.None">
+			<summary><see cref="T:System.ServiceModel.DomainServices.Client.Entity"></see>에 대해 아무 작업도 수행되지 않습니다.</summary>
+		</member>
+		<member name="F:System.ServiceModel.DomainServices.Client.EntityOperationType.Update">
+			<summary>기존 <see cref="T:System.ServiceModel.DomainServices.Client.Entity"></see>에 대한 업데이트 작업입니다.</summary>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.EntityQuery">
+			<summary>쿼리 메서드 호출을 나타냅니다. </summary>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.EntityQuery.DomainClient">
+			<summary>이 쿼리에 대한 <see cref="T:System.ServiceModel.DomainServices.Client.DomainClient"></see>를 가져옵니다.</summary>
+			<returns>이 쿼리에 대한 <see cref="T:System.ServiceModel.DomainServices.Client.DomainClient"></see>입니다.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.EntityQuery.EntityType">
+			<summary>이 쿼리가 데이터를 검색하는 소스 형식을 가져옵니다.</summary>
+			<returns>이 쿼리가 데이터를 검색하는 소스 형식입니다.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.EntityQuery.HasSideEffects">
+			<summary>쿼리에 파생 작업이 있는지 여부를 나타내는 값을 가져옵니다.</summary>
+			<returns>쿼리에 파생 작업이 있으면 true이고, 그렇지 않으면 false입니다.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.EntityQuery.IncludeTotalCount">
+			<summary><see cref="P:System.ServiceModel.DomainServices.Client.DomainClientResult.TotalEntityCount"></see> 속성이 필요한지 여부를 나타내는 값을 가져오거나 설정합니다.</summary>
+			<returns><see cref="P:System.ServiceModel.DomainServices.Client.DomainClientResult.TotalEntityCount"></see> 속성이 필요하면 true이고, 그렇지 않으면 false입니다.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.EntityQuery.IsComposable">
+			<summary>쿼리에서 구성을 지원하는지 여부를 나타내는 값을 가져옵니다.</summary>
+			<returns>쿼리에서 구성을 지원하면 true이고, 그렇지 않으면 false입니다.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.EntityQuery.Parameters">
+			<summary>쿼리 메서드에 필요한 매개 변수를 가져옵니다.</summary>
+			<returns>쿼리 메서드에 필요한 선택적 매개 변수를 나타내는 사전입니다. 메서드에서 매개 변수를 사용하지 않는 경우 null을 반환합니다.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.EntityQuery.Query">
+			<summary>쿼리에 대한 기본 IQueryable을 가져옵니다.</summary>
+			<returns>쿼리 메서드 호출의 개체이거나, 쿼리가 없는 경우 null입니다.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.EntityQuery.QueryName">
+			<summary>쿼리 메서드의 이름을 가져옵니다.</summary>
+			<returns>쿼리 메서드의 이름입니다.</returns>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.EntityQuery`1">
+			<summary>엔터티 컬렉션에 대한 LINQ 쿼리를 나타냅니다.</summary>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.EntityQueryable">
+			<summary><see cref="T:System.ServiceModel.DomainServices.Client.EntityQuery"></see>에 대한 LINQ 패턴의 하위 집합을 구현하는 정적 확장 메서드를 포함합니다.</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntityQueryable.OrderBy``2(System.ServiceModel.DomainServices.Client.EntityQuery{``0},System.Linq.Expressions.Expression{System.Func{``0,``1}})">
+			<summary>지정된 ascending order 절을 소스 쿼리에 적용합니다.</summary>
+			<returns>구성된 쿼리입니다.</returns>
+			<param name="source">소스 쿼리입니다.</param>
+			<param name="keySelector">정렬할 멤버를 선택하는 식입니다.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntityQueryable.OrderByDescending``2(System.ServiceModel.DomainServices.Client.EntityQuery{``0},System.Linq.Expressions.Expression{System.Func{``0,``1}})">
+			<summary>지정된 descending order 절을 소스 쿼리에 적용합니다.</summary>
+			<returns>지정된 descending order 절이 포함된 <see cref="T:System.ServiceModel.DomainServices.Client.EntityQuery`1"></see>입니다.</returns>
+			<param name="source">소스 쿼리입니다.</param>
+			<param name="keySelector">정렬할 멤버를 선택하는 식입니다.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntityQueryable.Select``1(System.ServiceModel.DomainServices.Client.EntityQuery{``0},System.Linq.Expressions.Expression{System.Func{``0,``0}})">
+			<summary>지정된 선택 항목을 소스 쿼리에 적용합니다.</summary>
+			<returns>지정된 선택 항목이 포함된 <see cref="T:System.ServiceModel.DomainServices.Client.EntityQuery`1"></see>입니다.</returns>
+			<param name="source">소스 쿼리입니다.</param>
+			<param name="selector">선택기 함수입니다. 프로젝션은 지원되지 않습니다. 선택 항목은 엔터티 자체여야 합니다.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntityQueryable.Skip``1(System.ServiceModel.DomainServices.Client.EntityQuery{``0},System.Int32)">
+			<summary>지정된 skip 절을 소스 쿼리에 적용합니다.</summary>
+			<returns>지정된 skip 절이 포함된 <see cref="T:System.ServiceModel.DomainServices.Client.EntityQuery`1"></see>입니다.</returns>
+			<param name="source">소스 쿼리입니다.</param>
+			<param name="count">건너뛸 개수입니다.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntityQueryable.Take``1(System.ServiceModel.DomainServices.Client.EntityQuery{``0},System.Int32)">
+			<summary>지정된 take 절을 소스 쿼리에 적용합니다.</summary>
+			<returns>지정된 take 절이 포함된 <see cref="T:System.ServiceModel.DomainServices.Client.EntityQuery`1"></see>입니다.</returns>
+			<param name="source">소스 쿼리입니다.</param>
+			<param name="count">사용할 개수입니다.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntityQueryable.ThenBy``2(System.ServiceModel.DomainServices.Client.EntityQuery{``0},System.Linq.Expressions.Expression{System.Func{``0,``1}})">
+			<summary>지정된 ascending order 절을 소스 쿼리에 적용합니다.</summary>
+			<returns>지정된 ascending order 절이 포함된 <see cref="T:System.ServiceModel.DomainServices.Client.EntityQuery`1"></see>입니다.</returns>
+			<param name="source">소스 쿼리입니다.</param>
+			<param name="keySelector">정렬할 멤버를 선택하는 식입니다.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntityQueryable.ThenByDescending``2(System.ServiceModel.DomainServices.Client.EntityQuery{``0},System.Linq.Expressions.Expression{System.Func{``0,``1}})">
+			<summary>지정된 descending order 절을 소스 쿼리에 적용합니다.</summary>
+			<returns>지정된 descending order 절이 포함된 <see cref="T:System.ServiceModel.DomainServices.Client.EntityQuery`1"></see>입니다.</returns>
+			<param name="source">소스 쿼리입니다.</param>
+			<param name="keySelector">정렬할 멤버를 선택하는 식입니다.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntityQueryable.Where``1(System.ServiceModel.DomainServices.Client.EntityQuery{``0},System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}})">
+			<summary>지정된 필터를 소스 쿼리에 적용합니다.</summary>
+			<returns>지정된 필터가 포함된 <see cref="T:System.ServiceModel.DomainServices.Client.EntityQuery`1"></see>입니다.</returns>
+			<param name="predicate">필터 조건자입니다.</param>
+			<param name="source">소스 쿼리입니다.</param>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.EntityRef`1">
+			<summary>연결된 엔터티에 대한 참조를 나타냅니다.</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntityRef`1.#ctor(System.ServiceModel.DomainServices.Client.Entity,System.String,System.Func{`0,System.Boolean})">
+			<summary><see cref="T:System.ServiceModel.DomainServices.Client.EntityRef`1"></see> 클래스의 인스턴스를 초기화합니다.</summary>
+			<param name="memberName">부모 엔터티에 대한 이 <see cref="T:System.ServiceModel.DomainServices.Client.EntityRef`1"></see> 멤버의 이름입니다.</param>
+			<param name="entityPredicate">연결된 엔터티를 필터링하는 데 사용되는 함수입니다.</param>
+			<param name="parent">이 연결이 멤버로 속해 있는 엔터티입니다.</param>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.EntityRef`1.Entity">
+			<summary>연결된 <see cref="P:System.ServiceModel.DomainServices.Client.EntityRef`1.Entity"></see>를 가져오거나 설정합니다.</summary>
+			<returns>연결된 엔터티입니다.</returns>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.EntitySet">
+			<summary><see cref="T:System.ServiceModel.DomainServices.Client.Entity"></see> 인스턴스의 컬렉션을 나타냅니다.</summary>
+		</member>
+		<member name="E:System.ServiceModel.DomainServices.Client.EntitySet.PropertyChanged">
+			<summary>속성이 변경된 경우 발생합니다.</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntitySet.AcceptChanges">
+			<summary>이 <see cref="T:System.ServiceModel.DomainServices.Client.EntitySet"></see>에 대한 모든 변경 내용 적용을 허용합니다.</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntitySet.Add(System.ServiceModel.DomainServices.Client.Entity)">
+			<summary>지정된 <see cref="T:System.ServiceModel.DomainServices.Client.Entity"></see>를 이 <see cref="T:System.ServiceModel.DomainServices.Client.EntitySet"></see>에 추가합니다. </summary>
+			<param name="entity">추가할 엔터티입니다.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntitySet.Attach(System.ServiceModel.DomainServices.Client.Entity)">
+			<summary>지정된 <see cref="T:System.ServiceModel.DomainServices.Client.Entity"></see>를 수정되지 않은 상태로 이 <see cref="T:System.ServiceModel.DomainServices.Client.EntitySet"></see>에 연결합니다. </summary>
+			<param name="entity">연결할 엔터티입니다.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntitySet.Clear">
+			<summary>집합에서 모든 엔터티를 지웁니다.</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntitySet.CreateEntity">
+			<summary>새 엔터티를 만듭니다.</summary>
+			<returns>만들어진 엔터티입니다.</returns>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntitySet.CreateList">
+			<summary>집합에 대한 저장소 목록을 만듭니다.</summary>
+			<returns>만들어진 저장소 목록 인스턴스입니다.</returns>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntitySet.Detach(System.ServiceModel.DomainServices.Client.Entity)">
+			<summary>이 <see cref="T:System.ServiceModel.DomainServices.Client.EntitySet"></see>에서 지정된 <see cref="T:System.ServiceModel.DomainServices.Client.Entity"></see>를 분리합니다. </summary>
+			<param name="entity">분리할 엔터티입니다.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntitySet.GetEnumerator">
+			<summary>컬렉션의 열거자를 가져옵니다.</summary>
+			<returns>컬렉션에 대한 열거자입니다.</returns>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntitySet.OnCollectionChanged(System.Collections.Specialized.NotifyCollectionChangedAction,System.Object,System.Int32)">
+			<summary>컬렉션이 변경될 때마다 호출됩니다. </summary>
+			<param name="affectedObject">다시 설정 이벤트의 경우 이 매개 변수는 제거된 엔터티의 컬렉션입니다. 다른 모든 이벤트의 경우 이 매개 변수는 영향을 받는 단일 엔터티입니다.</param>
+			<param name="action">변경 작업입니다.</param>
+			<param name="index">영향을 받는 인덱스입니다.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntitySet.OnPropertyChanged(System.ComponentModel.PropertyChangedEventArgs)">
+			<summary><see cref="T:System.ServiceModel.DomainServices.Client.EntitySet"></see> 속성이 변경된 경우 호출됩니다.</summary>
+			<param name="e">이벤트 인수입니다.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntitySet.RaisePropertyChanged(System.String)">
+			<summary>지정된 속성에 대해 <see cref="E:System.ServiceModel.DomainServices.Client.EntitySet.PropertyChanged"></see> 이벤트를 발생시킵니다.</summary>
+			<param name="propertyName">변경된 속성입니다.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntitySet.RejectChanges">
+			<summary>이 <see cref="T:System.ServiceModel.DomainServices.Client.EntitySet"></see>에 대한 모든 변경 내용 적용을 되돌립니다. </summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntitySet.Remove(System.ServiceModel.DomainServices.Client.Entity)">
+			<summary>지정된 엔터티를 집합에서 제거합니다.</summary>
+			<param name="entity">제거할 엔터티입니다.</param>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.EntitySet.CanAdd">
+			<summary>집합에서 새 엔터티를 추가할 수 있는지 여부를 나타내는 값을 가져옵니다.</summary>
+			<returns>컬렉션에서 새 항목을 허용하면 true이고, 그렇지 않으면 false입니다.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.EntitySet.CanEdit">
+			<summary>집합의 엔터티를 편집할 수 있는지 여부를 나타내는 값을 가져옵니다.</summary>
+			<returns>컬렉션에서 멤버를 편집할 수 있으면 true이고, 그렇지 않으면 false입니다.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.EntitySet.CanRemove">
+			<summary>집합에서 엔터티를 제거할 수 있는지 여부를 나타내는 값을 가져옵니다.</summary>
+			<returns>컬렉션에서 항목을 제거할 수 있으면 true이고, 그렇지 않으면 false입니다.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.EntitySet.Count">
+			<summary>집합의 현재 엔터티 수를 가져옵니다.</summary>
+			<returns>집합의 엔터티 수를 나타내는 정수입니다.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.EntitySet.EntityContainer">
+			<summary>이 <see cref="T:System.ServiceModel.DomainServices.Client.EntitySet"></see>에 대한 컨테이너를 가져옵니다.</summary>
+			<returns>이 <see cref="T:System.ServiceModel.DomainServices.Client.EntitySet"></see>에 대한 컨테이너입니다.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.EntitySet.EntityType">
+			<summary>이 <see cref="T:System.ServiceModel.DomainServices.Client.EntitySet"></see>에 포함된 엔터티의 형식을 가져옵니다.</summary>
+			<returns>이 <see cref="T:System.ServiceModel.DomainServices.Client.EntitySet"></see>에 포함된 엔터티의 형식입니다.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.EntitySet.HasChanges">
+			<summary>이 <see cref="T:System.ServiceModel.DomainServices.Client.EntitySet"></see>에 현재 보류 중인 변경 내용이 있는지 여부를 나타내는 값을 가져옵니다.</summary>
+			<returns>컬렉션에 보류 중인 변경 내용이 있으면 true이고, 그렇지 않으면 false입니다.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.EntitySet.IsReadOnly">
+			<summary>이 집합에서 업데이트 작업을 지원하는지 여부를 나타내는 값을 가져옵니다.</summary>
+			<returns>업데이트 작업이 지원되지 않으면 true이고, 그렇지 않으면 false입니다.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.EntitySet.List">
+			<summary>이 <see cref="T:System.ServiceModel.DomainServices.Client.EntitySet"></see>에 대한 지원 목록을 가져옵니다.</summary>
+			<returns>이 <see cref="T:System.ServiceModel.DomainServices.Client.EntitySet"></see>에 대한 지원 목록입니다.</returns>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.EntitySet`1">
+			<summary>변경 추적 및 기타 서비스를 제공하는 <see cref="T:System.ServiceModel.DomainServices.Client.Entity"></see> 인스턴스의 컬렉션을 나타냅니다.</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntitySet`1.#ctor">
+			<summary><see cref="T:System.ServiceModel.DomainServices.Client.EntitySet`1"></see>의 새 인스턴스를 초기화합니다.</summary>
+		</member>
+		<member name="E:System.ServiceModel.DomainServices.Client.EntitySet`1.EntityAdded">
+			<summary><see cref="T:System.ServiceModel.DomainServices.Client.Entity"></see>가 이 엔터티 집합에 추가된 경우 발생합니다.</summary>
+		</member>
+		<member name="E:System.ServiceModel.DomainServices.Client.EntitySet`1.EntityRemoved">
+			<summary><see cref="T:System.ServiceModel.DomainServices.Client.Entity"></see>가 이 엔터티 집합에서 제거된 경우 발생합니다.</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntitySet`1.Add(`0)">
+			<summary>이 엔터티 집합에 지정된 엔터티를 추가합니다. 또한 연결을 통해 접근 가능한 연결되지 않은 모든 엔터티를 재귀적으로 추가합니다.</summary>
+			<param name="entity">추가할 엔터티입니다. entity는 TEntity 형식이어야 하며 서브클래스일 수 없습니다.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntitySet`1.Attach(`0)">
+			<summary>지정된 <see cref="T:System.ServiceModel.DomainServices.Client.Entity"></see>를 수정되지 않은 상태로 이 엔터티 집합에 연결합니다. 또한 연결을 통해 접근 가능한 연결되지 않은 모든 엔터티를 재귀적으로 연결합니다.</summary>
+			<param name="entity">연결할 엔터티입니다.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntitySet`1.Detach(`0)">
+			<summary>이 엔터티 집합에서 <see cref="T:System.ServiceModel.DomainServices.Client.Entity"></see>를 분리합니다.</summary>
+			<param name="entity">분리할 엔터티입니다.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntitySet`1.GetEnumerator">
+			<summary>이 엔터티 집합에 대한 열거자를 반환합니다.</summary>
+			<returns>이 엔터티 집합을 반복하는 데 사용할 수 있는 열거자입니다.</returns>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntitySet`1.Remove(`0)">
+			<summary>지정된 엔터티를 집합에서 제거합니다. 엔터티가 구성 계층 구조의 루트인 경우 모든 자식 엔터티도 제거됩니다.</summary>
+			<param name="entity">제거할 엔터티입니다.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntitySet`1.System.Collections.Generic.IEnumerable`1.GetEnumerator">
+			<summary>컬렉션의 열거자를 가져옵니다.</summary>
+			<returns>컬렉션에 대한 열거자입니다.</returns>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.EntitySetOperations">
+			<summary><see cref="T:System.ServiceModel.DomainServices.Client.EntitySet"></see>에 대해 수행된 작업 형식의 열거형입니다.</summary>
+		</member>
+		<member name="F:System.ServiceModel.DomainServices.Client.EntitySetOperations.Add">
+			<summary>새 엔터티를 추가할 수 있습니다.</summary>
+		</member>
+		<member name="F:System.ServiceModel.DomainServices.Client.EntitySetOperations.All">
+			<summary>엔터티를 추가, 업데이트 및 제거할 수 있습니다.</summary>
+		</member>
+		<member name="F:System.ServiceModel.DomainServices.Client.EntitySetOperations.Edit">
+			<summary>엔터티를 업데이트할 수 있습니다.</summary>
+		</member>
+		<member name="F:System.ServiceModel.DomainServices.Client.EntitySetOperations.None">
+			<summary>읽기 작업만 허용됩니다. 업데이트 작업은 허용되지 않습니다.</summary>
+		</member>
+		<member name="F:System.ServiceModel.DomainServices.Client.EntitySetOperations.Remove">
+			<summary>엔터티를 제거할 수 있습니다.</summary>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.EntityState">
+			<summary><see cref="T:System.ServiceModel.DomainServices.Client.Entity"></see>의 가능한 상태를 설명합니다.</summary>
+		</member>
+		<member name="F:System.ServiceModel.DomainServices.Client.EntityState.Deleted">
+			<summary>엔터티가 삭제되도록 표시되었습니다.</summary>
+		</member>
+		<member name="F:System.ServiceModel.DomainServices.Client.EntityState.Detached">
+			<summary>엔터티가 연결되어 있지 않으며 추적되고 있지 않습니다.</summary>
+		</member>
+		<member name="F:System.ServiceModel.DomainServices.Client.EntityState.Modified">
+			<summary>엔터티가 수정되었습니다.</summary>
+		</member>
+		<member name="F:System.ServiceModel.DomainServices.Client.EntityState.New">
+			<summary>엔터티가 새 상태로 연결되어 있습니다.</summary>
+		</member>
+		<member name="F:System.ServiceModel.DomainServices.Client.EntityState.Unmodified">
+			<summary>엔터티가 수정되지 않은 원래 상태입니다.</summary>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.InvokeArgs">
+			<summary>호출 작업을 호출하는 데 필요한 정보를 나타냅니다.</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.InvokeArgs.#ctor(System.String,System.Type,System.Collections.Generic.IDictionary{System.String,System.Object},System.Boolean)">
+			<summary><see cref="T:System.ServiceModel.DomainServices.Client.InvokeArgs"></see> 클래스의 새 인스턴스를 초기화합니다. </summary>
+			<param name="hasSideEffects">작업에 파생 작업이 있으면 true이고, 그렇지 않으면 false입니다.</param>
+			<param name="returnType">호출 작업의 반환 형식입니다.</param>
+			<param name="parameters">작업에 대한 선택적 매개 변수입니다. 메서드에서 매개 변수를 사용하지 않는 경우 null을 지정합니다.</param>
+			<param name="operationName">호출 작업의 이름입니다.</param>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.InvokeArgs.HasSideEffects">
+			<summary>작업에 파생 작업이 있는지 여부를 나타내는 값을 가져옵니다.</summary>
+			<returns>작업에 파생 작업이 있으면 true이고, 그렇지 않으면 false입니다.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.InvokeArgs.OperationName">
+			<summary>작업의 이름을 가져옵니다.</summary>
+			<returns>작업의 이름입니다.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.InvokeArgs.Parameters">
+			<summary>작업에 필요한 매개 변수(있는 경우)를 가져옵니다. </summary>
+			<returns>작업에 필요한 매개 변수이거나, 메서드에서 매개 변수를 사용하지 않는 경우 null입니다.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.InvokeArgs.ReturnType">
+			<summary>작업의 반환 형식을 가져옵니다.</summary>
+			<returns>작업의 반환 형식입니다.</returns>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.InvokeCompletedResult">
+			<summary>호출 작업의 결과를 나타냅니다.</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.InvokeCompletedResult.#ctor(System.Object)">
+			<summary>지정된 반환 값을 사용하여 <see cref="T:System.ServiceModel.DomainServices.Client.InvokeCompletedResult"></see> 클래스의 새 인스턴스를 초기화합니다.</summary>
+			<param name="returnValue">서버에서 반환된 값입니다.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.InvokeCompletedResult.#ctor(System.Object,System.Collections.Generic.IEnumerable{System.ComponentModel.DataAnnotations.ValidationResult})">
+			<summary>지정된 반환 값과 유효성 검사 오류를 사용하여 <see cref="T:System.ServiceModel.DomainServices.Client.InvokeCompletedResult"></see> 클래스의 새 인스턴스를 초기화합니다. </summary>
+			<param name="returnValue">서버에서 반환된 값입니다.</param>
+			<param name="validationErrors">유효성 검사 오류의 컬렉션입니다.</param>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.InvokeCompletedResult.ReturnValue">
+			<summary>서버에서 반환된 값을 가져옵니다.</summary>
+			<returns>서버에서 반환된 값을 나타내는 개체입니다.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.InvokeCompletedResult.ValidationErrors">
+			<summary>유효성 검사 오류를 가져옵니다.</summary>
+			<returns>유효성 검사 오류를 나타내는 <see cref="T:System.Collections.Generic.IEnumerable`1"></see>입니다.</returns>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.InvokeOperation">
+			<summary>비동기 호출 작업을 나타냅니다.</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.InvokeOperation.CancelCore">
+			<summary>취소 콜백을 호출합니다.</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.InvokeOperation.InvokeCompleteAction">
+			<summary>완료 콜백을 호출합니다.</summary>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.InvokeOperation.OperationName">
+			<summary>작업의 이름을 가져옵니다.</summary>
+			<returns>작업의 이름을 나타내는 문자열입니다.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.InvokeOperation.Parameters">
+			<summary>작업에 대한 매개 변수 컬렉션을 가져옵니다.</summary>
+			<returns>작업에 대한 매개 변수 컬렉션을 나타내는 <see cref="T: System.Collections.Generic.IDictionary`2"></see>입니다.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.InvokeOperation.Result">
+			<summary>이 작업에 대한 <see cref="T:System.ServiceModel.DomainServices.Client.DomainClientResult"></see>를 가져옵니다.</summary>
+			<returns>이 작업의 결과를 나타내는 개체입니다.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.InvokeOperation.SupportsCancellation">
+			<summary>이 작업에서 취소를 지원하는지 여부를 나타내는 값을 가져옵니다.</summary>
+			<returns>작업에서 취소를 지원하면 true이고, 그렇지 않으면 false입니다.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.InvokeOperation.ValidationErrors">
+			<summary>이 작업에 대한 유효성 검사 오류를 가져옵니다.</summary>
+			<returns>이 작업에 대한 유효성 검사 오류를 나타내는 <see cref="T: System.Collections.Generic.IEnumerable`1"></see>입니다.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.InvokeOperation.Value">
+			<summary>호출 작업의 반환 값을 가져옵니다.</summary>
+			<returns>호출 작업의 반환 값을 나타내는 개체입니다.</returns>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.InvokeOperation`1">
+			<summary>비동기 호출 작업을 나타냅니다.</summary>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.InvokeOperation`1.Value">
+			<summary>호출 작업의 반환 값을 가져옵니다.</summary>
+			<returns>호출 작업의 반환 값입니다.</returns>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.LoadBehavior">
+			<summary>엔터티를 로드하는 경우 제어 ID 캐시 동작을 지정합니다. </summary>
+		</member>
+		<member name="F:System.ServiceModel.DomainServices.Client.LoadBehavior.KeepCurrent">
+			<summary>캐시된 인스턴스가 변경되지 않고 새로 읽은 인스턴스는 삭제됩니다.</summary>
+		</member>
+		<member name="F:System.ServiceModel.DomainServices.Client.LoadBehavior.MergeIntoCurrent">
+			<summary>새로 읽은 인스턴스의 값이 수정되지 않은 속성 값에 대해 캐시된 인스턴스에 병합됩니다. 이 병합에서는 변경 내용이 손실되지 않습니다.</summary>
+		</member>
+		<member name="F:System.ServiceModel.DomainServices.Client.LoadBehavior.RefreshCurrent">
+			<summary>수정 여부에 관계없이 캐시된 인스턴스의 모든 멤버가 새로 읽은 인스턴스의 현재 값으로 덮어써집니다. 또한 엔터티의 원래 상태가 새로 읽은 인스턴스로 설정됩니다.</summary>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.LoadOperation">
+			<summary>비동기 로드 작업을 나타냅니다.</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.LoadOperation.UpdateResults(System.ServiceModel.DomainServices.Client.DomainClientResult)">
+			<summary>식별할 수 있는 결과 컬렉션을 업데이트합니다.</summary>
+			<param name="result">완료된 로드 작업의 결과입니다.</param>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.LoadOperation.AllEntities">
+			<summary>최상위 엔터티가 참조하는 엔터티를 포함하여 작업에서 로드된 모든 엔터티를 가져옵니다.</summary>
+			<returns>최상위 엔터티가 참조하는 엔터티를 포함하여 작업에서 로드된 모든 엔터티를 나타내는 열거입니다.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.LoadOperation.Entities">
+			<summary>작업에서 로드된 모든 최상위 엔터티를 가져옵니다. </summary>
+			<returns>작업에서 로드된 모든 최상위 엔터티를 나타내는 열거입니다.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.LoadOperation.EntityQuery">
+			<summary>이 로드 작업에 대한 <see cref="T:System.ServiceModel.DomainServices.Client.EntityQuery"></see>를 가져옵니다.</summary>
+			<returns>이 로드 작업에 대한 <see cref="T:System.ServiceModel.DomainServices.Client.EntityQuery"></see>입니다.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.LoadOperation.LoadBehavior">
+			<summary>이 로드 작업에 대한 <see cref="T:System.ServiceModel.DomainServices.Client.LoadBehavior"></see>를 가져옵니다.</summary>
+			<returns>이 로드 작업에 대한 <see cref="T:System.ServiceModel.DomainServices.Client.LoadBehavior"></see>입니다.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.LoadOperation.Result">
+			<summary>이 작업에 대한 <see cref="T:System.ServiceModel.DomainServices.Client.DomainClientResult"></see>를 가져옵니다.</summary>
+			<returns>이 작업의 <see cref="T:System.ServiceModel.DomainServices.Client.DomainClientResult"></see>입니다.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.LoadOperation.TotalEntityCount">
+			<summary>이 작업에서 사용하는 쿼리의 총 서버 엔터티 수를 가져옵니다.</summary>
+			<returns>이 작업에서 사용하는 쿼리의 총 서버 엔터티 수입니다.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.LoadOperation.ValidationErrors">
+			<summary>유효성 검사 오류를 가져옵니다.</summary>
+			<returns>유효성 검사 오류를 나타내는 열거입니다.</returns>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.LoadOperation`1">
+			<summary>비동기 로드 작업을 나타냅니다.</summary>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.LoadOperation`1.Entities">
+			<summary>최상위 엔터티가 참조하는 엔터티를 포함하여 작업에서 로드된 모든 엔터티를 가져옵니다. </summary>
+			<returns>작업에서 로드된 모든 엔터티를 나타내는 <see cref="T:System.Collections.Generic.IEnumerable`1"></see>입니다.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.LoadOperation`1.EntityQuery">
+			<summary>이 로드 작업에 대한 <see cref="P:System.ServiceModel.DomainServices.Client.LoadOperation`1.EntityQuery"></see>를 가져옵니다.</summary>
+			<returns>이 로드 작업에 대한 <see cref="T:System.ServiceModel.DomainServices.Client.EntityQuery`1"></see>입니다.</returns>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.OperationBase">
+			<summary>비동기 작업을 나타냅니다.</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.OperationBase.#ctor(System.Object)">
+			<summary><see cref="T:System.ServiceModel.DomainServices.Client.OperationBase"></see> 클래스의 새 인스턴스를 초기화합니다. </summary>
+			<param name="userState">선택적 사용자 상태입니다.</param>
+		</member>
+		<member name="E:System.ServiceModel.DomainServices.Client.OperationBase.Completed">
+			<summary>작업이 완료된 경우 발생합니다.</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.OperationBase.Cancel">
+			<summary>작업을 취소합니다.</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.OperationBase.CancelCore">
+			<summary>파생 클래스에서 재정의된 경우 작업을 취소하는 논리를 제공합니다.</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.OperationBase.Complete(System.Exception)">
+			<summary>지정된 오류가 있는 실패한 작업을 완료합니다.</summary>
+			<param name="error">작업이 실패하게 만든 오류입니다.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.OperationBase.Complete(System.Object)">
+			<summary>지정된 결과가 있는 성공한 작업을 완료합니다.</summary>
+			<param name="result">작업의 결과입니다.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.OperationBase.InvokeCompleteAction">
+			<summary>완료 콜백을 호출합니다.</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.OperationBase.MarkErrorAsHandled">
+			<summary>작업에서 발생한 오류가 처리되도록 지정합니다.</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.OperationBase.OnPropertyChanged(System.ComponentModel.PropertyChangedEventArgs)">
+			<summary>속성 값이 변경된 경우 호출됩니다.</summary>
+			<param name="e">이벤트 데이터입니다.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.OperationBase.RaisePropertyChanged(System.String)">
+			<summary><see cref="E:System.Windows.Controls.Ria.DomainDataSourceView.System#ComponentModel#INotifyPropertyChanged#PropertyChanged"></see> 이벤트를 발생시킵니다.</summary>
+			<param name="propertyName">변경된 속성의 이름입니다.</param>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.OperationBase.CanCancel">
+			<summary>이 <see cref="T:System.ServiceModel.DomainServices.Client.OperationBase"></see>가 현재 취소할 수 있는 상태인지 여부를 나타내는 값을 가져옵니다.</summary>
+			<returns>이 <see cref="T:System.ServiceModel.DomainServices.Client.OperationBase"></see>가 현재 취소할 수 있는 상태이면 true이고, 그렇지 않으면 false입니다.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.OperationBase.Error">
+			<summary>작업이 실패한 경우 작업 오류를 가져옵니다.</summary>
+			<returns>작업이 실패하게 만든 오류이거나, 그렇지 않으면 null입니다.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.OperationBase.HasError">
+			<summary>작업이 실패했는지 여부를 나타내는 값을 가져옵니다.</summary>
+			<returns>작업이 실패했으면 true이고, 그렇지 않으면 false입니다.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.OperationBase.IsCanceled">
+			<summary>이 작업이 취소되었는지 여부를 나타내는 값을 가져옵니다.</summary>
+			<returns>작업이 취소되었으면 true이고, 그렇지 않으면 false입니다.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.OperationBase.IsComplete">
+			<summary>이 작업이 완료되었는지 여부를 나타내는 값을 가져옵니다.</summary>
+			<returns>작업이 완료되었으면 true이고, 그렇지 않으면 false입니다.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.OperationBase.IsErrorHandled">
+			<summary>작업 오류가 처리되었는지 여부를 나타내는 값을 가져오거나 설정합니다.</summary>
+			<returns>오류가 처리되었으면 true이고, 그렇지 않으면 false입니다.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.OperationBase.Result">
+			<summary>비동기 작업의 결과를 가져옵니다.</summary>
+			<returns>비동기 작업의 결과입니다.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.OperationBase.SupportsCancellation">
+			<summary>이 작업에서 취소를 지원하는지 여부를 나타내는 값을 가져옵니다.</summary>
+			<returns>작업에서 취소를 지원하면 true이고, 그렇지 않으면 false입니다. 이 구현에서는 항상 false를 반환합니다.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.OperationBase.UserState">
+			<summary>이 작업에 대한 선택적 사용자 상태를 가져옵니다.</summary>
+			<returns>이 작업에 대한 사용자 상태이거나, 사용자 상태가 지정되지 않은 경우 null입니다.</returns>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.OperationErrorStatus">
+			<summary>작업 중에 발생하는 오류를 설명합니다.</summary>
+		</member>
+		<member name="F:System.ServiceModel.DomainServices.Client.OperationErrorStatus.Conflicts">
+			<summary>충돌이 발생했습니다. 지정된 엔터티에 대한 충돌은 <see cref="P:System.ServiceModel.DomainServices.Client.Entity.EntityConflict"></see>를 참조하십시오.</summary>
+		</member>
+		<member name="F:System.ServiceModel.DomainServices.Client.OperationErrorStatus.NotFound">
+			<summary>리소스를 찾을 수 없습니다.</summary>
+		</member>
+		<member name="F:System.ServiceModel.DomainServices.Client.OperationErrorStatus.NotSupported">
+			<summary>작업이 지원되지 않습니다.</summary>
+		</member>
+		<member name="F:System.ServiceModel.DomainServices.Client.OperationErrorStatus.ServerError">
+			<summary>작업을 처리하는 동안 서버 오류가 발생했습니다.</summary>
+		</member>
+		<member name="F:System.ServiceModel.DomainServices.Client.OperationErrorStatus.Unauthorized">
+			<summary>작업을 실행할 수 있는 권한이 없습니다.</summary>
+		</member>
+		<member name="F:System.ServiceModel.DomainServices.Client.OperationErrorStatus.ValidationFailed">
+			<summary>작업에 대한 유효성 검사에 실패했습니다.</summary>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.QueryCompletedResult">
+			<summary>쿼리 작업의 결과를 나타냅니다.</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.QueryCompletedResult.#ctor(System.Collections.Generic.IEnumerable{System.ServiceModel.DomainServices.Client.Entity},System.Collections.Generic.IEnumerable{System.ServiceModel.DomainServices.Client.Entity},System.Int32,System.Collections.Generic.IEnumerable{System.ComponentModel.DataAnnotations.ValidationResult})">
+			<summary><see cref="T:System.ServiceModel.DomainServices.Client.QueryCompletedResult"></see> 클래스의 새 인스턴스를 초기화합니다. </summary>
+			<param name="validationErrors">유효성 검사 오류의 컬렉션입니다.</param>
+			<param name="includedEntities">쿼리에서 반환된 포함된 엔터티입니다.</param>
+			<param name="entities">쿼리에서 반환된 엔터티입니다.</param>
+			<param name="totalCount">페이징이 적용되지 않은 원래 쿼리의 총 행 수입니다.</param>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.QueryCompletedResult.Entities">
+			<summary>쿼리에서 반환된 엔터티를 가져옵니다.</summary>
+			<returns>쿼리에서 반환된 엔터티입니다.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.QueryCompletedResult.IncludedEntities">
+			<summary>쿼리에서 반환된 포함된 엔터티를 가져옵니다.</summary>
+			<returns>쿼리에서 반환된 포함된 엔터티입니다.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.QueryCompletedResult.TotalCount">
+			<summary>페이징이 적용되지 않은 원래 쿼리의 총 행 수를 가져옵니다.</summary>
+			<returns>원래 쿼리의 총 행 수나, 서버에서 총 개수를 지원하지 않는 경우 -1입니다.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.QueryCompletedResult.ValidationErrors">
+			<summary>유효성 검사 오류를 가져옵니다.</summary>
+			<returns>유효성 검사 오류의 컬렉션입니다.</returns>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.QueryResult">
+			<summary>서버와 클라이언트 간에 쿼리 결과를 통신하는 데 사용되는 메시지 형식입니다.</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.QueryResult.#ctor">
+			<summary><see cref="T:System.ServiceModel.DomainServices.Client.QueryResult"></see> 클래스의 새 인스턴스를 초기화합니다. </summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.QueryResult.GetIncludedResults">
+			<summary>포함된 결과를 가져옵니다.</summary>
+			<returns>포함된 결과입니다.</returns>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.QueryResult.GetRootResults">
+			<summary>루트 결과를 가져옵니다.</summary>
+			<returns>루트 결과입니다.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.QueryResult.TotalCount">
+			<summary>페이징이 적용되지 않은 원래 쿼리의 총 행 수를 가져오거나 설정합니다.</summary>
+			<returns>페이징이 적용되지 않은 원래 쿼리의 총 행 수입니다.</returns>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.QueryResult`1">
+			<summary>서버와 클라이언트 간에 쿼리 결과를 통신하는 데 사용되는 메시지 형식입니다.</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.QueryResult`1.#ctor">
+			<summary>기본값을 사용하여 <see cref="T:System.ServiceModel.DomainServices.Client.QueryResult`1"></see> 클래스의 새 인스턴스를 초기화합니다. </summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.QueryResult`1.#ctor(System.Collections.Generic.IEnumerable{`0})">
+			<summary>지정된 결과 항목 컬렉션을 사용하여 <see cref="T:System.ServiceModel.DomainServices.Client.QueryResult`1"></see> 클래스의 새 인스턴스를 초기화합니다.</summary>
+			<param name="results">쿼리 결과입니다.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.QueryResult`1.#ctor(System.Collections.Generic.IEnumerable{`0},System.Int32)">
+			<summary>지정된 결과 항목 컬렉션과 총 개수를 사용하여 <see cref="T:System.ServiceModel.DomainServices.Client.QueryResult`1"></see> 클래스의 새 인스턴스를 초기화합니다.</summary>
+			<param name="results">쿼리 결과입니다.</param>
+			<param name="totalCount">입력 쿼리를 기준으로 하지만 페이징이 적용되지 않은 총 행 수입니다.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.QueryResult`1.GetIncludedResults">
+			<summary>포함된 결과를 검색합니다.</summary>
+			<returns>포함된 결과입니다.</returns>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.QueryResult`1.GetRootResults">
+			<summary>루트 결과를 검색합니다.</summary>
+			<returns>루트 결과입니다.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.QueryResult`1.IncludedResults">
+			<summary>포함된 쿼리 결과를 가져오거나 설정합니다.</summary>
+			<returns>포함된 쿼리 결과입니다.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.QueryResult`1.RootResults">
+			<summary>최상위 쿼리 결과를 가져오거나 설정합니다.</summary>
+			<returns>최상위 쿼리 결과입니다.</returns>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.SubmitCompletedResult">
+			<summary>전송 작업의 결과를 나타냅니다.</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.SubmitCompletedResult.#ctor(System.ServiceModel.DomainServices.Client.EntityChangeSet,System.Collections.Generic.IEnumerable{System.ServiceModel.DomainServices.Client.ChangeSetEntry})">
+			<summary>지정된 변경 집합과 작업 결과를 사용하여 <see cref="T:System.ServiceModel.DomainServices.Client.SubmitCompletedResult"></see> 클래스의 새 인스턴스를 초기화합니다.</summary>
+			<param name="operationResults">전송 작업에 대해 <see cref="T:System.ServiceModel.DomainServices.Server.DomainService"></see>에서 전송된 <see cref="T:System.ServiceModel.DomainServices.Client.ChangeSetEntry"></see> 결과입니다.</param>
+			<param name="changeSet">전송된 변경 집합입니다.</param>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.SubmitCompletedResult.ChangeSet">
+			<summary>전송된 변경 집합의 값을 가져옵니다.</summary>
+			<returns>전송된 변경 집합의 값입니다.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.SubmitCompletedResult.Results">
+			<summary><see cref="T:System.ServiceModel.DomainServices.Server.DomainService"></see>에서 반환된 <see cref="T:System.ServiceModel.DomainServices.Server.ChangeSetEntry"></see> 결과를 가져옵니다.</summary>
+			<returns><see cref="T:System.ServiceModel.DomainServices.Server.DomainService"></see>에서 반환된 <see cref="T:System.ServiceModel.DomainServices.Server.ChangeSetEntry"></see> 결과입니다.</returns>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.SubmitOperation">
+			<summary>비동기 전송 작업을 나타냅니다.</summary>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.SubmitOperation.ChangeSet">
+			<summary>전송되는 변경 집합을 가져옵니다.</summary>
+			<returns>전송되는 변경 집합입니다.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.SubmitOperation.EntitiesInError">
+			<summary>전송 작업이 완료된 후 오류가 있는 모든 엔터티를 가져옵니다.</summary>
+			<returns>전송 작업이 완료된 후 오류가 있는 엔터티입니다.</returns>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.ValidationResultInfo">
+			<summary>서버에서 작업을 실행하는 동안 발생한 오류에 대한 정보를 포함합니다.</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ValidationResultInfo.#ctor">
+			<summary><see cref="T:System.ServiceModel.DomainServices.Client.ValidationResultInfo"></see> 클래스의 새 인스턴스를 초기화합니다. </summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ValidationResultInfo.#ctor(System.String,System.Collections.Generic.IEnumerable{System.String})">
+			<summary>지역화된 오류 메시지와 오류가 발생한 멤버의 이름 컬렉션을 사용하여 <see cref="T:System.ServiceModel.DomainServices.Client.ValidationResultInfo"></see> 클래스의 새 인스턴스를 초기화합니다.</summary>
+			<param name="message">지역화된 오류 메시지입니다.</param>
+			<param name="sourceMemberNames">오류가 발생한 멤버의 이름입니다.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ValidationResultInfo.#ctor(System.String,System.Int32,System.String,System.Collections.Generic.IEnumerable{System.String})">
+			<summary>지역화된 오류, 오류 코드, 스택 추적 및 오류가 발생한 멤버의 이름 컬렉션을 사용하여 <see cref="T:System.ServiceModel.DomainServices.Client.ValidationResultInfo"></see> 클래스의 새 인스턴스를 초기화합니다.</summary>
+			<param name="errorCode">사용자 지정 오류 코드입니다.</param>
+			<param name="stackTrace">오류 스택 추적입니다.</param>
+			<param name="message">지역화된 오류 메시지입니다.</param>
+			<param name="sourceMemberNames">오류가 발생한 멤버의 이름 컬렉션입니다.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ValidationResultInfo.GetHashCode">
+			<summary>이 개체에 대한 해시 코드를 반환합니다.</summary>
+			<returns>이 개체의 해시 코드입니다.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.ValidationResultInfo.ErrorCode">
+			<summary>사용자 지정 오류 코드를 가져오거나 설정합니다.</summary>
+			<returns>사용자 지정 오류 코드입니다.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.ValidationResultInfo.Message">
+			<summary>오류 메시지를 가져오거나 설정합니다.</summary>
+			<returns>오류 메시지입니다.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.ValidationResultInfo.SourceMemberNames">
+			<summary>오류가 발생한 멤버의 이름을 가져오거나 설정합니다.</summary>
+			<returns>오류가 발생한 멤버의 이름입니다.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.ValidationResultInfo.StackTrace">
+			<summary>오류의 스택 추적을 가져오거나 설정합니다.</summary>
+			<returns>오류의 스택 추적입니다.</returns>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationEventArgs">
+			<summary><see cref="T:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService"></see> 클래스에서 발생하는 이벤트에 대한 이벤트 인수를 제공합니다.</summary>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationEventArgs.User">
+			<summary>이벤트가 발생한 시간의 사용자를 가져옵니다.</summary>
+			<returns>이벤트가 발생한 시간의 사용자입니다.</returns>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationOperation">
+			<summary><see cref="T:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService"></see>에서 지원하는 모든 작업의 기본 작업 형식을 제공합니다.</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationOperation.BeginCore(System.AsyncCallback)">
+			<summary>기본 비동기 결과 구현에서 해당 Begin 메서드를 호출합니다.</summary>
+			<returns>기본 Begin 호출에서 반환되는 비동기 결과입니다.</returns>
+			<param name="callback">비동기 호출이 완료된 경우 호출할 <see cref="T:System.AsyncCallback"></see>입니다. 이 매개 변수는 기본 Begin 메서드에 직접 전달할 수 있습니다.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationOperation.EndCore(System.IAsyncResult)">
+			<summary>기본 비동기 결과 구현에서 해당 End 메서드를 호출합니다.</summary>
+			<returns>OperationBase.Result에 저장할 End 호출의 결과입니다.</returns>
+			<param name="asyncResult">기본 Begin 호출에서 반환되는 비동기 결과입니다.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationOperation.RaiseCompletionPropertyChanges">
+			<summary>작업이 완료된 후 속성 변경을 발생시킵니다.</summary>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationOperation.AsyncResult">
+			<summary><see cref="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationOperation.BeginCore(System.AsyncCallback)"></see>에서 반환된 비동기 결과를 가져옵니다.</summary>
+			<returns><see cref="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationOperation.BeginCore(System.AsyncCallback)"></see>에서 반환된 비동기 결과입니다.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationOperation.Result">
+			<summary><see cref="T:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationResult"></see>로 결과를 가져옵니다.</summary>
+			<returns><see cref="T:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationResult"></see>로서의 결과입니다.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationOperation.Service">
+			<summary>이 작업에서 Begin, Cancel 및 End를 구현하는 데 사용할 서비스를 가져옵니다.</summary>
+			<returns>이 작업에서 Begin, Cancel 및 End를 구현하는 데 사용할 서비스입니다.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationOperation.SupportsCancellation">
+			<summary>작업에서 취소를 지원하는지 여부를 나타내는 값을 가져옵니다.</summary>
+			<returns>작업에서 취소를 지원하면 true이고, 그렇지 않으면 false입니다.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationOperation.User">
+			<summary>사용자 보안 주체를 가져옵니다.</summary>
+			<returns>사용자 보안 주체입니다. 작업이 취소되었거나 작업에 오류가 있는 경우 작업이 완료되기 전에 이 값은 null입니다.</returns>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationResult">
+			<summary><see cref="T:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService"></see>의 비동기 작업에 대한 End 호출에서 반환된 모든 결과의 추상 기본 형식을 제공합니다.</summary>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationResult.User">
+			<summary>인증된 사용자를 가져옵니다.</summary>
+			<returns>인증된 사용자입니다.</returns>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService">
+			<summary>현재 사용자를 인증, 로드 및 저장하는 서비스의 기본 클래스를 제공합니다.</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.#ctor">
+			<summary><see cref="T:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService"></see> 클래스의 새 인스턴스를 초기화합니다.</summary>
+		</member>
+		<member name="E:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.LoggedIn">
+			<summary>새 사용자가 성공적으로 로그인한 경우 발생합니다.</summary>
+		</member>
+		<member name="E:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.LoggedOut">
+			<summary>사용자가 성공적으로 로그아웃한 경우 발생합니다.</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.BeginLoadUser(System.AsyncCallback,System.Object)">
+			<summary>비동기 <see cref="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.LoadUser"></see> 작업을 시작합니다.</summary>
+			<returns>이 비동기 호출을 참조하는 데 사용할 수 있는 핸들입니다.</returns>
+			<param name="callback">비동기 호출이 완료된 경우 호출할 콜백입니다.</param>
+			<param name="state">이 메서드에서 반환하는 <see cref="T:System.IAsyncResult"></see>로 설정할 상태입니다. 이 매개 변수는 선택적 요소입니다.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.BeginLogin(System.ServiceModel.DomainServices.Client.ApplicationServices.LoginParameters,System.AsyncCallback,System.Object)">
+			<summary>비동기 <see cref="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.Login(System.ServiceModel.DomainServices.Client.ApplicationServices.LoginParameters,System.Action{System.ServiceModel.DomainServices.Client.ApplicationServices.LoginOperation},System.Object)"></see> 작업을 시작합니다.</summary>
+			<returns>이 비동기 호출을 참조하는 데 사용할 수 있는 핸들입니다.</returns>
+			<param name="callback">비동기 호출이 완료된 경우 호출할 콜백입니다.</param>
+			<param name="state">이 메서드에서 반환하는 <see cref="T:System.IAsyncResult"></see>로 설정할 상태입니다. 이 매개 변수는 선택적 요소입니다.</param>
+			<param name="parameters">인증할 사용자를 지정하는 로그인 매개 변수입니다. 이 매개 변수는 선택적 요소입니다.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.BeginLogout(System.AsyncCallback,System.Object)">
+			<summary>비동기 <see cref="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.Logout(System.Action{System.ServiceModel.DomainServices.Client.ApplicationServices.LogoutOperation},System.Object)"></see> 작업을 시작합니다.</summary>
+			<returns>이 비동기 호출을 참조하는 데 사용할 수 있는 핸들입니다.</returns>
+			<param name="callback">비동기 호출이 완료된 경우 호출할 콜백입니다.</param>
+			<param name="state">이 메서드에서 반환하는 <see cref="T:System.IAsyncResult"></see>로 설정할 상태입니다. 이 매개 변수는 선택적 요소입니다.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.BeginSaveUser(System.Security.Principal.IPrincipal,System.AsyncCallback,System.Object)">
+			<summary>비동기 <see cref="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.SaveUser(System.Action{System.ServiceModel.DomainServices.Client.ApplicationServices.SaveUserOperation},System.Object)"></see> 작업을 시작합니다.</summary>
+			<returns>이 비동기 호출을 참조하는 데 사용할 수 있는 핸들입니다.</returns>
+			<param name="callback">비동기 호출이 완료된 경우 호출할 콜백입니다.</param>
+			<param name="user">저장할 사용자입니다. 이 매개 변수는 null이 아니어야 합니다.</param>
+			<param name="state">이 메서드에서 반환하는 <see cref="T:System.IAsyncResult"></see>로 설정할 상태입니다. 이 매개 변수는 선택적 요소입니다.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.CancelLoadUser(System.IAsyncResult)">
+			<summary>비동기 <see cref="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.LoadUser"></see> 작업을 취소합니다.</summary>
+			<param name="asyncResult">취소할 비동기 호출을 나타내는 <see cref="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.BeginLoadUser(System.AsyncCallback,System.Object)"></see>에서 반환된 결과입니다.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.CancelLogin(System.IAsyncResult)">
+			<summary>비동기 <see cref="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.Login(System.ServiceModel.DomainServices.Client.ApplicationServices.LoginParameters,System.Action{System.ServiceModel.DomainServices.Client.ApplicationServices.LoginOperation},System.Object)"></see> 작업을 취소합니다.</summary>
+			<param name="asyncResult">취소할 비동기 호출을 나타내는 <see cref="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.BeginLogin(System.ServiceModel.DomainServices.Client.ApplicationServices.LoginParameters,System.AsyncCallback,System.Object)"></see>에서 반환된 결과입니다.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.CancelLogout(System.IAsyncResult)">
+			<summary>비동기 <see cref="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.Logout(System.Action{System.ServiceModel.DomainServices.Client.ApplicationServices.LogoutOperation},System.Object)"></see> 작업을 취소합니다.</summary>
+			<param name="asyncResult">취소할 비동기 호출을 나타내는 <see cref="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.BeginLogout(System.AsyncCallback,System.Object)"></see>에서 반환된 결과입니다.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.CancelSaveUser(System.IAsyncResult)">
+			<summary>비동기 <see cref="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.SaveUser(System.Action{System.ServiceModel.DomainServices.Client.ApplicationServices.SaveUserOperation},System.Object)"></see> 작업을 취소합니다.</summary>
+			<param name="asyncResult">취소할 비동기 호출을 나타내는 <see cref="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.BeginSaveUser(System.Security.Principal.IPrincipal,System.AsyncCallback,System.Object)"></see>에서 반환된 결과입니다.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.CreateDefaultUser">
+			<summary>기본 사용자를 만듭니다.</summary>
+			<returns>만들어진 사용자입니다.</returns>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.EndLoadUser(System.IAsyncResult)">
+			<summary>비동기 <see cref="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.LoadUser"></see> 작업을 끝냅니다.</summary>
+			<returns>작업의 결과입니다.</returns>
+			<param name="asyncResult">완료할 비동기 호출을 나타내는 <see cref="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.BeginLoadUser(System.AsyncCallback,System.Object)"></see>에서 반환된 결과입니다.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.EndLogin(System.IAsyncResult)">
+			<summary>비동기 <see cref="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.Login(System.ServiceModel.DomainServices.Client.ApplicationServices.LoginParameters,System.Action{System.ServiceModel.DomainServices.Client.ApplicationServices.LoginOperation},System.Object)"></see> 작업을 끝냅니다.</summary>
+			<returns>작업의 결과입니다.</returns>
+			<param name="asyncResult">완료할 비동기 호출을 나타내는 <see cref="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.BeginLogin(System.ServiceModel.DomainServices.Client.ApplicationServices.LoginParameters,System.AsyncCallback,System.Object)"></see>에서 반환된 결과입니다.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.EndLogout(System.IAsyncResult)">
+			<summary>비동기 <see cref="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.Logout(System.Action{System.ServiceModel.DomainServices.Client.ApplicationServices.LogoutOperation},System.Object)"></see> 작업을 끝냅니다.</summary>
+			<returns>작업의 결과입니다.</returns>
+			<param name="asyncResult">완료할 비동기 호출을 나타내는 <see cref="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.BeginLogout(System.AsyncCallback,System.Object)"></see>에서 반환된 결과입니다.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.EndSaveUser(System.IAsyncResult)">
+			<summary>비동기 <see cref="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.SaveUser(System.Action{System.ServiceModel.DomainServices.Client.ApplicationServices.SaveUserOperation},System.Object)"></see> 작업을 끝냅니다.</summary>
+			<returns>작업의 결과입니다.</returns>
+			<param name="asyncResult">완료할 비동기 호출을 나타내는 <see cref="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.BeginSaveUser(System.Security.Principal.IPrincipal,System.AsyncCallback,System.Object)"></see>에서 반환된 결과입니다.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.LoadUser">
+			<summary>서버에서 인증된 사용자를 비동기적으로 로드합니다.</summary>
+			<returns>작업의 결과입니다.</returns>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.LoadUser(System.Action{System.ServiceModel.DomainServices.Client.ApplicationServices.LoadUserOperation},System.Object)">
+			<summary>지정된 콜백 메서드와 사용자 상태를 사용하여 서버에서 인증된 사용자를 비동기적으로 로드합니다.</summary>
+			<returns>작업의 결과입니다.</returns>
+			<param name="completeAction">작업이 완료된 직후에 호출되고 성공, 취소 및 오류를 비롯한 모든 경우에 호출되는 작업입니다. 이 매개 변수는 선택적 요소입니다.</param>
+			<param name="userState"><see cref="P:System.ServiceModel.DomainServices.Client.OperationBase.UserState"></see>로 설정할 상태입니다. 이 매개 변수는 선택적 요소입니다.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.Login(System.ServiceModel.DomainServices.Client.ApplicationServices.LoginParameters)">
+			<summary>지정된 매개 변수를 사용하여 비동기적으로 인증하고 서버에 로그인합니다.</summary>
+			<returns>작업의 결과입니다.</returns>
+			<param name="parameters">인증할 사용자를 지정하는 로그인 매개 변수입니다.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.Login(System.String,System.String)">
+			<summary>지정된 사용자 이름과 암호를 사용하여 비동기적으로 인증하고 서버에 로그인합니다.</summary>
+			<returns>작업의 결과입니다.</returns>
+			<param name="userName">인증할 사용자와 연결된 사용자 이름입니다.</param>
+			<param name="password">인증할 사용자와 연결된 암호입니다.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.Login(System.ServiceModel.DomainServices.Client.ApplicationServices.LoginParameters,System.Action{System.ServiceModel.DomainServices.Client.ApplicationServices.LoginOperation},System.Object)">
+			<summary>지정된 매개 변수, 콜백 메서드 및 사용자 상태를 사용하여 비동기적으로 인증하고 서버에 로그인합니다.</summary>
+			<returns>작업의 결과입니다.</returns>
+			<param name="completeAction">작업이 완료된 직후에 호출되고 성공, 취소 및 오류를 비롯한 모든 경우에 호출되는 작업입니다. 이 매개 변수는 선택적 요소입니다.</param>
+			<param name="userState"><see cref="P:System.ServiceModel.DomainServices.Client.OperationBase.UserState"></see>로 설정할 상태입니다. 이 매개 변수는 선택적 요소입니다.</param>
+			<param name="parameters">인증할 사용자를 지정하는 로그인 매개 변수입니다.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.Logout(System.Boolean)">
+			<summary>오류에 대해 예외를 throw할지 여부를 나타내는 지정된 값을 사용하여 서버에서 인증된 사용자를 비동기적으로 로그아웃합니다.</summary>
+			<returns>작업의 결과입니다.</returns>
+			<param name="throwOnError">처리되지 않은 오류로 인해 예외가 발생하면 true이고, 그렇지 않으면 false입니다.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.Logout(System.Action{System.ServiceModel.DomainServices.Client.ApplicationServices.LogoutOperation},System.Object)">
+			<summary>지정된 콜백 메서드와 사용자 상태를 사용하여 서버에서 인증된 사용자를 비동기적으로 로그아웃합니다.</summary>
+			<returns>작업의 결과입니다.</returns>
+			<param name="completeAction">작업이 완료된 직후에 호출되고 성공, 취소 및 오류를 비롯한 모든 경우에 호출되는 작업입니다. 이 매개 변수는 선택적 요소입니다.</param>
+			<param name="userState"><see cref="P:System.ServiceModel.DomainServices.Client.OperationBase.UserState"></see>로 설정할 상태입니다. 이 매개 변수는 선택적 요소입니다.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.OnPropertyChanged(System.ComponentModel.PropertyChangedEventArgs)">
+			<summary><see cref="E:System.ComponentModel.INotifyPropertyChanged.PropertyChanged"></see> 이벤트를 발생시킵니다.</summary>
+			<param name="e">발생시킬 이벤트입니다.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.RaisePropertyChanged(System.String)">
+			<summary>지정된 속성에 대해 <see cref="E:System.ComponentModel.INotifyPropertyChanged.PropertyChanged"></see> 이벤트를 발생시킵니다.</summary>
+			<param name="propertyName">이벤트를 발생시킬 속성입니다.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.SaveUser(System.Boolean)">
+			<summary>오류에 대해 예외를 throw할지 여부를 나타내는 지정된 값을 사용하여 인증된 사용자를 서버에 비동기적으로 저장합니다.</summary>
+			<returns>작업의 결과입니다.</returns>
+			<param name="throwOnError">처리되지 않은 오류로 인해 예외가 발생하면 true이고, 그렇지 않으면 false입니다.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.SaveUser(System.Action{System.ServiceModel.DomainServices.Client.ApplicationServices.SaveUserOperation},System.Object)">
+			<summary>지정된 콜백 메서드와 사용자 상태를 사용하여 인증된 사용자를 서버에 비동기적으로 저장합니다.</summary>
+			<returns>작업의 결과입니다.</returns>
+			<param name="completeAction">작업이 완료된 직후에 호출되고 성공, 취소 및 오류를 비롯한 모든 경우에 호출되는 작업입니다. 이 매개 변수는 선택적 요소입니다.</param>
+			<param name="userState"><see cref="P:System.ServiceModel.DomainServices.Client.OperationBase.UserState"></see>로 설정할 상태입니다. 이 매개 변수는 선택적 요소입니다.</param>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.IsBusy">
+			<summary>비동기 작업이 진행 중인지 여부를 나타내는 값을 가져옵니다.</summary>
+			<returns>작업이 진행 중이면 true이고, 그렇지 않으면 false입니다.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.IsLoadingUser">
+			<summary>비동기 <see cref="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.LoadUser"></see> 작업이 진행 중인지 여부를 나타내는 값을 가져옵니다.</summary>
+			<returns>작업이 진행 중이면 true이고, 그렇지 않으면 false입니다.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.IsLoggingIn">
+			<summary>비동기 <see cref="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.Login(System.String,System.String)"></see> 작업이 진행 중인지 여부를 나타내는 값을 가져옵니다.</summary>
+			<returns>작업이 진행 중이면 true이고, 그렇지 않으면 false입니다.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.IsLoggingOut">
+			<summary>비동기 <see cref="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.Logout(System.Action{System.ServiceModel.DomainServices.Client.ApplicationServices.LogoutOperation},System.Object)"></see> 작업이 진행 중인지 여부를 나타내는 값을 가져옵니다.</summary>
+			<returns>작업이 진행 중이면 true이고, 그렇지 않으면 false입니다.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.IsSavingUser">
+			<summary>비동기 <see cref="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.SaveUser(System.Action{System.ServiceModel.DomainServices.Client.ApplicationServices.SaveUserOperation},System.Object)"></see> 작업이 진행 중인지 여부를 나타내는 값을 가져옵니다.</summary>
+			<returns>작업이 진행 중이면 true이고, 그렇지 않으면 false입니다.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.SupportsCancellation">
+			<summary>이 인증 구현에서 취소를 지원하는지 여부를 나타내는 값을 가져옵니다.</summary>
+			<returns>취소가 지원되면 true이고, 그렇지 않으면 false입니다. 기본 구현은 모든 경우에 false를 반환합니다.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.User">
+			<summary>인증된 사용자를 나타내는 보안 주체를 가져옵니다.</summary>
+			<returns>인증된 사용자를 나타내는 보안 주체입니다.</returns>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.ApplicationServices.LoadUserOperation">
+			<summary><see cref="T:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService"></see>에 대한 LoadUser 작업에서 반환된 작업 형식입니다.</summary>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.ApplicationServices.LoadUserResult">
+			<summary><see cref="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.EndLoadUser(System.IAsyncResult)"></see>에서 반환된 결과를 나타냅니다.</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.LoadUserResult.#ctor(System.Security.Principal.IPrincipal)">
+			<summary><see cref="T:System.ServiceModel.DomainServices.Client.ApplicationServices.LoadUserResult"></see> 클래스의 새 인스턴스를 초기화합니다. </summary>
+			<param name="user">로드된 사용자입니다.</param>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.ApplicationServices.LoginOperation">
+			<summary><see cref="T:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService"></see>에 대한 Login 작업에서 반환된 작업 형식입니다.</summary>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.ApplicationServices.LoginOperation.LoginParameters">
+			<summary>이 작업을 호출할 때 사용되는 로그인 매개 변수를 가져옵니다.</summary>
+			<returns>로그인 매개 변수입니다.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.ApplicationServices.LoginOperation.LoginSuccess">
+			<summary>이 작업이 성공적으로 로그인할 수 있었는지 여부를 나타내는 값을 가져옵니다.</summary>
+			<returns>로그인에 성공했으면 true이고, 그렇지 않으면 false입니다.</returns>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.ApplicationServices.LoginParameters">
+			<summary><see cref="T:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService"></see>에 대한 Login 메서드에서 사용자를 인증할 매개 변수를 지정합니다.</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.LoginParameters.#ctor">
+			<summary>기본값을 사용하여 <see cref="T:System.ServiceModel.DomainServices.Client.ApplicationServices.LoginParameters"></see> 클래스의 새 인스턴스를 초기화합니다.</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.LoginParameters.#ctor(System.String,System.String)">
+			<summary>지정된 이름과 암호를 사용하여 <see cref="T:System.ServiceModel.DomainServices.Client.ApplicationServices.LoginParameters"></see> 클래스의 새 인스턴스를 초기화합니다.</summary>
+			<param name="userName">인증할 사용자의 이름입니다.</param>
+			<param name="password">인증할 사용자의 암호입니다.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.LoginParameters.#ctor(System.String,System.String,System.Boolean,System.String)">
+			<summary>지정된 이름, 암호 및 지속성을 사용하여 <see cref="T:System.ServiceModel.DomainServices.Client.ApplicationServices.LoginParameters"></see> 클래스의 새 인스턴스를 초기화합니다.</summary>
+			<param name="customData">선택적 구현별 데이터입니다.</param>
+			<param name="userName">인증할 사용자의 이름입니다.</param>
+			<param name="isPersistent">세션 간에 로그인이 지속되면 true이고, 그렇지 않으면 false입니다.</param>
+			<param name="password">인증할 사용자의 암호입니다.</param>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.ApplicationServices.LoginParameters.CustomData">
+			<summary>선택적 구현별 데이터를 가져옵니다.</summary>
+			<returns>선택적 구현별 데이터입니다.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.ApplicationServices.LoginParameters.IsPersistent">
+			<summary>세션 간에 로그인을 지속할지 여부를 나타내는 값을 가져옵니다.</summary>
+			<returns>로그인이 지속되면 true이고, 그렇지 않으면 false입니다.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.ApplicationServices.LoginParameters.Password">
+			<summary>인증할 사용자의 암호를 가져옵니다.</summary>
+			<returns>인증할 사용자의 암호입니다.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.ApplicationServices.LoginParameters.UserName">
+			<summary>인증할 사용자의 이름을 가져옵니다.</summary>
+			<returns>인증할 사용자의 이름입니다.</returns>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.ApplicationServices.LoginResult">
+			<summary><see cref="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.EndLogin(System.IAsyncResult)"></see>에서 반환된 결과입니다.</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.LoginResult.#ctor(System.Security.Principal.IPrincipal,System.Boolean)">
+			<summary><see cref="T:System.ServiceModel.DomainServices.Client.ApplicationServices.LoginResult"></see> 클래스의 새 인스턴스를 초기화합니다.</summary>
+			<param name="user">로그인한 사용자나, 인증에 실패한 경우 null입니다.</param>
+			<param name="loginSuccess">Login 호출이 성공적으로 완료되었으면 true이고, 그렇지 않으면 false입니다.</param>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.ApplicationServices.LoginResult.LoginSuccess">
+			<summary>Login 호출이 성공적으로 완료되었는지 여부를 나타내는 값을 가져옵니다.</summary>
+			<returns>로그인에 성공했으면 true이고, 그렇지 않으면 false입니다.</returns>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.ApplicationServices.LogoutOperation">
+			<summary><see cref="T:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService"></see>에 대한 Logout 작업에서 반환된 작업 형식입니다.</summary>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.ApplicationServices.LogoutResult">
+			<summary><see cref="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.EndLogout(System.IAsyncResult)"></see>에서 반환된 결과를 나타냅니다.</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.LogoutResult.#ctor(System.Security.Principal.IPrincipal)">
+			<summary><see cref="T:System.ServiceModel.DomainServices.Client.ApplicationServices.LogoutResult"></see> 클래스의 새 인스턴스를 초기화합니다. </summary>
+			<param name="user">익명 사용자입니다.</param>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.ApplicationServices.SaveUserOperation">
+			<summary><see cref="T:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService"></see>에 대한 SaveUser 작업에서 반환된 작업 형식을 나타냅니다.</summary>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.ApplicationServices.SaveUserResult">
+			<summary><see cref="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.EndSaveUser(System.IAsyncResult)"></see>에서 반환된 결과를 나타냅니다.</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.SaveUserResult.#ctor(System.Security.Principal.IPrincipal)">
+			<summary><see cref="T:System.ServiceModel.DomainServices.Client.ApplicationServices.SaveUserResult"></see> 클래스의 새 인스턴스를 초기화합니다. </summary>
+			<param name="user">저장된 사용자입니다.</param>
+		</member>
+	</members>
+</doc>

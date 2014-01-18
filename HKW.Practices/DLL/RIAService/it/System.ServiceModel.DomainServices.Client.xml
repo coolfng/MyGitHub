@@ -1,0 +1,1858 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<doc>
+	<assembly>
+		<name>System.ServiceModel.DomainServices.Client</name>
+	</assembly>
+	<members>
+		<member name="T:System.ComponentModel.DataAnnotations.CompositionAttribute">
+			<summary>Indica che un membro rappresenta un'associazione appartenente a una gerarchia composizionale.</summary>
+		</member>
+		<member name="M:System.ComponentModel.DataAnnotations.CompositionAttribute.#ctor">
+			<summary>Inizializza una nuova istanza della classe <see cref="T:System.ComponentModel.DataAnnotations.CompositionAttribute"></see>. </summary>
+		</member>
+		<member name="T:System.ComponentModel.DataAnnotations.RoundtripOriginalAttribute">
+			<summary>Se applicato a un membro, questo attributo indica che il valore originale del membro deve essere reinviato al server quando si aggiorna l'oggetto. Se applicato a una classe, l'attributo viene applicato a ogni membro di tale classe. </summary>
+		</member>
+		<member name="M:System.ComponentModel.DataAnnotations.RoundtripOriginalAttribute.#ctor">
+			<summary>Inizializza una nuova istanza della classe <see cref="T:System.ComponentModel.DataAnnotations.RoundtripOriginalAttribute"></see>. </summary>
+		</member>
+		<member name="N:System.ServiceModel.DomainServices">
+			<summary>Fornisce classi utilizzate per definire servizi del dominio.</summary>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.DomainIdentifierAttribute">
+			<summary>Classifica un tipo come appartenente a un dominio specifico.</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.DomainIdentifierAttribute.#ctor(System.String)">
+			<summary>Inizializza una nuova istanza della classe <see cref="T:System.ServiceModel.DomainServices.DomainIdentifierAttribute"></see>. </summary>
+			<param name="name">Nome dell'identificatore di dominio. Questa stringa non dispone di semantica a livello di framework. Spetta allo sviluppatore dell'applicazione stabilire ciò che costituisce l'unicità o se viene fatta distinzione tra maiuscole e minuscole. Il valore non può essere null o vuoto.</param>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.DomainIdentifierAttribute.IsApplicationService">
+			<summary>Ottiene o imposta un valore che indica se il tipo a cui è stato applicato l'attributo rappresenta un servizio dell'applicazione.</summary>
+			<returns>true se il tipo a cui è stato applicato l'attributo rappresenta un servizio dell'applicazione; in caso contrario, false.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.DomainIdentifierAttribute.Name">
+			<summary>Ottiene il nome dell'identificatore di dominio.</summary>
+			<returns>Nome dell'identificatore di dominio.</returns>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.ExternalReferenceAttribute">
+			<summary>Indica che un'associazione fa riferimento a entità che appartengono a un oggetto <see cref="T:System.ServiceModel.DomainServices.Client.DomainContext"></see> esterno.</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.ExternalReferenceAttribute.#ctor">
+			<summary>Inizializza una nuova istanza della classe <see cref="T:System.ServiceModel.DomainServices.ExternalReferenceAttribute"></see>. </summary>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.ChangeSetEntry">
+			<summary>Rappresenta un'operazione di dominio da eseguire su un'entità.</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ChangeSetEntry.#ctor(System.ServiceModel.DomainServices.Client.Entity,System.Int32,System.ServiceModel.DomainServices.Client.EntityOperationType)">
+			<summary>Inizializza una nuova istanza della classe <see cref="T:System.ServiceModel.DomainServices.Client.ChangeSetEntry"></see> con i parametri specificati.</summary>
+			<param name="operationType">Operazione da eseguire.</param>
+			<param name="entity">Entità che si sta utilizzando.</param>
+			<param name="id">ID client per l'entità, utilizzato per eseguire la correlazione dei risultati del server alle istanze di entità client.</param>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.ChangeSetEntry.Associations">
+			<summary>Ottiene o imposta la raccolta di ID per tutte le entità associate all'entità nell'operazione.</summary>
+			<returns>Raccolta di ID per tutte le entità associate all'entità nell'operazione.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.ChangeSetEntry.ClientEntity">
+			<summary>Ottiene o imposta l'entità originariamente inviata.</summary>
+			<returns>Entità originariamente inviata.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.ChangeSetEntry.ConflictMembers">
+			<summary>Ottiene o imposta la raccolta dei membri in conflitto.</summary>
+			<returns>Raccolta dei membri in conflitto.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.ChangeSetEntry.Entity">
+			<summary>Ottiene o imposta l'entità che si sta utilizzando.</summary>
+			<returns>Entità che si sta utilizzando.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.ChangeSetEntry.EntityActions">
+			<summary>Ottiene o imposta i metodi personalizzati richiamati nell'entità.</summary>
+			<returns>Raccolta di metodi personalizzati richiamati sull'entità.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.ChangeSetEntry.HasConflict">
+			<summary>Ottiene un valore che indica se nell'oggetto <see cref="T:System.ServiceModel.DomainServices.Client.ChangeSetEntry"></see> sono presenti conflitti.</summary>
+			<returns>true se <see cref="T:System.ServiceModel.DomainServices.Client.ChangeSetEntry"></see> contiene conflitti; in caso contrario false.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.ChangeSetEntry.HasMemberChanges">
+			<summary>Ottiene o imposta un valore che indica se l'entità per questa operazione contiene modifiche di proprietà.</summary>
+			<returns>true se l'entità per questa operazione contiene modifiche di proprietà; in caso contrario, false.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.ChangeSetEntry.Id">
+			<summary>Ottiene o imposta l'ID client per l'entità.</summary>
+			<returns>ID client per l'entità.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.ChangeSetEntry.IsDeleteConflict">
+			<summary>Ottiene o imposta un valore che indica se il conflitto è un conflitto di eliminazione, vale a dire che l'entità non esiste più nell'archivio.</summary>
+			<returns>true se il conflitto è un conflitto di eliminazione; in caso contrario false.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.ChangeSetEntry.Operation">
+			<summary>Ottiene o imposta l'oggetto <see cref="T:System.ServiceModel.DomainServices.Client.EntityOperationType"></see> per questo set di modifiche.</summary>
+			<returns><see cref="T:System.ServiceModel.DomainServices.Client.EntityOperationType"></see> per questo set di modifiche.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.ChangeSetEntry.OriginalAssociations">
+			<summary>Ottiene o imposta la raccolta di ID entità che rappresenta le entità per ciascuna associazione della proprietà <see cref="P:System.ServiceModel.DomainServices.Client.ChangeSetEntry.OriginalEntity"></see>.</summary>
+			<returns>Raccolta di ID entità che rappresenta le entità per ciascuna associazione della proprietà <see cref="P:System.ServiceModel.DomainServices.Client.ChangeSetEntry.OriginalEntity"></see>.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.ChangeSetEntry.OriginalEntity">
+			<summary>Ottiene o imposta lo stato originale dell'entità che si sta utilizzando.</summary>
+			<returns>Stato originale dell'entità che si sta utilizzando.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.ChangeSetEntry.StoreEntity">
+			<summary>Ottiene o imposta lo stato dell'entità nell'archivio.</summary>
+			<returns>Stato dell'entità nell'archivio.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.ChangeSetEntry.ValidationErrors">
+			<summary>Ottiene o imposta gli errori di convalida verificatisi durante l'elaborazione dell'operazione.</summary>
+			<returns>Errori di convalida verificatisi durante l'elaborazione dell'operazione.</returns>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.ComplexObject">
+			<summary>Classe base per tutti gli oggetti complessi.</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ComplexObject.#ctor">
+			<summary>Crea un'istanza della classe <see cref="T:System.ServiceModel.DomainServices.Client.ComplexObject"></see>.</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ComplexObject.BeginEdit">
+			<summary>Inizia a modificare questa istanza dell'oggetto complesso.</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ComplexObject.CancelEdit">
+			<summary>Annulla tutte le modifiche apportate a questa istanza dall'ultima chiamata al metodo <see cref="M:System.ServiceModel.DomainServices.Client.ComplexObject.BeginEdit"></see>.</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ComplexObject.EndEdit">
+			<summary>Esegue il commit delle modifiche apportate a questa istanza dall'ultima chiamata al metodo <see cref="M:System.ServiceModel.DomainServices.Client.ComplexObject.BeginEdit"></see>.</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ComplexObject.OnDeserialized(System.Runtime.Serialization.StreamingContext)">
+			<summary>Metodo chiamato dopo che un oggetto complesso è stato deserializzato.</summary>
+			<param name="context">Contesto di serializzazione.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ComplexObject.OnDeserializing(System.Runtime.Serialization.StreamingContext)">
+			<summary>Metodo chiamato durante la deserializzazione di un oggetto complesso.</summary>
+			<param name="context">Contesto di serializzazione.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ComplexObject.OnPropertyChanged(System.ComponentModel.PropertyChangedEventArgs)">
+			<summary>Chiamato quando viene modificata la proprietà di un oggetto complesso.</summary>
+			<param name="e">Argomenti dell'evento.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ComplexObject.RaiseDataMemberChanged(System.String)">
+			<summary>Viene chiamato da un setter delle proprietà per segnalare al framework che un membro dati di un oggetto complesso è stato modificato. </summary>
+			<param name="propertyName">Nome della proprietà modificata.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ComplexObject.RaiseDataMemberChanging(System.String)">
+			<summary>Viene chiamato da un setter delle proprietà per segnalare al framework che un membro dati di un oggetto complesso sta per essere modificato.</summary>
+			<param name="propertyName">Nome della proprietà modificata.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ComplexObject.RaisePropertyChanged(System.String)">
+			<summary>Viene chiamato da un setter delle proprietà per segnalare al framework che una proprietà di un oggetto complesso è stata modificata. </summary>
+			<param name="propertyName">Nome della proprietà modificata.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ComplexObject.ValidateProperty(System.String,System.Object)">
+			<summary>Verifica che il valore specificato sia valido per la proprietà specifica dell'oggetto complesso corrente.</summary>
+			<param name="value">Valore su cui eseguire il test. Tale valore può essere null se null è valido per la proprietà specificata.</param>
+			<param name="propertyName">Nome della proprietà da convalidare.  </param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ComplexObject.ValidateProperty(System.ComponentModel.DataAnnotations.ValidationContext,System.Object)">
+			<summary>Verifica che il valore della proprietà specificata sia valido per un oggetto <see cref="T:System.ComponentModel.DataAnnotations.ValidationContext"></see> specifico.</summary>
+			<param name="validationContext">Oggetto <see cref="T:System.ComponentModel.DataAnnotations.ValidationContext"></see> che rappresenta la convalida da eseguire.</param>
+			<param name="value">Valore su cui eseguire il test. Tale valore può essere null se null è valido per la proprietà specificata.</param>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.ComplexObject.HasValidationErrors">
+			<summary>Ottiene un valore che indica se per questa entità si sono verificati errori di convalida.</summary>
+			<returns>true se sono presenti errori di convalida. In caso contrario, false.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.ComplexObject.IsDeserializing">
+			<summary>Ottiene un valore che indica se attualmente è in corso la deserializzazione dell'istanza corrente.</summary>
+			<returns>true se è in corso la deserializzazione dell'oggetto complesso. In caso contrario, false.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.ComplexObject.ValidationErrors">
+			<summary>Ottiene la raccolta di errori di convalida per questa istanza.</summary>
+			<returns>Oggetto <see cref="T:System.Collections.Generic.ICollection`1"></see> degli errori di convalida per questa istanza.</returns>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.DomainClient">
+			<summary>Funge da classe base astratta per tutte le implementazioni di <see cref="T:System.ServiceModel.DomainServices.Client.DomainClient"></see>.</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.DomainClient.#ctor">
+			<summary>Inizializza una nuova istanza della classe <see cref="T:System.ServiceModel.DomainServices.Client.DomainClient"></see>. </summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.DomainClient.BeginInvoke(System.ServiceModel.DomainServices.Client.InvokeArgs,System.AsyncCallback,System.Object)">
+			<summary>Richiama un'operazione in modo asincrono.</summary>
+			<returns>Risultato asincrono che identifica la chiamata.</returns>
+			<param name="callback">Callback da richiamare al completamento della chiamata.</param>
+			<param name="invokeArgs">Argomenti per l'operazione invoke.</param>
+			<param name="userState">Stato utente facoltativo associato a questa operazione.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.DomainClient.BeginInvokeCore(System.ServiceModel.DomainServices.Client.InvokeArgs,System.AsyncCallback,System.Object)">
+			<summary>Viene chiamato dal framework per iniziare un'operazione invoke in modo asincrono.</summary>
+			<returns>Risultato asincrono che identifica la chiamata.</returns>
+			<param name="callback">Callback da richiamare al completamento della chiamata.</param>
+			<param name="invokeArgs">Argomenti per l'operazione invoke.</param>
+			<param name="userState">Stato utente facoltativo associato a questa operazione.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.DomainClient.BeginQuery(System.ServiceModel.DomainServices.Client.EntityQuery,System.AsyncCallback,System.Object)">
+			<summary>Esegue un'operazione di query asincrona.</summary>
+			<returns>Risultato asincrono che identifica la query.</returns>
+			<param name="callback">Callback da richiamare al termine dell'esecuzione della query.</param>
+			<param name="query">Query da richiamare.</param>
+			<param name="userState">Stato utente facoltativo associato a questa operazione.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.DomainClient.BeginQueryCore(System.ServiceModel.DomainServices.Client.EntityQuery,System.AsyncCallback,System.Object)">
+			<summary>Viene chiamato dal framework per iniziare l'operazione di query asincrona.</summary>
+			<returns>Risultato asincrono che identifica la query.</returns>
+			<param name="callback">Callback da richiamare al termine dell'esecuzione della query.</param>
+			<param name="query">Query da richiamare.</param>
+			<param name="userState">Stato utente facoltativo associato a questa operazione.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.DomainClient.BeginSubmit(System.ServiceModel.DomainServices.Client.EntityChangeSet,System.AsyncCallback,System.Object)">
+			<summary>Invia l'oggetto <see cref="T:System.ServiceModel.DomainServices.Client.EntityChangeSet"></see> specificato a <see cref="T:System.ServiceModel.DomainServices.Server.DomainService"></see> in modo asincrono.</summary>
+			<returns>Risultato asincrono che identifica la richiesta di invio.</returns>
+			<param name="callback">Callback da richiamare al termine dell'esecuzione dell'invio.</param>
+			<param name="changeSet">Oggetto <see cref="T:System.ServiceModel.DomainServices.Client.EntityChangeSet"></see> da inviare a <see cref="T:System.ServiceModel.DomainServices.Server.DomainService"></see>.</param>
+			<param name="userState">Stato utente facoltativo associato a questa operazione.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.DomainClient.BeginSubmitCore(System.ServiceModel.DomainServices.Client.EntityChangeSet,System.AsyncCallback,System.Object)">
+			<summary>Viene chiamato dal framework per elaborare in modo asincrono l'oggetto <see cref="T:System.ServiceModel.DomainServices.Client.EntityChangeSet"></see> specificato.</summary>
+			<returns>Risultato asincrono che identifica la richiesta di invio.</returns>
+			<param name="callback">Callback da richiamare al termine dell'esecuzione dell'invio.</param>
+			<param name="changeSet">Oggetto <see cref="T:System.ServiceModel.DomainServices.Client.EntityChangeSet"></see> da inviare a <see cref="T:System.ServiceModel.DomainServices.Server.DomainService"></see>.</param>
+			<param name="userState">Stato utente facoltativo associato a questa operazione.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.DomainClient.CancelInvoke(System.IAsyncResult)">
+			<summary>Tenta di annullare la richiesta di chiamata specificata da asyncResult.</summary>
+			<param name="asyncResult">IAsyncResult che specifica quale operazione di chiamata annullare.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.DomainClient.CancelInvokeCore(System.IAsyncResult)">
+			<summary>Tenta di annullare la richiesta di chiamata specificata da asyncResult.</summary>
+			<param name="asyncResult">IAsyncResult che specifica quale operazione di chiamata annullare.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.DomainClient.CancelQuery(System.IAsyncResult)">
+			<summary>Tenta di annullare la richiesta di query specificata da asyncResult.</summary>
+			<param name="asyncResult">IAsyncResult che specifica quale operazione di query annullare.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.DomainClient.CancelQueryCore(System.IAsyncResult)">
+			<summary>Tenta di annullare la richiesta di query specificata da asyncResult.</summary>
+			<param name="asyncResult">IAsyncResult che specifica quale operazione di query annullare.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.DomainClient.CancelSubmit(System.IAsyncResult)">
+			<summary>Tenta di annullare la richiesta di invio specificata da asyncResult.</summary>
+			<param name="asyncResult">IAsyncResult che specifica quale operazione di invio annullare.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.DomainClient.CancelSubmitCore(System.IAsyncResult)">
+			<summary>Tenta di annullare la richiesta di invio specificata da asyncResult.</summary>
+			<param name="asyncResult">IAsyncResult che specifica quale operazione di invio annullare.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.DomainClient.EndInvoke(System.IAsyncResult)">
+			<summary>Completa una chiamata di operazione.</summary>
+			<returns>Risultato dell'operazione.</returns>
+			<param name="asyncResult">Risultato asincrono che identifica una chiamata.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.DomainClient.EndInvokeCore(System.IAsyncResult)">
+			<summary>Viene chiamato dal framework per completare una chiamata asincrona.</summary>
+			<returns>Risultato dell'operazione.</returns>
+			<param name="asyncResult">Risultato asincrono che identifica una chiamata.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.DomainClient.EndQuery(System.IAsyncResult)">
+			<summary>Ottiene i risultati di un'operazione di query asincrona.</summary>
+			<returns>Risultato dell'operazione.</returns>
+			<param name="asyncResult">Risultato asincrono che identifica una query.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.DomainClient.EndQueryCore(System.IAsyncResult)">
+			<summary>Viene chiamato dal framework per completare l'operazione di query asincrona.</summary>
+			<returns>Risultato dell'operazione.</returns>
+			<param name="asyncResult">Risultato asincrono che identifica una query.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.DomainClient.EndSubmit(System.IAsyncResult)">
+			<summary>Ottiene i risultati di una richiesta di invio.</summary>
+			<returns>Risultato dell'operazione.</returns>
+			<param name="asyncResult">Risultato asincrono che identifica una richiesta di invio.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.DomainClient.EndSubmitCore(System.IAsyncResult)">
+			<summary>Viene chiamato dal framework per completare un'operazione di invio asincrona.</summary>
+			<returns>Risultato dell'operazione.</returns>
+			<param name="asyncResult">Risultato asincrono che identifica una richiesta di invio.</param>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.DomainClient.EntityTypes">
+			<summary>Ottiene o imposta la raccolta di tipi di entità su cui opera <see cref="T:System.ServiceModel.DomainServices.Client.DomainClient"></see>.</summary>
+			<returns>Raccolta di tipi di entità su cui opera l'oggetto.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.DomainClient.SupportsCancellation">
+			<summary>Ottiene un valore che indica se <see cref="T:System.ServiceModel.DomainServices.Client.DomainClient"></see> supporta l'annullamento.</summary>
+			<returns>true se l'oggetto supporta l'annullamento; in caso contrario false.</returns>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.DomainClientResult">
+			<summary>Rappresenta il risultato di un'operazione <see cref="T:System.ServiceModel.DomainServices.Client.DomainClient"></see>.</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.DomainClientResult.CreateInvokeResult(System.Object,System.Collections.Generic.IEnumerable{System.ComponentModel.DataAnnotations.ValidationResult})">
+			<summary>Crea un risultato dell'operazione Invoke.</summary>
+			<returns>Risultato dell'operazione Invoke.</returns>
+			<param name="returnValue">Valore restituito dell'operazione Invoke.</param>
+			<param name="validationErrors">Raccolta di errori di convalida per la chiamata.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.DomainClientResult.CreateQueryResult(System.Collections.Generic.IEnumerable{System.ServiceModel.DomainServices.Client.Entity},System.Collections.Generic.IEnumerable{System.ServiceModel.DomainServices.Client.Entity},System.Int32,System.Collections.Generic.IEnumerable{System.ComponentModel.DataAnnotations.ValidationResult})">
+			<summary>Crea un risultato dell'operazione Query.</summary>
+			<returns>Risultato dell'operazione Query.</returns>
+			<param name="allEntities">Tutte le entità restituite dalla query, incluse le entità associate.</param>
+			<param name="validationErrors">Raccolta di errori di convalida per la query.</param>
+			<param name="totalEntityCount">Il conteggio totale del server delle entità.</param>
+			<param name="entities">Entità di primo livello restituite dalla query.</param>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.DomainClientResult.AllEntities">
+			<summary>Ottiene tutti i risultati delle entità, incluse le entità associate.</summary>
+			<returns>Raccolta di entità.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.DomainClientResult.Entities">
+			<summary>Ottiene i risultati delle entità di primo livello.</summary>
+			<returns>Raccolta di risultati delle entità.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.DomainClientResult.ReturnValue">
+			<summary>Ottiene il valore restituito di un'operazione Invoke.</summary>
+			<returns>Valore restituito di un'operazione Invoke.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.DomainClientResult.TotalEntityCount">
+			<summary>Ottiene il conteggio totale delle entità server della query originale senza l'applicazione del paging.</summary>
+			<returns>Conteggio totale delle righe per la query oppure -1 se i conteggi totali delle entità non sono supportati nel server.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.DomainClientResult.ValidationErrors">
+			<summary>Ottiene una raccolta di errori di convalida.</summary>
+			<returns>Raccolta di errori di convalida.</returns>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.DomainContext">
+			<summary><see cref="T:System.ServiceModel.DomainServices.Client.DomainContext"></see> è una rappresentazione lato client con stato di un servizio del dominio, che fornisce accesso a tutte le funzionalità del servizio.</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.DomainContext.#ctor(System.ServiceModel.DomainServices.Client.DomainClient)">
+			<summary>Inizializza una nuova istanza della classe <see cref="T:System.ServiceModel.DomainServices.Client.DomainContext"></see>. </summary>
+			<param name="domainClient">Istanza di <see cref="P:System.ServiceModel.DomainServices.Client.DomainContext.DomainClient"></see> che deve essere utilizzata da <see cref="T:System.ServiceModel.DomainServices.Client.DomainContext"></see>.</param>
+		</member>
+		<member name="E:System.ServiceModel.DomainServices.Client.DomainContext.PropertyChanged">
+			<summary>Viene generato ogni volta che una proprietà <see cref="T:System.ServiceModel.DomainServices.Client.DomainContext"></see> viene modificata.</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.DomainContext.AddReference(System.Type,System.ServiceModel.DomainServices.Client.DomainContext)">
+			<summary>Aggiunge un riferimento a un oggetto <see cref="T:System.ServiceModel.DomainServices.Client.DomainContext"></see> esterno.</summary>
+			<param name="entityType">Tipo di entità da cercare nell'oggetto domainContext.</param>
+			<param name="domainContext"><see cref="T:System.ServiceModel.DomainServices.Client.DomainContext"></see> da registrare come riferimento esterno.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.DomainContext.CreateEntityContainer">
+			<summary>Crea e restituisce un contenitore di entità configurato con oggetti <see cref="T:System.ServiceModel.DomainServices.Client.EntitySet"></see> per tutte le entità a cui questo oggetto <see cref="T:System.ServiceModel.DomainServices.Client.DomainContext"></see> fornirà accesso. </summary>
+			<returns>Contenitore di entità.</returns>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.DomainContext.CreateQuery``1(System.String,System.Collections.Generic.IDictionary{System.String,System.Object},System.Boolean,System.Boolean)">
+			<summary>Crea una classe <see cref="T:System.ServiceModel.DomainServices.Client.EntityQuery"></see>.</summary>
+			<returns>Nuova query.</returns>
+			<param name="hasSideEffects">true se la query ha effetti collaterali; in caso contrario false.</param>
+			<param name="queryName">Nome del metodo di query.</param>
+			<param name="parameters">Parametri facoltativi per il metodo di query. Specificare null se l'operazione di query non accetta parametri.</param>
+			<param name="isComposable">true se la query supporta la composizione; in caso contrario false.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.DomainContext.InvokeOperation(System.String,System.Type,System.Collections.Generic.IDictionary{System.String,System.Object},System.Boolean,System.Action{System.ServiceModel.DomainServices.Client.InvokeOperation},System.Object)">
+			<summary>Esegue un'operazione invoke.</summary>
+			<returns>Operazione invoke.</returns>
+			<param name="hasSideEffects">true se l'operazione ha effetti collaterali; in caso contrario false.</param>
+			<param name="callback">Metodo di callback facoltativo da chiamare quando viene completata l'operazione.</param>
+			<param name="returnType">Tipo restituito dall'operazione.</param>
+			<param name="userState">Stato utente facoltativo per l'operazione.</param>
+			<param name="parameters">Parametri facoltativi dell'operazione. Specificare null se l'operazione non accetta parametri.</param>
+			<param name="operationName">Nome dell'operazione.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.DomainContext.InvokeOperation``1(System.String,System.Type,System.Collections.Generic.IDictionary{System.String,System.Object},System.Boolean,System.Action{System.ServiceModel.DomainServices.Client.InvokeOperation{``0}},System.Object)">
+			<summary>Esegue un'operazione invoke.</summary>
+			<returns>Operazione invoke.</returns>
+			<param name="hasSideEffects">true se l'operazione ha effetti collaterali; in caso contrario false.</param>
+			<param name="callback">Metodo di callback facoltativo da chiamare quando viene completata l'operazione.</param>
+			<param name="returnType">Tipo restituito dall'operazione.</param>
+			<param name="userState">Stato utente facoltativo per l'operazione.</param>
+			<param name="parameters">Parametri facoltativi dell'operazione. Specificare null se l'operazione non accetta parametri.</param>
+			<param name="operationName">Nome dell'operazione.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.DomainContext.Load(System.ServiceModel.DomainServices.Client.EntityQuery,System.ServiceModel.DomainServices.Client.LoadBehavior,System.Action{System.ServiceModel.DomainServices.Client.LoadOperation},System.Object)">
+			<summary>Avvia un'operazione di caricamento per la query specificata con il comportamento di caricamento, il metodo di callback e lo stato utente specificati.</summary>
+			<returns>Operazione di caricamento.</returns>
+			<param name="loadBehavior"><see cref="T:System.ServiceModel.DomainServices.Client.LoadBehavior"></see> da applicare.</param>
+			<param name="callback">Metodo di callback facoltativo da chiamare quando viene completata l'operazione di caricamento. Il callback deve essere un delegato che accetta un solo parametro che può accettare un'istanza del tipo di <see cref="T:System.ServiceModel.DomainServices.Client.LoadOperation"></see> restituito.</param>
+			<param name="query">Query da richiamare.</param>
+			<param name="userState">Stato utente facoltativo.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.DomainContext.Load``1(System.ServiceModel.DomainServices.Client.EntityQuery{``0})">
+			<summary>Avvia un'operazione di caricamento per la query specificata. </summary>
+			<returns>Operazione di caricamento.</returns>
+			<param name="query">Query da richiamare.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.DomainContext.Load``1(System.ServiceModel.DomainServices.Client.EntityQuery{``0},System.Boolean)">
+			<summary>Avvia un'operazione di caricamento per la query specificata con il valore specificato che indica se un errore comporta un'eccezione.</summary>
+			<returns>Operazione di caricamento.</returns>
+			<param name="query">Query da richiamare.</param>
+			<param name="throwOnError">true se un errore non gestito genera un'eccezione; in caso contrario false.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.DomainContext.Load``1(System.ServiceModel.DomainServices.Client.EntityQuery{``0},System.Action{System.ServiceModel.DomainServices.Client.LoadOperation{``0}},System.Object)">
+			<summary>Avvia un'operazione di caricamento per la query specificata con il metodo di callback e lo stato utente specificati.</summary>
+			<returns>Operazione di caricamento.</returns>
+			<param name="callback">Metodo di callback facoltativo da chiamare quando viene completata l'operazione di caricamento.</param>
+			<param name="query">Query da richiamare.</param>
+			<param name="userState">Stato utente facoltativo.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.DomainContext.Load``1(System.ServiceModel.DomainServices.Client.EntityQuery{``0},System.ServiceModel.DomainServices.Client.LoadBehavior,System.Boolean)">
+			<summary>Avvia un'operazione di caricamento per la query specificata con il comportamento di caricamento specificato e il valore che indica se un errore comporta un'eccezione.</summary>
+			<returns>Operazione di caricamento.</returns>
+			<param name="loadBehavior"><see cref="T:System.ServiceModel.DomainServices.Client.LoadBehavior"></see> da applicare.</param>
+			<param name="query">Query da richiamare.</param>
+			<param name="throwOnError">true se un errore non gestito genera un'eccezione; in caso contrario false.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.DomainContext.Load``1(System.ServiceModel.DomainServices.Client.EntityQuery{``0},System.ServiceModel.DomainServices.Client.LoadBehavior,System.Action{System.ServiceModel.DomainServices.Client.LoadOperation{``0}},System.Object)">
+			<summary>Avvia un'operazione di caricamento per la query specificata con il comportamento di caricamento, il metodo di callback e lo stato utente specificati.</summary>
+			<returns>Operazione di caricamento.</returns>
+			<param name="loadBehavior"><see cref="T:System.ServiceModel.DomainServices.Client.LoadBehavior"></see> da applicare.</param>
+			<param name="callback">Metodo di callback facoltativo da chiamare quando viene completata l'operazione di caricamento.</param>
+			<param name="query">Query da richiamare.</param>
+			<param name="userState">Stato utente facoltativo.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.DomainContext.RaisePropertyChanged(System.String)">
+			<summary>Genera l'evento <see cref="E:System.ServiceModel.DomainServices.Client.DomainContext.PropertyChanged"></see> per la proprietà specificata.</summary>
+			<param name="propertyName">Proprietà per cui generare l'evento.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.DomainContext.RejectChanges">
+			<summary>Ripristina tutte le modifiche in sospeso per questo oggetto <see cref="T:System.ServiceModel.DomainServices.Client.DomainContext"></see>.</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.DomainContext.SubmitChanges">
+			<summary>Invia tutte le modifiche in sospeso al servizio del dominio. </summary>
+			<returns>Operazione di invio.</returns>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.DomainContext.SubmitChanges(System.Action{System.ServiceModel.DomainServices.Client.SubmitOperation},System.Object)">
+			<summary>Invia tutte le modifiche in sospeso al servizio del dominio.</summary>
+			<returns>Operazione di invio.</returns>
+			<param name="callback">Callback facoltativo per l'operazione di invio.</param>
+			<param name="userState">Stato utente facoltativo da associare all'operazione.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.DomainContext.ValidateMethod(System.String,System.Collections.Generic.IDictionary{System.String,System.Object})">
+			<summary>Convalida una chiamata al metodo.</summary>
+			<param name="methodName">Metodo da convalidare.</param>
+			<param name="parameters">Parametri del metodo.</param>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.DomainContext.DomainClient">
+			<summary>Ottiene l'oggetto <see cref="T:System.ServiceModel.DomainServices.Client.DomainClient"></see> per questo contesto.</summary>
+			<returns>Client di dominio a supporto di questo oggetto.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.DomainContext.EntityContainer">
+			<summary>Ottiene la proprietà <see cref="T:System.ServiceModel.DomainServices.Client.EntityContainer"></see> che contiene tutte le entità caricate da questo contesto.</summary>
+			<returns>Contenitore di entità.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.DomainContext.HasChanges">
+			<summary>Ottiene un valore che indica se per questo contesto sono presenti modifiche in sospeso.</summary>
+			<returns>true se sono presenti modifiche in sospeso; in caso contrario false.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.DomainContext.IsLoading">
+			<summary>Ottiene un valore che indica se questo oggetto <see cref="T:System.ServiceModel.DomainServices.Client.DomainContext"></see> sta attualmente eseguendo un'operazione di caricamento.</summary>
+			<returns>true se è presente un'operazione di caricamento in sospeso; in caso contrario false.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.DomainContext.IsSubmitting">
+			<summary>Ottiene un valore che indica se questo oggetto <see cref="T:System.ServiceModel.DomainServices.Client.DomainContext"></see> sta attualmente eseguendo un'operazione di invio.</summary>
+			<returns>true se è presente un'operazione di invio in sospeso; in caso contrario false.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.DomainContext.ValidationContext">
+			<summary>Ottiene o imposta la proprietà <see cref="T:System.ComponentModel.DataAnnotations.ValidationContext"></see> da utilizzare per tutte le operazioni di convalida richiamate da <see cref="T:System.ServiceModel.DomainServices.Client.DomainContext"></see>.</summary>
+			<returns>Oggetto da utilizzare per tutte le operazioni di convalida richiamate da <see cref="T:System.ServiceModel.DomainServices.Client.DomainContext"></see>.</returns>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.DomainException">
+			<summary>Indica che si è verificato un errore irreversibile durante l'esecuzione di un'operazione di dominio.</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.DomainException.#ctor">
+			<summary>Inizializza una nuova istanza della classe <see cref="T:System.ServiceModel.DomainServices.Client.DomainException"></see> con un messaggio fornito dal sistema in cui viene descritto l'errore.</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.DomainException.#ctor(System.String)">
+			<summary>Inizializza una nuova istanza della classe <see cref="T:System.ServiceModel.DomainServices.Client.DomainException"></see> con un messaggio specificato in cui viene descritto l'errore.</summary>
+			<param name="message">Messaggio di errore localizzato.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.DomainException.#ctor(System.String,System.Exception)">
+			<summary>Inizializza una nuova istanza della classe <see cref="T:System.ServiceModel.DomainServices.Client.DomainException"></see> con un messaggio di errore specificato e un riferimento all'eccezione interna che rappresenta la causa dell'eccezione corrente.</summary>
+			<param name="message">Messaggio di errore localizzato.</param>
+			<param name="innerException">Eccezione interna che rappresenta la causa dell'eccezione corrente.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.DomainException.#ctor(System.String,System.Int32)">
+			<summary>Inizializza una nuova istanza della classe <see cref="T:System.ServiceModel.DomainServices.Client.DomainException"></see> con il messaggio di errore specificato e un codice di errore personalizzato. </summary>
+			<param name="errorCode">Codice di errore personalizzato per l'eccezione.</param>
+			<param name="message">Messaggio di errore localizzato.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.DomainException.#ctor(System.String,System.Int32,System.Exception)">
+			<summary>Inizializza una nuova istanza della classe <see cref="T:System.ServiceModel.DomainServices.Client.DomainException"></see> con il messaggio di errore specificato, un codice di errore personalizzato e l'eccezione interna che rappresenta la causa dell'eccezione corrente. </summary>
+			<param name="errorCode">Codice di errore personalizzato per l'eccezione.</param>
+			<param name="message">Messaggio di errore localizzato.</param>
+			<param name="innerException">Eccezione interna che rappresenta la causa dell'eccezione corrente.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.DomainException.#ctor(System.String,System.Int32,System.String)">
+			<summary>Inizializza una nuova istanza della classe <see cref="T:System.ServiceModel.DomainServices.Client.DomainException"></see> con un messaggio di eccezione localizzato, un codice di errore personalizzato e una traccia dello stack.</summary>
+			<param name="errorCode">Codice di errore personalizzato per l'eccezione.</param>
+			<param name="stackTrace">Traccia dello stack dell'eccezione.</param>
+			<param name="message">Messaggio di errore localizzato.</param>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.DomainException.ErrorCode">
+			<summary>Ottiene o imposta il codice di errore personalizzato per l'eccezione.</summary>
+			<returns>Codice di errore personalizzato per l'eccezione.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.DomainException.StackTrace">
+			<summary>Ottiene la traccia dello stack dell'eccezione.</summary>
+			<returns>Traccia dello stack dell'eccezione.</returns>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.DomainOperationException">
+			<summary>Indica che si è verificato almeno un errore durante l'elaborazione delle operazioni di dominio nel server.</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.DomainOperationException.#ctor">
+			<summary>Inizializza una nuova istanza della classe <see cref="T:System.ServiceModel.DomainServices.Client.DomainOperationException"></see>.</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.DomainOperationException.#ctor(System.String)">
+			<summary>Inizializza una nuova istanza della classe <see cref="T:System.ServiceModel.DomainServices.Client.DomainOperationException"></see> con un messaggio specificato in cui viene descritto l'errore.</summary>
+			<param name="message">Messaggio in cui viene descritta l'eccezione. Il chiamante del costruttore è necessario per verificare che la stringa sia stata localizzata in base alle impostazioni cultura correnti del sistema.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.DomainOperationException.#ctor(System.String,System.Exception)">
+			<summary>Inizializza una nuova istanza della classe <see cref="T:System.ServiceModel.DomainServices.Client.DomainOperationException"></see> con un messaggio di errore specificato e un riferimento all'eccezione interna che è la causa dell'eccezione corrente.</summary>
+			<param name="message">Messaggio in cui viene descritta l'eccezione. Il chiamante del costruttore è necessario per verificare che la stringa sia stata localizzata in base alle impostazioni cultura correnti del sistema. </param>
+			<param name="innerException">Eccezione che ha causato l'eccezione corrente. Se il parametro innerException non è null, l'eccezione corrente viene generata in un blocco catch che gestisce l'eccezione interna. </param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.DomainOperationException.#ctor(System.String,System.ServiceModel.DomainServices.Client.OperationErrorStatus)">
+			<summary>Inizializza una nuova istanza della classe <see cref="T:System.ServiceModel.DomainServices.Client.DomainOperationException"></see> con un messaggio di eccezione localizzato e lo stato.</summary>
+			<param name="message">Messaggio di eccezione localizzato.</param>
+			<param name="status">Stato dell'eccezione.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.DomainOperationException.#ctor(System.String,System.ServiceModel.DomainServices.Client.OperationErrorStatus,System.Int32)">
+			<summary>Inizializza una nuova istanza della classe <see cref="T:System.ServiceModel.DomainServices.Client.DomainOperationException"></see> con un messaggio di eccezione localizzato, lo stato e il codice di errore personalizzato.</summary>
+			<param name="errorCode">Codice di errore personalizzato.</param>
+			<param name="message">Messaggio di eccezione localizzato.</param>
+			<param name="status">Stato dell'eccezione.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.DomainOperationException.#ctor(System.String,System.ServiceModel.DomainServices.Client.OperationErrorStatus,System.Int32,System.String)">
+			<summary>Inizializza una nuova istanza della classe <see cref="T:System.ServiceModel.DomainServices.Client.DomainOperationException"></see> con un messaggio localizzato facoltativo, lo stato, il codice di errore personalizzato e la traccia dello stack dell'eccezione.</summary>
+			<param name="errorCode">Codice di errore personalizzato.</param>
+			<param name="stackTrace">Traccia dello stack dell'eccezione.</param>
+			<param name="message">Messaggio di errore localizzato.</param>
+			<param name="status">Stato dell'eccezione.</param>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.DomainOperationException.ErrorCode">
+			<summary>Ottiene o imposta il codice di errore personalizzato per l'eccezione. Il codice di errore può essere qualsiasi valore definito dall'utente.</summary>
+			<returns>Codice di errore personalizzato.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.DomainOperationException.StackTrace">
+			<summary>Ottiene la traccia dello stack dell'eccezione.</summary>
+			<returns>Traccia dello stack dell'eccezione.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.DomainOperationException.Status">
+			<summary>Ottiene o imposta il codice di stato per l'eccezione.</summary>
+			<returns>Codice di stato per l'eccezione.</returns>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.Entity">
+			<summary>Classe base per tutti i tipi di entità.</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.Entity.#ctor">
+			<summary>Inizializza una nuova istanza della classe <see cref="T:System.ServiceModel.DomainServices.Client.Entity"></see>.</summary>
+		</member>
+		<member name="E:System.ServiceModel.DomainServices.Client.Entity.PropertyChanged">
+			<summary>Si verifica quando viene modificata una proprietà <see cref="T:System.ServiceModel.DomainServices.Client.Entity"></see>.</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.Entity.AcceptChanges">
+			<summary>Accetta le modifiche correnti a questo oggetto <see cref="T:System.ServiceModel.DomainServices.Client.Entity"></see> e applica le transizioni di stato appropriate.</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.Entity.BeginEdit">
+			<summary>Inizia a modificare <see cref="T:System.ServiceModel.DomainServices.Client.Entity"></see>.</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.Entity.CancelEdit">
+			<summary>Annulla qualsiasi modifica apportata a <see cref="T:System.ServiceModel.DomainServices.Client.Entity"></see> dall'ultima chiamata al metodo <see cref="M:System.ServiceModel.DomainServices.Client.Entity.BeginEdit"></see>.</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.Entity.CanInvokeAction(System.String)">
+			<summary>Ottiene un valore che indica se è attualmente possibile richiamare l'azione specificata.</summary>
+			<returns>true se l'azione specificata può essere richiamata; in caso contrario false.</returns>
+			<param name="name">Nome dell'azione corrispondente a un metodo personalizzato.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.Entity.EndEdit">
+			<summary>Esegue il commit delle modifiche apportate a questa entità dall'ultima chiamata al metodo <see cref="M:System.ServiceModel.DomainServices.Client.Entity.EndEdit"></see>.</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.Entity.GetIdentity">
+			<summary>Restituisce l'identità dell'entità, adatta per l'hashing.</summary>
+			<returns>Oggetto che indica l'identità di un'entità.</returns>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.Entity.GetOriginal">
+			<summary>Ottiene lo stato originale di questa entità.</summary>
+			<returns>Oggetto <see cref="T:System.ServiceModel.DomainServices.Client.Entity"></see> nello stato originale.</returns>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.Entity.InvokeAction(System.String,System.Object[])">
+			<summary>Viene chiamato per registrare un'azione da richiamare per questa entità durante l'invio delle modifiche.</summary>
+			<param name="actionName">Nome dell'azione da richiamare.</param>
+			<param name="parameters">Valori dei parametri con cui richiamare l'azione specificata.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.Entity.IsActionInvoked(System.String)">
+			<summary>Indica se l'azione specificata è stata richiamata.</summary>
+			<returns>true se l'azione specificata è stata richiamata; in caso contrario false.</returns>
+			<param name="name">Nome dell'azione corrispondente a un metodo personalizzato.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.Entity.OnActionStateChanged">
+			<summary>Viene chiamato quando lo stato dell'azione richiamata viene modificato per questa entità.</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.Entity.OnDeserialized(System.Runtime.Serialization.StreamingContext)">
+			<summary>Viene chiamato dopo la deserializzazione di <see cref="T:System.ServiceModel.DomainServices.Client.Entity"></see>.</summary>
+			<param name="context">Contesto di serializzazione.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.Entity.OnDeserializing(System.Runtime.Serialization.StreamingContext)">
+			<summary>Viene chiamato quando l'oggetto <see cref="T:System.ServiceModel.DomainServices.Client.Entity"></see> viene deserializzato.</summary>
+			<param name="context">Contesto di serializzazione.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.Entity.OnLoaded(System.Boolean)">
+			<summary>Viene chiamato quando l'oggetto <see cref="T:System.ServiceModel.DomainServices.Client.Entity"></see> viene caricato in <see cref="T:System.ServiceModel.DomainServices.Client.EntitySet"></see>.</summary>
+			<param name="isInitialLoad">true se l'entità viene caricata nel set per la prima volta; in caso contrario false.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.Entity.OnPropertyChanged(System.ComponentModel.PropertyChangedEventArgs)">
+			<summary>Viene chiamato quando una proprietà <see cref="T:System.ServiceModel.DomainServices.Client.Entity"></see> viene modificata.</summary>
+			<param name="e">Argomenti dell'evento.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.Entity.RaiseDataMemberChanged(System.String)">
+			<summary>Viene chiamato da un setter delle proprietà per segnalare al framework che un membro dati <see cref="T:System.ServiceModel.DomainServices.Client.Entity"></see> è stato modificato. </summary>
+			<param name="propertyName">Nome della proprietà modificata.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.Entity.RaiseDataMemberChanging(System.String)">
+			<summary>Viene chiamato da un setter delle proprietà per segnalare al framework che un membro dati <see cref="T:System.ServiceModel.DomainServices.Client.Entity"></see> sta per essere modificato. </summary>
+			<param name="propertyName">Nome della proprietà in corso di modifica.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.Entity.RaisePropertyChanged(System.String)">
+			<summary>Viene chiamato da un setter delle proprietà per segnalare al framework che un membro <see cref="T:System.ServiceModel.DomainServices.Client.Entity"></see> è stato modificato. </summary>
+			<param name="propertyName">Nome della proprietà modificata.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.Entity.RejectChanges">
+			<summary>Ripristina i valori originali di tutte le modifiche di proprietà apportate a questa entità. </summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.Entity.ToString">
+			<summary>Ottiene una rappresentazione di stringa dell'entità corrente.</summary>
+			<returns>Rappresentazione di stringa dell'entità corrente.</returns>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.Entity.UpdateActionState(System.String,System.String,System.String)">
+			<summary>Viene chiamato nel contesto di un override di <see cref="M:System.ServiceModel.DomainServices.Client.Entity.OnActionStateChanged"></see>. Questo metodo genererà le notifiche di proprietà modificata appropriate per le proprietà che corrispondono a un metodo personalizzato.</summary>
+			<param name="name">Nome del metodo personalizzato.</param>
+			<param name="canInvokePropertyName">Nome della proprietà guard "CanInvoke" per il metodo personalizzato.</param>
+			<param name="isInvokedPropertyName">Nome della proprietà "IsInvoked" per il metodo personalizzato.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.Entity.ValidateProperty(System.String,System.Object)">
+			<summary>Indica se il valore specificato è valido per la proprietà specificata dell'entità corrente.</summary>
+			<param name="value">Valore su cui eseguire il test. Può essere null se null è valido per la proprietà specificata.</param>
+			<param name="propertyName">Nome della proprietà nell'entità da impostare. Il nome non può essere vuoto o null.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.Entity.ValidateProperty(System.ComponentModel.DataAnnotations.ValidationContext,System.Object)">
+			<summary>Indica se il valore della proprietà specificato è valido per il contesto di convalida specificato.</summary>
+			<param name="validationContext"><see cref="P:System.ServiceModel.DomainServices.Client.DomainContext.ValidationContext"></see> che rappresenta la convalida da eseguire. <see cref="P:System.ComponentModel.DataAnnotations.ValidationContext.MemberName"></see> deve indicare il nome della proprietà da convalidare.</param>
+			<param name="value">Valore su cui eseguire il test. Può essere null se null è valido per la proprietà specificata.</param>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.Entity.EntityActions">
+			<summary>Ottiene l'elenco di chiamate al metodo personalizzato in sospeso per questa entità.</summary>
+			<returns>Raccolta di chiamate al metodo personalizzato in sospeso per questa entità.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.Entity.EntityConflict">
+			<summary>Ottiene le informazioni di conflitto per questa entità dopo un'operazione di invio.</summary>
+			<returns><see cref="T:System.ServiceModel.DomainServices.Client.EntityConflict"></see> per questa entità dopo un'operazione di invio. Restituisce null se non sono presenti conflitti.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.Entity.EntitySet">
+			<summary>Ottiene l'oggetto <see cref="P:System.ServiceModel.DomainServices.Client.Entity.EntitySet"></see> di cui questo oggetto <see cref="T:System.ServiceModel.DomainServices.Client.Entity"></see> è membro. </summary>
+			<returns>Oggetto <see cref="P:System.ServiceModel.DomainServices.Client.Entity.EntitySet"></see> di cui questo oggetto <see cref="T:System.ServiceModel.DomainServices.Client.Entity"></see> è membro. Il valore sarà null se l'entità è disconnessa o è stata rimossa dal set.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.Entity.EntityState">
+			<summary>Ottiene lo stato corrente di <see cref="T:System.ServiceModel.DomainServices.Client.Entity"></see>.</summary>
+			<returns><see cref="T:System.ServiceModel.DomainServices.Client.EntityState"></see> che rappresenta lo stato corrente di <see cref="T:System.ServiceModel.DomainServices.Client.Entity"></see>.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.Entity.HasChanges">
+			<summary>Ottiene un valore che indica se per l'entità sono attualmente presenti modifiche in sospeso.</summary>
+			<returns>true se per l'entità sono presenti modifiche in sospeso; in caso contrario, false.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.Entity.HasValidationErrors">
+			<summary>Ottiene un valore che indica se per questa entità si sono verificati errori di convalida.</summary>
+			<returns>true se si sono verificati errori di convalida dell'entità durante l'ultima operazione di invio; in caso contrario, false.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.Entity.IsDeserializing">
+			<summary>Ottiene un valore che indica se attualmente è in corso la deserializzazione dell'entità corrente.</summary>
+			<returns>true se attualmente è in corso la deserializzazione dell'entità; in caso contrario false.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.Entity.IsReadOnly">
+			<summary>Ottiene un valore che indica se attualmente l'entità è in stato di sola lettura.</summary>
+			<returns>true se l'entità è di sola lettura; in caso contrario false.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.Entity.ValidationErrors">
+			<summary>Ottiene la raccolta di errori di convalida per questa entità.</summary>
+			<returns>Raccolta di errori di convalida verificatisi durante l'ultima operazione di invio.</returns>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.EntityAction">
+			<summary>Rappresenta una chiamata al metodo personalizzato su un'entità.</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntityAction.#ctor(System.String,System.Object[])">
+			<summary>Inizializza una nuova istanza della classe <see cref="T:System.ServiceModel.DomainServices.Client.EntityAction"></see>.</summary>
+			<param name="name">Nome dell'azione dell'entità.</param>
+			<param name="parameters">Elenco di parametri per richiamare l'azione dell'entità.</param>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.EntityAction.HasParameters">
+			<summary>Ottiene un valore che indica se vi sono parametri associati a questa azione.</summary>
+			<returns>true se vi sono parametri associati a questa azione; in caso contrario false.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.EntityAction.Name">
+			<summary>Ottiene il nome dell'azione dell'entità.</summary>
+			<returns>Nome dell'azione dell'entità.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.EntityAction.Parameters">
+			<summary>Ottiene i parametri da passare all'azione dell'entità.</summary>
+			<returns>Raccolta che rappresenta i parametri da passare all'azione dell'entità.</returns>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.EntityChangeSet">
+			<summary>Rappresenta una raccolta di modifiche apportate a <see cref="T:System.ServiceModel.DomainServices.Client.Entity"></see>.</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntityChangeSet.GetChangeSetEntries">
+			<summary>Ottiene una raccolta di elementi <see cref="T:System.ServiceModel.DomainServices.Client.ChangeSetEntry"></see> per questo set di modifiche.</summary>
+			<returns>Raccolta di elementi <see cref="T:System.ServiceModel.DomainServices.Client.ChangeSetEntry"></see> per questo set di modifiche.</returns>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntityChangeSet.ToString">
+			<summary>Restituisce una rappresentazione di testo di <see cref="T:System.ServiceModel.DomainServices.Client.EntityChangeSet"></see>. </summary>
+			<returns>Rappresentazione di testo di <see cref="T:System.ServiceModel.DomainServices.Client.EntityChangeSet"></see>.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.EntityChangeSet.AddedEntities">
+			<summary>Ottiene la raccolta di entità aggiunte.</summary>
+			<returns>Raccolta di entità aggiunte.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.EntityChangeSet.IsEmpty">
+			<summary>Ottiene un valore che indica se l'oggetto <see cref="T:System.ServiceModel.DomainServices.Client.EntityChangeSet"></see> ha subito modifiche.</summary>
+			<returns>true se <see cref="T:System.ServiceModel.DomainServices.Client.EntityChangeSet"></see> ha subito modifiche; in caso contrario false.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.EntityChangeSet.ModifiedEntities">
+			<summary>Ottiene la raccolta di entità modificate.</summary>
+			<returns>Raccolta di entità modificate.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.EntityChangeSet.RemovedEntities">
+			<summary>Ottiene la raccolta di entità rimosse.</summary>
+			<returns>Raccolta di entità rimosse.</returns>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.EntityCollection`1">
+			<summary>Rappresenta una raccolta di entità associate.</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntityCollection`1.#ctor(System.ServiceModel.DomainServices.Client.Entity,System.String,System.Func{`0,System.Boolean})">
+			<summary>Inizializza una nuova istanza della classe <see cref="T:System.ServiceModel.DomainServices.Client.EntityCollection`1"></see> con l'elemento padre, il nome della raccolta nell'elemento padre e la funzione di filtro specificati. </summary>
+			<param name="memberName">Nome di questo membro <see cref="T:System.ServiceModel.DomainServices.Client.EntityCollection`1"></see> nell'entità padre.</param>
+			<param name="entityPredicate">Funzione utilizzata per filtrare le entità associate e determinare quali entità sono membri di questa raccolta.</param>
+			<param name="parent">Entità di cui è membro questa raccolta.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntityCollection`1.#ctor(System.ServiceModel.DomainServices.Client.Entity,System.String,System.Func{`0,System.Boolean},System.Action{`0},System.Action{`0})">
+			<summary>Inizializza una nuova istanza della classe <see cref="T:System.ServiceModel.DomainServices.Client.EntityCollection`1"></see> con l'elemento padre, il nome della raccolta nell'elemento padre e le funzioni per il filtro, la connessione e la disconnessione specificati. </summary>
+			<param name="memberName">Nome di questo membro <see cref="T:System.ServiceModel.DomainServices.Client.EntityCollection`1"></see> nell'entità padre.</param>
+			<param name="entityPredicate">Funzione utilizzata per filtrare le entità associate e determinare quali entità sono membri di questa raccolta.</param>
+			<param name="parent">Entità di cui è membro questa raccolta.</param>
+			<param name="detachAction">Funzione utilizzata per rimuovere il backreference da un'entità associata all'entità padre.</param>
+			<param name="attachAction">Funzione utilizzata per stabilire un backreference da un'entità associata all'entità padre.</param>
+		</member>
+		<member name="E:System.ServiceModel.DomainServices.Client.EntityCollection`1.EntityAdded">
+			<summary>Generato quando un oggetto <see cref="T:System.ServiceModel.DomainServices.Client.Entity"></see> viene aggiunto a questa raccolta.</summary>
+		</member>
+		<member name="E:System.ServiceModel.DomainServices.Client.EntityCollection`1.EntityRemoved">
+			<summary>Viene generato quando <see cref="T:System.ServiceModel.DomainServices.Client.Entity"></see> viene rimosso da questa raccolta.</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntityCollection`1.Add(`0)">
+			<summary>Aggiunge alla raccolta l'entità specificata. </summary>
+			<param name="entity">Entità da aggiungere.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntityCollection`1.GetEnumerator">
+			<summary>Restituisce un enumeratore per questa raccolta.</summary>
+			<returns>Oggetto IEnumerator per questa raccolta.</returns>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntityCollection`1.Remove(`0)">
+			<summary>Rimuove l'entità specificata da questa raccolta.</summary>
+			<param name="entity">Entità da rimuovere.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntityCollection`1.ToString">
+			<summary>Restituisce una rappresentazione testuale della raccolta.</summary>
+			<returns>Stringa che rappresenta la proprietà <see cref="T:System.ServiceModel.DomainServices.Client.EntityCollection`1"></see>.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.EntityCollection`1.Count">
+			<summary>Ottiene il numero corrente di entità in questa raccolta.</summary>
+			<returns>Valore integer che rappresenta il numero corrente di entità in questa raccolta.</returns>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.EntityCollectionChangedEventArgs`1">
+			<summary>Fornisce argomenti degli eventi per le notifiche di rimozione o aggiunta fortemente tipizzate per le raccolte che contengono entità.</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntityCollectionChangedEventArgs`1.#ctor(`0)">
+			<summary>Inizializza una nuova istanza della classe <see cref="T:System.ServiceModel.DomainServices.Client.EntityCollectionChangedEventArgs`1"></see>.</summary>
+			<param name="entity">Proprietà <see cref="P:System.ServiceModel.DomainServices.Client.EntityCollectionChangedEventArgs`1.Entity"></see> interessata.</param>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.EntityCollectionChangedEventArgs`1.Entity">
+			<summary>Ottiene la proprietà <see cref="P:System.ServiceModel.DomainServices.Client.EntityCollectionChangedEventArgs`1.Entity"></see> interessata.</summary>
+			<returns>Proprietà <see cref="P:System.ServiceModel.DomainServices.Client.EntityCollectionChangedEventArgs`1.Entity"></see> interessata.</returns>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.EntityConflict">
+			<summary>Rappresenta un conflitto di entità.</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntityConflict.Resolve">
+			<summary>Risolve il conflitto aggiornando lo stato originale dell'entità con lo stato dell'archivio corrente.</summary>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.EntityConflict.CurrentEntity">
+			<summary>Ottiene l'istanza di <see cref="T:System.ServiceModel.DomainServices.Client.Entity"></see> corrente.</summary>
+			<returns>Istanza di <see cref="T:System.ServiceModel.DomainServices.Client.Entity"></see> corrente.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.EntityConflict.IsDeleted">
+			<summary>Ottiene un valore che indica se l'entità non esiste più nell'archivio.</summary>
+			<returns>true se l'entità è stata eliminata dall'archivio; in caso contrario false.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.EntityConflict.OriginalEntity">
+			<summary>Ottiene l'istanza originale di <see cref="T:System.ServiceModel.DomainServices.Client.Entity"></see>.</summary>
+			<returns>Istanza originale di <see cref="T:System.ServiceModel.DomainServices.Client.Entity"></see>.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.EntityConflict.PropertyNames">
+			<summary>Ottiene una raccolta dei nomi delle proprietà in conflitto.</summary>
+			<returns>Raccolta dei nomi delle proprietà in conflitto.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.EntityConflict.StoreEntity">
+			<summary>Ottiene l'istanza di <see cref="T:System.ServiceModel.DomainServices.Client.Entity"></see> dell'archivio. </summary>
+			<returns>Istanza di <see cref="T:System.ServiceModel.DomainServices.Client.Entity"></see> dell'archivio oppure null se l'entità non esiste più nell'archivio.</returns>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.EntityContainer">
+			<summary>Rappresenta una cache di entità sotto forma di raccolta di oggetti <see cref="T:System.ServiceModel.DomainServices.Client.EntitySet"></see>.</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntityContainer.#ctor">
+			<summary>Inizializza una nuova istanza della classe <see cref="T:System.ServiceModel.DomainServices.Client.EntityContainer"></see>.</summary>
+		</member>
+		<member name="E:System.ServiceModel.DomainServices.Client.EntityContainer.PropertyChanged">
+			<summary>Si verifica quando una proprietà è stata modificata.</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntityContainer.AcceptChanges">
+			<summary>Accetta tutte le modifiche apportate alle entità o agli oggetti <see cref="T:System.ServiceModel.DomainServices.Client.EntitySet"></see> in questo contenitore.</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntityContainer.AddReference(System.ServiceModel.DomainServices.Client.EntitySet)">
+			<summary>Aggiunge un riferimento a un oggetto <see cref="T:System.ServiceModel.DomainServices.Client.EntitySet"></see> esterno.</summary>
+			<param name="entitySet">Set di entità.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntityContainer.Clear">
+			<summary>Cancella il contenuto di tutti gli oggetti <see cref="T:System.ServiceModel.DomainServices.Client.EntitySet"></see> in questo contenitore.</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntityContainer.CreateEntitySet``1">
+			<summary>Crea un nuovo oggetto <see cref="T:System.ServiceModel.DomainServices.Client.EntitySet"></see> in questo contenitore per il tipo di entità specificato.</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntityContainer.CreateEntitySet``1(System.ServiceModel.DomainServices.Client.EntitySetOperations)">
+			<summary>Creare un oggetto <see cref="T:System.ServiceModel.DomainServices.Client.EntitySet"></see> in questo contenitore per l'oggetto <see cref="T:System.ServiceModel.DomainServices.Client.EntitySetOperations"></see> specificato.</summary>
+			<param name="supportedOperations">Operazioni supportate per il tipo di entità.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntityContainer.GetChanges">
+			<summary>Restituisce un oggetto <see cref="T:System.ServiceModel.DomainServices.Client.EntityChangeSet"></see> che contiene il set corrente di modifiche in sospeso.</summary>
+			<returns>Oggetto <see cref="T:System.ServiceModel.DomainServices.Client.EntityChangeSet"></see> che contiene il set corrente di modifiche in sospeso.</returns>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntityContainer.GetEntitySet(System.Type)">
+			<summary>Ottiene l'oggetto <see cref="T:System.ServiceModel.DomainServices.Client.EntitySet"></see> per il tipo di <see cref="T:System.ServiceModel.DomainServices.Client.Entity"></see> specificato. </summary>
+			<returns><see cref="T:System.ServiceModel.DomainServices.Client.EntitySet"></see> per il tipo di <see cref="T:System.ServiceModel.DomainServices.Client.Entity"></see> specificato.</returns>
+			<param name="entityType">Tipo di entità.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntityContainer.GetEntitySet``1">
+			<summary>Ottiene l'oggetto <see cref="T:System.ServiceModel.DomainServices.Client.EntitySet"></see> per il tipo di <see cref="T:System.ServiceModel.DomainServices.Client.Entity"></see> specificato. </summary>
+			<returns><see cref="T:System.ServiceModel.DomainServices.Client.EntitySet"></see> per il tipo di <see cref="T:System.ServiceModel.DomainServices.Client.Entity"></see> specificato.</returns>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntityContainer.LoadEntities(System.Collections.IEnumerable)">
+			<summary>Carica la raccolta specificata di entità in questo oggetto <see cref="T:System.ServiceModel.DomainServices.Client.EntityContainer"></see>.</summary>
+			<returns>Oggetto IEnumerable che rappresenta la raccolta di entità.</returns>
+			<param name="entities">Entità da caricare.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntityContainer.LoadEntities(System.Collections.IEnumerable,System.ServiceModel.DomainServices.Client.LoadBehavior)">
+			<summary>Carica la raccolta specificata di entità in questo oggetto <see cref="T:System.ServiceModel.DomainServices.Client.EntityContainer"></see> mediante il comportamento di caricamento specificato.</summary>
+			<returns>Oggetto IEnumerable che rappresenta la raccolta di entità.</returns>
+			<param name="loadBehavior">Oggetto <see cref="T:System.ServiceModel.DomainServices.Client.LoadBehavior"></see> da utilizzare.</param>
+			<param name="entities">Entità da caricare.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntityContainer.RaisePropertyChanged(System.String)">
+			<summary>Genera l'evento <see cref="E:System.ServiceModel.DomainServices.Client.EntityContainer.PropertyChanged"></see> per la proprietà specificata.</summary>
+			<param name="propertyName">Nome della proprietà modificata.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntityContainer.RejectChanges">
+			<summary>Ripristina tutte le modifiche apportate alle entità o agli oggetti <see cref="T:System.ServiceModel.DomainServices.Client.EntitySet"></see> in questo contenitore.</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntityContainer.TryGetEntitySet(System.Type,System.ServiceModel.DomainServices.Client.EntitySet@)">
+			<summary>Tenta di ottenere il set di entità per il tipo di <see cref="T:System.ServiceModel.DomainServices.Client.Entity"></see> specificato.</summary>
+			<returns>true se viene trovato il set di entità; in caso contrario false.</returns>
+			<param name="entityType">Tipo di <see cref="T:System.ServiceModel.DomainServices.Client.Entity"></see>.</param>
+			<param name="entitySet">Set di entità se presente; in caso contrario null.</param>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.EntityContainer.EntitySets">
+			<summary>Ottiene la raccolta di oggetti <see cref="T:System.ServiceModel.DomainServices.Client.EntitySet"></see> contenuti in questo oggetto <see cref="T:System.ServiceModel.DomainServices.Client.EntityContainer"></see>.</summary>
+			<returns>Raccolta di oggetti <see cref="T:System.ServiceModel.DomainServices.Client.EntitySet"></see> contenuti in questo oggetto <see cref="T:System.ServiceModel.DomainServices.Client.EntityContainer"></see>.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.EntityContainer.HasChanges">
+			<summary>Ottiene un valore che indica se per <see cref="T:System.ServiceModel.DomainServices.Client.EntityContainer"></see> sono attualmente presenti modifiche in sospeso.</summary>
+			<returns>true se per <see cref="T:System.ServiceModel.DomainServices.Client.EntityContainer"></see> sono attualmente presenti modifiche in sospeso; in caso contrario false.</returns>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.EntityKey">
+			<summary>Classe base per una chiave che rappresenta un'identità di entità univoca. La chiave è adatta per l'hashing. </summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntityKey.#ctor">
+			<summary>Inizializza una nuova istanza della classe <see cref="T:System.ServiceModel.DomainServices.Client.EntityKey"></see>.</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntityKey.Create(System.Object[])">
+			<summary>Crea una chiave utilizzando i valori di chiave specificati.</summary>
+			<returns>Chiave basata sui valori di chiave specificati.</returns>
+			<param name="keyValues">Matrice di valori di chiave.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntityKey.Create``2(``0,``1)">
+			<summary>Crea una chiave utilizzando i valori di chiave specificati.</summary>
+			<returns>Chiave basata sui valori di chiave specificati.</returns>
+			<param name="v1">Primo valore di chiave.</param>
+			<param name="v2">Secondo valore di chiave.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntityKey.Create``3(``0,``1,``2)">
+			<summary>Crea una chiave utilizzando i valori di chiave specificati.</summary>
+			<returns>Chiave basata sui valori di chiave specificati.</returns>
+			<param name="v1">Primo valore di chiave.</param>
+			<param name="v2">Secondo valore di chiave.</param>
+			<param name="v3">Terzo valore di chiave.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntityKey.ToString">
+			<summary>Formatta la chiave come un set di valori di chiave.</summary>
+			<returns>Stringa che rappresenta la chiave formattata.</returns>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.EntityOperationType">
+			<summary>Descrive i tipi di operazioni che è possibile eseguire in un oggetto <see cref="T:System.ServiceModel.DomainServices.Client.Entity"></see>.</summary>
+		</member>
+		<member name="F:System.ServiceModel.DomainServices.Client.EntityOperationType.Delete">
+			<summary>Operazione di eliminazione per un oggetto <see cref="T:System.ServiceModel.DomainServices.Client.Entity"></see> esistente.</summary>
+		</member>
+		<member name="F:System.ServiceModel.DomainServices.Client.EntityOperationType.Insert">
+			<summary>Operazione di inserimento per un nuovo oggetto <see cref="T:System.ServiceModel.DomainServices.Client.Entity"></see>.</summary>
+		</member>
+		<member name="F:System.ServiceModel.DomainServices.Client.EntityOperationType.None">
+			<summary>Non verrà eseguita alcuna operazione nell'oggetto <see cref="T:System.ServiceModel.DomainServices.Client.Entity"></see>.</summary>
+		</member>
+		<member name="F:System.ServiceModel.DomainServices.Client.EntityOperationType.Update">
+			<summary>Operazione di aggiornamento per un oggetto <see cref="T:System.ServiceModel.DomainServices.Client.Entity"></see> esistente.</summary>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.EntityQuery">
+			<summary>Rappresenta una chiamata a un metodo di query. </summary>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.EntityQuery.DomainClient">
+			<summary>Ottiene <see cref="T:System.ServiceModel.DomainServices.Client.DomainClient"></see> per questa query.</summary>
+			<returns><see cref="T:System.ServiceModel.DomainServices.Client.DomainClient"></see> per questa query.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.EntityQuery.EntityType">
+			<summary>Ottiene il tipo da cui questa query recupera dati.</summary>
+			<returns>Tipo da cui questa query recupera dati.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.EntityQuery.HasSideEffects">
+			<summary>Ottiene un valore che indica se la query ha effetti collaterali.</summary>
+			<returns>true se la query ha effetti collaterali; in caso contrario false.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.EntityQuery.IncludeTotalCount">
+			<summary>Ottiene o imposta un valore che indica se la proprietà <see cref="P:System.ServiceModel.DomainServices.Client.DomainClientResult.TotalEntityCount"></see> è obbligatoria.</summary>
+			<returns>true se la proprietà <see cref="P:System.ServiceModel.DomainServices.Client.DomainClientResult.TotalEntityCount"></see> è obbligatoria; in caso contrario false.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.EntityQuery.IsComposable">
+			<summary>Ottiene un valore che indica se la query supporta la composizione.</summary>
+			<returns>true se la query supporta la composizione; in caso contrario false.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.EntityQuery.Parameters">
+			<summary>Ottiene i parametri richiesti dal metodo di query.</summary>
+			<returns>Dizionario che rappresenta i parametri facoltativi richiesti dal metodo di query. Restituisce null se il metodo non accetta parametri.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.EntityQuery.Query">
+			<summary>Ottiene l'oggetto IQueryable sottostante per la query.</summary>
+			<returns>Oggetto per la chiamata a un metodo di query oppure null se non esiste alcuna query.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.EntityQuery.QueryName">
+			<summary>Ottiene il nome del metodo di query.</summary>
+			<returns>Nome del metodo di query.</returns>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.EntityQuery`1">
+			<summary>Rappresenta una query LINQ su una raccolta di entità.</summary>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.EntityQueryable">
+			<summary>Contiene i metodi di estensione statici che implementano un subset del modello LINQ per <see cref="T:System.ServiceModel.DomainServices.Client.EntityQuery"></see>.</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntityQueryable.OrderBy``2(System.ServiceModel.DomainServices.Client.EntityQuery{``0},System.Linq.Expressions.Expression{System.Func{``0,``1}})">
+			<summary>Applica la clausola Ascending order specificata alla query di origine.</summary>
+			<returns>Query composta.</returns>
+			<param name="source">Query di origine.</param>
+			<param name="keySelector">Espressione che seleziona il membro in base a cui eseguire l'ordinamento.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntityQueryable.OrderByDescending``2(System.ServiceModel.DomainServices.Client.EntityQuery{``0},System.Linq.Expressions.Expression{System.Func{``0,``1}})">
+			<summary>Applica la clausola Descending order specificata alla query di origine.</summary>
+			<returns>Oggetto <see cref="T:System.ServiceModel.DomainServices.Client.EntityQuery`1"></see> con la clausola Descending order specificata.</returns>
+			<param name="source">Query di origine.</param>
+			<param name="keySelector">Espressione che seleziona il membro in base a cui eseguire l'ordinamento.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntityQueryable.Select``1(System.ServiceModel.DomainServices.Client.EntityQuery{``0},System.Linq.Expressions.Expression{System.Func{``0,``0}})">
+			<summary>Applica la selezione specificata alla query di origine.</summary>
+			<returns>Oggetto <see cref="T:System.ServiceModel.DomainServices.Client.EntityQuery`1"></see> con la selezione specificata.</returns>
+			<param name="source">Query di origine.</param>
+			<param name="selector">Funzione del selettore. Si noti che le proiezioni non sono supportate. La selezione deve essere l'entità stessa.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntityQueryable.Skip``1(System.ServiceModel.DomainServices.Client.EntityQuery{``0},System.Int32)">
+			<summary>Applica la clausola Skip specificata alla query di origine.</summary>
+			<returns>Oggetto <see cref="T:System.ServiceModel.DomainServices.Client.EntityQuery`1"></see> con la clausola Skip specificata.</returns>
+			<param name="source">Query di origine.</param>
+			<param name="count">Numero da ignorare.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntityQueryable.Take``1(System.ServiceModel.DomainServices.Client.EntityQuery{``0},System.Int32)">
+			<summary>Applica la clausola Take specificata alla query di origine.</summary>
+			<returns>Oggetto <see cref="T:System.ServiceModel.DomainServices.Client.EntityQuery`1"></see> con la clausola Take specificata.</returns>
+			<param name="source">Query di origine.</param>
+			<param name="count">Numero da accettare.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntityQueryable.ThenBy``2(System.ServiceModel.DomainServices.Client.EntityQuery{``0},System.Linq.Expressions.Expression{System.Func{``0,``1}})">
+			<summary>Applica la clausola Ascending order specificata alla query di origine.</summary>
+			<returns>Oggetto <see cref="T:System.ServiceModel.DomainServices.Client.EntityQuery`1"></see> con la clausola Ascending order specificata.</returns>
+			<param name="source">Query di origine.</param>
+			<param name="keySelector">Espressione che seleziona il membro in base a cui eseguire l'ordinamento.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntityQueryable.ThenByDescending``2(System.ServiceModel.DomainServices.Client.EntityQuery{``0},System.Linq.Expressions.Expression{System.Func{``0,``1}})">
+			<summary>Applica la clausola Descending order specificata alla query di origine.</summary>
+			<returns>Oggetto <see cref="T:System.ServiceModel.DomainServices.Client.EntityQuery`1"></see> con la clausola Descending order specificata.</returns>
+			<param name="source">Query di origine.</param>
+			<param name="keySelector">Espressione che seleziona il membro in base a cui eseguire l'ordinamento.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntityQueryable.Where``1(System.ServiceModel.DomainServices.Client.EntityQuery{``0},System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}})">
+			<summary>Applica il filtro specificato alla query di origine.</summary>
+			<returns>Oggetto <see cref="T:System.ServiceModel.DomainServices.Client.EntityQuery`1"></see> con il filtro specificato.</returns>
+			<param name="predicate">Predicato del filtro.</param>
+			<param name="source">Query di origine.</param>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.EntityRef`1">
+			<summary>Rappresenta un riferimento a un'entità associata.</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntityRef`1.#ctor(System.ServiceModel.DomainServices.Client.Entity,System.String,System.Func{`0,System.Boolean})">
+			<summary>Inizializza un'istanza della classe <see cref="T:System.ServiceModel.DomainServices.Client.EntityRef`1"></see>.</summary>
+			<param name="memberName">Nome di questo membro <see cref="T:System.ServiceModel.DomainServices.Client.EntityRef`1"></see> nell'entità padre.</param>
+			<param name="entityPredicate">Funzione utilizzata per filtrare l'entità associata.</param>
+			<param name="parent">Entità di cui è membro quest'associazione.</param>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.EntityRef`1.Entity">
+			<summary>Ottiene o imposta la proprietà <see cref="P:System.ServiceModel.DomainServices.Client.EntityRef`1.Entity"></see> associata.</summary>
+			<returns>Entità associata.</returns>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.EntitySet">
+			<summary>Rappresenta una raccolta di istanze di <see cref="T:System.ServiceModel.DomainServices.Client.Entity"></see>.</summary>
+		</member>
+		<member name="E:System.ServiceModel.DomainServices.Client.EntitySet.PropertyChanged">
+			<summary>Si verifica quando una proprietà viene modificata.</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntitySet.AcceptChanges">
+			<summary>Accetta tutte le modifiche apportate a questo oggetto <see cref="T:System.ServiceModel.DomainServices.Client.EntitySet"></see>.</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntitySet.Add(System.ServiceModel.DomainServices.Client.Entity)">
+			<summary>Aggiunge l'entità <see cref="T:System.ServiceModel.DomainServices.Client.Entity"></see> specificata a questo oggetto <see cref="T:System.ServiceModel.DomainServices.Client.EntitySet"></see>. </summary>
+			<param name="entity">Entità da aggiungere.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntitySet.Attach(System.ServiceModel.DomainServices.Client.Entity)">
+			<summary>Associa l'entità <see cref="T:System.ServiceModel.DomainServices.Client.Entity"></see> specificata a questo oggetto <see cref="T:System.ServiceModel.DomainServices.Client.EntitySet"></see> in uno stato non modificato. </summary>
+			<param name="entity">Entità da associare.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntitySet.Clear">
+			<summary>Cancella tutte le entità dal set.</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntitySet.CreateEntity">
+			<summary>Crea una nuova entità.</summary>
+			<returns>Entità creata.</returns>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntitySet.CreateList">
+			<summary>Crea l'elenco di archiviazione per il set.</summary>
+			<returns>Istanza dell'elenco di archiviazione creata.</returns>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntitySet.Detach(System.ServiceModel.DomainServices.Client.Entity)">
+			<summary>Dissocia l'entità <see cref="T:System.ServiceModel.DomainServices.Client.Entity"></see> specificata da questo oggetto <see cref="T:System.ServiceModel.DomainServices.Client.EntitySet"></see>. </summary>
+			<param name="entity">Entità da dissociare.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntitySet.GetEnumerator">
+			<summary>Ottiene un enumeratore per la raccolta.</summary>
+			<returns>Enumeratore per la raccolta.</returns>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntitySet.OnCollectionChanged(System.Collections.Specialized.NotifyCollectionChangedAction,System.Object,System.Int32)">
+			<summary>Viene chiamato ogni volta che la raccolta viene modificata. </summary>
+			<param name="affectedObject">Per gli eventi di reimpostazione, questo parametro sarà una raccolta di entità rimosse. Per tutti gli altri eventi, questo parametro sarà la singola entità interessata.</param>
+			<param name="action">Azione di modifica.</param>
+			<param name="index">Indice interessato.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntitySet.OnPropertyChanged(System.ComponentModel.PropertyChangedEventArgs)">
+			<summary>Viene chiamato quando una proprietà <see cref="T:System.ServiceModel.DomainServices.Client.EntitySet"></see> viene modificata.</summary>
+			<param name="e">Argomenti dell'evento.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntitySet.RaisePropertyChanged(System.String)">
+			<summary>Genera l'evento <see cref="E:System.ServiceModel.DomainServices.Client.EntitySet.PropertyChanged"></see> per la proprietà specificata.</summary>
+			<param name="propertyName">Proprietà modificata.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntitySet.RejectChanges">
+			<summary>Ripristina tutte le modifiche apportate a questo oggetto <see cref="T:System.ServiceModel.DomainServices.Client.EntitySet"></see>. </summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntitySet.Remove(System.ServiceModel.DomainServices.Client.Entity)">
+			<summary>Rimuove l'entità specificata dal set.</summary>
+			<param name="entity">Entità da rimuovere.</param>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.EntitySet.CanAdd">
+			<summary>Ottiene un valore che indica se il set consente l'aggiunta di nuove entità.</summary>
+			<returns>true se la raccolta consente l'aggiunta di nuovi elementi; in caso contrario false.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.EntitySet.CanEdit">
+			<summary>Ottiene un valore che indica se è possibile modificare le entità del set.</summary>
+			<returns>true se la raccolta consente la modifica dei membri; in caso contrario false.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.EntitySet.CanRemove">
+			<summary>Ottiene un valore che indica se il set consente la rimozione di entità.</summary>
+			<returns>true se la raccolta consente la rimozione di elementi; in caso contrario false.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.EntitySet.Count">
+			<summary>Ottiene il numero corrente di entità nel set.</summary>
+			<returns>Valore integer che indica il numero di entità nel set.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.EntitySet.EntityContainer">
+			<summary>Ottiene il contenitore di <see cref="T:System.ServiceModel.DomainServices.Client.EntitySet"></see>.</summary>
+			<returns>Contenitore di <see cref="T:System.ServiceModel.DomainServices.Client.EntitySet"></see>.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.EntitySet.EntityType">
+			<summary>Ottiene il tipo di entità contenuto da questo oggetto <see cref="T:System.ServiceModel.DomainServices.Client.EntitySet"></see>.</summary>
+			<returns>Tipo di entità contenuto da questo oggetto <see cref="T:System.ServiceModel.DomainServices.Client.EntitySet"></see>.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.EntitySet.HasChanges">
+			<summary>Ottiene un valore che indica se per <see cref="T:System.ServiceModel.DomainServices.Client.EntitySet"></see> sono attualmente presenti modifiche in sospeso.</summary>
+			<returns>true se per la raccolta sono presenti modifiche in sospeso; in caso contrario false.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.EntitySet.IsReadOnly">
+			<summary>Ottiene un valore che indica se questo set supporta le operazioni di aggiornamento.</summary>
+			<returns>true se le operazioni di aggiornamento non sono supportate; in caso contrario false.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.EntitySet.List">
+			<summary>Ottiene l'elenco di supporto per questo oggetto <see cref="T:System.ServiceModel.DomainServices.Client.EntitySet"></see>.</summary>
+			<returns>Elenco di supporto per questo oggetto <see cref="T:System.ServiceModel.DomainServices.Client.EntitySet"></see>.</returns>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.EntitySet`1">
+			<summary>Rappresenta una raccolta di istanze di <see cref="T:System.ServiceModel.DomainServices.Client.Entity"></see> che fornisce il rilevamento delle modifiche e altri servizi.</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntitySet`1.#ctor">
+			<summary>Inizializza una nuova istanza della classe <see cref="T:System.ServiceModel.DomainServices.Client.EntitySet`1"></see>.</summary>
+		</member>
+		<member name="E:System.ServiceModel.DomainServices.Client.EntitySet`1.EntityAdded">
+			<summary>Si verifica quando <see cref="T:System.ServiceModel.DomainServices.Client.Entity"></see> viene aggiunto a questo set di entità.</summary>
+		</member>
+		<member name="E:System.ServiceModel.DomainServices.Client.EntitySet`1.EntityRemoved">
+			<summary>Si verifica quando <see cref="T:System.ServiceModel.DomainServices.Client.Entity"></see> viene rimosso da questo set di entità.</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntitySet`1.Add(`0)">
+			<summary>Aggiunge l'entità specificata al set di entità. Aggiunge inoltre in modo ricorsivo tutte le entità non associate raggiungibili tramite associazioni.</summary>
+			<param name="entity">Entità da aggiungere. entity deve essere un tipo TEntity e non può essere una sottoclasse.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntitySet`1.Attach(`0)">
+			<summary>Associa l'entità <see cref="T:System.ServiceModel.DomainServices.Client.Entity"></see> specificata a questo set di entità in uno stato non modificato. Associa inoltre in modo ricorsivo tutte le entità non associate raggiungibili tramite associazioni.</summary>
+			<param name="entity">Entità da associare.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntitySet`1.Detach(`0)">
+			<summary>Dissocia <see cref="T:System.ServiceModel.DomainServices.Client.Entity"></see> da questo set di entità.</summary>
+			<param name="entity">Entità da dissociare.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntitySet`1.GetEnumerator">
+			<summary>Restituisce un enumeratore per questo set di entità.</summary>
+			<returns>Enumeratore che può essere utilizzato per scorrere il set di entità.</returns>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntitySet`1.Remove(`0)">
+			<summary>Rimuove l'entità specificata dal set. Se l'entità è la radice di una gerarchia composizionale, verranno rimosse anche tutte le entità figlio.</summary>
+			<param name="entity">Entità da rimuovere.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntitySet`1.System.Collections.Generic.IEnumerable`1.GetEnumerator">
+			<summary>Ottiene un enumeratore per la raccolta.</summary>
+			<returns>Enumeratore per la raccolta.</returns>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.EntitySetOperations">
+			<summary>Enumerazione dei tipi di operazioni consentite su un oggetto <see cref="T:System.ServiceModel.DomainServices.Client.EntitySet"></see>.</summary>
+		</member>
+		<member name="F:System.ServiceModel.DomainServices.Client.EntitySetOperations.Add">
+			<summary>È possibile aggiungere nuove entità.</summary>
+		</member>
+		<member name="F:System.ServiceModel.DomainServices.Client.EntitySetOperations.All">
+			<summary>È possibile aggiungere, aggiornare e rimuovere le entità.</summary>
+		</member>
+		<member name="F:System.ServiceModel.DomainServices.Client.EntitySetOperations.Edit">
+			<summary>È possibile aggiornare le entità.</summary>
+		</member>
+		<member name="F:System.ServiceModel.DomainServices.Client.EntitySetOperations.None">
+			<summary>Sono consentite solo le operazioni di lettura. Non sono consentite operazioni di aggiornamento.</summary>
+		</member>
+		<member name="F:System.ServiceModel.DomainServices.Client.EntitySetOperations.Remove">
+			<summary>È possibile rimuovere le entità.</summary>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.EntityState">
+			<summary>Descrive gli stati possibili di <see cref="T:System.ServiceModel.DomainServices.Client.Entity"></see>.</summary>
+		</member>
+		<member name="F:System.ServiceModel.DomainServices.Client.EntityState.Deleted">
+			<summary>L'entità è contrassegnata per l'eliminazione.</summary>
+		</member>
+		<member name="F:System.ServiceModel.DomainServices.Client.EntityState.Detached">
+			<summary>L'entità non è associata e non se ne tiene traccia.</summary>
+		</member>
+		<member name="F:System.ServiceModel.DomainServices.Client.EntityState.Modified">
+			<summary>L'entità è stata modificata.</summary>
+		</member>
+		<member name="F:System.ServiceModel.DomainServices.Client.EntityState.New">
+			<summary>L'entità viene associata nel nuovo stato.</summary>
+		</member>
+		<member name="F:System.ServiceModel.DomainServices.Client.EntityState.Unmodified">
+			<summary>L'entità è nello stato originale, non modificato.</summary>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.InvokeArgs">
+			<summary>Rappresenta le informazioni richieste per chiamare un'operazione invoke.</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.InvokeArgs.#ctor(System.String,System.Type,System.Collections.Generic.IDictionary{System.String,System.Object},System.Boolean)">
+			<summary>Inizializza una nuova istanza della classe <see cref="T:System.ServiceModel.DomainServices.Client.InvokeArgs"></see>. </summary>
+			<param name="hasSideEffects">true se l'operazione ha effetti collaterali; in caso contrario false.</param>
+			<param name="returnType">Tipo restituito dall'operazione invoke.</param>
+			<param name="parameters">Parametri facoltativi dell'operazione. Specificare null se il metodo non accetta parametri.</param>
+			<param name="operationName">Nome dell'operazione invoke.</param>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.InvokeArgs.HasSideEffects">
+			<summary>Ottiene un valore che indica se l'operazione ha effetti collaterali.</summary>
+			<returns>true se l'operazione ha effetti collaterali; in caso contrario false.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.InvokeArgs.OperationName">
+			<summary>Ottiene il nome dell'operazione.</summary>
+			<returns>Nome dell'operazione.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.InvokeArgs.Parameters">
+			<summary>Ottiene i parametri richiesti dall'operazione, se presenti. </summary>
+			<returns>Parametri richiesti dall'operazione o null se il metodo non accetta parametri.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.InvokeArgs.ReturnType">
+			<summary>Ottiene il tipo restituito dall'operazione.</summary>
+			<returns>Tipo restituito dall'operazione.</returns>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.InvokeCompletedResult">
+			<summary>Rappresenta il risultato di un'operazione invoke.</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.InvokeCompletedResult.#ctor(System.Object)">
+			<summary>Inizializza una nuova istanza della classe <see cref="T:System.ServiceModel.DomainServices.Client.InvokeCompletedResult"></see> con il valore restituito specificato.</summary>
+			<param name="returnValue">Valore restituito dal server.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.InvokeCompletedResult.#ctor(System.Object,System.Collections.Generic.IEnumerable{System.ComponentModel.DataAnnotations.ValidationResult})">
+			<summary>Inizializza una nuova istanza della classe <see cref="T:System.ServiceModel.DomainServices.Client.InvokeCompletedResult"></see> con il valore restituito specificato e gli errori di convalida. </summary>
+			<param name="returnValue">Valore restituito dal server.</param>
+			<param name="validationErrors">Raccolta di errori di convalida.</param>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.InvokeCompletedResult.ReturnValue">
+			<summary>Ottiene il valore restituito dal server.</summary>
+			<returns>Oggetto che rappresenta il valore restituito dal server.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.InvokeCompletedResult.ValidationErrors">
+			<summary>Ottiene gli errori di convalida.</summary>
+			<returns>Oggetto <see cref="T:System.Collections.Generic.IEnumerable`1"></see> che rappresenta gli errori di convalida.</returns>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.InvokeOperation">
+			<summary>Rappresenta un'operazione invoke asincrona.</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.InvokeOperation.CancelCore">
+			<summary>Richiama il callback di annullamento.</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.InvokeOperation.InvokeCompleteAction">
+			<summary>Richiama il callback di completamento.</summary>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.InvokeOperation.OperationName">
+			<summary>Ottiene il nome dell'operazione.</summary>
+			<returns>Stringa che rappresenta il nome dell'operazione.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.InvokeOperation.Parameters">
+			<summary>Ottiene la raccolta di parametri per l'operazione.</summary>
+			<returns>Oggetto <see cref="T: System.Collections.Generic.IDictionary`2"></see> che rappresenta la raccolta di parametri per l'operazione.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.InvokeOperation.Result">
+			<summary>Ottiene l'oggetto <see cref="T:System.ServiceModel.DomainServices.Client.DomainClientResult"></see> per questa operazione.</summary>
+			<returns>Oggetto che rappresenta il risultato per questa operazione.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.InvokeOperation.SupportsCancellation">
+			<summary>Ottiene un valore che indica se questa operazione supporta l'annullamento.</summary>
+			<returns>true se l'operazione supporta l'annullamento; in caso contrario false.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.InvokeOperation.ValidationErrors">
+			<summary>Ottiene gli errori di convalida per questa operazione.</summary>
+			<returns>Oggetto <see cref="T: System.Collections.Generic.IEnumerable`1"></see> che rappresenta gli errori di convalida per questa operazione.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.InvokeOperation.Value">
+			<summary>Ottiene il valore restituito per l'operazione invoke.</summary>
+			<returns>Oggetto che rappresenta il valore restituito per l'operazione invoke.</returns>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.InvokeOperation`1">
+			<summary>Rappresenta un'operazione invoke asincrona.</summary>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.InvokeOperation`1.Value">
+			<summary>Ottiene il valore restituito per l'operazione invoke.</summary>
+			<returns>Valore restituito per l'operazione invoke.</returns>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.LoadBehavior">
+			<summary>Specifica il comportamento della cache dell'identità di controllo durante il caricamento delle entità. </summary>
+		</member>
+		<member name="F:System.ServiceModel.DomainServices.Client.LoadBehavior.KeepCurrent">
+			<summary>L'istanza memorizzata nella cache non è stata modificata e l'istanza appena letta viene ignorata.</summary>
+		</member>
+		<member name="F:System.ServiceModel.DomainServices.Client.LoadBehavior.MergeIntoCurrent">
+			<summary>I valori dell'istanza appena letta vengono uniti all'istanza memorizzata nella cache i per valori delle proprietà che non sono stati modificati. Questa unione non provoca la perdita di alcuna modifica.</summary>
+		</member>
+		<member name="F:System.ServiceModel.DomainServices.Client.LoadBehavior.RefreshCurrent">
+			<summary>Tutti i membri dell'istanza memorizzata nella cache vengono sovrascritti dai valori correnti dell'istanza appena letta, indipendentemente dal fatto che siano stati modificati o meno. Inoltre, lo stato originale dell'entità viene impostato anche sull'istanza appena letta.</summary>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.LoadOperation">
+			<summary>Rappresenta un'operazione di caricamento asincrona.</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.LoadOperation.UpdateResults(System.ServiceModel.DomainServices.Client.DomainClientResult)">
+			<summary>Aggiorna le raccolte di risultati osservabili.</summary>
+			<param name="result">Risultati dell'operazione di caricamento completata.</param>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.LoadOperation.AllEntities">
+			<summary>Ottiene tutte le entità caricate dall'operazione, incluse quelle a cui fanno riferimento le entità di primo livello.</summary>
+			<returns>Oggetto enumerabile che rappresenta tutte le entità caricate dall'operazione, incluse quelle a cui fanno riferimento le entità di primo livello.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.LoadOperation.Entities">
+			<summary>Ottiene tutte le entità di primo livello caricate dall'operazione. </summary>
+			<returns>Oggetto enumerabile che rappresenta tutte le entità di primo livello caricate dall'operazione.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.LoadOperation.EntityQuery">
+			<summary>Ottiene l'oggetto <see cref="T:System.ServiceModel.DomainServices.Client.EntityQuery"></see> per questa operazione di caricamento.</summary>
+			<returns>Oggetto <see cref="T:System.ServiceModel.DomainServices.Client.EntityQuery"></see> per questa operazione di caricamento.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.LoadOperation.LoadBehavior">
+			<summary>Ottiene l'oggetto <see cref="T:System.ServiceModel.DomainServices.Client.LoadBehavior"></see> per questa operazione di caricamento.</summary>
+			<returns>Oggetto <see cref="T:System.ServiceModel.DomainServices.Client.LoadBehavior"></see> per questa operazione di caricamento.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.LoadOperation.Result">
+			<summary>Ottiene l'oggetto <see cref="T:System.ServiceModel.DomainServices.Client.DomainClientResult"></see> per questa operazione.</summary>
+			<returns>Oggetto <see cref="T:System.ServiceModel.DomainServices.Client.DomainClientResult"></see> per questa operazione.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.LoadOperation.TotalEntityCount">
+			<summary>Ottiene il numero totale di entità server per la query utilizzata da questa operazione.</summary>
+			<returns>Numero totale di entità server per la query utilizzata da questa operazione.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.LoadOperation.ValidationErrors">
+			<summary>Ottiene gli errori di convalida.</summary>
+			<returns>Oggetto enumerabile che rappresenta gli errori di convalida.</returns>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.LoadOperation`1">
+			<summary>Rappresenta un'operazione di caricamento asincrona.</summary>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.LoadOperation`1.Entities">
+			<summary>Ottiene tutte le entità caricate dall'operazione, incluse quelle a cui fanno riferimento le entità di primo livello. </summary>
+			<returns>Oggetto <see cref="T:System.Collections.Generic.IEnumerable`1"></see> che rappresenta tutte le entità di primo livello caricate dall'operazione.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.LoadOperation`1.EntityQuery">
+			<summary>Ottiene l'oggetto <see cref="P:System.ServiceModel.DomainServices.Client.LoadOperation`1.EntityQuery"></see> per questa operazione di caricamento.</summary>
+			<returns>Oggetto <see cref="T:System.ServiceModel.DomainServices.Client.EntityQuery`1"></see> per questa operazione di caricamento.</returns>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.OperationBase">
+			<summary>Rappresenta un'operazione asincrona.</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.OperationBase.#ctor(System.Object)">
+			<summary>Inizializza una nuova istanza della classe <see cref="T:System.ServiceModel.DomainServices.Client.OperationBase"></see>. </summary>
+			<param name="userState">Stato utente facoltativo.</param>
+		</member>
+		<member name="E:System.ServiceModel.DomainServices.Client.OperationBase.Completed">
+			<summary>Si verifica quando l'operazione viene completata.</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.OperationBase.Cancel">
+			<summary>Annulla l'operazione.</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.OperationBase.CancelCore">
+			<summary>Quando viene sottoposto a override in una classe derivata, fornisce la logica per l'annullamento dell'operazione.</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.OperationBase.Complete(System.Exception)">
+			<summary>Completa un'operazione non riuscita con l'errore specificato.</summary>
+			<param name="error">Errore che ha causato l'esito negativo dell'operazione.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.OperationBase.Complete(System.Object)">
+			<summary>Completa un'operazione riuscita con il risultato specificato.</summary>
+			<param name="result">Risultato dell'operazione.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.OperationBase.InvokeCompleteAction">
+			<summary>Richiama il callback di completamento.</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.OperationBase.MarkErrorAsHandled">
+			<summary>Specifica che un errore verificatosi in un'operazione è gestito.</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.OperationBase.OnPropertyChanged(System.ComponentModel.PropertyChangedEventArgs)">
+			<summary>Viene chiamato quando il valore di una proprietà viene modificato.</summary>
+			<param name="e">Dati dell'evento.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.OperationBase.RaisePropertyChanged(System.String)">
+			<summary>Genera l'evento <see cref="E:System.Windows.Controls.Ria.DomainDataSourceView.System#ComponentModel#INotifyPropertyChanged#PropertyChanged"></see>.</summary>
+			<param name="propertyName">Nome della proprietà modificata.</param>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.OperationBase.CanCancel">
+			<summary>Ottiene un valore che indica se lo stato corrente di <see cref="T:System.ServiceModel.DomainServices.Client.OperationBase"></see> ne consente l'annullamento.</summary>
+			<returns>true se lo stato corrente di <see cref="T:System.ServiceModel.DomainServices.Client.OperationBase"></see> ne consente l'annullamento; in caso contrario false.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.OperationBase.Error">
+			<summary>Ottiene l'errore dell'operazione se quest'ultima ha avuto esito negativo.</summary>
+			<returns>Errore che ha causato l'esito negativo dell'operazione; in caso contrario null.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.OperationBase.HasError">
+			<summary>Ottiene un valore che indica se l'operazione ha avuto esito negativo.</summary>
+			<returns>true se l'operazione ha avuto esito negativo; in caso contrario false.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.OperationBase.IsCanceled">
+			<summary>Ottiene un valore che indica se questa operazione è stata annullata.</summary>
+			<returns>true se l'operazione è stata annullata; in caso contrario false.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.OperationBase.IsComplete">
+			<summary>Ottiene un valore che indica se questa operazione è stata completata.</summary>
+			<returns>true se l'operazione è stata completata; in caso contrario false.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.OperationBase.IsErrorHandled">
+			<summary>Ottiene o imposta un valore che indica se l'errore dell'operazione è stato gestito.</summary>
+			<returns>true se l'errore è stato gestito; in caso contrario false.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.OperationBase.Result">
+			<summary>Ottiene il risultato dell'operazione asincrona.</summary>
+			<returns>Risultato dell'operazione asincrona.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.OperationBase.SupportsCancellation">
+			<summary>Ottiene un valore che indica se questa operazione supporta l'annullamento.</summary>
+			<returns>true se l'operazione supporta l'annullamento; in caso contrario false. Questa implementazione restituisce sempre false.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.OperationBase.UserState">
+			<summary>Ottiene lo stato utente facoltativo per questa operazione.</summary>
+			<returns>Stato utente per questa operazione oppure null se lo stato utente non è specificato.</returns>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.OperationErrorStatus">
+			<summary>Descrive gli errori che si verificano durante un'operazione.</summary>
+		</member>
+		<member name="F:System.ServiceModel.DomainServices.Client.OperationErrorStatus.Conflicts">
+			<summary>Si sono verificati conflitti. Vedere <see cref="P:System.ServiceModel.DomainServices.Client.Entity.EntityConflict"></see> per i conflitti di un'entità specificata.</summary>
+		</member>
+		<member name="F:System.ServiceModel.DomainServices.Client.OperationErrorStatus.NotFound">
+			<summary>Impossibile trovare la risorsa.</summary>
+		</member>
+		<member name="F:System.ServiceModel.DomainServices.Client.OperationErrorStatus.NotSupported">
+			<summary>L'operazione non è supportata.</summary>
+		</member>
+		<member name="F:System.ServiceModel.DomainServices.Client.OperationErrorStatus.ServerError">
+			<summary>Si è verificato un errore del server durante l'elaborazione dell'operazione.</summary>
+		</member>
+		<member name="F:System.ServiceModel.DomainServices.Client.OperationErrorStatus.Unauthorized">
+			<summary>L'operazione non è autorizzata per l'esecuzione.</summary>
+		</member>
+		<member name="F:System.ServiceModel.DomainServices.Client.OperationErrorStatus.ValidationFailed">
+			<summary>La convalida dell'operazione ha avuto esito negativo.</summary>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.QueryCompletedResult">
+			<summary>Rappresenta il risultato di un'operazione di query.</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.QueryCompletedResult.#ctor(System.Collections.Generic.IEnumerable{System.ServiceModel.DomainServices.Client.Entity},System.Collections.Generic.IEnumerable{System.ServiceModel.DomainServices.Client.Entity},System.Int32,System.Collections.Generic.IEnumerable{System.ComponentModel.DataAnnotations.ValidationResult})">
+			<summary>Inizializza una nuova istanza della classe <see cref="T:System.ServiceModel.DomainServices.Client.QueryCompletedResult"></see>. </summary>
+			<param name="validationErrors">Raccolta di errori di convalida.</param>
+			<param name="includedEntities">Entità incluse restituite dalla query.</param>
+			<param name="entities">Entità restituite dalla query.</param>
+			<param name="totalCount">Numero totale di righe della query originale senza l'applicazione del paging.</param>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.QueryCompletedResult.Entities">
+			<summary>Ottiene le entità restituite dalla query.</summary>
+			<returns>Entità restituite dalla query.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.QueryCompletedResult.IncludedEntities">
+			<summary>Ottiene le entità incluse restituite dalla query.</summary>
+			<returns>Entità incluse restituite dalla query.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.QueryCompletedResult.TotalCount">
+			<summary>Ottiene il numero totale di righe della query originale senza l'applicazione del paging.</summary>
+			<returns>Numero totale di righe della query originale o -1 se il server non supporta i conteggi totali.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.QueryCompletedResult.ValidationErrors">
+			<summary>Ottiene gli errori di convalida.</summary>
+			<returns>Raccolta di errori di convalida.</returns>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.QueryResult">
+			<summary>Tipo di messaggio utilizzato per la comunicazione dei risultati di query tra il server e il client.</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.QueryResult.#ctor">
+			<summary>Inizializza una nuova istanza della classe <see cref="T:System.ServiceModel.DomainServices.Client.QueryResult"></see>. </summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.QueryResult.GetIncludedResults">
+			<summary>Ottiene i risultati inclusi.</summary>
+			<returns>Risultati inclusi.</returns>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.QueryResult.GetRootResults">
+			<summary>Ottiene i risultati radice.</summary>
+			<returns>Risultati radice.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.QueryResult.TotalCount">
+			<summary>Ottiene o imposta il numero totale di righe della query originale senza l'applicazione del paging.</summary>
+			<returns>Numero totale di righe della query originale senza l'applicazione del paging.</returns>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.QueryResult`1">
+			<summary>Tipo di messaggio utilizzato per la comunicazione dei risultati di query tra il server e il client.</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.QueryResult`1.#ctor">
+			<summary>Inizializza una nuova istanza della classe <see cref="T:System.ServiceModel.DomainServices.Client.QueryResult`1"></see> con i valori predefiniti. </summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.QueryResult`1.#ctor(System.Collections.Generic.IEnumerable{`0})">
+			<summary>Inizializza una nuova istanza della classe <see cref="T:System.ServiceModel.DomainServices.Client.QueryResult`1"></see> con la raccolta specificata degli elementi di risultati.</summary>
+			<param name="results">Risultati di query.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.QueryResult`1.#ctor(System.Collections.Generic.IEnumerable{`0},System.Int32)">
+			<summary>Inizializza una nuova istanza della classe <see cref="T:System.ServiceModel.DomainServices.Client.QueryResult`1"></see> con la raccolta specificata degli elementi di risultati e il conteggio totale.</summary>
+			<param name="results">Risultati di query.</param>
+			<param name="totalCount">Numero totale di righe basato sulla query di input, ma senza l'applicazione del paging.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.QueryResult`1.GetIncludedResults">
+			<summary>Recupera i risultati inclusi.</summary>
+			<returns>Risultati inclusi.</returns>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.QueryResult`1.GetRootResults">
+			<summary>Recupera i risultati radice.</summary>
+			<returns>Risultati radice.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.QueryResult`1.IncludedResults">
+			<summary>Ottiene o imposta i risultati di query inclusi.</summary>
+			<returns>Risultati di query inclusi.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.QueryResult`1.RootResults">
+			<summary>Ottiene o imposta i risultati di query di primo livello.</summary>
+			<returns>Risultati di query di primo livello.</returns>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.SubmitCompletedResult">
+			<summary>Rappresenta il risultato di un'operazione di invio.</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.SubmitCompletedResult.#ctor(System.ServiceModel.DomainServices.Client.EntityChangeSet,System.Collections.Generic.IEnumerable{System.ServiceModel.DomainServices.Client.ChangeSetEntry})">
+			<summary>Inizializza una nuova istanza della classe <see cref="T:System.ServiceModel.DomainServices.Client.SubmitCompletedResult"></see> con il set di modifiche specificato e i risultati dell'operazione.</summary>
+			<param name="operationResults">Risultati di <see cref="T:System.ServiceModel.DomainServices.Client.ChangeSetEntry"></see> inviati da <see cref="T:System.ServiceModel.DomainServices.Server.DomainService"></see> per l'operazione di invio.</param>
+			<param name="changeSet">Set di modifiche inviato.</param>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.SubmitCompletedResult.ChangeSet">
+			<summary>Ottiene il valore del set di modifiche inviato.</summary>
+			<returns>Valore del set di modifiche inviato.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.SubmitCompletedResult.Results">
+			<summary>Ottiene i risultati di <see cref="T:System.ServiceModel.DomainServices.Server.ChangeSetEntry"></see> restituiti da <see cref="T:System.ServiceModel.DomainServices.Server.DomainService"></see>.</summary>
+			<returns>Risultati di <see cref="T:System.ServiceModel.DomainServices.Server.ChangeSetEntry"></see> restituiti da <see cref="T:System.ServiceModel.DomainServices.Server.DomainService"></see>.</returns>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.SubmitOperation">
+			<summary>Rappresenta un'operazione di invio asincrona.</summary>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.SubmitOperation.ChangeSet">
+			<summary>Ottiene il set di modifiche inviato.</summary>
+			<returns>Set di modifiche inviato.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.SubmitOperation.EntitiesInError">
+			<summary>Ottiene le entità i cui errori si sono verificati dopo il completamento dell'operazione di invio.</summary>
+			<returns>Entità i cui errori si sono verificati dopo il completamento dell'operazione di invio.</returns>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.ValidationResultInfo">
+			<summary>Contiene informazioni sull'errore che si è verificato durante l'esecuzione di un'operazione nel server.</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ValidationResultInfo.#ctor">
+			<summary>Inizializza una nuova istanza della classe <see cref="T:System.ServiceModel.DomainServices.Client.ValidationResultInfo"></see>. </summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ValidationResultInfo.#ctor(System.String,System.Collections.Generic.IEnumerable{System.String})">
+			<summary>Inizializza una nuova istanza della classe <see cref="T:System.ServiceModel.DomainServices.Client.ValidationResultInfo"></see> con un messaggio di errore localizzato e una raccolta dei nomi dei membri da cui ha avuto origine l'errore.</summary>
+			<param name="message">Messaggio di errore localizzato.</param>
+			<param name="sourceMemberNames">Nomi dei membri da cui ha avuto origine l'errore.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ValidationResultInfo.#ctor(System.String,System.Int32,System.String,System.Collections.Generic.IEnumerable{System.String})">
+			<summary>Inizializza una nuova istanza della classe <see cref="T:System.ServiceModel.DomainServices.Client.ValidationResultInfo"></see> con un errore localizzato, un codice di errore, una traccia dello stack e una raccolta dei nomi dei membri da cui ha avuto origine l'errore.</summary>
+			<param name="errorCode">Codice di errore personalizzato.</param>
+			<param name="stackTrace">Traccia dello stack dell'errore.</param>
+			<param name="message">Messaggio di errore localizzato.</param>
+			<param name="sourceMemberNames">Raccolta dei nomi dei membri da cui ha avuto origine l'errore.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ValidationResultInfo.GetHashCode">
+			<summary>Restituisce il codice hash per questo oggetto.</summary>
+			<returns>Codice hash per l'oggetto.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.ValidationResultInfo.ErrorCode">
+			<summary>Ottiene o imposta il codice di errore personalizzato.</summary>
+			<returns>Codice di errore personalizzato.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.ValidationResultInfo.Message">
+			<summary>Ottiene o imposta il messaggio di errore.</summary>
+			<returns>Messaggio di errore.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.ValidationResultInfo.SourceMemberNames">
+			<summary>Ottiene o imposta i nomi dei membri da cui ha avuto origine l'errore.</summary>
+			<returns>Nomi dei membri da cui ha avuto origine l'errore.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.ValidationResultInfo.StackTrace">
+			<summary>Ottiene o imposta la traccia dello stack dell'errore.</summary>
+			<returns>Traccia dello stack dell'errore.</returns>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationEventArgs">
+			<summary>Fornisce gli argomenti per gli eventi generati dalla classe <see cref="T:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService"></see>.</summary>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationEventArgs.User">
+			<summary>Ottiene l'utente nel momento in cui si è verificato l'evento.</summary>
+			<returns>Utente nel momento in cui si è verificato l'evento.</returns>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationOperation">
+			<summary>Fornisce il tipo di operazione di base per tutte le operazioni supportate da <see cref="T:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService"></see>.</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationOperation.BeginCore(System.AsyncCallback)">
+			<summary>Richiama il metodo Begin corrispondente nell'implementazione del risultato asincrono sottostante.</summary>
+			<returns>Risultato asincrono restituito da una chiamata al metodo Begin sottostante.</returns>
+			<param name="callback">Oggetto <see cref="T:System.AsyncCallback"></see> da richiamare al completamento della chiamata asincrona. Questo parametro può essere passato direttamente al metodo Begin sottostante.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationOperation.EndCore(System.IAsyncResult)">
+			<summary>Richiama il metodo End corrispondente nell'implementazione del risultato asincrono sottostante.</summary>
+			<returns>Risultato della chiamata End da archiviare in OperationBase.Result.</returns>
+			<param name="asyncResult">Risultato asincrono restituito da una chiamata al metodo Begin sottostante.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationOperation.RaiseCompletionPropertyChanges">
+			<summary>Genera modifiche alle proprietà dopo il completamento dell'operazione.</summary>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationOperation.AsyncResult">
+			<summary>Ottiene il risultato asincrono restituito da <see cref="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationOperation.BeginCore(System.AsyncCallback)"></see>.</summary>
+			<returns>Risultato asincrono restituito da <see cref="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationOperation.BeginCore(System.AsyncCallback)"></see>.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationOperation.Result">
+			<summary>Ottiene il risultato come oggetto <see cref="T:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationResult"></see>.</summary>
+			<returns>Risultato come oggetto <see cref="T:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationResult"></see>.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationOperation.Service">
+			<summary>Ottiene il servizio utilizzato da questa operazione per implementare Begin, Cancel ed End.</summary>
+			<returns>Servizio utilizzato da questa operazione per implementare Begin, Cancel ed End.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationOperation.SupportsCancellation">
+			<summary>Ottiene un valore che indica se l'operazione supporta l'annullamento.</summary>
+			<returns>true se l'operazione supporta l'annullamento; in caso contrario, false.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationOperation.User">
+			<summary>Ottiene l'entità utente.</summary>
+			<returns>Entità di sicurezza dell'utente. Il valore è null prima del completamento dell'operazione se l'operazione viene annullata o se l'operazione contiene errori.</returns>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationResult">
+			<summary>Fornisce un tipo di base astratto per tutti i risultati restituiti dalle chiamate End per le operazioni asincrone in <see cref="T:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService"></see>.</summary>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationResult.User">
+			<summary>Ottiene l'utente autenticato.</summary>
+			<returns>Utente autenticato.</returns>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService">
+			<summary>Fornisce una classe base per i servizi che consentono di autenticare, caricare e salvare l'utente corrente.</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.#ctor">
+			<summary>Inizializza una nuova istanza della classe <see cref="T:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService"></see>.</summary>
+		</member>
+		<member name="E:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.LoggedIn">
+			<summary>Si verifica all'accesso di un nuovo utente.</summary>
+		</member>
+		<member name="E:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.LoggedOut">
+			<summary>Si verifica alla disconnessione di un utente.</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.BeginLoadUser(System.AsyncCallback,System.Object)">
+			<summary>Inizia un'operazione <see cref="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.LoadUser"></see> asincrona.</summary>
+			<returns>Handle che può essere utilizzato per fare riferimento a questa chiamata asincrona.</returns>
+			<param name="callback">Callback da richiamare al completamento della chiamata asincrona.</param>
+			<param name="state">Stato da impostare nell'oggetto <see cref="T:System.IAsyncResult"></see> restituito da questo metodo. Questo parametro è facoltativo.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.BeginLogin(System.ServiceModel.DomainServices.Client.ApplicationServices.LoginParameters,System.AsyncCallback,System.Object)">
+			<summary>Inizia un'operazione <see cref="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.Login(System.ServiceModel.DomainServices.Client.ApplicationServices.LoginParameters,System.Action{System.ServiceModel.DomainServices.Client.ApplicationServices.LoginOperation},System.Object)"></see> asincrona.</summary>
+			<returns>Handle che può essere utilizzato per fare riferimento a questa chiamata asincrona.</returns>
+			<param name="callback">Callback da richiamare al completamento della chiamata asincrona.</param>
+			<param name="state">Stato da impostare nell'oggetto <see cref="T:System.IAsyncResult"></see> restituito da questo metodo. Questo parametro è facoltativo.</param>
+			<param name="parameters">Parametri di accesso che specificano l'utente da autenticare. Questo parametro è facoltativo.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.BeginLogout(System.AsyncCallback,System.Object)">
+			<summary>Inizia un'operazione <see cref="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.Logout(System.Action{System.ServiceModel.DomainServices.Client.ApplicationServices.LogoutOperation},System.Object)"></see> asincrona.</summary>
+			<returns>Handle che può essere utilizzato per fare riferimento a questa chiamata asincrona.</returns>
+			<param name="callback">Callback da richiamare al completamento della chiamata asincrona.</param>
+			<param name="state">Stato da impostare nell'oggetto <see cref="T:System.IAsyncResult"></see> restituito da questo metodo. Questo parametro è facoltativo.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.BeginSaveUser(System.Security.Principal.IPrincipal,System.AsyncCallback,System.Object)">
+			<summary>Inizia un'operazione <see cref="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.SaveUser(System.Action{System.ServiceModel.DomainServices.Client.ApplicationServices.SaveUserOperation},System.Object)"></see> asincrona.</summary>
+			<returns>Handle che può essere utilizzato per fare riferimento a questa chiamata asincrona.</returns>
+			<param name="callback">Callback da richiamare al completamento della chiamata asincrona.</param>
+			<param name="user">Utente da salvare. Questo parametro non deve essere null.</param>
+			<param name="state">Stato da impostare nell'oggetto <see cref="T:System.IAsyncResult"></see> restituito da questo metodo. Questo parametro è facoltativo.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.CancelLoadUser(System.IAsyncResult)">
+			<summary>Annulla un'operazione <see cref="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.LoadUser"></see> asincrona.</summary>
+			<param name="asyncResult">Risultato restituito da <see cref="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.BeginLoadUser(System.AsyncCallback,System.Object)"></see> che rappresenta la chiamata asincrona da annullare.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.CancelLogin(System.IAsyncResult)">
+			<summary>Annulla un'operazione <see cref="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.Login(System.ServiceModel.DomainServices.Client.ApplicationServices.LoginParameters,System.Action{System.ServiceModel.DomainServices.Client.ApplicationServices.LoginOperation},System.Object)"></see> asincrona.</summary>
+			<param name="asyncResult">Risultato restituito da <see cref="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.BeginLogin(System.ServiceModel.DomainServices.Client.ApplicationServices.LoginParameters,System.AsyncCallback,System.Object)"></see> che rappresenta la chiamata asincrona da annullare.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.CancelLogout(System.IAsyncResult)">
+			<summary>Annulla un'operazione <see cref="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.Logout(System.Action{System.ServiceModel.DomainServices.Client.ApplicationServices.LogoutOperation},System.Object)"></see> asincrona.</summary>
+			<param name="asyncResult">Risultato restituito da <see cref="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.BeginLogout(System.AsyncCallback,System.Object)"></see> che rappresenta la chiamata asincrona da annullare.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.CancelSaveUser(System.IAsyncResult)">
+			<summary>Annulla un'operazione <see cref="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.SaveUser(System.Action{System.ServiceModel.DomainServices.Client.ApplicationServices.SaveUserOperation},System.Object)"></see> asincrona.</summary>
+			<param name="asyncResult">Risultato restituito da <see cref="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.BeginSaveUser(System.Security.Principal.IPrincipal,System.AsyncCallback,System.Object)"></see> che rappresenta la chiamata asincrona da annullare.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.CreateDefaultUser">
+			<summary>Crea un utente predefinito.</summary>
+			<returns>Utente creato.</returns>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.EndLoadUser(System.IAsyncResult)">
+			<summary>Termina un'operazione <see cref="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.LoadUser"></see> asincrona.</summary>
+			<returns>Risultato dell'operazione.</returns>
+			<param name="asyncResult">Risultato restituito da <see cref="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.BeginLoadUser(System.AsyncCallback,System.Object)"></see> che rappresenta la chiamata asincrona da concludere.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.EndLogin(System.IAsyncResult)">
+			<summary>Termina un'operazione <see cref="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.Login(System.ServiceModel.DomainServices.Client.ApplicationServices.LoginParameters,System.Action{System.ServiceModel.DomainServices.Client.ApplicationServices.LoginOperation},System.Object)"></see> asincrona.</summary>
+			<returns>Risultato dell'operazione.</returns>
+			<param name="asyncResult">Risultato restituito da <see cref="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.BeginLogin(System.ServiceModel.DomainServices.Client.ApplicationServices.LoginParameters,System.AsyncCallback,System.Object)"></see> che rappresenta la chiamata asincrona da concludere.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.EndLogout(System.IAsyncResult)">
+			<summary>Termina un'operazione <see cref="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.Logout(System.Action{System.ServiceModel.DomainServices.Client.ApplicationServices.LogoutOperation},System.Object)"></see> asincrona.</summary>
+			<returns>Risultato dell'operazione.</returns>
+			<param name="asyncResult">Risultato restituito da <see cref="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.BeginLogout(System.AsyncCallback,System.Object)"></see> che rappresenta la chiamata asincrona da concludere.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.EndSaveUser(System.IAsyncResult)">
+			<summary>Termina un'operazione <see cref="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.SaveUser(System.Action{System.ServiceModel.DomainServices.Client.ApplicationServices.SaveUserOperation},System.Object)"></see> asincrona.</summary>
+			<returns>Risultato dell'operazione.</returns>
+			<param name="asyncResult">Risultato restituito da <see cref="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.BeginSaveUser(System.Security.Principal.IPrincipal,System.AsyncCallback,System.Object)"></see> che rappresenta la chiamata asincrona da concludere.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.LoadUser">
+			<summary>Carica in modo asincrono l'utente autenticato dal server.</summary>
+			<returns>Risultato dell'operazione.</returns>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.LoadUser(System.Action{System.ServiceModel.DomainServices.Client.ApplicationServices.LoadUserOperation},System.Object)">
+			<summary>Carica in modo asincrono l'utente autenticato dal server con il metodo callback e lo stato utente specificati.</summary>
+			<returns>Risultato dell'operazione.</returns>
+			<param name="completeAction">Azione che verrà richiamata subito dopo il completamento dell'operazione e viene chiamata in tutti i casi, ovvero in caso di esito positivo, annullamento ed errore. Questo parametro è facoltativo.</param>
+			<param name="userState">Stato impostato in <see cref="P:System.ServiceModel.DomainServices.Client.OperationBase.UserState"></see>. Questo parametro è facoltativo.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.Login(System.ServiceModel.DomainServices.Client.ApplicationServices.LoginParameters)">
+			<summary>Autentica in modo asincrono e accede al server con i parametri specificati.</summary>
+			<returns>Risultato dell'operazione.</returns>
+			<param name="parameters">Parametri di accesso che specificano l'utente da autenticare.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.Login(System.String,System.String)">
+			<summary>Autentica in modo asincrono e accede al server con il nome utente e la password specificati.</summary>
+			<returns>Risultato dell'operazione.</returns>
+			<param name="userName">Nome utente associato all'utente da autenticare.</param>
+			<param name="password">Password associata all'utente da autenticare.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.Login(System.ServiceModel.DomainServices.Client.ApplicationServices.LoginParameters,System.Action{System.ServiceModel.DomainServices.Client.ApplicationServices.LoginOperation},System.Object)">
+			<summary>Autentica in modo asincrono e accede al server con i parametri, il metodo callback e lo stato utente specificati.</summary>
+			<returns>Risultato dell'operazione.</returns>
+			<param name="completeAction">Azione che verrà richiamata subito dopo il completamento dell'operazione e viene chiamata in tutti i casi, ovvero in caso di esito positivo, annullamento ed errore. Questo parametro è facoltativo.</param>
+			<param name="userState">Stato impostato in <see cref="P:System.ServiceModel.DomainServices.Client.OperationBase.UserState"></see>. Questo parametro è facoltativo.</param>
+			<param name="parameters">Parametri di accesso che specificano l'utente da autenticare.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.Logout(System.Boolean)">
+			<summary>Disconnette in modo asincrono un utente autenticato dal server con il valore specificato che indica se viene generata un'eccezione per gli errori.</summary>
+			<returns>Risultato dell'operazione.</returns>
+			<param name="throwOnError">true se un errore non gestito genera un'eccezione; in caso contrario, false.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.Logout(System.Action{System.ServiceModel.DomainServices.Client.ApplicationServices.LogoutOperation},System.Object)">
+			<summary>Disconnette in modo asincrono un utente autenticato dal server con il metodo callback e lo stato utente specificati.</summary>
+			<returns>Risultato dell'operazione.</returns>
+			<param name="completeAction">Azione che verrà richiamata subito dopo il completamento dell'operazione e viene chiamata in tutti i casi, ovvero in caso di esito positivo, annullamento ed errore. Questo parametro è facoltativo.</param>
+			<param name="userState">Stato impostato in <see cref="P:System.ServiceModel.DomainServices.Client.OperationBase.UserState"></see>. Questo parametro è facoltativo.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.OnPropertyChanged(System.ComponentModel.PropertyChangedEventArgs)">
+			<summary>Genera un evento <see cref="E:System.ComponentModel.INotifyPropertyChanged.PropertyChanged"></see>.</summary>
+			<param name="e">Evento da generare.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.RaisePropertyChanged(System.String)">
+			<summary>Genera un evento <see cref="E:System.ComponentModel.INotifyPropertyChanged.PropertyChanged"></see> per la proprietà specificata.</summary>
+			<param name="propertyName">Proprietà per cui generare un evento.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.SaveUser(System.Boolean)">
+			<summary>Salva in modo asincrono l'utente autenticato nel server con il valore specificato che indica se viene generata un'eccezione per gli errori.</summary>
+			<returns>Risultato dell'operazione.</returns>
+			<param name="throwOnError">true se un errore non gestito genera un'eccezione; in caso contrario, false.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.SaveUser(System.Action{System.ServiceModel.DomainServices.Client.ApplicationServices.SaveUserOperation},System.Object)">
+			<summary>Salva in modo asincrono l'utente autenticato nel server con il metodo callback e lo stato utente specificati.</summary>
+			<returns>Risultato dell'operazione.</returns>
+			<param name="completeAction">Azione che verrà richiamata subito dopo il completamento dell'operazione e viene chiamata in tutti i casi, ovvero in caso di esito positivo, annullamento ed errore. Questo parametro è facoltativo.</param>
+			<param name="userState">Stato impostato in <see cref="P:System.ServiceModel.DomainServices.Client.OperationBase.UserState"></see>. Questo parametro è facoltativo.</param>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.IsBusy">
+			<summary>Ottiene un valore che indica se è in corso un'operazione asincrona.</summary>
+			<returns>true se è in corso un'operazione; in caso contrario, false.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.IsLoadingUser">
+			<summary>Ottiene un valore che indica se è in corso un'operazione <see cref="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.LoadUser"></see> asincrona.</summary>
+			<returns>true se è in corso un'operazione; in caso contrario, false.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.IsLoggingIn">
+			<summary>Ottiene un valore che indica se è in corso un'operazione <see cref="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.Login(System.String,System.String)"></see> asincrona.</summary>
+			<returns>true se è in corso un'operazione; in caso contrario, false.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.IsLoggingOut">
+			<summary>Ottiene un valore che indica se è in corso un'operazione <see cref="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.Logout(System.Action{System.ServiceModel.DomainServices.Client.ApplicationServices.LogoutOperation},System.Object)"></see> asincrona.</summary>
+			<returns>true se è in corso un'operazione; in caso contrario, false.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.IsSavingUser">
+			<summary>Ottiene un valore che indica se è in corso un'operazione <see cref="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.SaveUser(System.Action{System.ServiceModel.DomainServices.Client.ApplicationServices.SaveUserOperation},System.Object)"></see> asincrona.</summary>
+			<returns>true se è in corso un'operazione; in caso contrario, false.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.SupportsCancellation">
+			<summary>Ottiene un valore che indica se questa implementazione di autenticazione supporta l'annullamento.</summary>
+			<returns>true se l'annullamento è supportato; in caso contrario, false. L'implementazione di base restituisce false in tutti i casi.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.User">
+			<summary>Ottiene un'entità di sicurezza che rappresenta l'utente autenticato.</summary>
+			<returns>Entità di sicurezza che rappresenta l'utente autenticato.</returns>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.ApplicationServices.LoadUserOperation">
+			<summary>Tipo di operazione restituito dalle operazioni LoadUser su <see cref="T:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService"></see>.</summary>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.ApplicationServices.LoadUserResult">
+			<summary>Rappresenta il risultato restituito da <see cref="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.EndLoadUser(System.IAsyncResult)"></see>.</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.LoadUserResult.#ctor(System.Security.Principal.IPrincipal)">
+			<summary>Inizializza una nuova istanza della classe <see cref="T:System.ServiceModel.DomainServices.Client.ApplicationServices.LoadUserResult"></see>. </summary>
+			<param name="user">Utente caricato.</param>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.ApplicationServices.LoginOperation">
+			<summary>Tipo di operazione restituito dalle operazioni Login su <see cref="T:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService"></see>.</summary>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.ApplicationServices.LoginOperation.LoginParameters">
+			<summary>Ottiene i parametri di accesso utilizzati quando si richiama questa operazione.</summary>
+			<returns>Parametri di accesso.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.ApplicationServices.LoginOperation.LoginSuccess">
+			<summary>Ottiene un valore che indica se questa operazione è stata in grado di eseguire correttamente l'accesso.</summary>
+			<returns>true se l'accesso è stata eseguito correttamente; in caso contrario, false.</returns>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.ApplicationServices.LoginParameters">
+			<summary>Specifica i parametri per autenticare un utente nei metodi Login su <see cref="T:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService"></see>.</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.LoginParameters.#ctor">
+			<summary>Inizializza una nuova istanza della classe <see cref="T:System.ServiceModel.DomainServices.Client.ApplicationServices.LoginParameters"></see> con i valori predefiniti.</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.LoginParameters.#ctor(System.String,System.String)">
+			<summary>Inizializza una nuova istanza della classe <see cref="T:System.ServiceModel.DomainServices.Client.ApplicationServices.LoginParameters"></see> con il nome e la password specificati.</summary>
+			<param name="userName">Nome dell'utente da autenticare.</param>
+			<param name="password">Password dell'utente da autenticare.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.LoginParameters.#ctor(System.String,System.String,System.Boolean,System.String)">
+			<summary>Inizializza una nuova istanza della classe <see cref="T:System.ServiceModel.DomainServices.Client.ApplicationServices.LoginParameters"></see> con il nome, la password e la persistenza specificati.</summary>
+			<param name="customData">Dati facoltativi specifici dell'implementazione.</param>
+			<param name="userName">Nome dell'utente da autenticare.</param>
+			<param name="isPersistent">true se l'accesso deve essere mantenuto tra le sessioni; in caso contrario, false.</param>
+			<param name="password">Password dell'utente da autenticare.</param>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.ApplicationServices.LoginParameters.CustomData">
+			<summary>Ottiene i dati facoltativi specifici dell'implementazione.</summary>
+			<returns>Dati facoltativi specifici dell'implementazione.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.ApplicationServices.LoginParameters.IsPersistent">
+			<summary>Ottiene il valore che indica se l'accesso deve essere mantenuto tra le sessioni.</summary>
+			<returns>true se l'accesso deve essere mantenuto; in caso contrario, false.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.ApplicationServices.LoginParameters.Password">
+			<summary>Ottiene la password dell'utente da autenticare.</summary>
+			<returns>Password dell'utente da autenticare.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.ApplicationServices.LoginParameters.UserName">
+			<summary>Ottiene il nome dell'utente da autenticare.</summary>
+			<returns>Nome dell'utente da autenticare.</returns>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.ApplicationServices.LoginResult">
+			<summary>Risultato restituito da <see cref="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.EndLogin(System.IAsyncResult)"></see>.</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.LoginResult.#ctor(System.Security.Principal.IPrincipal,System.Boolean)">
+			<summary>Inizializza una nuova istanza della classe <see cref="T:System.ServiceModel.DomainServices.Client.ApplicationServices.LoginResult"></see>.</summary>
+			<param name="user">Utente connesso o null se l'autenticazione non è riuscita.</param>
+			<param name="loginSuccess">true se la chiamata a Login è stata completata correttamente; in caso contrario, false.</param>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.ApplicationServices.LoginResult.LoginSuccess">
+			<summary>Ottiene un valore che indica se la chiamata a Login è stata completata correttamente.</summary>
+			<returns>true se l'accesso è stata eseguito correttamente; in caso contrario, false.</returns>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.ApplicationServices.LogoutOperation">
+			<summary>Tipo di operazione restituito dalle operazioni Logout su <see cref="T:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService"></see>.</summary>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.ApplicationServices.LogoutResult">
+			<summary>Rappresenta il risultato restituito da <see cref="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.EndLogout(System.IAsyncResult)"></see>.</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.LogoutResult.#ctor(System.Security.Principal.IPrincipal)">
+			<summary>Inizializza una nuova istanza della classe <see cref="T:System.ServiceModel.DomainServices.Client.ApplicationServices.LogoutResult"></see>. </summary>
+			<param name="user">Utente anonimo.</param>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.ApplicationServices.SaveUserOperation">
+			<summary>Rappresenta il tipo di operazione restituito dalle operazioni SaveUser su <see cref="T:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService"></see>.</summary>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.ApplicationServices.SaveUserResult">
+			<summary>Rappresenta il risultato restituito da <see cref="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.EndSaveUser(System.IAsyncResult)"></see>.</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.SaveUserResult.#ctor(System.Security.Principal.IPrincipal)">
+			<summary>Inizializza una nuova istanza della classe <see cref="T:System.ServiceModel.DomainServices.Client.ApplicationServices.SaveUserResult"></see>. </summary>
+			<param name="user">Utente salvato.</param>
+		</member>
+	</members>
+</doc>

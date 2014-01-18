@@ -1,0 +1,19 @@
+﻿<!--
+      *********    请勿修改此文件     *********
+      此文件由设计工具再生成。更改
+      此文件可能会导致错误。
+-->
+<SampleData:SampleDataSource xmlns:SampleData="clr-namespace:Expression.Blend.SampleData.SampleDataSource" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+  <SampleData:SampleDataSource.Collection>
+    <SampleData:Item 姓名="Aaberg, Jesper" 婚姻="True" 地址="4567 Main St., Buffalo, NY 98052" />
+    <SampleData:Item 姓名="Adams, Ellen" 婚姻="False" 地址="1234 Main St., Buffalo, NY 98052" />
+    <SampleData:Item 姓名="Adams, Terry" 婚姻="True" 地址="2345 Main St., Buffalo, NY 98052" />
+    <SampleData:Item 姓名="Adams, Terry" 婚姻="False" 地址="789 Main St., Buffalo, NY 98052" />
+    <SampleData:Item 姓名="Penor, Lori" 婚姻="True" 地址="4567 Front St., Seattle, WA 12345" />
+    <SampleData:Item 姓名="Pfeiffer, Michael" 婚姻="False" 地址="1234 Front St., Seattle, WA 12345" />
+    <SampleData:Item 姓名="Philips, Carol" 婚姻="True" 地址="2345 Front St., Seattle, WA 12345" />
+    <SampleData:Item 姓名="Poe, Toni" 婚姻="False" 地址="789 Front St., Seattle, WA 12345" />
+    <SampleData:Item 姓名="Hicks, Cassie" 婚姻="True" 地址="4567 Main St., Seattle, WA 12345" />
+    <SampleData:Item 姓名="Argentiero, Luca" 婚姻="False" 地址="1234 1st Ave, San Francisco, CA 99999" />
+  </SampleData:SampleDataSource.Collection>
+</SampleData:SampleDataSource>

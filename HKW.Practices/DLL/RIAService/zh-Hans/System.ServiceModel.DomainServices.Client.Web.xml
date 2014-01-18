@@ -1,0 +1,217 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<doc>
+	<assembly>
+		<name>System.ServiceModel.DomainServices.Client.Web</name>
+	</assembly>
+	<members>
+		<member name="T:System.ServiceModel.DomainServices.Client.DomainServiceFault">
+			<summary>提供用来在服务器和客户端之间对异常结果进行通信的消息类型。</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.DomainServiceFault.#ctor">
+			<summary>初始化 <see cref="T:System.ServiceModel.DomainServices.Client.DomainServiceFault"></see> 类的新实例。</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.DomainServiceFault.GetValidationErrors">
+			<summary>检索验证错误。</summary>
+			<returns>验证错误的集合。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.DomainServiceFault.ErrorCode">
+			<summary>获取或设置自定义错误代码。</summary>
+			<returns>自定义的错误代码。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.DomainServiceFault.ErrorMessage">
+			<summary>获取或设置用于提供错误详细信息的消息。</summary>
+			<returns>错误消息。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.DomainServiceFault.IsDomainException">
+			<summary>获取或设置一个值，用于指示错误信息是否应当在客户端上重新构造为 <see cref="T:System.ServiceModel.DomainServices.Client.DomainException"></see> 类型。</summary>
+			<returns>如果错误信息在客户端上重新构造为 <see cref="T:System.ServiceModel.DomainServices.Client.DomainException"></see>，则为 true；否则为 false。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.DomainServiceFault.OperationErrors">
+			<summary>获取或设置在请求期间发生的操作错误。</summary>
+			<returns>操作错误的集合。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.DomainServiceFault.StackTrace">
+			<summary>获取或设置错误的堆栈跟踪。</summary>
+			<returns>错误的堆栈跟踪。</returns>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.WebDomainClient`1">
+			<summary>提供使用 Windows Communication Foundation (WCF) 的默认域的客户端实现。</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.WebDomainClient`1.#ctor(System.Uri)">
+			<summary>根据指定的服务 URI 初始化 <see cref="T:System.ServiceModel.DomainServices.Client.WebDomainClient`1"></see> 类的新实例。</summary>
+			<param name="serviceUri">域服务 URI。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.WebDomainClient`1.#ctor(System.Uri,System.Boolean)">
+			<summary>使用指定的服务 URI 和与使用 HTTPS 相对应的选项来初始化 <see cref="T:System.ServiceModel.DomainServices.Client.WebDomainClient`1"></see> 类的新实例。</summary>
+			<param name="serviceUri">域服务 URI。</param>
+			<param name="usesHttps">某个值，用于指示客户端是应使用 HTTP 还是 HTTPS 方案与服务联系。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.WebDomainClient`1.#ctor(System.Uri,System.Boolean,System.ServiceModel.ChannelFactory{`0})">
+			<summary>使用指定的服务 URI、与使用 HTTPS 相对应的选项和通道工厂来初始化 <see cref="T:System.ServiceModel.DomainServices.Client.WebDomainClient`1"></see> 类的新实例。</summary>
+			<param name="channelFactory">用来创建通道以与服务器通信的通道工厂。</param>
+			<param name="serviceUri">域服务 URI。</param>
+			<param name="usesHttps">一个值，用于指示客户端是应使用 HTTP 还是 HTTPS 方案与服务联系。</param>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.WebDomainClient`1.ChannelFactory">
+			<summary>获取用来创建通道以与服务器通信的通道工厂。</summary>
+			<returns>用来创建通道以与服务器通信的通道工厂。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.WebDomainClient`1.ServiceUri">
+			<summary>获取域服务的绝对路径。</summary>
+			<returns>域服务的绝对路径。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.WebDomainClient`1.SupportsCancellation">
+			<summary>获取一个值，用于指示 DomainClient 是否支持取消操作。</summary>
+			<returns>如果 DomainClient 支持取消操作，则为 true；否则为 false。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.WebDomainClient`1.UsesHttps">
+			<summary>获取一个值，用于指示是否应当使用安全连接。</summary>
+			<returns>如果应当使用安全连接，则为 true；否则为 false。</returns>
+		</member>
+		<member name="N:System.ServiceModel.DomainServices.Client.ApplicationServices">
+			<summary>提供要用于从客户端与身份验证域服务进行交互的类。</summary>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationDomainContextBase">
+			<summary>为实现 <see cref="T:System.ServiceModel.DomainServices.Server.ApplicationServices.IAuthentication`1"></see> 的提供程序提供生成为基类的域上下文。</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationDomainContextBase.#ctor(System.ServiceModel.DomainServices.Client.DomainClient)">
+			<summary><see cref="T:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationDomainContextBase"></see> 类新实例的初始化。</summary>
+			<param name="domainClient"><see cref="T:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationDomainContextBase"></see> 应当使用的 <see cref="T:System.ServiceModel.DomainServices.Client.DomainClient"></see> 实例。</param>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.ApplicationServices.FormsAuthentication">
+			<summary>提供一个身份验证服务实现，该实现使用 <see cref="T:System.ServiceModel.DomainServices.Client.DomainContext"></see>（从实现 <see cref="T:System.ServiceModel.DomainServices.Server.ApplicationServices.IAuthentication`1"></see> 接口的域服务生成）执行 Forms 身份验证。</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.FormsAuthentication.#ctor">
+			<summary>初始化 <see cref="T:System.ServiceModel.DomainServices.Client.ApplicationServices.FormsAuthentication"></see> 类的新实例。</summary>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.ApplicationServices.WebAuthenticationService">
+			<summary>提供 <see cref="T:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService"></see> 的抽象扩展，可以与从实现 <see cref="T:System.ServiceModel.DomainServices.Server.ApplicationServices.IAuthentication`1"></see> 的域服务所生成的 <see cref="P:System.ServiceModel.DomainServices.Client.ApplicationServices.WebAuthenticationService.DomainContext"></see> 进行交互。</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.WebAuthenticationService.BeginLoadUser(System.AsyncCallback,System.Object)">
+			<summary>开始异步 <see cref="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.LoadUser(System.Action{System.ServiceModel.DomainServices.Client.ApplicationServices.LoadUserOperation},System.Object)"></see> 操作。</summary>
+			<returns>异步调用的结果。</returns>
+			<param name="callback">在异步调用完成时调用的回调。</param>
+			<param name="state">可选的结果状态。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.WebAuthenticationService.BeginLogin(System.ServiceModel.DomainServices.Client.ApplicationServices.LoginParameters,System.AsyncCallback,System.Object)">
+			<summary>开始异步 Login 操作。</summary>
+			<returns>异步调用的结果。</returns>
+			<param name="callback">在异步调用完成时调用的回调。</param>
+			<param name="state">可选的结果状态。</param>
+			<param name="parameters">用来指定验证用户身份的登录参数。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.WebAuthenticationService.BeginLogout(System.AsyncCallback,System.Object)">
+			<summary>开始异步 Logout 操作。</summary>
+			<returns>异步调用的结果。</returns>
+			<param name="callback">在异步调用完成时调用的回调。</param>
+			<param name="state">可选的结果状态。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.WebAuthenticationService.BeginSaveUser(System.Security.Principal.IPrincipal,System.AsyncCallback,System.Object)">
+			<summary>开始异步 SaveUser 操作。</summary>
+			<returns>异步调用的结果。</returns>
+			<param name="callback">在异步调用完成时调用的回调。</param>
+			<param name="user">要保存的已验证身份的用户。</param>
+			<param name="state">可选的结果状态。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.WebAuthenticationService.CancelLoadUser(System.IAsyncResult)">
+			<summary>取消异步 LoadUser 操作。</summary>
+			<param name="asyncResult">从 <see cref="M:System.ServiceModel.DomainServices.Client.ApplicationServices.WebAuthenticationService.BeginLoadUser(System.AsyncCallback,System.Object)"></see> 返回的结果表示要取消异步调用。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.WebAuthenticationService.CancelLogin(System.IAsyncResult)">
+			<summary>取消异步 Login 操作。</summary>
+			<param name="asyncResult">从 <see cref="M:System.ServiceModel.DomainServices.Client.ApplicationServices.WebAuthenticationService.BeginLogin(System.ServiceModel.DomainServices.Client.ApplicationServices.LoginParameters,System.AsyncCallback,System.Object)"></see> 返回的结果表示要取消异步调用。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.WebAuthenticationService.CancelLogout(System.IAsyncResult)">
+			<summary>取消异步 Logout 操作。</summary>
+			<param name="asyncResult">从 <see cref="M:System.ServiceModel.DomainServices.Client.ApplicationServices.WebAuthenticationService.BeginLogout(System.AsyncCallback,System.Object)"></see> 返回的结果表示要取消异步调用。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.WebAuthenticationService.CancelSaveUser(System.IAsyncResult)">
+			<summary>取消异步 SaveUser 操作。</summary>
+			<param name="asyncResult">从 <see cref="M:System.ServiceModel.DomainServices.Client.ApplicationServices.WebAuthenticationService.BeginSaveUser(System.Security.Principal.IPrincipal,System.AsyncCallback,System.Object)"></see> 返回的结果表示要取消异步调用。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.WebAuthenticationService.CreateDefaultUser">
+			<summary>创建一个默认用户。</summary>
+			<returns>新的用户。</returns>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.WebAuthenticationService.EndLoadUser(System.IAsyncResult)">
+			<summary>结束异步 LoadUser 操作。</summary>
+			<returns>操作的结果。</returns>
+			<param name="asyncResult">从 <see cref="M:System.ServiceModel.DomainServices.Client.ApplicationServices.WebAuthenticationService.BeginLoadUser(System.AsyncCallback,System.Object)"></see> 返回的结果表示要结束异步调用。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.WebAuthenticationService.EndLogin(System.IAsyncResult)">
+			<summary>结束异步 Login 操作。</summary>
+			<returns>操作的结果。</returns>
+			<param name="asyncResult">从 <see cref="M:System.ServiceModel.DomainServices.Client.ApplicationServices.WebAuthenticationService.BeginLogin(System.ServiceModel.DomainServices.Client.ApplicationServices.LoginParameters,System.AsyncCallback,System.Object)"></see> 返回的结果表示要结束异步调用。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.WebAuthenticationService.EndLogout(System.IAsyncResult)">
+			<summary>结束异步 Logout 操作。</summary>
+			<returns>操作的结果。</returns>
+			<param name="asyncResult">从 <see cref="M:System.ServiceModel.DomainServices.Client.ApplicationServices.WebAuthenticationService.BeginLogout(System.AsyncCallback,System.Object)"></see> 返回的结果表示要结束异步调用。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.WebAuthenticationService.EndSaveUser(System.IAsyncResult)">
+			<summary>结束异步 SaveUser 操作。</summary>
+			<returns>操作的结果。</returns>
+			<param name="asyncResult">从 <see cref="M:System.ServiceModel.DomainServices.Client.ApplicationServices.WebAuthenticationService.BeginSaveUser(System.Security.Principal.IPrincipal,System.AsyncCallback,System.Object)"></see> 返回的结果表示要结束异步调用。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.WebAuthenticationService.Initialize">
+			<summary>初始化此身份验证服务。</summary>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.ApplicationServices.WebAuthenticationService.DomainContext">
+			<summary>获取或设置该服务将身份验证、加载和保存委托至目标的域上下文。</summary>
+			<returns>域上下文。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.ApplicationServices.WebAuthenticationService.DomainContextType">
+			<summary>获取或设置域上下文的类型。</summary>
+			<returns>域上下文的类型。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.ApplicationServices.WebAuthenticationService.SupportsCancellation">
+			<summary>获取一个值，用于指示此服务是否支持取消操作。</summary>
+			<returns>始终为 true。</returns>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.ApplicationServices.WebContextBase">
+			<summary>提供应用程序的上下文。</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.WebContextBase.#ctor">
+			<summary><see cref="T:System.ServiceModel.DomainServices.Client.ApplicationServices.WebContextBase"></see> 类新实例的初始化。</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.WebContextBase.OnPropertyChanged(System.ComponentModel.PropertyChangedEventArgs)">
+			<summary>引发 PropertyChanged 事件。</summary>
+			<param name="e">要引发的事件。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.WebContextBase.RaisePropertyChanged(System.String)">
+			<summary>引发指定属性的 PropertyChanged 事件。</summary>
+			<param name="propertyName">针对自身引发事件的属性。</param>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.ApplicationServices.WebContextBase.Authentication">
+			<summary>获取或设置应用程序的身份验证上下文。</summary>
+			<returns>应用程序的身份验证上下文。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.ApplicationServices.WebContextBase.Current">
+			<summary>获取注册为当前应用程序生存期对象的上下文。</summary>
+			<returns>注册为当前应用程序生存期对象的上下文。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.ApplicationServices.WebContextBase.User">
+			<summary>获取表示标识已经过身份验证的主体。</summary>
+			<returns>表示标识已经过身份验证的主体。</returns>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.ApplicationServices.WindowsAuthentication">
+			<summary>提供身份验证服务应用，通过使用由域服务生成的 <see cref="T:System.ServiceModel.DomainServices.Client.DomainContext"></see> 执行 Windows 身份验证，该域服务应用 <see cref="T:System.ServiceModel.DomainServices.Server.ApplicationServices.IAuthentication`1"></see> 接口。</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.WindowsAuthentication.#ctor">
+			<summary><see cref="T:System.ServiceModel.DomainServices.Client.ApplicationServices.WindowsAuthentication"></see> 类新实例的初始化。</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.WindowsAuthentication.BeginLogin(System.ServiceModel.DomainServices.Client.ApplicationServices.LoginParameters,System.AsyncCallback,System.Object)">
+			<summary>Windows 身份验证不支持 Login 操作。</summary>
+			<returns>在所有情况下均为 null。</returns>
+			<param name="callback">未使用此参数。</param>
+			<param name="state">未使用此参数。</param>
+			<param name="parameters">未使用此参数。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.WindowsAuthentication.BeginLogout(System.AsyncCallback,System.Object)">
+			<summary>Windows 身份验证不支持 Logout 操作。</summary>
+			<returns>在所有情况下均为 null。</returns>
+			<param name="callback">未使用此参数。</param>
+			<param name="state">未使用此参数。</param>
+		</member>
+	</members>
+</doc>

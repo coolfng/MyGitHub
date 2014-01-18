@@ -1,0 +1,86 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{44B7E224-7E9C-49A5-A410-5D0A22184261}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>HKW.Practices.Domain</RootNamespace>
+    <AssemblyName>HKW.Practices.Domain</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="NHibernate, Version=3.3.1.4000, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\DLL\NHibernate3.3.1\NHibernate.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.ServiceModel.DomainServices.Server, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Dao\EnumManageDao.cs" />
+    <Compile Include="Dao\RoleDao.cs" />
+    <Compile Include="Dao\SubSystemDao.cs" />
+    <Compile Include="EntitesExtend\SYS\User.cs" />
+    <Compile Include="Entities\SYS\EnumDetail.cs" />
+    <Compile Include="Entities\SYS\EnumHeader.cs" />
+    <Compile Include="Entities\SYS\FunUnit.cs" />
+    <Compile Include="Entities\SYS\Role.cs" />
+    <Compile Include="Entities\SYS\RoleAuthorize.cs" />
+    <Compile Include="Entities\SYS\SubSystem.cs" />
+    <Compile Include="Entities\SYS\User.cs" />
+    <Compile Include="Entities\SYS\UserAuthorize.cs" />
+    <Compile Include="MappingFluently\SYS\EnumDetailMapping.cs" />
+    <Compile Include="MappingFluently\SYS\EnumHeaderMapping.cs" />
+    <Compile Include="MappingFluently\SYS\FunUnitMapping.cs" />
+    <Compile Include="MappingFluently\SYS\RoleAuthorizeMapping.cs" />
+    <Compile Include="MappingFluently\SYS\RoleMapping.cs" />
+    <Compile Include="MappingFluently\SYS\SubSystemMapping.cs" />
+    <Compile Include="MappingFluently\SYS\UserAuthorizeMapping.cs" />
+    <Compile Include="MappingFluently\SYS\UserMapping.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\HKW.Practices.NHBase\HKW.Practices.NHBase.csproj">
+      <Project>{924ca1da-4b22-4121-ac9a-4780f5acf527}</Project>
+      <Name>HKW.Practices.NHBase</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>xcopy /r /y $(TargetPath) $(ProjectDir)..\Release\</PostBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

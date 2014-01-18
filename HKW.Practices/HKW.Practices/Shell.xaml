@@ -1,0 +1,15 @@
+﻿<UserControl x:Class="HKW.Practices.Shell"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:regions="clr-namespace:Microsoft.Practices.Prism.Regions;assembly=Microsoft.Practices.Prism"
+             xmlns:toolkit="http://schemas.microsoft.com/winfx/2006/xaml/presentation/toolkit"
+             mc:Ignorable="d"
+    d:DesignHeight="480" d:DesignWidth="640">
+
+    <Grid MinWidth="640" MaxWidth="1920" MinHeight="480" MaxHeight="1080">
+        <toolkit:SystemColorsTheme x:Name="RootRegion"  regions:RegionManager.RegionName="RootRegion" 
+        		HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" />
+    </Grid>
+</UserControl>

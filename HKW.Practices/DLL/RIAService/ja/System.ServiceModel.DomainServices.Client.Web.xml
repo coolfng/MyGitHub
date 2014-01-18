@@ -1,0 +1,217 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<doc>
+	<assembly>
+		<name>System.ServiceModel.DomainServices.Client.Web</name>
+	</assembly>
+	<members>
+		<member name="T:System.ServiceModel.DomainServices.Client.DomainServiceFault">
+			<summary>サーバーとクライアントの間で例外の結果の伝達に使用されるメッセージ型を提供します。</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.DomainServiceFault.#ctor">
+			<summary><see cref="T:System.ServiceModel.DomainServices.Client.DomainServiceFault"></see> クラスの新しいインスタンスを初期化します。</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.DomainServiceFault.GetValidationErrors">
+			<summary>検証エラーを取得します。</summary>
+			<returns>検証エラーのコレクション。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.DomainServiceFault.ErrorCode">
+			<summary>エラーのカスタム コードを取得または設定します。</summary>
+			<returns>カスタム エラー コード。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.DomainServiceFault.ErrorMessage">
+			<summary>エラーの詳細情報を提供するメッセージを取得または設定します。</summary>
+			<returns>エラー メッセージ。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.DomainServiceFault.IsDomainException">
+			<summary>エラー情報を <see cref="T:System.ServiceModel.DomainServices.Client.DomainException"></see> 型としてクライアントで再構築する必要があるかどうかを示す値を取得または設定します。</summary>
+			<returns>エラー情報を <see cref="T:System.ServiceModel.DomainServices.Client.DomainException"></see> としてクライアントで再構築する必要がある場合は true。それ以外の場合は false。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.DomainServiceFault.OperationErrors">
+			<summary>この要求中に発生した操作エラーを取得または設定します。</summary>
+			<returns>操作エラーのコレクション。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.DomainServiceFault.StackTrace">
+			<summary>エラーのスタック トレースを取得または設定します。</summary>
+			<returns>エラーのスタック トレース。</returns>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.WebDomainClient`1">
+			<summary>Windows Communication Foundation (WCF) を使用して既定のドメイン クライアント実装を提供します。</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.WebDomainClient`1.#ctor(System.Uri)">
+			<summary>指定されたサービスの URI を使用して <see cref="T:System.ServiceModel.DomainServices.Client.WebDomainClient`1"></see> クラスの新しいインスタンスを初期化します。</summary>
+			<param name="serviceUri">ドメイン サービス URI。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.WebDomainClient`1.#ctor(System.Uri,System.Boolean)">
+			<summary>指定されたサービス URI と HTTPS を使用するオプションで <see cref="T:System.ServiceModel.DomainServices.Client.WebDomainClient`1"></see> クラスの新しいインスタンスを初期化します。</summary>
+			<param name="serviceUri">ドメイン サービス URI。</param>
+			<param name="usesHttps">クライアントが HTTP または HTTPS スキーマを使用するサービスに問い合わせる必要があるかどうかを示す値。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.WebDomainClient`1.#ctor(System.Uri,System.Boolean,System.ServiceModel.ChannelFactory{`0})">
+			<summary>指定されたサービス URI、HTTPS を使用するオプション、およびチャネル ファクトリで <see cref="T:System.ServiceModel.DomainServices.Client.WebDomainClient`1"></see> クラスの新しいインスタンスを初期化します。</summary>
+			<param name="channelFactory">サーバーと通信するチャネルを作成するチャネル ファクトリ。</param>
+			<param name="serviceUri">ドメイン サービス URI。</param>
+			<param name="usesHttps">クライアントが HTTP または HTTPS スキーマを使用するサービスに問い合わせる必要があるかどうかを示す値。</param>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.WebDomainClient`1.ChannelFactory">
+			<summary>サーバーと通信するチャネルを作成するために使用されるチャネル ファクトリを取得します。</summary>
+			<returns>サーバーと通信するチャネルを作成するために使用されるチャネル ファクトリ。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.WebDomainClient`1.ServiceUri">
+			<summary>ドメイン サービスへの絶対パスを取得します。</summary>
+			<returns>ドメイン サービスへの絶対パス。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.WebDomainClient`1.SupportsCancellation">
+			<summary>DomainClient でキャンセルがサポートされているかどうかを示す値を取得します。</summary>
+			<returns>この DomainClient がキャンセルをサポートする場合は true。それ以外の場合は false。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.WebDomainClient`1.UsesHttps">
+			<summary>セキュリティで保護された接続を使用する必要があるかどうかを示す値を取得します。</summary>
+			<returns>セキュリティで保護された接続を使用する必要がある場合は true、それ以外の場合は false。</returns>
+		</member>
+		<member name="N:System.ServiceModel.DomainServices.Client.ApplicationServices">
+			<summary>クライアントで認証ドメイン サービスとの対話に使用するクラスを提供します。</summary>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationDomainContextBase">
+			<summary><see cref="T:System.ServiceModel.DomainServices.Server.ApplicationServices.IAuthentication`1"></see> を実装するプロバイダーの基本クラスとして生成されたドメイン コンテキストを提供します。</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationDomainContextBase.#ctor(System.ServiceModel.DomainServices.Client.DomainClient)">
+			<summary><see cref="T:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationDomainContextBase"></see> クラスの新しいインスタンスを初期化します。</summary>
+			<param name="domainClient">この <see cref="T:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationDomainContextBase"></see> で使用する必要のある <see cref="T:System.ServiceModel.DomainServices.Client.DomainClient"></see> インスタンス。</param>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.ApplicationServices.FormsAuthentication">
+			<summary><see cref="T:System.ServiceModel.DomainServices.Server.ApplicationServices.IAuthentication`1"></see> インターフェイスを実装するドメイン サービスから生成された <see cref="T:System.ServiceModel.DomainServices.Client.DomainContext"></see> を使用してフォーム認証を実行する認証サービスの実装を提供します。</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.FormsAuthentication.#ctor">
+			<summary><see cref="T:System.ServiceModel.DomainServices.Client.ApplicationServices.FormsAuthentication"></see> クラスの新しいインスタンスを初期化します。</summary>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.ApplicationServices.WebAuthenticationService">
+			<summary><see cref="T:System.ServiceModel.DomainServices.Server.ApplicationServices.IAuthentication`1"></see> を実装するドメイン サービスで生成された <see cref="P:System.ServiceModel.DomainServices.Client.ApplicationServices.WebAuthenticationService.DomainContext"></see> と対話する <see cref="T:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService"></see> の抽象拡張を提供します。</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.WebAuthenticationService.BeginLoadUser(System.AsyncCallback,System.Object)">
+			<summary>非同期の <see cref="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.LoadUser(System.Action{System.ServiceModel.DomainServices.Client.ApplicationServices.LoadUserOperation},System.Object)"></see> 操作を開始します。</summary>
+			<returns>非同期呼び出しの結果。</returns>
+			<param name="callback">非同期呼び出しが完了したときに呼び出すコールバック。</param>
+			<param name="state">省略可能な結果の状態。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.WebAuthenticationService.BeginLogin(System.ServiceModel.DomainServices.Client.ApplicationServices.LoginParameters,System.AsyncCallback,System.Object)">
+			<summary>非同期の Login 操作を開始します。</summary>
+			<returns>非同期呼び出しの結果。</returns>
+			<param name="callback">非同期呼び出しが完了したときに呼び出すコールバック。</param>
+			<param name="state">省略可能な結果の状態。</param>
+			<param name="parameters">認証するユーザーを指定する Login パラメーター。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.WebAuthenticationService.BeginLogout(System.AsyncCallback,System.Object)">
+			<summary>非同期の Logout 操作を開始します。</summary>
+			<returns>非同期呼び出しの結果。</returns>
+			<param name="callback">非同期呼び出しが完了したときに呼び出すコールバック。</param>
+			<param name="state">省略可能な結果の状態。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.WebAuthenticationService.BeginSaveUser(System.Security.Principal.IPrincipal,System.AsyncCallback,System.Object)">
+			<summary>非同期の SaveUser 操作を開始します。</summary>
+			<returns>非同期呼び出しの結果。</returns>
+			<param name="callback">非同期呼び出しが完了したときに呼び出すコールバック。</param>
+			<param name="user">保存する認証済みユーザー。</param>
+			<param name="state">省略可能な結果の状態。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.WebAuthenticationService.CancelLoadUser(System.IAsyncResult)">
+			<summary>非同期の LoadUser 操作をキャンセルします。</summary>
+			<param name="asyncResult">キャンセルする非同期呼び出しを表す <see cref="M:System.ServiceModel.DomainServices.Client.ApplicationServices.WebAuthenticationService.BeginLoadUser(System.AsyncCallback,System.Object)"></see> から返された結果。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.WebAuthenticationService.CancelLogin(System.IAsyncResult)">
+			<summary>非同期の Login 操作をキャンセルします。</summary>
+			<param name="asyncResult">キャンセルする非同期呼び出しを表す <see cref="M:System.ServiceModel.DomainServices.Client.ApplicationServices.WebAuthenticationService.BeginLogin(System.ServiceModel.DomainServices.Client.ApplicationServices.LoginParameters,System.AsyncCallback,System.Object)"></see> から返された結果。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.WebAuthenticationService.CancelLogout(System.IAsyncResult)">
+			<summary>非同期の Logout 操作をキャンセルします。</summary>
+			<param name="asyncResult">キャンセルする非同期呼び出しを表す <see cref="M:System.ServiceModel.DomainServices.Client.ApplicationServices.WebAuthenticationService.BeginLogout(System.AsyncCallback,System.Object)"></see> から返された結果。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.WebAuthenticationService.CancelSaveUser(System.IAsyncResult)">
+			<summary>非同期の SaveUser 操作をキャンセルします。</summary>
+			<param name="asyncResult">キャンセルする非同期呼び出しを表す <see cref="M:System.ServiceModel.DomainServices.Client.ApplicationServices.WebAuthenticationService.BeginSaveUser(System.Security.Principal.IPrincipal,System.AsyncCallback,System.Object)"></see> から返された結果。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.WebAuthenticationService.CreateDefaultUser">
+			<summary>既定のユーザーを作成します。</summary>
+			<returns>新しいユーザー。</returns>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.WebAuthenticationService.EndLoadUser(System.IAsyncResult)">
+			<summary>非同期の LoadUser 操作を終了します。</summary>
+			<returns>演算の結果。</returns>
+			<param name="asyncResult">終了する非同期呼び出しを表す <see cref="M:System.ServiceModel.DomainServices.Client.ApplicationServices.WebAuthenticationService.BeginLoadUser(System.AsyncCallback,System.Object)"></see> から返された結果。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.WebAuthenticationService.EndLogin(System.IAsyncResult)">
+			<summary>非同期の Login 操作を終了します。</summary>
+			<returns>演算の結果。</returns>
+			<param name="asyncResult">終了する非同期呼び出しを表す <see cref="M:System.ServiceModel.DomainServices.Client.ApplicationServices.WebAuthenticationService.BeginLogin(System.ServiceModel.DomainServices.Client.ApplicationServices.LoginParameters,System.AsyncCallback,System.Object)"></see> から返された結果。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.WebAuthenticationService.EndLogout(System.IAsyncResult)">
+			<summary>非同期の Logout 操作を終了します。</summary>
+			<returns>演算の結果。</returns>
+			<param name="asyncResult">終了する非同期呼び出しを表す <see cref="M:System.ServiceModel.DomainServices.Client.ApplicationServices.WebAuthenticationService.BeginLogout(System.AsyncCallback,System.Object)"></see> から返された結果。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.WebAuthenticationService.EndSaveUser(System.IAsyncResult)">
+			<summary>非同期の SaveUser 操作を終了します。</summary>
+			<returns>演算の結果。</returns>
+			<param name="asyncResult">終了する非同期呼び出しを表す <see cref="M:System.ServiceModel.DomainServices.Client.ApplicationServices.WebAuthenticationService.BeginSaveUser(System.Security.Principal.IPrincipal,System.AsyncCallback,System.Object)"></see> から返された結果。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.WebAuthenticationService.Initialize">
+			<summary>この認証サービスを初期化します。</summary>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.ApplicationServices.WebAuthenticationService.DomainContext">
+			<summary>このサービスが認証、読み込み、および保存をデリゲートするドメイン コンテキストを取得または設定します。</summary>
+			<returns>ドメイン コンテキスト。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.ApplicationServices.WebAuthenticationService.DomainContextType">
+			<summary>ドメイン コンテキストの型を取得または設定します。</summary>
+			<returns>ドメイン コンテキストの型。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.ApplicationServices.WebAuthenticationService.SupportsCancellation">
+			<summary>このサービスでキャンセルがサポートされているかどうかを示す値を取得します。</summary>
+			<returns>常に true です。</returns>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.ApplicationServices.WebContextBase">
+			<summary>アプリケーションのコンテキストを提供します。</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.WebContextBase.#ctor">
+			<summary><see cref="T:System.ServiceModel.DomainServices.Client.ApplicationServices.WebContextBase"></see> クラスの新しいインスタンスを初期化します。</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.WebContextBase.OnPropertyChanged(System.ComponentModel.PropertyChangedEventArgs)">
+			<summary>Raises a PropertyChanged イベントを発生します。</summary>
+			<param name="e">発生させるイベント。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.WebContextBase.RaisePropertyChanged(System.String)">
+			<summary>指定したプロパティの PropertyChanged イベントを発生します。</summary>
+			<param name="propertyName">プロパティによるイベントの発生対象。</param>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.ApplicationServices.WebContextBase.Authentication">
+			<summary>アプリケーションの認証コンテキストを取得または設定します。</summary>
+			<returns>アプリケーションの認証コンテキスト。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.ApplicationServices.WebContextBase.Current">
+			<summary>現在のアプリケーションと共に有効期間オブジェクトとして登録されたコンテキストを取得します。</summary>
+			<returns>現在のアプリケーションと共に有効期間オブジェクトとして登録されたコンテキスト。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.ApplicationServices.WebContextBase.User">
+			<summary>認証 ID を表すプリンシパルを取得します。</summary>
+			<returns>認証 ID を表すプリンシパル。</returns>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.ApplicationServices.WindowsAuthentication">
+			<summary><see cref="T:System.ServiceModel.DomainServices.Server.ApplicationServices.IAuthentication`1"></see> インターフェイスを実装するドメイン サービスから生成された <see cref="T:System.ServiceModel.DomainServices.Client.DomainContext"></see> を使用して Windows 認証を実行する認証サービスの実装を提供します。</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.WindowsAuthentication.#ctor">
+			<summary><see cref="T:System.ServiceModel.DomainServices.Client.ApplicationServices.WindowsAuthentication"></see> クラスの新しいインスタンスを初期化します。</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.WindowsAuthentication.BeginLogin(System.ServiceModel.DomainServices.Client.ApplicationServices.LoginParameters,System.AsyncCallback,System.Object)">
+			<summary>Windows 認証では、Login はサポートされた操作ではありません。</summary>
+			<returns>常に null。</returns>
+			<param name="callback">このパラメーターは使用されません。</param>
+			<param name="state">このパラメーターは使用されません。</param>
+			<param name="parameters">このパラメーターは使用されません。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.WindowsAuthentication.BeginLogout(System.AsyncCallback,System.Object)">
+			<summary>Windows 認証では、Logout はサポートされた操作ではありません。</summary>
+			<returns>常に null。</returns>
+			<param name="callback">このパラメーターは使用されません。</param>
+			<param name="state">このパラメーターは使用されません。</param>
+		</member>
+	</members>
+</doc>

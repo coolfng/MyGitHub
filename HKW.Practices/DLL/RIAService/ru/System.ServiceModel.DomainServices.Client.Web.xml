@@ -1,0 +1,217 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<doc>
+	<assembly>
+		<name>System.ServiceModel.DomainServices.Client.Web</name>
+	</assembly>
+	<members>
+		<member name="T:System.ServiceModel.DomainServices.Client.DomainServiceFault">
+			<summary>Предоставляет тип сообщений, используемый для обмена результатами исключения между сервером и клиентом.</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.DomainServiceFault.#ctor">
+			<summary>Инициализирует новый экземпляр класса <see cref="T:System.ServiceModel.DomainServices.Client.DomainServiceFault"></see>. </summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.DomainServiceFault.GetValidationErrors">
+			<summary>Извлекает ошибки проверки.</summary>
+			<returns>Коллекция ошибок проверки.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.DomainServiceFault.ErrorCode">
+			<summary>Возвращает или задает пользовательский код ошибки.</summary>
+			<returns>Пользовательский код ошибки.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.DomainServiceFault.ErrorMessage">
+			<summary>Возвращает или задает сообщение, содержащее сведения об ошибке.</summary>
+			<returns>Сообщение об ошибке.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.DomainServiceFault.IsDomainException">
+			<summary>Возвращает или задает значение, указывающее, должны ли сведения об ошибке реконструироваться на клиенте как тип <see cref="T:System.ServiceModel.DomainServices.Client.DomainException"></see>.</summary>
+			<returns>Значение true, если сведения об ошибке должны реконструироваться на клиенте как тип <see cref="T:System.ServiceModel.DomainServices.Client.DomainException"></see>. В противном случае — значение false.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.DomainServiceFault.OperationErrors">
+			<summary>Возвращает или задает ошибки операции, возникшие во время запроса.</summary>
+			<returns>Коллекция ошибок операции.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.DomainServiceFault.StackTrace">
+			<summary>Возвращает или задает трассировку стека для ошибки.</summary>
+			<returns>Трассировка стека для ошибки.</returns>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.WebDomainClient`1">
+			<summary>Предоставляет реализацию клиента домена по умолчанию с использованием Windows Communication Foundation (WCF).</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.WebDomainClient`1.#ctor(System.Uri)">
+			<summary>Инициализирует новый экземпляр класса <see cref="T:System.ServiceModel.DomainServices.Client.WebDomainClient`1"></see> с заданным URI службы. </summary>
+			<param name="serviceUri">URI службы домена.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.WebDomainClient`1.#ctor(System.Uri,System.Boolean)">
+			<summary>Инициализирует новый экземпляр класса <see cref="T:System.ServiceModel.DomainServices.Client.WebDomainClient`1"></see> с заданным URI службы и возможностью использовать HTTPS.</summary>
+			<param name="serviceUri">URI службы домена.</param>
+			<param name="usesHttps">Значение, указывающее, должен ли клиент обращаться к службе с использованием схемы HTTP или HTTPS.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.WebDomainClient`1.#ctor(System.Uri,System.Boolean,System.ServiceModel.ChannelFactory{`0})">
+			<summary>Инициализирует новый экземпляр класса <see cref="T:System.ServiceModel.DomainServices.Client.WebDomainClient`1"></see> с заданным URI службы, возможностью использовать HTTPS и фабрикой каналов. </summary>
+			<param name="channelFactory">Фабрика каналов, которая создает каналы для связи с сервером.</param>
+			<param name="serviceUri">URI службы домена.</param>
+			<param name="usesHttps">Значение, указывающее, должен ли клиент обращаться к службе с использованием схемы HTTP или HTTPS.</param>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.WebDomainClient`1.ChannelFactory">
+			<summary>Возвращает фабрику каналов, которая используется для создания каналов связи с сервером.</summary>
+			<returns>Фабрика каналов, которая используется для создания каналов связи с сервером.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.WebDomainClient`1.ServiceUri">
+			<summary>Возвращает абсолютный путь к службе домена.</summary>
+			<returns>Абсолютный путь к службе домена.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.WebDomainClient`1.SupportsCancellation">
+			<summary>Возвращает значение, указывающее, поддерживает ли отмену класс DomainClient.</summary>
+			<returns>Значение true, если класс DomainClient поддерживает отмену. В противном случае — значение false.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.WebDomainClient`1.UsesHttps">
+			<summary>Возвращает значение, показывающее, нужно ли использовать безопасное соединение.</summary>
+			<returns>Значение true, если должно использоваться безопасное соединение. В противном случае — значение false.</returns>
+		</member>
+		<member name="N:System.ServiceModel.DomainServices.Client.ApplicationServices">
+			<summary>Представляет классы, которые используются на клиенте для взаимодействия с доменной службой проверки подлинности.</summary>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationDomainContextBase">
+			<summary>Представляет контекст домена, сформированный в качестве базового класса для поставщиков, реализующих интерфейс <see cref="T:System.ServiceModel.DomainServices.Server.ApplicationServices.IAuthentication`1"></see>.</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationDomainContextBase.#ctor(System.ServiceModel.DomainServices.Client.DomainClient)">
+			<summary>Инициализирует новый экземпляр класса <see cref="T:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationDomainContextBase"></see>. </summary>
+			<param name="domainClient">Экземпляр <see cref="T:System.ServiceModel.DomainServices.Client.DomainClient"></see>, который должен использоваться в этом контексте <see cref="T:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationDomainContextBase"></see>.</param>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.ApplicationServices.FormsAuthentication">
+			<summary>Представляет реализацию службы проверки подлинности с помощью форм с использованием объекта <see cref="T:System.ServiceModel.DomainServices.Client.DomainContext"></see>, созданного из службы доменов, реализующей интерфейс <see cref="T:System.ServiceModel.DomainServices.Server.ApplicationServices.IAuthentication`1"></see>.</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.FormsAuthentication.#ctor">
+			<summary>Инициализирует новый экземпляр класса <see cref="T:System.ServiceModel.DomainServices.Client.ApplicationServices.FormsAuthentication"></see>. </summary>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.ApplicationServices.WebAuthenticationService">
+			<summary>Представляет абстрактное расширение класса <see cref="T:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService"></see>, взаимодействующее с объектом <see cref="P:System.ServiceModel.DomainServices.Client.ApplicationServices.WebAuthenticationService.DomainContext"></see>, сформированным из службы домена, реализующей интерфейс <see cref="T:System.ServiceModel.DomainServices.Server.ApplicationServices.IAuthentication`1"></see>.</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.WebAuthenticationService.BeginLoadUser(System.AsyncCallback,System.Object)">
+			<summary>Начинает асинхронную операцию <see cref="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.LoadUser(System.Action{System.ServiceModel.DomainServices.Client.ApplicationServices.LoadUserOperation},System.Object)"></see>.</summary>
+			<returns>Результат асинхронного вызова.</returns>
+			<param name="callback">Функция обратного вызова, вызываемая после завершения асинхронного вызова.</param>
+			<param name="state">Необязательное состояние результата.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.WebAuthenticationService.BeginLogin(System.ServiceModel.DomainServices.Client.ApplicationServices.LoginParameters,System.AsyncCallback,System.Object)">
+			<summary>Начинает асинхронную операцию Login.</summary>
+			<returns>Результат асинхронного вызова.</returns>
+			<param name="callback">Функция обратного вызова, вызываемая после завершения асинхронного вызова.</param>
+			<param name="state">Необязательное состояние результата.</param>
+			<param name="parameters">Параметры входа, указанные пользователем при проверке подлинности.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.WebAuthenticationService.BeginLogout(System.AsyncCallback,System.Object)">
+			<summary>Начинает асинхронную операцию Logout.</summary>
+			<returns>Результат асинхронного вызова.</returns>
+			<param name="callback">Функция обратного вызова, вызываемая после завершения асинхронного вызова.</param>
+			<param name="state">Необязательное состояние результата.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.WebAuthenticationService.BeginSaveUser(System.Security.Principal.IPrincipal,System.AsyncCallback,System.Object)">
+			<summary>Начинает асинхронную операцию SaveUser.</summary>
+			<returns>Результат асинхронного вызова.</returns>
+			<param name="callback">Функция обратного вызова, вызываемая после завершения асинхронного вызова.</param>
+			<param name="user">Пользователь, прошедший проверку подлинности, для сохранения.</param>
+			<param name="state">Необязательное состояние результата.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.WebAuthenticationService.CancelLoadUser(System.IAsyncResult)">
+			<summary>Отменяет асинхронную операцию LoadUser.</summary>
+			<param name="asyncResult">Результат, возвращенный методом <see cref="M:System.ServiceModel.DomainServices.Client.ApplicationServices.WebAuthenticationService.BeginLoadUser(System.AsyncCallback,System.Object)"></see> и представляющий асинхронный вызов для отмены.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.WebAuthenticationService.CancelLogin(System.IAsyncResult)">
+			<summary>Отменяет асинхронную операцию Login.</summary>
+			<param name="asyncResult">Результат, возвращенный из метода <see cref="M:System.ServiceModel.DomainServices.Client.ApplicationServices.WebAuthenticationService.BeginLogin(System.ServiceModel.DomainServices.Client.ApplicationServices.LoginParameters,System.AsyncCallback,System.Object)"></see> и представляющий асинхронный вызов для отмены.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.WebAuthenticationService.CancelLogout(System.IAsyncResult)">
+			<summary>Отменяет асинхронную операцию Logout.</summary>
+			<param name="asyncResult">Результат, возвращенный из метода <see cref="M:System.ServiceModel.DomainServices.Client.ApplicationServices.WebAuthenticationService.BeginLogout(System.AsyncCallback,System.Object)"></see> и представляющий асинхронный вызов для отмены.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.WebAuthenticationService.CancelSaveUser(System.IAsyncResult)">
+			<summary>Отменяет асинхронную операцию SaveUser.</summary>
+			<param name="asyncResult">Результат, возвращенный из метода <see cref="M:System.ServiceModel.DomainServices.Client.ApplicationServices.WebAuthenticationService.BeginSaveUser(System.Security.Principal.IPrincipal,System.AsyncCallback,System.Object)"></see> и представляющий асинхронный вызов для отмены.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.WebAuthenticationService.CreateDefaultUser">
+			<summary>Создает пользователя по умолчанию.</summary>
+			<returns>Новый пользователь.</returns>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.WebAuthenticationService.EndLoadUser(System.IAsyncResult)">
+			<summary>Завершает асинхронную операцию LoadUser.</summary>
+			<returns>Результат операции.</returns>
+			<param name="asyncResult">Результат, возвращенный из метода <see cref="M:System.ServiceModel.DomainServices.Client.ApplicationServices.WebAuthenticationService.BeginLoadUser(System.AsyncCallback,System.Object)"></see> и представляющий асинхронный вызов для завершения.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.WebAuthenticationService.EndLogin(System.IAsyncResult)">
+			<summary>Завершает асинхронную операцию Login.</summary>
+			<returns>Результат операции.</returns>
+			<param name="asyncResult">Результат, возвращенный из метода <see cref="M:System.ServiceModel.DomainServices.Client.ApplicationServices.WebAuthenticationService.BeginLogin(System.ServiceModel.DomainServices.Client.ApplicationServices.LoginParameters,System.AsyncCallback,System.Object)"></see> и представляющий асинхронный вызов для завершения.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.WebAuthenticationService.EndLogout(System.IAsyncResult)">
+			<summary>Завершает асинхронную операцию Logout.</summary>
+			<returns>Результат операции.</returns>
+			<param name="asyncResult">Результат, возвращенный из метода <see cref="M:System.ServiceModel.DomainServices.Client.ApplicationServices.WebAuthenticationService.BeginLogout(System.AsyncCallback,System.Object)"></see> и представляющий асинхронный вызов для завершения.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.WebAuthenticationService.EndSaveUser(System.IAsyncResult)">
+			<summary>Завершает асинхронную операцию SaveUser.</summary>
+			<returns>Результат операции.</returns>
+			<param name="asyncResult">Результат, возвращенный из метода <see cref="M:System.ServiceModel.DomainServices.Client.ApplicationServices.WebAuthenticationService.BeginSaveUser(System.Security.Principal.IPrincipal,System.AsyncCallback,System.Object)"></see> и представляющий асинхронный вызов для завершения.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.WebAuthenticationService.Initialize">
+			<summary>Инициализирует службу проверки подлинности.</summary>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.ApplicationServices.WebAuthenticationService.DomainContext">
+			<summary>Возвращает или задает контекст домена, в котором делегаты этой службы производят проверку подлинности, загрузку и сохранение.</summary>
+			<returns>Контекст домена.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.ApplicationServices.WebAuthenticationService.DomainContextType">
+			<summary>Возвращает или задает тип контекста домена.</summary>
+			<returns>Тип контекста домена.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.ApplicationServices.WebAuthenticationService.SupportsCancellation">
+			<summary>Возвращает значение, которое указывает, поддерживает ли эта служба отмену.</summary>
+			<returns>Всегда имеет значение true.</returns>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.ApplicationServices.WebContextBase">
+			<summary>Предоставляет контекст для приложения.</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.WebContextBase.#ctor">
+			<summary>Инициализирует новый экземпляр класса <see cref="T:System.ServiceModel.DomainServices.Client.ApplicationServices.WebContextBase"></see>. </summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.WebContextBase.OnPropertyChanged(System.ComponentModel.PropertyChangedEventArgs)">
+			<summary>Вызывает событие PropertyChanged.</summary>
+			<param name="e">Вызываемое событие.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.WebContextBase.RaisePropertyChanged(System.String)">
+			<summary>Вызывает событие PropertyChanged для указанного свойства.</summary>
+			<param name="propertyName">Свойство, для которого вызывается событие.</param>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.ApplicationServices.WebContextBase.Authentication">
+			<summary>Возвращает или задает контекст проверки подлинности для приложения.</summary>
+			<returns>Контекст проверки подлинности для приложения.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.ApplicationServices.WebContextBase.Current">
+			<summary>Возвращает контекст, зарегистрированный как объект времени существования в текущем приложении.</summary>
+			<returns>Контекст, зарегистрированный как объект времени существования в текущем приложении.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.ApplicationServices.WebContextBase.User">
+			<summary>Возвращает участника, представляемого удостоверением, прошедшим проверку подлинности.</summary>
+			<returns>Участник, представляемый удостоверением, прошедшим проверку подлинности.</returns>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.ApplicationServices.WindowsAuthentication">
+			<summary>Представляет реализацию службы проверки подлинности Windows с помощью объекта <see cref="T:System.ServiceModel.DomainServices.Client.DomainContext"></see>, созданного из службы доменов, реализующей интерфейс <see cref="T:System.ServiceModel.DomainServices.Server.ApplicationServices.IAuthentication`1"></see>.</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.WindowsAuthentication.#ctor">
+			<summary>Инициализирует новый экземпляр класса <see cref="T:System.ServiceModel.DomainServices.Client.ApplicationServices.WindowsAuthentication"></see>.</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.WindowsAuthentication.BeginLogin(System.ServiceModel.DomainServices.Client.ApplicationServices.LoginParameters,System.AsyncCallback,System.Object)">
+			<summary>Операция Login не поддерживается для проверки подлинности Windows.</summary>
+			<returns>Значение null во всех случаях.</returns>
+			<param name="callback">Этот параметр не используется.</param>
+			<param name="state">Этот параметр не используется.</param>
+			<param name="parameters">Этот параметр не используется.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.WindowsAuthentication.BeginLogout(System.AsyncCallback,System.Object)">
+			<summary>Операция Logout не поддерживается для проверки подлинности Windows.</summary>
+			<returns>Значение null во всех случаях.</returns>
+			<param name="callback">Этот параметр не используется.</param>
+			<param name="state">Этот параметр не используется.</param>
+		</member>
+	</members>
+</doc>

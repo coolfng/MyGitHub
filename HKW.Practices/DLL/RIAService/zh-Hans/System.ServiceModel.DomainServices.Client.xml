@@ -1,0 +1,1858 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<doc>
+	<assembly>
+		<name>System.ServiceModel.DomainServices.Client</name>
+	</assembly>
+	<members>
+		<member name="T:System.ComponentModel.DataAnnotations.CompositionAttribute">
+			<summary>指示成员表示一个属于复合层次结构的关联。</summary>
+		</member>
+		<member name="M:System.ComponentModel.DataAnnotations.CompositionAttribute.#ctor">
+			<summary>初始化 <see cref="T:System.ComponentModel.DataAnnotations.CompositionAttribute"></see> 类的新实例。</summary>
+		</member>
+		<member name="T:System.ComponentModel.DataAnnotations.RoundtripOriginalAttribute">
+			<summary>当应用到某个成员时，此属性指示在对象更新后，应将该成员的原始值发回到服务器。当应用到某个类时，此属性应用到该类的每个成员。</summary>
+		</member>
+		<member name="M:System.ComponentModel.DataAnnotations.RoundtripOriginalAttribute.#ctor">
+			<summary>初始化 <see cref="T:System.ComponentModel.DataAnnotations.RoundtripOriginalAttribute"></see> 类的新实例。</summary>
+		</member>
+		<member name="N:System.ServiceModel.DomainServices">
+			<summary>提供用于定义域服务的类。</summary>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.DomainIdentifierAttribute">
+			<summary>将类型分类为正在特定域中。</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.DomainIdentifierAttribute.#ctor(System.String)">
+			<summary>初始化 <see cref="T:System.ServiceModel.DomainServices.DomainIdentifierAttribute"></see> 类的新实例。</summary>
+			<param name="name">域标识符的名称。此字符串没有框架级别的语义。完全由应用程序开发人员决定什么构成唯一性或该名称是否区分大小写。该名称不能为 null 或为空。</param>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.DomainIdentifierAttribute.IsApplicationService">
+			<summary>获取或设置一个值，该值指示特性化类型是否表示应用程序服务。</summary>
+			<returns>如果特性化类型表示应用程序服务，则为 true；否则为 false。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.DomainIdentifierAttribute.Name">
+			<summary>获取域标识符的名称。</summary>
+			<returns>域标识符的名称。</returns>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.ExternalReferenceAttribute">
+			<summary>指示关联引用属于外部 <see cref="T:System.ServiceModel.DomainServices.Client.DomainContext"></see> 的实体。</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.ExternalReferenceAttribute.#ctor">
+			<summary>初始化 <see cref="T:System.ServiceModel.DomainServices.ExternalReferenceAttribute"></see> 类的新实例。</summary>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.ChangeSetEntry">
+			<summary>表示要对实体执行的域操作。</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ChangeSetEntry.#ctor(System.ServiceModel.DomainServices.Client.Entity,System.Int32,System.ServiceModel.DomainServices.Client.EntityOperationType)">
+			<summary>使用指定的参数初始化 <see cref="T:System.ServiceModel.DomainServices.Client.ChangeSetEntry"></see> 类的新实例。</summary>
+			<param name="operationType">要执行的操作。</param>
+			<param name="entity">操作中的实体。</param>
+			<param name="id">实体的客户端 ID，用来将服务器结果与其客户端实体实例关联。</param>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.ChangeSetEntry.Associations">
+			<summary>获取或设置与该操作中的实体相关联的所有实体的 ID 集合。</summary>
+			<returns>与该操作中的实体相关联的所有实体的 ID 集合。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.ChangeSetEntry.ClientEntity">
+			<summary>获取或设置最初提交的实体。</summary>
+			<returns>最初提交的实体。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.ChangeSetEntry.ConflictMembers">
+			<summary>获取或设置发生冲突的成员的集合。</summary>
+			<returns>发生冲突的成员的集合。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.ChangeSetEntry.Entity">
+			<summary>获取或设置操作中的实体。</summary>
+			<returns>操作中的实体。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.ChangeSetEntry.EntityActions">
+			<summary>获取或设置对实体调用的自定义方法。</summary>
+			<returns>对实体调用的自定义方法的集合。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.ChangeSetEntry.HasConflict">
+			<summary>获取一个值，用于指示 <see cref="T:System.ServiceModel.DomainServices.Client.ChangeSetEntry"></see> 是否包含冲突。</summary>
+			<returns>如果 <see cref="T:System.ServiceModel.DomainServices.Client.ChangeSetEntry"></see> 包含冲突，则为 true；否则 false。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.ChangeSetEntry.HasMemberChanges">
+			<summary>获取或设置一个值，用于指示此操作的实体属性是否已修改。</summary>
+			<returns>如果此操作的实体属性发生了修改，则为 true；否则为 false。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.ChangeSetEntry.Id">
+			<summary>获取或设置实体的客户端 ID。</summary>
+			<returns>实体的客户端 ID。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.ChangeSetEntry.IsDeleteConflict">
+			<summary>获取或设置冲突是否为删除冲突，用于表示实体不再存在于存储中。</summary>
+			<returns>如果冲突是删除冲突，则为 true；否则为 false。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.ChangeSetEntry.Operation">
+			<summary>获取或设置此变更集的 <see cref="T:System.ServiceModel.DomainServices.Client.EntityOperationType"></see>。</summary>
+			<returns>此变更集的 <see cref="T:System.ServiceModel.DomainServices.Client.EntityOperationType"></see>。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.ChangeSetEntry.OriginalAssociations">
+			<summary>获取或设置实体 ID 的集合，用于表示 <see cref="P:System.ServiceModel.DomainServices.Client.ChangeSetEntry.OriginalEntity"></see> 每个关联的实体。</summary>
+			<returns>用于表示 <see cref="P:System.ServiceModel.DomainServices.Client.ChangeSetEntry.OriginalEntity"></see> 每个关联的实体的实体 ID 集合。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.ChangeSetEntry.OriginalEntity">
+			<summary>获取或设置所操作的实体的原始状态。</summary>
+			<returns>所操作的实体的原始状态。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.ChangeSetEntry.StoreEntity">
+			<summary>获取或设置存储中实体的状态。</summary>
+			<returns>存储中实体的状态。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.ChangeSetEntry.ValidationErrors">
+			<summary>获取或设置在处理操作期间遇到的验证错误。</summary>
+			<returns>在处理操作期间遇到的验证错误。</returns>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.ComplexObject">
+			<summary>所有复杂对象的基类。</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ComplexObject.#ctor">
+			<summary>创建 <see cref="T:System.ServiceModel.DomainServices.Client.ComplexObject"></see> 的实例。</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ComplexObject.BeginEdit">
+			<summary>开始编辑此复杂对象实例。</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ComplexObject.CancelEdit">
+			<summary>取消自上次调用 <see cref="M:System.ServiceModel.DomainServices.Client.ComplexObject.BeginEdit"></see> 以来对此实例所做的任何编辑。</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ComplexObject.EndEdit">
+			<summary>提交自上次调用 <see cref="M:System.ServiceModel.DomainServices.Client.ComplexObject.BeginEdit"></see> 以来对此实例所做的编辑。</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ComplexObject.OnDeserialized(System.Runtime.Serialization.StreamingContext)">
+			<summary>反序列化复杂对象后调用的方法。</summary>
+			<param name="context">序列化上下文。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ComplexObject.OnDeserializing(System.Runtime.Serialization.StreamingContext)">
+			<summary>正在反序列化复杂对象时调用的方法。</summary>
+			<param name="context">序列化上下文。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ComplexObject.OnPropertyChanged(System.ComponentModel.PropertyChangedEventArgs)">
+			<summary>复杂对象的属性发生更改时调用。</summary>
+			<param name="e">事件参数。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ComplexObject.RaiseDataMemberChanged(System.String)">
+			<summary>从属性 setter 调用以通知框架复杂对象的数据成员已更改。</summary>
+			<param name="propertyName">已更改的属性名。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ComplexObject.RaiseDataMemberChanging(System.String)">
+			<summary>从属性 setter 调用以通知框架复杂对象的数据成员将要更改。</summary>
+			<param name="propertyName">已更改的属性名。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ComplexObject.RaisePropertyChanged(System.String)">
+			<summary>从属性 setter 调用以通知框架复杂对象属性已更改。</summary>
+			<param name="propertyName">已更改的属性名。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ComplexObject.ValidateProperty(System.String,System.Object)">
+			<summary>验证指定的值对于当前复杂对象的指定属性是否有效。</summary>
+			<param name="value">要测试的值。如果 null 对于指定属性有效，则可以是 null。</param>
+			<param name="propertyName">要验证的属性的名称。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ComplexObject.ValidateProperty(System.ComponentModel.DataAnnotations.ValidationContext,System.Object)">
+			<summary>验证指定的属性值对于指定的 <see cref="T:System.ComponentModel.DataAnnotations.ValidationContext"></see> 是否有效。</summary>
+			<param name="validationContext">表示要执行的验证的 <see cref="T:System.ComponentModel.DataAnnotations.ValidationContext"></see>。</param>
+			<param name="value">要测试的值。如果 null 对于指定属性有效，则可以是 null。</param>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.ComplexObject.HasValidationErrors">
+			<summary>获取一个值，该值指示此实体是否包含任何验证错误。</summary>
+			<returns>如果包含验证错误，则为 true；否则为 false。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.ComplexObject.IsDeserializing">
+			<summary>获取一个值，该值指示此实例当前是否正在进行反序列化。</summary>
+			<returns>如果正在反序列化复杂对象，则为 true；否则为 false。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.ComplexObject.ValidationErrors">
+			<summary>获取此实例的验证错误的集合。</summary>
+			<returns>此实例的验证错误的 <see cref="T:System.Collections.Generic.ICollection`1"></see>。</returns>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.DomainClient">
+			<summary>充当所有 <see cref="T:System.ServiceModel.DomainServices.Client.DomainClient"></see> 实现的基类。</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.DomainClient.#ctor">
+			<summary>初始化 <see cref="T:System.ServiceModel.DomainServices.Client.DomainClient"></see> 类的新实例。</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.DomainClient.BeginInvoke(System.ServiceModel.DomainServices.Client.InvokeArgs,System.AsyncCallback,System.Object)">
+			<summary>异步调用操作。</summary>
+			<returns>用来标识此调用的异步结果。</returns>
+			<param name="callback">在完成调用后要调用的回调。</param>
+			<param name="invokeArgs">调用操作的参数。</param>
+			<param name="userState">与此操作相关联的可选用户状态。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.DomainClient.BeginInvokeCore(System.ServiceModel.DomainServices.Client.InvokeArgs,System.AsyncCallback,System.Object)">
+			<summary>由框架调用以开始异步调用操作。</summary>
+			<returns>用来标识此调用的异步结果。</returns>
+			<param name="callback">在完成调用后要调用的回调。</param>
+			<param name="invokeArgs">调用操作的参数。</param>
+			<param name="userState">与此操作相关联的可选用户状态。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.DomainClient.BeginQuery(System.ServiceModel.DomainServices.Client.EntityQuery,System.AsyncCallback,System.Object)">
+			<summary>执行异步查询操作。</summary>
+			<returns>用来标识此查询的异步结果。</returns>
+			<param name="callback">在执行查询后要调用的回调。</param>
+			<param name="query">要调用的查询。</param>
+			<param name="userState">与此操作相关联的可选用户状态。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.DomainClient.BeginQueryCore(System.ServiceModel.DomainServices.Client.EntityQuery,System.AsyncCallback,System.Object)">
+			<summary>由框架调用以开始异步查询操作。</summary>
+			<returns>用来标识此查询的异步结果。</returns>
+			<param name="callback">在执行查询后要调用的回调。</param>
+			<param name="query">要调用的查询。</param>
+			<param name="userState">与此操作相关联的可选用户状态。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.DomainClient.BeginSubmit(System.ServiceModel.DomainServices.Client.EntityChangeSet,System.AsyncCallback,System.Object)">
+			<summary>将指定的 <see cref="T:System.ServiceModel.DomainServices.Client.EntityChangeSet"></see> 异步提交给 <see cref="T:System.ServiceModel.DomainServices.Server.DomainService"></see>。</summary>
+			<returns>用来标识此提交请求的异步结果。</returns>
+			<param name="callback">在执行提交后要调用的回调。</param>
+			<param name="changeSet">要提交到 <see cref="T:System.ServiceModel.DomainServices.Server.DomainService"></see> 的 <see cref="T:System.ServiceModel.DomainServices.Client.EntityChangeSet"></see>。</param>
+			<param name="userState">与此操作相关联的可选用户状态。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.DomainClient.BeginSubmitCore(System.ServiceModel.DomainServices.Client.EntityChangeSet,System.AsyncCallback,System.Object)">
+			<summary>由框架调用以异步处理指定的 <see cref="T:System.ServiceModel.DomainServices.Client.EntityChangeSet"></see>。</summary>
+			<returns>用来标识此提交请求的异步结果。</returns>
+			<param name="callback">在执行提交后要调用的回调。</param>
+			<param name="changeSet">要提交到 <see cref="T:System.ServiceModel.DomainServices.Server.DomainService"></see> 的 <see cref="T:System.ServiceModel.DomainServices.Client.EntityChangeSet"></see>。</param>
+			<param name="userState">与此操作相关联的可选用户状态。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.DomainClient.CancelInvoke(System.IAsyncResult)">
+			<summary>尝试取消由 asyncResult 指定的调用请求。</summary>
+			<param name="asyncResult">用于指定要取消哪个调用操作的 IAsyncResult。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.DomainClient.CancelInvokeCore(System.IAsyncResult)">
+			<summary>尝试取消由 asyncResult 指定的调用请求。</summary>
+			<param name="asyncResult">用于指定要取消哪个调用操作的 IAsyncResult。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.DomainClient.CancelQuery(System.IAsyncResult)">
+			<summary>尝试取消由 asyncResult 指定的查询请求。</summary>
+			<param name="asyncResult">用于指定要取消哪个查询操作的 IAsyncResult。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.DomainClient.CancelQueryCore(System.IAsyncResult)">
+			<summary>尝试取消由 asyncResult 指定的查询请求。</summary>
+			<param name="asyncResult">用于指定要取消哪个查询操作的 IAsyncResult。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.DomainClient.CancelSubmit(System.IAsyncResult)">
+			<summary>尝试取消由 asyncResult 指定的提交请求。</summary>
+			<param name="asyncResult">用于指定要取消哪个提交操作的 IAsyncResult。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.DomainClient.CancelSubmitCore(System.IAsyncResult)">
+			<summary>尝试取消由 asyncResult 指定的提交请求。</summary>
+			<param name="asyncResult">用于指定要取消哪个提交操作的 IAsyncResult。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.DomainClient.EndInvoke(System.IAsyncResult)">
+			<summary>完成操作调用。</summary>
+			<returns>操作的结果。</returns>
+			<param name="asyncResult">用于标识调用的异步结果。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.DomainClient.EndInvokeCore(System.IAsyncResult)">
+			<summary>由框架调用以完成异步调用。</summary>
+			<returns>操作的结果。</returns>
+			<param name="asyncResult">用于标识调用的异步结果。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.DomainClient.EndQuery(System.IAsyncResult)">
+			<summary>获取异步查询操作的结果。</summary>
+			<returns>操作的结果。</returns>
+			<param name="asyncResult">用来标识查询的异步结果。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.DomainClient.EndQueryCore(System.IAsyncResult)">
+			<summary>由框架调用以完成异步查询操作。</summary>
+			<returns>操作的结果。</returns>
+			<param name="asyncResult">用来标识查询的异步结果。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.DomainClient.EndSubmit(System.IAsyncResult)">
+			<summary>获取提交请求的结果。</summary>
+			<returns>操作的结果。</returns>
+			<param name="asyncResult">用来标识提交请求的异步结果。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.DomainClient.EndSubmitCore(System.IAsyncResult)">
+			<summary>由框架调用以完成异步提交操作。</summary>
+			<returns>操作的结果。</returns>
+			<param name="asyncResult">用来标识提交请求的异步结果。</param>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.DomainClient.EntityTypes">
+			<summary>获取或设置此 <see cref="T:System.ServiceModel.DomainServices.Client.DomainClient"></see> 将对其进行操作的实体类型的集合。</summary>
+			<returns>此对象将对其进行操作的实体类型的集合。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.DomainClient.SupportsCancellation">
+			<summary>获取一个值，用于指示 <see cref="T:System.ServiceModel.DomainServices.Client.DomainClient"></see> 是否支持取消操作。</summary>
+			<returns>如果此对象支持取消操作，则为 true；否则为 false。</returns>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.DomainClientResult">
+			<summary>表示 <see cref="T:System.ServiceModel.DomainServices.Client.DomainClient"></see> 操作的集合。</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.DomainClientResult.CreateInvokeResult(System.Object,System.Collections.Generic.IEnumerable{System.ComponentModel.DataAnnotations.ValidationResult})">
+			<summary>创建调用操作结果。</summary>
+			<returns>调用操作的结果。</returns>
+			<param name="returnValue">调用操作的返回值。</param>
+			<param name="validationErrors">此调用的验证错误的集合。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.DomainClientResult.CreateQueryResult(System.Collections.Generic.IEnumerable{System.ServiceModel.DomainServices.Client.Entity},System.Collections.Generic.IEnumerable{System.ServiceModel.DomainServices.Client.Entity},System.Int32,System.Collections.Generic.IEnumerable{System.ComponentModel.DataAnnotations.ValidationResult})">
+			<summary>创建查询操作结果。</summary>
+			<returns>查询操作的结果。</returns>
+			<param name="allEntities">从查询返回的所有实体,包括相关实体。</param>
+			<param name="validationErrors">此查询的验证错误的集合。</param>
+			<param name="totalEntityCount">实体的总服务器数。</param>
+			<param name="entities">从查询返回的顶级实体。</param>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.DomainClientResult.AllEntities">
+			<summary>获取所有的实体结果，包括相关实体。</summary>
+			<returns>实体的集合。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.DomainClientResult.Entities">
+			<summary>获取顶级实体结果。</summary>
+			<returns>实体结果的集合。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.DomainClientResult.ReturnValue">
+			<summary>获取调用操作的返回值。</summary>
+			<returns>调用操作的返回值。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.DomainClientResult.TotalEntityCount">
+			<summary>获取原始查询的总服务器实体个数，没有应用任何分页。</summary>
+			<returns>查询的总行数；或者如果服务器不支持总实体数，则为 -1。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.DomainClientResult.ValidationErrors">
+			<summary>获取验证错误的集合。</summary>
+			<returns>验证错误的集合。</returns>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.DomainContext">
+			<summary><see cref="T:System.ServiceModel.DomainServices.Client.DomainContext"></see> 是域服务的有状态客户端表示，以提供对服务所有功能的访问。</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.DomainContext.#ctor(System.ServiceModel.DomainServices.Client.DomainClient)">
+			<summary>初始化 <see cref="T:System.ServiceModel.DomainServices.Client.DomainContext"></see> 类的新实例。</summary>
+			<param name="domainClient">此 <see cref="T:System.ServiceModel.DomainServices.Client.DomainContext"></see> 应当使用的 <see cref="P:System.ServiceModel.DomainServices.Client.DomainContext.DomainClient"></see> 实例。</param>
+		</member>
+		<member name="E:System.ServiceModel.DomainServices.Client.DomainContext.PropertyChanged">
+			<summary>只要 <see cref="T:System.ServiceModel.DomainServices.Client.DomainContext"></see> 属性更改就会引发。</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.DomainContext.AddReference(System.Type,System.ServiceModel.DomainServices.Client.DomainContext)">
+			<summary>添加对外部 <see cref="T:System.ServiceModel.DomainServices.Client.DomainContext"></see> 的引用。</summary>
+			<param name="entityType">要在 domainContext 中查找的实体类型。</param>
+			<param name="domainContext">要注册为外部引用的 <see cref="T:System.ServiceModel.DomainServices.Client.DomainContext"></see>。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.DomainContext.CreateEntityContainer">
+			<summary>创建并返回一个实体容器，该容器配置有针对所有实体的 <see cref="T:System.ServiceModel.DomainServices.Client.EntitySet"></see> 对象，该 <see cref="T:System.ServiceModel.DomainServices.Client.DomainContext"></see> 将提供对其的访问。</summary>
+			<returns>实体容器。</returns>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.DomainContext.CreateQuery``1(System.String,System.Collections.Generic.IDictionary{System.String,System.Object},System.Boolean,System.Boolean)">
+			<summary>创建 <see cref="T:System.ServiceModel.DomainServices.Client.EntityQuery"></see>。</summary>
+			<returns>新建查询。</returns>
+			<param name="hasSideEffects">如果查询具有副作用，则为 true；否则为 false。</param>
+			<param name="queryName">查询方法的名称。</param>
+			<param name="parameters">查询方法的可选参数。如果查询操作无参数，则指定 null。</param>
+			<param name="isComposable">如果查询支持组合，则为 true；否则为 false。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.DomainContext.InvokeOperation(System.String,System.Type,System.Collections.Generic.IDictionary{System.String,System.Object},System.Boolean,System.Action{System.ServiceModel.DomainServices.Client.InvokeOperation},System.Object)">
+			<summary>执行调用操作。</summary>
+			<returns>调用操作。</returns>
+			<param name="hasSideEffects">如果操作具有副作用，则为 true；否则为 false。</param>
+			<param name="callback">操作完成时要调用的可选回调。</param>
+			<param name="returnType">操作的返回类型。</param>
+			<param name="userState">操作的可选用户状态。</param>
+			<param name="parameters">操作的可选参数。如果操作无参数，则指定 null。</param>
+			<param name="operationName">操作的名称。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.DomainContext.InvokeOperation``1(System.String,System.Type,System.Collections.Generic.IDictionary{System.String,System.Object},System.Boolean,System.Action{System.ServiceModel.DomainServices.Client.InvokeOperation{``0}},System.Object)">
+			<summary>执行调用操作。</summary>
+			<returns>调用操作。</returns>
+			<param name="hasSideEffects">如果操作具有副作用，则为 true；否则为 false。</param>
+			<param name="callback">操作完成时要调用的可选回调。</param>
+			<param name="returnType">操作的返回类型。</param>
+			<param name="userState">操作的可选用户状态。</param>
+			<param name="parameters">操作的可选参数。如果操作无参数，则指定 null。</param>
+			<param name="operationName">操作的名称。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.DomainContext.Load(System.ServiceModel.DomainServices.Client.EntityQuery,System.ServiceModel.DomainServices.Client.LoadBehavior,System.Action{System.ServiceModel.DomainServices.Client.LoadOperation},System.Object)">
+			<summary>利用指定的加载行为、回调方法和用户状态对指定查询启动加载操作。</summary>
+			<returns>加载操作。</returns>
+			<param name="loadBehavior">要应用的 <see cref="T:System.ServiceModel.DomainServices.Client.LoadBehavior"></see>。</param>
+			<param name="callback">加载操作完成时要调用的可选回调。回调必须是具有一个参数的委托，其可接受返回的 <see cref="T:System.ServiceModel.DomainServices.Client.LoadOperation"></see> 类型的实例。</param>
+			<param name="query">要调用的查询。</param>
+			<param name="userState">可选用户状态。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.DomainContext.Load``1(System.ServiceModel.DomainServices.Client.EntityQuery{``0})">
+			<summary>针对指定查询启动加载操作。</summary>
+			<returns>加载操作。</returns>
+			<param name="query">要调用的查询。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.DomainContext.Load``1(System.ServiceModel.DomainServices.Client.EntityQuery{``0},System.Boolean)">
+			<summary>利用指示是否因错误导致异常的指定值对指定查询启动加载操作。</summary>
+			<returns>加载操作。</returns>
+			<param name="query">要调用的查询。</param>
+			<param name="throwOnError">如果未处理的错误导致异常，则为 true；否则为 false。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.DomainContext.Load``1(System.ServiceModel.DomainServices.Client.EntityQuery{``0},System.Action{System.ServiceModel.DomainServices.Client.LoadOperation{``0}},System.Object)">
+			<summary>用指定的回调方法和用户状态针对指定查询启动加载操作。</summary>
+			<returns>加载操作。</returns>
+			<param name="callback">加载操作完成时要调用的可选回调。</param>
+			<param name="query">要调用的查询。</param>
+			<param name="userState">可选用户状态。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.DomainContext.Load``1(System.ServiceModel.DomainServices.Client.EntityQuery{``0},System.ServiceModel.DomainServices.Client.LoadBehavior,System.Boolean)">
+			<summary>利用指定的加载行为以及指示是否因错误导致异常的值对指定查询启动加载操作。</summary>
+			<returns>加载操作。</returns>
+			<param name="loadBehavior">要应用的 <see cref="T:System.ServiceModel.DomainServices.Client.LoadBehavior"></see>。</param>
+			<param name="query">要调用的查询。</param>
+			<param name="throwOnError">如果未处理的错误导致异常，则为 true；否则为 false。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.DomainContext.Load``1(System.ServiceModel.DomainServices.Client.EntityQuery{``0},System.ServiceModel.DomainServices.Client.LoadBehavior,System.Action{System.ServiceModel.DomainServices.Client.LoadOperation{``0}},System.Object)">
+			<summary>利用指定的加载行为、回调方法和用户状态对指定查询启动加载操作。</summary>
+			<returns>加载操作。</returns>
+			<param name="loadBehavior">要应用的 <see cref="T:System.ServiceModel.DomainServices.Client.LoadBehavior"></see>。</param>
+			<param name="callback">加载操作完成时要调用的可选回调。</param>
+			<param name="query">要调用的查询。</param>
+			<param name="userState">可选用户状态。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.DomainContext.RaisePropertyChanged(System.String)">
+			<summary>针对指定属性引发 <see cref="E:System.ServiceModel.DomainServices.Client.DomainContext.PropertyChanged"></see> 事件。</summary>
+			<param name="propertyName">要针对其引发事件的属性。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.DomainContext.RejectChanges">
+			<summary>针对该 <see cref="T:System.ServiceModel.DomainServices.Client.DomainContext"></see> 恢复所有挂起的更改。</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.DomainContext.SubmitChanges">
+			<summary>将所有挂起更改提交到域服务。</summary>
+			<returns>提交操作。</returns>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.DomainContext.SubmitChanges(System.Action{System.ServiceModel.DomainServices.Client.SubmitOperation},System.Object)">
+			<summary>将所有挂起更改提交到域服务。</summary>
+			<returns>提交操作。</returns>
+			<param name="callback">提交操作的可选回调。</param>
+			<param name="userState">与操作相关联的可选用户状态。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.DomainContext.ValidateMethod(System.String,System.Collections.Generic.IDictionary{System.String,System.Object})">
+			<summary>验证方法调用。</summary>
+			<param name="methodName">要验证的方法。</param>
+			<param name="parameters">方法的参数。</param>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.DomainContext.DomainClient">
+			<summary>获取此上下文的 <see cref="T:System.ServiceModel.DomainServices.Client.DomainClient"></see>。</summary>
+			<returns>支持此对象的域客户端。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.DomainContext.EntityContainer">
+			<summary>获取保存由此上下文加载的所有实体的 <see cref="T:System.ServiceModel.DomainServices.Client.EntityContainer"></see>。</summary>
+			<returns>实体容器。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.DomainContext.HasChanges">
+			<summary>获取一个值，该值指示该上下文是否具有任何挂起更改。</summary>
+			<returns>如果存在挂起更改，则为 true；否则为 false。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.DomainContext.IsLoading">
+			<summary>获取一个值，该值指示此 <see cref="T:System.ServiceModel.DomainServices.Client.DomainContext"></see> 当前是否正在执行加载操作。</summary>
+			<returns>如果存在挂起的加载操作，则为 true；否则为 false。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.DomainContext.IsSubmitting">
+			<summary>获取一个值，该值指示此 <see cref="T:System.ServiceModel.DomainServices.Client.DomainContext"></see> 当前是否正在执行提交操作。</summary>
+			<returns>如果存在挂起的提交操作，则为 true；否则为 false。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.DomainContext.ValidationContext">
+			<summary>获取或设置要用于 <see cref="T:System.ServiceModel.DomainServices.Client.DomainContext"></see> 调用的所有验证操作的 <see cref="T:System.ComponentModel.DataAnnotations.ValidationContext"></see>。</summary>
+			<returns>要用于 <see cref="T:System.ServiceModel.DomainServices.Client.DomainContext"></see> 调用的所有验证操作的对象。</returns>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.DomainException">
+			<summary>指示在域操作执行期间发生了不可恢复的错误。</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.DomainException.#ctor">
+			<summary>使用由系统提供的用来描述错误的消息初始化 <see cref="T:System.ServiceModel.DomainServices.Client.DomainException"></see> 类的新实例。</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.DomainException.#ctor(System.String)">
+			<summary>使用描述错误的指定消息初始化 <see cref="T:System.ServiceModel.DomainServices.Client.DomainException"></see> 类的新实例。</summary>
+			<param name="message">本地化的错误消息。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.DomainException.#ctor(System.String,System.Exception)">
+			<summary>使用指定的错误消息和对导致此异常的内部异常的引用来初始化 <see cref="T:System.ServiceModel.DomainServices.Client.DomainException"></see> 类的新实例。</summary>
+			<param name="message">本地化的错误消息。</param>
+			<param name="innerException">导致此异常的内部异常。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.DomainException.#ctor(System.String,System.Int32)">
+			<summary>对具有指定的错误消息和自定义错误代码的 <see cref="T:System.ServiceModel.DomainServices.Client.DomainException"></see> 类的新实例进行初始化。</summary>
+			<param name="errorCode">异常的自定义错误代码。</param>
+			<param name="message">本地化的错误消息。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.DomainException.#ctor(System.String,System.Int32,System.Exception)">
+			<summary>对具有指定的错误消息、自定义错误代码和导致此异常的内部异常的 <see cref="T:System.ServiceModel.DomainServices.Client.DomainException"></see> 类的新实例进行初始化。</summary>
+			<param name="errorCode">异常的自定义错误代码。</param>
+			<param name="message">本地化的错误消息。</param>
+			<param name="innerException">导致此异常的内部异常。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.DomainException.#ctor(System.String,System.Int32,System.String)">
+			<summary>利用本地化异常消息、自定义错误代码和堆栈跟踪初始化 <see cref="T:System.ServiceModel.DomainServices.Client.DomainException"></see> 类的新实例。</summary>
+			<param name="errorCode">异常的自定义错误代码。</param>
+			<param name="stackTrace">异常堆栈跟踪。</param>
+			<param name="message">本地化的错误消息。</param>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.DomainException.ErrorCode">
+			<summary>获取或设置此异常的自定义错误代码。</summary>
+			<returns>此异常的自定义错误代码。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.DomainException.StackTrace">
+			<summary>获取异常堆栈跟踪。</summary>
+			<returns>异常堆栈跟踪。</returns>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.DomainOperationException">
+			<summary>指示在服务器上处理域操作期间至少发生了一个错误。</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.DomainOperationException.#ctor">
+			<summary>初始化 <see cref="T:System.ServiceModel.DomainServices.Client.DomainOperationException"></see> 类的新实例。</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.DomainOperationException.#ctor(System.String)">
+			<summary>使用描述错误的指定消息初始化 <see cref="T:System.ServiceModel.DomainServices.Client.DomainOperationException"></see> 类的新实例。</summary>
+			<param name="message">描述该异常的消息。此构造函数的调用方需要确保此字符串已针对当前系统区域性进行了本地化。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.DomainOperationException.#ctor(System.String,System.Exception)">
+			<summary>使用指定的错误消息和对导致此异常的内部异常的引用来初始化 <see cref="T:System.ServiceModel.DomainServices.Client.DomainOperationException"></see> 类的新实例。</summary>
+			<param name="message">描述该异常的消息。此构造函数的调用方需要确保此字符串已针对当前系统区域性进行了本地化。</param>
+			<param name="innerException">导致当前异常的异常。如果 innerException 参数不是 null，则将在用来处理内部异常的 catch 块中引发当前的异常。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.DomainOperationException.#ctor(System.String,System.ServiceModel.DomainServices.Client.OperationErrorStatus)">
+			<summary>使用本地化的异常消息和状态初始化 <see cref="T:System.ServiceModel.DomainServices.Client.DomainOperationException"></see> 类的新实例。</summary>
+			<param name="message">本地化的异常消息。</param>
+			<param name="status">异常的状态。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.DomainOperationException.#ctor(System.String,System.ServiceModel.DomainServices.Client.OperationErrorStatus,System.Int32)">
+			<summary>使用本地化的异常消息、状态和自定义错误代码初始化 <see cref="T:System.ServiceModel.DomainServices.Client.DomainOperationException"></see> 类的新实例。</summary>
+			<param name="errorCode">自定义的错误代码。</param>
+			<param name="message">本地化的异常消息。</param>
+			<param name="status">异常的状态。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.DomainOperationException.#ctor(System.String,System.ServiceModel.DomainServices.Client.OperationErrorStatus,System.Int32,System.String)">
+			<summary>使用可选的本地化消息、状态、自定义错误代码和异常的堆栈跟踪初始化 <see cref="T:System.ServiceModel.DomainServices.Client.DomainOperationException"></see> 类的新实例。</summary>
+			<param name="errorCode">自定义的错误代码。</param>
+			<param name="stackTrace">异常的堆栈跟踪。</param>
+			<param name="message">本地化的错误消息。</param>
+			<param name="status">异常的状态。</param>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.DomainOperationException.ErrorCode">
+			<summary>获取或设置此异常的自定义错误代码。错误代码可以是用户定义的任何值。</summary>
+			<returns>自定义的错误代码。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.DomainOperationException.StackTrace">
+			<summary>获取异常的堆栈跟踪。</summary>
+			<returns>异常的堆栈跟踪。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.DomainOperationException.Status">
+			<summary>获取或设置此异常的状态代码。</summary>
+			<returns>此异常的状态代码。</returns>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.Entity">
+			<summary>所有实体类型的基类。</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.Entity.#ctor">
+			<summary>初始化 <see cref="T:System.ServiceModel.DomainServices.Client.Entity"></see> 类的新实例。</summary>
+		</member>
+		<member name="E:System.ServiceModel.DomainServices.Client.Entity.PropertyChanged">
+			<summary>在 <see cref="T:System.ServiceModel.DomainServices.Client.Entity"></see> 属性更改时发生。</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.Entity.AcceptChanges">
+			<summary>接受当前对该 <see cref="T:System.ServiceModel.DomainServices.Client.Entity"></see> 做出的更改，并应用适当的状态转换。</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.Entity.BeginEdit">
+			<summary>开始编辑 <see cref="T:System.ServiceModel.DomainServices.Client.Entity"></see>。</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.Entity.CancelEdit">
+			<summary>取消自上次调用 <see cref="M:System.ServiceModel.DomainServices.Client.Entity.BeginEdit"></see> 以来对 <see cref="T:System.ServiceModel.DomainServices.Client.Entity"></see> 所做的所有编辑。</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.Entity.CanInvokeAction(System.String)">
+			<summary>获取一个值，该值指示指定的操作当前是否可调用。</summary>
+			<returns>如果可以调用指定操作，则为 true；否则为 false。</returns>
+			<param name="name">与自定义方法对应的操作名称。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.Entity.EndEdit">
+			<summary>提交自上次调用 <see cref="M:System.ServiceModel.DomainServices.Client.Entity.EndEdit"></see> 以来对该实体所做的所有编辑。</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.Entity.GetIdentity">
+			<summary>返回适用于哈希算法的实体标识。</summary>
+			<returns>一个表示实体标识的对象。</returns>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.Entity.GetOriginal">
+			<summary>获取该实体的原始状态。</summary>
+			<returns>其原始状态下的 <see cref="T:System.ServiceModel.DomainServices.Client.Entity"></see>。</returns>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.Entity.InvokeAction(System.String,System.Object[])">
+			<summary>调用以注册一个在提交更改时将针对此实体调用的操作。</summary>
+			<param name="actionName">要调用的操作的名称。</param>
+			<param name="parameters">用于调用指定操作的参数值。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.Entity.IsActionInvoked(System.String)">
+			<summary>指示是否已调用指定的操作。</summary>
+			<returns>如果已调用指定操作，则为 true；否则为 false。</returns>
+			<param name="name">与自定义方法对应的操作名称。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.Entity.OnActionStateChanged">
+			<summary>当调用的操作状态针对此实体更改时调用。</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.Entity.OnDeserialized(System.Runtime.Serialization.StreamingContext)">
+			<summary>在反序列化此 <see cref="T:System.ServiceModel.DomainServices.Client.Entity"></see> 后调用。</summary>
+			<param name="context">序列化上下文。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.Entity.OnDeserializing(System.Runtime.Serialization.StreamingContext)">
+			<summary>将此 <see cref="T:System.ServiceModel.DomainServices.Client.Entity"></see> 反序列化时调用。</summary>
+			<param name="context">序列化上下文。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.Entity.OnLoaded(System.Boolean)">
+			<summary>在将 <see cref="T:System.ServiceModel.DomainServices.Client.Entity"></see> 加载至 <see cref="T:System.ServiceModel.DomainServices.Client.EntitySet"></see> 中时调用。</summary>
+			<param name="isInitialLoad">如果实体是初次加载至集合中，则为 true；否则为 false。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.Entity.OnPropertyChanged(System.ComponentModel.PropertyChangedEventArgs)">
+			<summary>当 <see cref="T:System.ServiceModel.DomainServices.Client.Entity"></see> 属性更改时调用。</summary>
+			<param name="e">事件参数。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.Entity.RaiseDataMemberChanged(System.String)">
+			<summary>从属性 setter 调用以通知框架 <see cref="T:System.ServiceModel.DomainServices.Client.Entity"></see> 数据成员已更改。</summary>
+			<param name="propertyName">已更改的属性的名称。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.Entity.RaiseDataMemberChanging(System.String)">
+			<summary>从属性 setter 调用以通知框架 <see cref="T:System.ServiceModel.DomainServices.Client.Entity"></see> 数据成员将要进行更改。</summary>
+			<param name="propertyName">要更改的属性的名称。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.Entity.RaisePropertyChanged(System.String)">
+			<summary>从属性 setter 调用以通知框架 <see cref="T:System.ServiceModel.DomainServices.Client.Entity"></see> 成员已更改。</summary>
+			<param name="propertyName">已更改的属性的名称。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.Entity.RejectChanges">
+			<summary>将对此实体做出的所有属性更改还原为其原始值。</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.Entity.ToString">
+			<summary>获取当前实体的字符串表示形式。</summary>
+			<returns>当前实体的字符串表示形式。</returns>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.Entity.UpdateActionState(System.String,System.String,System.String)">
+			<summary>在 <see cref="M:System.ServiceModel.DomainServices.Client.Entity.OnActionStateChanged"></see> 重写的上下文内调用。该方法将针对与自定义方法对应的属性引发相应的属性已更改通知。</summary>
+			<param name="name">自定义方法名称。</param>
+			<param name="canInvokePropertyName">自定义方法的“CanInvoke”保护属性名称。</param>
+			<param name="isInvokedPropertyName">自定义方法的“IsInvoked”属性名称。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.Entity.ValidateProperty(System.String,System.Object)">
+			<summary>指示指定的值对于当前实体的指定属性是否有效。</summary>
+			<param name="value">要测试的值。如果 null 对于给定属性有效，则可以是 null。</param>
+			<param name="propertyName">此实体上要设置的属性的名称。此名称不能为 null 或空。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.Entity.ValidateProperty(System.ComponentModel.DataAnnotations.ValidationContext,System.Object)">
+			<summary>指示指定的属性值是否针对指定的验证上下文有效。</summary>
+			<param name="validationContext"><see cref="P:System.ServiceModel.DomainServices.Client.DomainContext.ValidationContext"></see> 表示要执行的验证。<see cref="P:System.ComponentModel.DataAnnotations.ValidationContext.MemberName"></see> 必须指示要验证的属性的名称。</param>
+			<param name="value">要测试的值。如果 null 对于给定属性有效，则可以是 null。</param>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.Entity.EntityActions">
+			<summary>获取针对此实体挂起的自定义方法调用列表。</summary>
+			<returns>针对此实体挂起的自定义方法调用集合。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.Entity.EntityConflict">
+			<summary>获取提交操作后此实体的冲突信息。</summary>
+			<returns>提交操作后此实体的 <see cref="T:System.ServiceModel.DomainServices.Client.EntityConflict"></see>。如果没有冲突，则返回 null。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.Entity.EntitySet">
+			<summary>获取 <see cref="T:System.ServiceModel.DomainServices.Client.Entity"></see> 属于其成员的 <see cref="P:System.ServiceModel.DomainServices.Client.Entity.EntitySet"></see>。</summary>
+			<returns>此 <see cref="T:System.ServiceModel.DomainServices.Client.Entity"></see> 属于其成员的 <see cref="P:System.ServiceModel.DomainServices.Client.Entity.EntitySet"></see>。如果实体已分离或已从集中移除，该值将为 null。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.Entity.EntityState">
+			<summary>获取此 <see cref="T:System.ServiceModel.DomainServices.Client.Entity"></see> 的当前状态。</summary>
+			<returns><see cref="T:System.ServiceModel.DomainServices.Client.EntityState"></see> 表示该 <see cref="T:System.ServiceModel.DomainServices.Client.Entity"></see> 的当前状态。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.Entity.HasChanges">
+			<summary>获取一个值，该值指示该实体当前是否具有任何挂起的更改。</summary>
+			<returns>如果实体具有任何挂起的更改，则为 true；否则为 false。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.Entity.HasValidationErrors">
+			<summary>获取一个值，该值指示此实体是否包含任何验证错误。</summary>
+			<returns>如果该实体在上次提交操作期间包含任何验证错误，则为 true；否则为 false。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.Entity.IsDeserializing">
+			<summary>获取一个值，该值指示当前实体是否正在进行反序列化。</summary>
+			<returns>如果实体当前正在进行反序列化，则为 true；否则为 false。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.Entity.IsReadOnly">
+			<summary>获取一个值，该值指示该实体当前是否处于只读状态。</summary>
+			<returns>如果该实体为只读，则为 true；否则为 false。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.Entity.ValidationErrors">
+			<summary>获取此实体的验证错误的集合。</summary>
+			<returns>上次提交操作期间遇到的验证错误集合。</returns>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.EntityAction">
+			<summary>表示针对实体的自定义方法调用。</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntityAction.#ctor(System.String,System.Object[])">
+			<summary><see cref="T:System.ServiceModel.DomainServices.Client.EntityAction"></see> 类新实例的初始化。</summary>
+			<param name="name">实体操作的名称。</param>
+			<param name="parameters">调用实体操作的参数列表。</param>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.EntityAction.HasParameters">
+			<summary>获取一个值，用于指示是否有任何参数与该操作关联。</summary>
+			<returns>如果有参数与该操作关联，则为 true；否则为 false。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.EntityAction.Name">
+			<summary>获取实体操作的名称。</summary>
+			<returns>实体操作的名称。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.EntityAction.Parameters">
+			<summary>获取传递给实体操作的参数。</summary>
+			<returns>集合表示传递给实体操作的参数。</returns>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.EntityChangeSet">
+			<summary>表示对 <see cref="T:System.ServiceModel.DomainServices.Client.Entity"></see> 做出的更改的集合。</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntityChangeSet.GetChangeSetEntries">
+			<summary>针对该变更集获取 <see cref="T:System.ServiceModel.DomainServices.Client.ChangeSetEntry"></see> 项的集合。</summary>
+			<returns>该变更集的 <see cref="T:System.ServiceModel.DomainServices.Client.ChangeSetEntry"></see> 项的集合。</returns>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntityChangeSet.ToString">
+			<summary>返回 <see cref="T:System.ServiceModel.DomainServices.Client.EntityChangeSet"></see> 的文本表示形式。</summary>
+			<returns><see cref="T:System.ServiceModel.DomainServices.Client.EntityChangeSet"></see> 的文本表示形式。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.EntityChangeSet.AddedEntities">
+			<summary>获取添加的实体的集合。</summary>
+			<returns>添加的实体的集合。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.EntityChangeSet.IsEmpty">
+			<summary>获取一个值，该值指示 <see cref="T:System.ServiceModel.DomainServices.Client.EntityChangeSet"></see> 是否已更改。</summary>
+			<returns>如果 <see cref="T:System.ServiceModel.DomainServices.Client.EntityChangeSet"></see> 有任何更改，则为 true；否则为 false。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.EntityChangeSet.ModifiedEntities">
+			<summary>获取修改的实体的集合。</summary>
+			<returns>修改的实体的集合。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.EntityChangeSet.RemovedEntities">
+			<summary>获取删除的实体的集合。</summary>
+			<returns>删除的实体的集合。</returns>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.EntityCollection`1">
+			<summary>表示相关实体的集合。</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntityCollection`1.#ctor(System.ServiceModel.DomainServices.Client.Entity,System.String,System.Func{`0,System.Boolean})">
+			<summary>使用指定的父、父的集合名和筛选功能初始化 <see cref="T:System.ServiceModel.DomainServices.Client.EntityCollection`1"></see> 类的新实例。</summary>
+			<param name="memberName">父实体中此 <see cref="T:System.ServiceModel.DomainServices.Client.EntityCollection`1"></see> 成员的名称。</param>
+			<param name="entityPredicate">用来筛选相关实体并确定哪些实体为该集合成员的功能。</param>
+			<param name="parent">该集合所属的实体。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntityCollection`1.#ctor(System.ServiceModel.DomainServices.Client.Entity,System.String,System.Func{`0,System.Boolean},System.Action{`0},System.Action{`0})">
+			<summary>使用指定的父、父的集合名以及用于筛选、附加和分离的功能初始化 <see cref="T:System.ServiceModel.DomainServices.Client.EntityCollection`1"></see> 类的新实例。</summary>
+			<param name="memberName">父实体中此 <see cref="T:System.ServiceModel.DomainServices.Client.EntityCollection`1"></see> 成员的名称。</param>
+			<param name="entityPredicate">用来筛选相关实体并确定哪些实体为该集合成员的功能。</param>
+			<param name="parent">该集合所属的实体。</param>
+			<param name="detachAction">用来移除相关实体与父实体之间的后向引用的功能。</param>
+			<param name="attachAction">用来从相关实体建立与父实体的后向引用的功能。</param>
+		</member>
+		<member name="E:System.ServiceModel.DomainServices.Client.EntityCollection`1.EntityAdded">
+			<summary>在将 <see cref="T:System.ServiceModel.DomainServices.Client.Entity"></see> 添加到该集合时引发。</summary>
+		</member>
+		<member name="E:System.ServiceModel.DomainServices.Client.EntityCollection`1.EntityRemoved">
+			<summary>在将 <see cref="T:System.ServiceModel.DomainServices.Client.Entity"></see> 从该集合中移除时引发。</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntityCollection`1.Add(`0)">
+			<summary>将指定的实体添加到该集合。</summary>
+			<param name="entity">要添加的实体。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntityCollection`1.GetEnumerator">
+			<summary>返回该集合的枚举数。</summary>
+			<returns>该集合的 IEnumerator。</returns>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntityCollection`1.Remove(`0)">
+			<summary>从该集合中移除指定的实体。</summary>
+			<param name="entity">要移除的实体。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntityCollection`1.ToString">
+			<summary>返回该集合的文本表示形式。</summary>
+			<returns>表示此 <see cref="T:System.ServiceModel.DomainServices.Client.EntityCollection`1"></see> 的字符串。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.EntityCollection`1.Count">
+			<summary>获取该集合中的当前实体数。</summary>
+			<returns>表示该集合中的当前实体数的整数。</returns>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.EntityCollectionChangedEventArgs`1">
+			<summary>为包含实体的集合提供强类型添加和删除通知的事件参数。 </summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntityCollectionChangedEventArgs`1.#ctor(`0)">
+			<summary>初始化 <see cref="T:System.ServiceModel.DomainServices.Client.EntityCollectionChangedEventArgs`1"></see> 类的新实例。</summary>
+			<param name="entity">受影响的 <see cref="P:System.ServiceModel.DomainServices.Client.EntityCollectionChangedEventArgs`1.Entity"></see>。</param>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.EntityCollectionChangedEventArgs`1.Entity">
+			<summary>获取受影响的 <see cref="P:System.ServiceModel.DomainServices.Client.EntityCollectionChangedEventArgs`1.Entity"></see>。</summary>
+			<returns>受影响的 <see cref="P:System.ServiceModel.DomainServices.Client.EntityCollectionChangedEventArgs`1.Entity"></see>。</returns>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.EntityConflict">
+			<summary>表示实体冲突。</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntityConflict.Resolve">
+			<summary>通过将实体的原始状态更新为当前存储状态来解决冲突。</summary>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.EntityConflict.CurrentEntity">
+			<summary>获取当前的 <see cref="T:System.ServiceModel.DomainServices.Client.Entity"></see> 实例。</summary>
+			<returns>当前的 <see cref="T:System.ServiceModel.DomainServices.Client.Entity"></see> 实例。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.EntityConflict.IsDeleted">
+			<summary>获取一个值，该值指示该实体是否不再存在于存储区内。</summary>
+			<returns>如果实体已从存储区删除，则为 true；否则为 false。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.EntityConflict.OriginalEntity">
+			<summary>获取原始的 <see cref="T:System.ServiceModel.DomainServices.Client.Entity"></see> 实例。</summary>
+			<returns>原始的 <see cref="T:System.ServiceModel.DomainServices.Client.Entity"></see> 实例。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.EntityConflict.PropertyNames">
+			<summary>获取冲突中属性名称的集合。</summary>
+			<returns>冲突中属性名称的集合。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.EntityConflict.StoreEntity">
+			<summary>获取存储 <see cref="T:System.ServiceModel.DomainServices.Client.Entity"></see> 实例。</summary>
+			<returns>存储 <see cref="T:System.ServiceModel.DomainServices.Client.Entity"></see> 实例；如果实体不再存在于存储区内，则为 null。</returns>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.EntityContainer">
+			<summary>表示对象<see cref="T:System.ServiceModel.DomainServices.Client.EntitySet"></see> 集合形式中的一个实体缓存。</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntityContainer.#ctor">
+			<summary>初始化 <see cref="T:System.ServiceModel.DomainServices.Client.EntityContainer"></see> 类的新实例。</summary>
+		</member>
+		<member name="E:System.ServiceModel.DomainServices.Client.EntityContainer.PropertyChanged">
+			<summary>在属性更改时发生。</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntityContainer.AcceptChanges">
+			<summary>接受对此容器中的实体或 <see cref="T:System.ServiceModel.DomainServices.Client.EntitySet"></see> 对象做出的所有更改。</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntityContainer.AddReference(System.ServiceModel.DomainServices.Client.EntitySet)">
+			<summary>添加对外部 <see cref="T:System.ServiceModel.DomainServices.Client.EntitySet"></see> 的引用。</summary>
+			<param name="entitySet">实体集。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntityContainer.Clear">
+			<summary>清除此容器中所有 <see cref="T:System.ServiceModel.DomainServices.Client.EntitySet"></see> 对象的内容。</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntityContainer.CreateEntitySet``1">
+			<summary>在此容器中为指定实体类型创建一个新的 <see cref="T:System.ServiceModel.DomainServices.Client.EntitySet"></see>。</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntityContainer.CreateEntitySet``1(System.ServiceModel.DomainServices.Client.EntitySetOperations)">
+			<summary>在此容器中为指定 <see cref="T:System.ServiceModel.DomainServices.Client.EntitySetOperations"></see> 创建一个 <see cref="T:System.ServiceModel.DomainServices.Client.EntitySet"></see>。</summary>
+			<param name="supportedOperations">针对实体类型受支持的操作。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntityContainer.GetChanges">
+			<summary>返回包含当前挂起更改集合的 <see cref="T:System.ServiceModel.DomainServices.Client.EntityChangeSet"></see>。</summary>
+			<returns>包含当前挂起更改集合的 <see cref="T:System.ServiceModel.DomainServices.Client.EntityChangeSet"></see>。</returns>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntityContainer.GetEntitySet(System.Type)">
+			<summary>获取指定 <see cref="T:System.ServiceModel.DomainServices.Client.Entity"></see> 类型的 <see cref="T:System.ServiceModel.DomainServices.Client.EntitySet"></see>。</summary>
+			<returns>指定 <see cref="T:System.ServiceModel.DomainServices.Client.Entity"></see> 类型的 <see cref="T:System.ServiceModel.DomainServices.Client.EntitySet"></see>。</returns>
+			<param name="entityType">实体类型。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntityContainer.GetEntitySet``1">
+			<summary>获取指定 <see cref="T:System.ServiceModel.DomainServices.Client.Entity"></see> 类型的 <see cref="T:System.ServiceModel.DomainServices.Client.EntitySet"></see>。</summary>
+			<returns>指定 <see cref="T:System.ServiceModel.DomainServices.Client.Entity"></see> 类型的 <see cref="T:System.ServiceModel.DomainServices.Client.EntitySet"></see>。</returns>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntityContainer.LoadEntities(System.Collections.IEnumerable)">
+			<summary>将指定实体集合加载到此 <see cref="T:System.ServiceModel.DomainServices.Client.EntityContainer"></see>。</summary>
+			<returns>表示实体集合的 IEnumerable。</returns>
+			<param name="entities">要加载的实体。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntityContainer.LoadEntities(System.Collections.IEnumerable,System.ServiceModel.DomainServices.Client.LoadBehavior)">
+			<summary>使用指定加载行为将指定实体集合加载到此 <see cref="T:System.ServiceModel.DomainServices.Client.EntityContainer"></see>。</summary>
+			<returns>表示实体集合的 IEnumerable。</returns>
+			<param name="loadBehavior">要使用的 <see cref="T:System.ServiceModel.DomainServices.Client.LoadBehavior"></see>。</param>
+			<param name="entities">要加载的实体。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntityContainer.RaisePropertyChanged(System.String)">
+			<summary>针对指定属性引发 <see cref="E:System.ServiceModel.DomainServices.Client.EntityContainer.PropertyChanged"></see> 事件。</summary>
+			<param name="propertyName">已更改的属性名。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntityContainer.RejectChanges">
+			<summary>恢复对此容器中实体或 <see cref="T:System.ServiceModel.DomainServices.Client.EntitySet"></see> 对象做出的所有更改。</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntityContainer.TryGetEntitySet(System.Type,System.ServiceModel.DomainServices.Client.EntitySet@)">
+			<summary>尝试获取指定 <see cref="T:System.ServiceModel.DomainServices.Client.Entity"></see> 类型的实体集。</summary>
+			<returns>如果找到实体集，则为 true；否则为 false。</returns>
+			<param name="entityType"><see cref="T:System.ServiceModel.DomainServices.Client.Entity"></see> 类型。</param>
+			<param name="entitySet">如果实体集存在；否则为 null。</param>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.EntityContainer.EntitySets">
+			<summary>获取 <see cref="T:System.ServiceModel.DomainServices.Client.EntityContainer"></see> 中 <see cref="T:System.ServiceModel.DomainServices.Client.EntitySet"></see> 对象的集合。</summary>
+			<returns>此 <see cref="T:System.ServiceModel.DomainServices.Client.EntityContainer"></see> 中的 <see cref="T:System.ServiceModel.DomainServices.Client.EntitySet"></see> 对象的集合。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.EntityContainer.HasChanges">
+			<summary>获取一个值，该值指示该 <see cref="T:System.ServiceModel.DomainServices.Client.EntityContainer"></see> 当前是否具有任何挂起的更改。</summary>
+			<returns>如果 <see cref="T:System.ServiceModel.DomainServices.Client.EntityContainer"></see> 当前具有任何挂起的更改，则为 true；否则为 false。</returns>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.EntityKey">
+			<summary>用于表示唯一实体标识的键的基类。该键适用于哈希算法。</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntityKey.#ctor">
+			<summary><see cref="T:System.ServiceModel.DomainServices.Client.EntityKey"></see> 类新实例的初始化。</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntityKey.Create(System.Object[])">
+			<summary>使用指定的键值创建键。</summary>
+			<returns>基于指定键值的键。</returns>
+			<param name="keyValues">键值数组。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntityKey.Create``2(``0,``1)">
+			<summary>使用指定的键值创建键。</summary>
+			<returns>基于指定键值的键。</returns>
+			<param name="v1">第一个键值。</param>
+			<param name="v2">第二个键值。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntityKey.Create``3(``0,``1,``2)">
+			<summary>使用指定的键值创建键。</summary>
+			<returns>基于指定键值的键。</returns>
+			<param name="v1">第一个键值。</param>
+			<param name="v2">第二个键值。</param>
+			<param name="v3">第三个键值。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntityKey.ToString">
+			<summary>将该键的格式设置为一组键值。</summary>
+			<returns>字符串表示已设置格式的键。</returns>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.EntityOperationType">
+			<summary>描述可以在 <see cref="T:System.ServiceModel.DomainServices.Client.Entity"></see> 上执行的操作类型。</summary>
+		</member>
+		<member name="F:System.ServiceModel.DomainServices.Client.EntityOperationType.Delete">
+			<summary>删除现有 <see cref="T:System.ServiceModel.DomainServices.Client.Entity"></see> 的操作。</summary>
+		</member>
+		<member name="F:System.ServiceModel.DomainServices.Client.EntityOperationType.Insert">
+			<summary>新 <see cref="T:System.ServiceModel.DomainServices.Client.Entity"></see> 的插入操作。</summary>
+		</member>
+		<member name="F:System.ServiceModel.DomainServices.Client.EntityOperationType.None">
+			<summary>无在 <see cref="T:System.ServiceModel.DomainServices.Client.Entity"></see> 上要执行的操作。</summary>
+		</member>
+		<member name="F:System.ServiceModel.DomainServices.Client.EntityOperationType.Update">
+			<summary>现有 <see cref="T:System.ServiceModel.DomainServices.Client.Entity"></see> 的更新操作。</summary>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.EntityQuery">
+			<summary>表示查询方法调用。</summary>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.EntityQuery.DomainClient">
+			<summary>获取此查询的 <see cref="T:System.ServiceModel.DomainServices.Client.DomainClient"></see>。</summary>
+			<returns>此查询的 <see cref="T:System.ServiceModel.DomainServices.Client.DomainClient"></see>。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.EntityQuery.EntityType">
+			<summary>获取此查询将从其中检索数据的类型。</summary>
+			<returns>此查询将从其中检索数据的类型。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.EntityQuery.HasSideEffects">
+			<summary>获取一个值，用于指示查询是否具有副作用。</summary>
+			<returns>如果查询具有副作用，则为 true；否则为 false。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.EntityQuery.IncludeTotalCount">
+			<summary>获取或设置一个值，指示 <see cref="P:System.ServiceModel.DomainServices.Client.DomainClientResult.TotalEntityCount"></see> 属性是否是必需的。</summary>
+			<returns>如果 <see cref="P:System.ServiceModel.DomainServices.Client.DomainClientResult.TotalEntityCount"></see> 属性是必需的，则为 true；否则为 false。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.EntityQuery.IsComposable">
+			<summary>获取一个值，该值指示查询是否支持组合。</summary>
+			<returns>如果查询支持组合，则为 true；否则为 false。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.EntityQuery.Parameters">
+			<summary>获取查询方法所需的参数。</summary>
+			<returns>一个表示查询方法所需的可选参数的字典。如果方法没有参数，则返回 null。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.EntityQuery.Query">
+			<summary>获取查询的基础 IQueryable。</summary>
+			<returns>查询方法调用的对象，或，如果无查询存在，则为 null。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.EntityQuery.QueryName">
+			<summary>获取查询方法的名称。</summary>
+			<returns>查询方法的名称。</returns>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.EntityQuery`1">
+			<summary>表示对实体集合的 LINQ 查询。</summary>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.EntityQueryable">
+			<summary>包含静态扩展方法，这些方法为 <see cref="T:System.ServiceModel.DomainServices.Client.EntityQuery"></see> 实现 LINQ 模式的子集。</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntityQueryable.OrderBy``2(System.ServiceModel.DomainServices.Client.EntityQuery{``0},System.Linq.Expressions.Expression{System.Func{``0,``1}})">
+			<summary>将指定的升序排序子句应用到源查询。</summary>
+			<returns>复合查询。</returns>
+			<param name="source">源查询。</param>
+			<param name="keySelector">选择要按其排序的成员的表达式。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntityQueryable.OrderByDescending``2(System.ServiceModel.DomainServices.Client.EntityQuery{``0},System.Linq.Expressions.Expression{System.Func{``0,``1}})">
+			<summary>将指定的降序排序子句应用到源查询。</summary>
+			<returns>具有指定降序排序子句的 <see cref="T:System.ServiceModel.DomainServices.Client.EntityQuery`1"></see>。</returns>
+			<param name="source">源查询。</param>
+			<param name="keySelector">选择要按其排序的成员的表达式。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntityQueryable.Select``1(System.ServiceModel.DomainServices.Client.EntityQuery{``0},System.Linq.Expressions.Expression{System.Func{``0,``0}})">
+			<summary>将指定的选择应用到源查询。</summary>
+			<returns>具有指定选择的 <see cref="T:System.ServiceModel.DomainServices.Client.EntityQuery`1"></see>。</returns>
+			<param name="source">源查询。</param>
+			<param name="selector">选择器函数。请注意，不支持投影。选择必须是实体本身。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntityQueryable.Skip``1(System.ServiceModel.DomainServices.Client.EntityQuery{``0},System.Int32)">
+			<summary>将指定的 Skip 子句应用到源查询。</summary>
+			<returns>具有指定 Skip 子句的 <see cref="T:System.ServiceModel.DomainServices.Client.EntityQuery`1"></see>。</returns>
+			<param name="source">源查询。</param>
+			<param name="count">要跳过的数字。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntityQueryable.Take``1(System.ServiceModel.DomainServices.Client.EntityQuery{``0},System.Int32)">
+			<summary>将指定的 Take 子句应用到源查询。</summary>
+			<returns>具有指定 Take 子句的 <see cref="T:System.ServiceModel.DomainServices.Client.EntityQuery`1"></see>。</returns>
+			<param name="source">源查询。</param>
+			<param name="count">要获取的数字。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntityQueryable.ThenBy``2(System.ServiceModel.DomainServices.Client.EntityQuery{``0},System.Linq.Expressions.Expression{System.Func{``0,``1}})">
+			<summary>将指定的升序排序子句应用到源查询。</summary>
+			<returns>具有指定升序排序子句的 <see cref="T:System.ServiceModel.DomainServices.Client.EntityQuery`1"></see>。</returns>
+			<param name="source">源查询。</param>
+			<param name="keySelector">选择要按其排序的成员的表达式。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntityQueryable.ThenByDescending``2(System.ServiceModel.DomainServices.Client.EntityQuery{``0},System.Linq.Expressions.Expression{System.Func{``0,``1}})">
+			<summary>将指定的降序排序子句应用到源查询。</summary>
+			<returns>具有指定降序排序子句的 <see cref="T:System.ServiceModel.DomainServices.Client.EntityQuery`1"></see>。</returns>
+			<param name="source">源查询。</param>
+			<param name="keySelector">选择要按其排序的成员的表达式。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntityQueryable.Where``1(System.ServiceModel.DomainServices.Client.EntityQuery{``0},System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}})">
+			<summary>将指定的筛选器应用到源查询。</summary>
+			<returns>具有指定筛选器的 <see cref="T:System.ServiceModel.DomainServices.Client.EntityQuery`1"></see>。</returns>
+			<param name="predicate">筛选谓词。</param>
+			<param name="source">源查询。</param>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.EntityRef`1">
+			<summary>表示对相关实体的引用。</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntityRef`1.#ctor(System.ServiceModel.DomainServices.Client.Entity,System.String,System.Func{`0,System.Boolean})">
+			<summary>初始化 <see cref="T:System.ServiceModel.DomainServices.Client.EntityRef`1"></see> 类的实例。</summary>
+			<param name="memberName">父实体中此 <see cref="T:System.ServiceModel.DomainServices.Client.EntityRef`1"></see> 成员的名称。</param>
+			<param name="entityPredicate">用来筛选相关实体的功能。</param>
+			<param name="parent">此关联所属的实体。</param>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.EntityRef`1.Entity">
+			<summary>获取或设置关联的 <see cref="P:System.ServiceModel.DomainServices.Client.EntityRef`1.Entity"></see>。</summary>
+			<returns>关联的实体。</returns>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.EntitySet">
+			<summary>表示 <see cref="T:System.ServiceModel.DomainServices.Client.Entity"></see> 实例的集合。</summary>
+		</member>
+		<member name="E:System.ServiceModel.DomainServices.Client.EntitySet.PropertyChanged">
+			<summary>在属性更改时发生。</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntitySet.AcceptChanges">
+			<summary>接受对此 <see cref="T:System.ServiceModel.DomainServices.Client.EntitySet"></see> 进行的所有更改。</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntitySet.Add(System.ServiceModel.DomainServices.Client.Entity)">
+			<summary>将指定的 <see cref="T:System.ServiceModel.DomainServices.Client.Entity"></see> 添加到此 <see cref="T:System.ServiceModel.DomainServices.Client.EntitySet"></see>。</summary>
+			<param name="entity">要添加的实体。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntitySet.Attach(System.ServiceModel.DomainServices.Client.Entity)">
+			<summary>以未修改的状态将指定的 <see cref="T:System.ServiceModel.DomainServices.Client.Entity"></see> 附加到此 <see cref="T:System.ServiceModel.DomainServices.Client.EntitySet"></see>。</summary>
+			<param name="entity">要附加的实体。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntitySet.Clear">
+			<summary>清除集合中的所有实体。</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntitySet.CreateEntity">
+			<summary>创建新实体。</summary>
+			<returns>已创建的实体。</returns>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntitySet.CreateList">
+			<summary>为集合创建存储列表。</summary>
+			<returns>已创建的存储列表实例。</returns>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntitySet.Detach(System.ServiceModel.DomainServices.Client.Entity)">
+			<summary>从该 <see cref="T:System.ServiceModel.DomainServices.Client.EntitySet"></see> 分离指定的 <see cref="T:System.ServiceModel.DomainServices.Client.Entity"></see>。</summary>
+			<param name="entity">要分离的实体。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntitySet.GetEnumerator">
+			<summary>获取集合的枚举数。</summary>
+			<returns>集合的枚举数。</returns>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntitySet.OnCollectionChanged(System.Collections.Specialized.NotifyCollectionChangedAction,System.Object,System.Int32)">
+			<summary>只要集合发生更改就调用。</summary>
+			<param name="affectedObject">对于重置事件，此参数将为已移除实体的集合。对于所有其他事件，此参数为受影响的单独实体。</param>
+			<param name="action">更改操作。</param>
+			<param name="index">受影响的索引。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntitySet.OnPropertyChanged(System.ComponentModel.PropertyChangedEventArgs)">
+			<summary>当 <see cref="T:System.ServiceModel.DomainServices.Client.EntitySet"></see> 属性更改时调用。</summary>
+			<param name="e">事件参数。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntitySet.RaisePropertyChanged(System.String)">
+			<summary>针对指定的属性引发 <see cref="E:System.ServiceModel.DomainServices.Client.EntitySet.PropertyChanged"></see> 事件。</summary>
+			<param name="propertyName">已更改的属性。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntitySet.RejectChanges">
+			<summary>恢复对此 <see cref="T:System.ServiceModel.DomainServices.Client.EntitySet"></see> 进行的所有更改。</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntitySet.Remove(System.ServiceModel.DomainServices.Client.Entity)">
+			<summary>从该集合中移除指定实体。</summary>
+			<param name="entity">要移除的实体。</param>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.EntitySet.CanAdd">
+			<summary>获取一个值，用于指示此集合是否允许添加新实体。</summary>
+			<returns>如果此集合允许添加新项，则为 true；否则为 false。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.EntitySet.CanEdit">
+			<summary>获取一个值，用于指示是否可以编辑此集合中的实体。</summary>
+			<returns>如果允许编辑此集合中的成员，则为 true；否则为 false。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.EntitySet.CanRemove">
+			<summary>获取一个值，用于指示此集合是否允许移除实体。</summary>
+			<returns>如果允许移除此集合中的项，则为 true；否则为 false。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.EntitySet.Count">
+			<summary>获取此集合中的当前实体数。</summary>
+			<returns>表示此集合中的当前实体数的整数。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.EntitySet.EntityContainer">
+			<summary>获取此 <see cref="T:System.ServiceModel.DomainServices.Client.EntitySet"></see> 的容器。</summary>
+			<returns><see cref="T:System.ServiceModel.DomainServices.Client.EntitySet"></see> 的容器。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.EntitySet.EntityType">
+			<summary>获取 <see cref="T:System.ServiceModel.DomainServices.Client.EntitySet"></see> 包含的实体类型。</summary>
+			<returns><see cref="T:System.ServiceModel.DomainServices.Client.EntitySet"></see> 包含的实体类型。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.EntitySet.HasChanges">
+			<summary>获取一个值，用于指示 <see cref="T:System.ServiceModel.DomainServices.Client.EntitySet"></see> 当前是否有任何挂起的更改。</summary>
+			<returns>如果此集合有任何挂起的更改，则为 true；否则为 false。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.EntitySet.IsReadOnly">
+			<summary>获取一个值，用于指示此集合是否支持更新操作。</summary>
+			<returns>如果不支持更新操作，则为 true；否则为 false。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.EntitySet.List">
+			<summary>获取 <see cref="T:System.ServiceModel.DomainServices.Client.EntitySet"></see> 的备份列表。</summary>
+			<returns><see cref="T:System.ServiceModel.DomainServices.Client.EntitySet"></see> 的备份列表。</returns>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.EntitySet`1">
+			<summary>表示提供更改跟踪和其他服务的 <see cref="T:System.ServiceModel.DomainServices.Client.Entity"></see> 实例集合。</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntitySet`1.#ctor">
+			<summary>初始化 <see cref="T:System.ServiceModel.DomainServices.Client.EntitySet`1"></see> 类的新实例。</summary>
+		</member>
+		<member name="E:System.ServiceModel.DomainServices.Client.EntitySet`1.EntityAdded">
+			<summary>在将 <see cref="T:System.ServiceModel.DomainServices.Client.Entity"></see> 添加至该实体集时发生。</summary>
+		</member>
+		<member name="E:System.ServiceModel.DomainServices.Client.EntitySet`1.EntityRemoved">
+			<summary>在将 <see cref="T:System.ServiceModel.DomainServices.Client.Entity"></see> 从该实体集移除时发生。</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntitySet`1.Add(`0)">
+			<summary>将指定实体添加至该实体集。此外，递归添加所有通过关联可访问的未附加实体。</summary>
+			<param name="entity">要添加的实体。entity 必须是 TEntity 类型且不能是子类。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntitySet`1.Attach(`0)">
+			<summary>以未修改的状态将指定的 <see cref="T:System.ServiceModel.DomainServices.Client.Entity"></see> 附加到该实体集。此外，递归附加所有通过关联可访问的未附加实体。</summary>
+			<param name="entity">要附加的实体。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntitySet`1.Detach(`0)">
+			<summary>从该实体集分离 <see cref="T:System.ServiceModel.DomainServices.Client.Entity"></see>。</summary>
+			<param name="entity">要分离的实体。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntitySet`1.GetEnumerator">
+			<summary>返回该实体集的枚举数。</summary>
+			<returns>一个可用于循环访问该实体集的枚举数。</returns>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntitySet`1.Remove(`0)">
+			<summary>从该集合中移除指定实体。如果该实体是复合层次结构的根，则所有子实体也将被移除。</summary>
+			<param name="entity">要移除的实体。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.EntitySet`1.System.Collections.Generic.IEnumerable`1.GetEnumerator">
+			<summary>获取集合的枚举数。</summary>
+			<returns>集合的枚举数。</returns>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.EntitySetOperations">
+			<summary>枚举 <see cref="T:System.ServiceModel.DomainServices.Client.EntitySet"></see> 中允许的操作类型。</summary>
+		</member>
+		<member name="F:System.ServiceModel.DomainServices.Client.EntitySetOperations.Add">
+			<summary>可以添加新实体。</summary>
+		</member>
+		<member name="F:System.ServiceModel.DomainServices.Client.EntitySetOperations.All">
+			<summary>可以添加、更新和移除实体。</summary>
+		</member>
+		<member name="F:System.ServiceModel.DomainServices.Client.EntitySetOperations.Edit">
+			<summary>可以更新实体。</summary>
+		</member>
+		<member name="F:System.ServiceModel.DomainServices.Client.EntitySetOperations.None">
+			<summary>允许只读操作。不允许任何更新操作。</summary>
+		</member>
+		<member name="F:System.ServiceModel.DomainServices.Client.EntitySetOperations.Remove">
+			<summary>可以移除实体。</summary>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.EntityState">
+			<summary>描述 <see cref="T:System.ServiceModel.DomainServices.Client.Entity"></see> 的可能状态。</summary>
+		</member>
+		<member name="F:System.ServiceModel.DomainServices.Client.EntityState.Deleted">
+			<summary>标记实体以进行删除。</summary>
+		</member>
+		<member name="F:System.ServiceModel.DomainServices.Client.EntityState.Detached">
+			<summary>实体未附加，也未处于被跟踪状态。</summary>
+		</member>
+		<member name="F:System.ServiceModel.DomainServices.Client.EntityState.Modified">
+			<summary>实体已修改。</summary>
+		</member>
+		<member name="F:System.ServiceModel.DomainServices.Client.EntityState.New">
+			<summary>以新状态附加实体。</summary>
+		</member>
+		<member name="F:System.ServiceModel.DomainServices.Client.EntityState.Unmodified">
+			<summary>实体处于原始的、未经修改的状态。</summary>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.InvokeArgs">
+			<summary>表示调用“调用”操作所需的信息。</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.InvokeArgs.#ctor(System.String,System.Type,System.Collections.Generic.IDictionary{System.String,System.Object},System.Boolean)">
+			<summary><see cref="T:System.ServiceModel.DomainServices.Client.InvokeArgs"></see> 类新实例的初始化。</summary>
+			<param name="hasSideEffects">如果操作具有副作用，则为 true；否则为 false。</param>
+			<param name="returnType">调用操作的返回类型。</param>
+			<param name="parameters">操作的可选参数。如果方法无参数，请指定 null。</param>
+			<param name="operationName">调用操作名称。</param>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.InvokeArgs.HasSideEffects">
+			<summary>获取一个值，用于指示操作是否有副作用。</summary>
+			<returns>如果操作有副作用，则为 true；否则为 false。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.InvokeArgs.OperationName">
+			<summary>获取操作的名称。</summary>
+			<returns>操作的名称。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.InvokeArgs.Parameters">
+			<summary>获取操作所需的参数（如果有）。</summary>
+			<returns>操作所需的参数；或者如果方法无参数，则为 null。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.InvokeArgs.ReturnType">
+			<summary>获取操作的返回类型。</summary>
+			<returns>操作的返回类型。</returns>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.InvokeCompletedResult">
+			<summary>表示调用操作的结果。</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.InvokeCompletedResult.#ctor(System.Object)">
+			<summary>使用指定的返回值初始化 <see cref="T:System.ServiceModel.DomainServices.Client.InvokeCompletedResult"></see> 类的新实例。</summary>
+			<param name="returnValue">从服务器返回的值。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.InvokeCompletedResult.#ctor(System.Object,System.Collections.Generic.IEnumerable{System.ComponentModel.DataAnnotations.ValidationResult})">
+			<summary>使用指定的返回值和验证错误初始化 <see cref="T:System.ServiceModel.DomainServices.Client.InvokeCompletedResult"></see> 类的新实例。</summary>
+			<param name="returnValue">从服务器返回的值。</param>
+			<param name="validationErrors">验证错误的集合。</param>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.InvokeCompletedResult.ReturnValue">
+			<summary>获取从服务器返回的值。</summary>
+			<returns>用于表示从服务器返回的值的对象。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.InvokeCompletedResult.ValidationErrors">
+			<summary>获取验证错误。</summary>
+			<returns>表示验证错误的 <see cref="T:System.Collections.Generic.IEnumerable`1"></see>。</returns>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.InvokeOperation">
+			<summary>表示异步调用操作。</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.InvokeOperation.CancelCore">
+			<summary>调用取消回调。</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.InvokeOperation.InvokeCompleteAction">
+			<summary>调用完成回调。</summary>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.InvokeOperation.OperationName">
+			<summary>获取操作的名称。</summary>
+			<returns>一个字符串，表示操作的名称。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.InvokeOperation.Parameters">
+			<summary>获取操作的参数的集合。</summary>
+			<returns><see cref="T: System.Collections.Generic.IDictionary`2"></see> 表示操作的参数的集合。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.InvokeOperation.Result">
+			<summary>获取该操作的 <see cref="T:System.ServiceModel.DomainServices.Client.DomainClientResult"></see>。</summary>
+			<returns>一个对象，表示该操作的结果。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.InvokeOperation.SupportsCancellation">
+			<summary>获取一个值，指示该操作是否支持取消。</summary>
+			<returns>如果此操作支持取消，则为 true；否则为 false。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.InvokeOperation.ValidationErrors">
+			<summary>获取该操作的验证错误。</summary>
+			<returns><see cref="T: System.Collections.Generic.IEnumerable`1"></see> 表示该操作的验证错误。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.InvokeOperation.Value">
+			<summary>获取调用操作的返回值。</summary>
+			<returns>一个对象，表示调用操作的返回值。</returns>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.InvokeOperation`1">
+			<summary>表示异步调用操作。</summary>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.InvokeOperation`1.Value">
+			<summary>获取调用操作的返回值。</summary>
+			<returns>调用操作的返回值。</returns>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.LoadBehavior">
+			<summary>指定加载实体时控制标识缓存行为。</summary>
+		</member>
+		<member name="F:System.ServiceModel.DomainServices.Client.LoadBehavior.KeepCurrent">
+			<summary>缓存的实例未更改，且新读取的实例被丢弃。</summary>
+		</member>
+		<member name="F:System.ServiceModel.DomainServices.Client.LoadBehavior.MergeIntoCurrent">
+			<summary>新读取实例的值将合并至属性值未修改的缓存实例。更改在该合并中不会丢失。</summary>
+		</member>
+		<member name="F:System.ServiceModel.DomainServices.Client.LoadBehavior.RefreshCurrent">
+			<summary>将用来自新读取实例的当前值重写缓存实例的所有成员，无论这些值是否已修改。此外，实体的原始状态还会设置成新读取实例。</summary>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.LoadOperation">
+			<summary>表示一个异步加载操作。</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.LoadOperation.UpdateResults(System.ServiceModel.DomainServices.Client.DomainClientResult)">
+			<summary>更新可观察结果集合。</summary>
+			<param name="result">完成的加载操作的结果。</param>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.LoadOperation.AllEntities">
+			<summary>获取所有由该操作加载的实体，包括任何由顶级实体引用的实体。</summary>
+			<returns>一个枚举，表示所有由该操作加载的实体，包括任何由顶级实体引用的实体。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.LoadOperation.Entities">
+			<summary>获取所有由此操作加载的顶级实体。</summary>
+			<returns>一个枚举，表示所有由该操作加载的顶级实体。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.LoadOperation.EntityQuery">
+			<summary>获取该加载操作的 <see cref="T:System.ServiceModel.DomainServices.Client.EntityQuery"></see>。</summary>
+			<returns>此加载操作的 <see cref="T:System.ServiceModel.DomainServices.Client.EntityQuery"></see>。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.LoadOperation.LoadBehavior">
+			<summary>获取该加载操作的 <see cref="T:System.ServiceModel.DomainServices.Client.LoadBehavior"></see>。</summary>
+			<returns>此加载操作的 <see cref="T:System.ServiceModel.DomainServices.Client.LoadBehavior"></see>。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.LoadOperation.Result">
+			<summary>获取该操作的 <see cref="T:System.ServiceModel.DomainServices.Client.DomainClientResult"></see>。</summary>
+			<returns>此操作的 <see cref="T:System.ServiceModel.DomainServices.Client.DomainClientResult"></see>。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.LoadOperation.TotalEntityCount">
+			<summary>获取此操作使用的查询的总服务器实体计数。</summary>
+			<returns>此操作使用的查询的总服务器实体计数。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.LoadOperation.ValidationErrors">
+			<summary>获取验证错误。</summary>
+			<returns>一个表示验证错误的枚举。</returns>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.LoadOperation`1">
+			<summary>表示一个异步加载操作。</summary>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.LoadOperation`1.Entities">
+			<summary>获取所有由该操作加载的实体，包括任何由顶级实体引用的实体。</summary>
+			<returns>一个 <see cref="T:System.Collections.Generic.IEnumerable`1"></see>，表示所有由该操作加载的实体。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.LoadOperation`1.EntityQuery">
+			<summary>获取该加载操作的 <see cref="P:System.ServiceModel.DomainServices.Client.LoadOperation`1.EntityQuery"></see>。</summary>
+			<returns>该加载操作的 <see cref="T:System.ServiceModel.DomainServices.Client.EntityQuery`1"></see>。</returns>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.OperationBase">
+			<summary>表示一个异步操作。</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.OperationBase.#ctor(System.Object)">
+			<summary>初始化 <see cref="T:System.ServiceModel.DomainServices.Client.OperationBase"></see> 类的新实例。</summary>
+			<param name="userState">可选用户状态。</param>
+		</member>
+		<member name="E:System.ServiceModel.DomainServices.Client.OperationBase.Completed">
+			<summary>完成操作时发生。</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.OperationBase.Cancel">
+			<summary>取消操作。</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.OperationBase.CancelCore">
+			<summary>当在派生类中重写时，请提供用于取消操作的逻辑。</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.OperationBase.Complete(System.Exception)">
+			<summary>完成带有指定错误的失败的操作。</summary>
+			<param name="error">导致操作失败的错误。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.OperationBase.Complete(System.Object)">
+			<summary>完成带有指定结果的成功操作。</summary>
+			<param name="result">操作的结果。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.OperationBase.InvokeCompleteAction">
+			<summary>调用完成回调。</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.OperationBase.MarkErrorAsHandled">
+			<summary>指定在处理操作时遇到错误。</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.OperationBase.OnPropertyChanged(System.ComponentModel.PropertyChangedEventArgs)">
+			<summary>在属性的值更改时调用。</summary>
+			<param name="e">事件数据。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.OperationBase.RaisePropertyChanged(System.String)">
+			<summary>引发 <see cref="E:System.Windows.Controls.Ria.DomainDataSourceView.System#ComponentModel#INotifyPropertyChanged#PropertyChanged"></see> 事件。</summary>
+			<param name="propertyName">已更改的属性名。</param>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.OperationBase.CanCancel">
+			<summary>获取一个值，用于指示此 <see cref="T:System.ServiceModel.DomainServices.Client.OperationBase"></see> 当前是否正处于支持将其取消的状态。</summary>
+			<returns>如果此 <see cref="T:System.ServiceModel.DomainServices.Client.OperationBase"></see> 当前正处于支持将其取消的状态，则为 true；否则为 false。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.OperationBase.Error">
+			<summary>如果操作失败，则获取操作错误。</summary>
+			<returns>导致操作失败的错误；否则为 null。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.OperationBase.HasError">
+			<summary>获取一个值，该值指示操作是否失败。</summary>
+			<returns>如果操作失败，则为 true；否则为 false。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.OperationBase.IsCanceled">
+			<summary>获取一个值，该值指示此操作是否已取消。</summary>
+			<returns>如果此操作已取消，则为 true；否则为 false。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.OperationBase.IsComplete">
+			<summary>获取一个值，该值指示此操作是否已完成。</summary>
+			<returns>如果此操作完成，则为 true；否则为 false。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.OperationBase.IsErrorHandled">
+			<summary>获取或设置一个值，该值指示是否已处理操作错误。</summary>
+			<returns>如果已处理错误，则为 true；否则为 false。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.OperationBase.Result">
+			<summary>获取异步操作的结果。</summary>
+			<returns>异步操作的结果。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.OperationBase.SupportsCancellation">
+			<summary>获取一个值，该值指示此操作是否支持取消。</summary>
+			<returns>如果此操作支持取消，则为 true；否则为 false。此实现始终返回 false。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.OperationBase.UserState">
+			<summary>获取用于此操作的可选用户状态。</summary>
+			<returns>此操作的用户状态，如果未指定用户状态，则为 null。</returns>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.OperationErrorStatus">
+			<summary>描述操作期间发生的错误。</summary>
+		</member>
+		<member name="F:System.ServiceModel.DomainServices.Client.OperationErrorStatus.Conflicts">
+			<summary>出现冲突。请参见 <see cref="P:System.ServiceModel.DomainServices.Client.Entity.EntityConflict"></see> 了解给定实体的冲突信息。</summary>
+		</member>
+		<member name="F:System.ServiceModel.DomainServices.Client.OperationErrorStatus.NotFound">
+			<summary>无法找到资源。</summary>
+		</member>
+		<member name="F:System.ServiceModel.DomainServices.Client.OperationErrorStatus.NotSupported">
+			<summary>该操作不受支持。</summary>
+		</member>
+		<member name="F:System.ServiceModel.DomainServices.Client.OperationErrorStatus.ServerError">
+			<summary>处理操作期间发生服务器错误。</summary>
+		</member>
+		<member name="F:System.ServiceModel.DomainServices.Client.OperationErrorStatus.Unauthorized">
+			<summary>操作未获得执行授权。</summary>
+		</member>
+		<member name="F:System.ServiceModel.DomainServices.Client.OperationErrorStatus.ValidationFailed">
+			<summary>验证操作是否失败。</summary>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.QueryCompletedResult">
+			<summary>表示查询操作的结果。</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.QueryCompletedResult.#ctor(System.Collections.Generic.IEnumerable{System.ServiceModel.DomainServices.Client.Entity},System.Collections.Generic.IEnumerable{System.ServiceModel.DomainServices.Client.Entity},System.Int32,System.Collections.Generic.IEnumerable{System.ComponentModel.DataAnnotations.ValidationResult})">
+			<summary>初始化 <see cref="T:System.ServiceModel.DomainServices.Client.QueryCompletedResult"></see> 类的新实例。</summary>
+			<param name="validationErrors">验证错误的集合。</param>
+			<param name="includedEntities">包含的从查询返回的实体。</param>
+			<param name="entities">从查询返回的实体。</param>
+			<param name="totalCount">原始查询的总行数，没有应用任何分页。</param>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.QueryCompletedResult.Entities">
+			<summary>获取从查询返回的实体。</summary>
+			<returns>从查询返回的实体。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.QueryCompletedResult.IncludedEntities">
+			<summary>获取所包含的从查询返回的实体。</summary>
+			<returns>包含的从查询返回的实体。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.QueryCompletedResult.TotalCount">
+			<summary>获取原始查询的总行数，没有应用分页。</summary>
+			<returns>原始查询的总行数；如果服务器不支持总数，则为 -1。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.QueryCompletedResult.ValidationErrors">
+			<summary>获取验证错误。</summary>
+			<returns>验证错误的集合。</returns>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.QueryResult">
+			<summary>用于服务器和客户端之间通信查询结果的消息类型。</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.QueryResult.#ctor">
+			<summary>初始化 <see cref="T:System.ServiceModel.DomainServices.Client.QueryResult"></see> 类的新实例。</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.QueryResult.GetIncludedResults">
+			<summary>获取包含的结果。</summary>
+			<returns>包含的结果。</returns>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.QueryResult.GetRootResults">
+			<summary>获取根结果。</summary>
+			<returns>根结果。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.QueryResult.TotalCount">
+			<summary>获取或设置原始查询的总行数，没有应用任何分页。</summary>
+			<returns>原始查询的总行数，没有应用任何分页。</returns>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.QueryResult`1">
+			<summary>用于服务器和客户端之间通信查询结果的消息类型。</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.QueryResult`1.#ctor">
+			<summary>使用默认值初始化 <see cref="T:System.ServiceModel.DomainServices.Client.QueryResult`1"></see> 类的新实例。</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.QueryResult`1.#ctor(System.Collections.Generic.IEnumerable{`0})">
+			<summary>利用指定的结果项集合初始化 <see cref="T:System.ServiceModel.DomainServices.Client.QueryResult`1"></see> 类的新实例。</summary>
+			<param name="results">查询结果。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.QueryResult`1.#ctor(System.Collections.Generic.IEnumerable{`0},System.Int32)">
+			<summary>利用指定的结果项集合和总数初始化 <see cref="T:System.ServiceModel.DomainServices.Client.QueryResult`1"></see> 类的新实例。</summary>
+			<param name="results">查询结果。</param>
+			<param name="totalCount">基于输入查询的行总数，但无应用至其的任何分页。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.QueryResult`1.GetIncludedResults">
+			<summary>检索包含的结果。</summary>
+			<returns>包含的结果。</returns>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.QueryResult`1.GetRootResults">
+			<summary>检索根结果。</summary>
+			<returns>根结果。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.QueryResult`1.IncludedResults">
+			<summary>获取或设置包含的查询结果。</summary>
+			<returns>包含的查询结果。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.QueryResult`1.RootResults">
+			<summary>获取或设置顶级查询结果。</summary>
+			<returns>顶级查询结果。</returns>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.SubmitCompletedResult">
+			<summary>表示提交操作的结果。</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.SubmitCompletedResult.#ctor(System.ServiceModel.DomainServices.Client.EntityChangeSet,System.Collections.Generic.IEnumerable{System.ServiceModel.DomainServices.Client.ChangeSetEntry})">
+			<summary>用指定的变更集和操作结果初始化 <see cref="T:System.ServiceModel.DomainServices.Client.SubmitCompletedResult"></see> 类的新实例。</summary>
+			<param name="operationResults">从提交操作的 <see cref="T:System.ServiceModel.DomainServices.Server.DomainService"></see> 发送的 <see cref="T:System.ServiceModel.DomainServices.Client.ChangeSetEntry"></see> 结果。</param>
+			<param name="changeSet">已提交的变更集。</param>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.SubmitCompletedResult.ChangeSet">
+			<summary>获取已提交的变更集的值。</summary>
+			<returns>已提交的变更集的值。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.SubmitCompletedResult.Results">
+			<summary>获取从 <see cref="T:System.ServiceModel.DomainServices.Server.DomainService"></see> 返回的 <see cref="T:System.ServiceModel.DomainServices.Server.ChangeSetEntry"></see> 结果。</summary>
+			<returns>从 <see cref="T:System.ServiceModel.DomainServices.Server.DomainService"></see> 返回的 <see cref="T:System.ServiceModel.DomainServices.Server.ChangeSetEntry"></see> 结果。</returns>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.SubmitOperation">
+			<summary>表示一个异步提交操作。</summary>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.SubmitOperation.ChangeSet">
+			<summary>获取正在提交的变更集。</summary>
+			<returns>正在提交的变更集。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.SubmitOperation.EntitiesInError">
+			<summary>获取提交操作完成后出现错误的任何实体。</summary>
+			<returns>提交操作完成后出现错误的任何实体。</returns>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.ValidationResultInfo">
+			<summary>包含有关在服务器上执行操作期间所发生错误的信息。</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ValidationResultInfo.#ctor">
+			<summary>初始化 <see cref="T:System.ServiceModel.DomainServices.Client.ValidationResultInfo"></see> 类的新实例。</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ValidationResultInfo.#ctor(System.String,System.Collections.Generic.IEnumerable{System.String})">
+			<summary>使用本地化的错误消息和导致错误的成员的名称集合来初始化 <see cref="T:System.ServiceModel.DomainServices.Client.ValidationResultInfo"></see> 类的新实例。</summary>
+			<param name="message">本地化的错误消息。</param>
+			<param name="sourceMemberNames">导致错误的成员的名称。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ValidationResultInfo.#ctor(System.String,System.Int32,System.String,System.Collections.Generic.IEnumerable{System.String})">
+			<summary>使用本地化错误、错误代码、堆栈跟踪和导致错误的成员的名称集合来初始化 <see cref="T:System.ServiceModel.DomainServices.Client.ValidationResultInfo"></see> 类的新实例。</summary>
+			<param name="errorCode">自定义的错误代码。</param>
+			<param name="stackTrace">错误堆栈跟踪。</param>
+			<param name="message">本地化的错误消息。</param>
+			<param name="sourceMemberNames">导致错误的成员的名称集合。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ValidationResultInfo.GetHashCode">
+			<summary>返回该对象的哈希代码。</summary>
+			<returns>此对象的哈希代码。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.ValidationResultInfo.ErrorCode">
+			<summary>获取或设置自定义的错误代码。</summary>
+			<returns>自定义的错误代码。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.ValidationResultInfo.Message">
+			<summary>获取或设置错误消息。</summary>
+			<returns>错误消息。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.ValidationResultInfo.SourceMemberNames">
+			<summary>获取或设置导致错误的成员的名称。</summary>
+			<returns>导致错误的成员的名称。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.ValidationResultInfo.StackTrace">
+			<summary>获取或设置错误的堆栈跟踪。</summary>
+			<returns>错误的堆栈跟踪。</returns>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationEventArgs">
+			<summary>为 <see cref="T:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService"></see> 类所引发的事件提供事件参数。</summary>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationEventArgs.User">
+			<summary>获取事件发生时的用户。</summary>
+			<returns>事件发生时的用户。</returns>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationOperation">
+			<summary>为 <see cref="T:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService"></see> 支持的所有操作提供基操作类型。</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationOperation.BeginCore(System.AsyncCallback)">
+			<summary>在基本的异步结果执行中调用相应的 Begin 方法。</summary>
+			<returns>由基本的 Begin 调用返回的异步结果。</returns>
+			<param name="callback">完成异步调用时需调用的 <see cref="T:System.AsyncCallback"></see>。此参数可直接传递给 Begin 基本方法。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationOperation.EndCore(System.IAsyncResult)">
+			<summary>在基本的异步结果执行中调用相应的 End 方法。</summary>
+			<returns>End 调用的结果存储在 OperationBase.Result 中。</returns>
+			<param name="asyncResult">由基本的 Begin 调用返回的异步结果。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationOperation.RaiseCompletionPropertyChanges">
+			<summary>操作完成后引发属性更改。</summary>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationOperation.AsyncResult">
+			<summary>获取从 <see cref="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationOperation.BeginCore(System.AsyncCallback)"></see> 返回的异步结果。</summary>
+			<returns>从 <see cref="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationOperation.BeginCore(System.AsyncCallback)"></see> 返回的异步结果。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationOperation.Result">
+			<summary>获取 <see cref="T:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationResult"></see> 的结果。</summary>
+			<returns><see cref="T:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationResult"></see> 的结果。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationOperation.Service">
+			<summary>获取为执行 Begin、Cancel 和 End 该操作使用的服务。</summary>
+			<returns>为执行 Begin、Cancel 和 End 该操作使用的服务。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationOperation.SupportsCancellation">
+			<summary>获取一个值，用于指示操作是否支持取消操作。</summary>
+			<returns>如果此操作支持取消，则为 true；否则为 false。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationOperation.User">
+			<summary>获取用户主体。</summary>
+			<returns>用户主体。如果在操作完成前，取消操作或者操作发生错误，则此值为 null。</returns>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationResult">
+			<summary>为在 <see cref="T:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService"></see> 中的异步操作由 End 调用返回的所有结果提供抽象基类。</summary>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationResult.User">
+			<summary>获取已经过身份验证的用户。</summary>
+			<returns>已经过身份验证的用户。</returns>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService">
+			<summary>为验证当前用户身份以及加载和保存当前用户的服务提供基类。</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.#ctor">
+			<summary><see cref="T:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService"></see> 类新实例的初始化。</summary>
+		</member>
+		<member name="E:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.LoggedIn">
+			<summary>当新用户成功登录时发生。</summary>
+		</member>
+		<member name="E:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.LoggedOut">
+			<summary>当新用户成功注销时发生。</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.BeginLoadUser(System.AsyncCallback,System.Object)">
+			<summary>开始异步 <see cref="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.LoadUser"></see> 操作。</summary>
+			<returns>用于引用此异步调用的句柄。</returns>
+			<param name="callback">应在异步调用完成时调用回调。</param>
+			<param name="state">应当在此方法所返回的 <see cref="T:System.IAsyncResult"></see> 中设置的状态。此参数可选。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.BeginLogin(System.ServiceModel.DomainServices.Client.ApplicationServices.LoginParameters,System.AsyncCallback,System.Object)">
+			<summary>开始异步 <see cref="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.Login(System.ServiceModel.DomainServices.Client.ApplicationServices.LoginParameters,System.Action{System.ServiceModel.DomainServices.Client.ApplicationServices.LoginOperation},System.Object)"></see> 操作。</summary>
+			<returns>用于引用此异步调用的句柄。</returns>
+			<param name="callback">应在异步调用完成时调用回调。</param>
+			<param name="state">应当在此方法所返回的 <see cref="T:System.IAsyncResult"></see> 中设置的状态。此参数可选。</param>
+			<param name="parameters">用来指定验证用户身份的登录参数。此参数可选。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.BeginLogout(System.AsyncCallback,System.Object)">
+			<summary>开始异步 <see cref="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.Logout(System.Action{System.ServiceModel.DomainServices.Client.ApplicationServices.LogoutOperation},System.Object)"></see> 操作。</summary>
+			<returns>用于引用此异步调用的句柄。</returns>
+			<param name="callback">应在异步调用完成时调用回调。</param>
+			<param name="state">应当在此方法所返回的 <see cref="T:System.IAsyncResult"></see> 中设置的状态。此参数可选。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.BeginSaveUser(System.Security.Principal.IPrincipal,System.AsyncCallback,System.Object)">
+			<summary>开始异步 <see cref="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.SaveUser(System.Action{System.ServiceModel.DomainServices.Client.ApplicationServices.SaveUserOperation},System.Object)"></see> 操作。</summary>
+			<returns>用于引用此异步调用的句柄。</returns>
+			<param name="callback">应在异步调用完成时调用回调。</param>
+			<param name="user">要保存的用户。此参数不应为 null。</param>
+			<param name="state">应当在此方法所返回的 <see cref="T:System.IAsyncResult"></see> 中设置的状态。此参数可选。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.CancelLoadUser(System.IAsyncResult)">
+			<summary>取消异步 <see cref="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.LoadUser"></see> 操作。</summary>
+			<param name="asyncResult">从 <see cref="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.BeginLoadUser(System.AsyncCallback,System.Object)"></see> 返回的结果表示要取消异步调用。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.CancelLogin(System.IAsyncResult)">
+			<summary>取消异步 <see cref="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.Login(System.ServiceModel.DomainServices.Client.ApplicationServices.LoginParameters,System.Action{System.ServiceModel.DomainServices.Client.ApplicationServices.LoginOperation},System.Object)"></see> 操作。</summary>
+			<param name="asyncResult">从 <see cref="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.BeginLogin(System.ServiceModel.DomainServices.Client.ApplicationServices.LoginParameters,System.AsyncCallback,System.Object)"></see> 返回的结果表示要取消异步调用。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.CancelLogout(System.IAsyncResult)">
+			<summary>取消异步 <see cref="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.Logout(System.Action{System.ServiceModel.DomainServices.Client.ApplicationServices.LogoutOperation},System.Object)"></see> 操作。</summary>
+			<param name="asyncResult">从 <see cref="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.BeginLogout(System.AsyncCallback,System.Object)"></see> 返回的结果表示要取消异步调用。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.CancelSaveUser(System.IAsyncResult)">
+			<summary>取消异步 <see cref="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.SaveUser(System.Action{System.ServiceModel.DomainServices.Client.ApplicationServices.SaveUserOperation},System.Object)"></see> 操作。</summary>
+			<param name="asyncResult">从 <see cref="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.BeginSaveUser(System.Security.Principal.IPrincipal,System.AsyncCallback,System.Object)"></see> 返回的结果表示要取消异步调用。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.CreateDefaultUser">
+			<summary>创建一个默认用户。</summary>
+			<returns>已创建的用户。</returns>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.EndLoadUser(System.IAsyncResult)">
+			<summary>结束异步 <see cref="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.LoadUser"></see> 操作。</summary>
+			<returns>操作的结果。</returns>
+			<param name="asyncResult">从 <see cref="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.BeginLoadUser(System.AsyncCallback,System.Object)"></see> 返回的结果表示要结束异步调用。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.EndLogin(System.IAsyncResult)">
+			<summary>结束异步 <see cref="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.Login(System.ServiceModel.DomainServices.Client.ApplicationServices.LoginParameters,System.Action{System.ServiceModel.DomainServices.Client.ApplicationServices.LoginOperation},System.Object)"></see> 操作。</summary>
+			<returns>操作的结果。</returns>
+			<param name="asyncResult">从 <see cref="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.BeginLogin(System.ServiceModel.DomainServices.Client.ApplicationServices.LoginParameters,System.AsyncCallback,System.Object)"></see> 返回的结果表示要结束异步调用。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.EndLogout(System.IAsyncResult)">
+			<summary>结束异步 <see cref="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.Logout(System.Action{System.ServiceModel.DomainServices.Client.ApplicationServices.LogoutOperation},System.Object)"></see> 操作。</summary>
+			<returns>操作的结果。</returns>
+			<param name="asyncResult">从 <see cref="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.BeginLogout(System.AsyncCallback,System.Object)"></see> 返回的结果表示要结束异步调用。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.EndSaveUser(System.IAsyncResult)">
+			<summary>结束异步 <see cref="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.SaveUser(System.Action{System.ServiceModel.DomainServices.Client.ApplicationServices.SaveUserOperation},System.Object)"></see> 操作。</summary>
+			<returns>操作的结果。</returns>
+			<param name="asyncResult">从 <see cref="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.BeginSaveUser(System.Security.Principal.IPrincipal,System.AsyncCallback,System.Object)"></see> 返回的结果表示要结束异步调用。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.LoadUser">
+			<summary>从服务器异步加载已验证身份的用户。</summary>
+			<returns>操作的结果。</returns>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.LoadUser(System.Action{System.ServiceModel.DomainServices.Client.ApplicationServices.LoadUserOperation},System.Object)">
+			<summary>根据指定的调用方法和用户状态从服务器异步加载已验证身份的用户。</summary>
+			<returns>操作的结果。</returns>
+			<param name="completeAction">将在该操作完成之后立即调用而且将在所有事例（包括成功、取消和错误）中调用的操作。此参数可选。</param>
+			<param name="userState">将要设置为 <see cref="P:System.ServiceModel.DomainServices.Client.OperationBase.UserState"></see> 的状态。此参数可选。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.Login(System.ServiceModel.DomainServices.Client.ApplicationServices.LoginParameters)">
+			<summary>异步验证身份并使用指定的参数登录服务器。</summary>
+			<returns>操作的结果。</returns>
+			<param name="parameters">用来指定验证用户身份的登录参数。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.Login(System.String,System.String)">
+			<summary>异步验证身份并使用指定的用户名和密码登录服务器。</summary>
+			<returns>操作的结果。</returns>
+			<param name="userName">与要验证身份的用户相关联的用户名。</param>
+			<param name="password">与要验证身份的用户相关联的密码。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.Login(System.ServiceModel.DomainServices.Client.ApplicationServices.LoginParameters,System.Action{System.ServiceModel.DomainServices.Client.ApplicationServices.LoginOperation},System.Object)">
+			<summary>异步验证身份并使用指定的参数、回调方法和用户状态登录服务器。</summary>
+			<returns>操作的结果。</returns>
+			<param name="completeAction">将在该操作完成之后立即调用而且将在所有事例（包括成功、取消和错误）中调用的操作。此参数可选。</param>
+			<param name="userState">将要设置为 <see cref="P:System.ServiceModel.DomainServices.Client.OperationBase.UserState"></see> 的状态。此参数可选。</param>
+			<param name="parameters">用来指定验证用户身份的登录参数。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.Logout(System.Boolean)">
+			<summary>根据指定的值（该值指示是否针对错误引发了异常）从服务器异步注销已验证身份的用户。</summary>
+			<returns>操作的结果。</returns>
+			<param name="throwOnError">如果未处理的错误导致异常，则为 true；否则为 false。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.Logout(System.Action{System.ServiceModel.DomainServices.Client.ApplicationServices.LogoutOperation},System.Object)">
+			<summary>根据指定的调用方法和用户状态从服务器异步注销已验证身份的用户。</summary>
+			<returns>操作的结果。</returns>
+			<param name="completeAction">将在该操作完成之后立即调用而且将在所有事例（包括成功、取消和错误）中调用的操作。此参数可选。</param>
+			<param name="userState">将要设置为 <see cref="P:System.ServiceModel.DomainServices.Client.OperationBase.UserState"></see> 的状态。此参数可选。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.OnPropertyChanged(System.ComponentModel.PropertyChangedEventArgs)">
+			<summary>引发 <see cref="E:System.ComponentModel.INotifyPropertyChanged.PropertyChanged"></see> 事件。</summary>
+			<param name="e">要引发的事件。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.RaisePropertyChanged(System.String)">
+			<summary>针对指定的属性引发 <see cref="E:System.ComponentModel.INotifyPropertyChanged.PropertyChanged"></see> 事件。</summary>
+			<param name="propertyName">针对自身引发事件的属性。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.SaveUser(System.Boolean)">
+			<summary>根据指定的值（该值指示是否针对错误引发了异常）将已验证身份的用户异步保存到服务器。</summary>
+			<returns>操作的结果。</returns>
+			<param name="throwOnError">如果未处理的错误导致异常，则为 true；否则为 false。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.SaveUser(System.Action{System.ServiceModel.DomainServices.Client.ApplicationServices.SaveUserOperation},System.Object)">
+			<summary>根据指定的回调方法和用户状态将已验证身份的用户异步保存到服务器。</summary>
+			<returns>操作的结果。</returns>
+			<param name="completeAction">将在该操作完成之后立即调用而且将在所有事例（包括成功、取消和错误）中调用的操作。此参数可选。</param>
+			<param name="userState">将要设置为 <see cref="P:System.ServiceModel.DomainServices.Client.OperationBase.UserState"></see> 的状态。此参数可选。</param>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.IsBusy">
+			<summary>获取一个值，用于指示是否正在运行异步操作。</summary>
+			<returns>如果操作正在运行，则为 true；否则为 false。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.IsLoadingUser">
+			<summary>获取一个值，用于指示是否正在运行异步 <see cref="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.LoadUser"></see> 操作。</summary>
+			<returns>如果操作正在运行，则为 true；否则为 false。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.IsLoggingIn">
+			<summary>获取一个值，用于指示是否正在运行异步 <see cref="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.Login(System.String,System.String)"></see> 操作。</summary>
+			<returns>如果操作正在运行，则为 true；否则为 false。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.IsLoggingOut">
+			<summary>获取一个值，用于指示是否正在运行异步 <see cref="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.Logout(System.Action{System.ServiceModel.DomainServices.Client.ApplicationServices.LogoutOperation},System.Object)"></see> 操作。</summary>
+			<returns>如果操作正在运行，则为 true；否则为 false。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.IsSavingUser">
+			<summary>获取一个值，用于指示是否正在运行异步 <see cref="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.SaveUser(System.Action{System.ServiceModel.DomainServices.Client.ApplicationServices.SaveUserOperation},System.Object)"></see> 操作。</summary>
+			<returns>如果操作正在运行，则为 true；否则为 false。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.SupportsCancellation">
+			<summary>获取一个值，用于指示执行的身份验证是否支持取消操作。</summary>
+			<returns>如果支持取消操作，则为 true；否则为 false。在所有事例中，基实现都返回 false。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.User">
+			<summary>获取表示用户已经过身份验证的主体。</summary>
+			<returns>表示用户已经过身份验证的主体。</returns>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.ApplicationServices.LoadUserOperation">
+			<summary>从对 <see cref="T:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService"></see> 的 LoadUser 操作返回的操作类型。</summary>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.ApplicationServices.LoadUserResult">
+			<summary>表示从 <see cref="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.EndLoadUser(System.IAsyncResult)"></see> 返回的结果。</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.LoadUserResult.#ctor(System.Security.Principal.IPrincipal)">
+			<summary><see cref="T:System.ServiceModel.DomainServices.Client.ApplicationServices.LoadUserResult"></see> 类新实例的初始化。</summary>
+			<param name="user">已加载的用户。</param>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.ApplicationServices.LoginOperation">
+			<summary>从对 <see cref="T:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService"></see> 的 Login 操作返回的操作类型。</summary>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.ApplicationServices.LoginOperation.LoginParameters">
+			<summary>获取在调用此操作时所使用的登录参数。</summary>
+			<returns>登录参数。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.ApplicationServices.LoginOperation.LoginSuccess">
+			<summary>获取一个值，用于指示此操作能否成功登录。</summary>
+			<returns>如果登录成功，则为 true；否则为 false。</returns>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.ApplicationServices.LoginParameters">
+			<summary>在 <see cref="T:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService"></see> 的 Login 方法中指定要对用户进行身份验证的参数。</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.LoginParameters.#ctor">
+			<summary>使用默认值初始化 <see cref="T:System.ServiceModel.DomainServices.Client.ApplicationServices.LoginParameters"></see> 类的新实例。</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.LoginParameters.#ctor(System.String,System.String)">
+			<summary>用指定的名称和密码初始化 <see cref="T:System.ServiceModel.DomainServices.Client.ApplicationServices.LoginParameters"></see> 类的新实例。</summary>
+			<param name="userName">要验证其身份的用户的名称。</param>
+			<param name="password">要验证其身份的用户的密码。</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.LoginParameters.#ctor(System.String,System.String,System.Boolean,System.String)">
+			<summary>利用指定的名称、密码和持久性初始化 <see cref="T:System.ServiceModel.DomainServices.Client.ApplicationServices.LoginParameters"></see> 类的新实例。</summary>
+			<param name="customData">特定于实现的可选数据。</param>
+			<param name="userName">要验证其身份的用户的名称。</param>
+			<param name="isPersistent">如果此登录应在切换会话时保持不变，则为 true；否则为 false。</param>
+			<param name="password">要验证其身份的用户的密码。</param>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.ApplicationServices.LoginParameters.CustomData">
+			<summary>获取特定于实现的可选数据。</summary>
+			<returns>特定于实现的可选数据。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.ApplicationServices.LoginParameters.IsPersistent">
+			<summary>获取一个值，该值指示此登录是否应在切换会话时保持不变。</summary>
+			<returns>如果此登录应在切换会话时保持不变，则为 true；否则为 false。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.ApplicationServices.LoginParameters.Password">
+			<summary>获取要验证其身份的用户的密码。</summary>
+			<returns>要验证其身份的用户的密码。</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.ApplicationServices.LoginParameters.UserName">
+			<summary>获取要验证其身份的用户的名称。</summary>
+			<returns>要验证其身份的用户的名称。</returns>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.ApplicationServices.LoginResult">
+			<summary>从 <see cref="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.EndLogin(System.IAsyncResult)"></see> 返回的结果。</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.LoginResult.#ctor(System.Security.Principal.IPrincipal,System.Boolean)">
+			<summary><see cref="T:System.ServiceModel.DomainServices.Client.ApplicationServices.LoginResult"></see> 类新实例的初始化。</summary>
+			<param name="user">已登录的用户；或者如果身份验证失败，则为 null。</param>
+			<param name="loginSuccess">如果 Login 调用成功，则为 true；否则为 false。</param>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.ApplicationServices.LoginResult.LoginSuccess">
+			<summary>获取一个值，用于指示是否成功调用 Login。</summary>
+			<returns>如果登录成功，则为 true；否则为 false。</returns>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.ApplicationServices.LogoutOperation">
+			<summary>从 <see cref="T:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService"></see> 上的 Logout 操作返回的操作类型。</summary>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.ApplicationServices.LogoutResult">
+			<summary>表示从 <see cref="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.EndLogout(System.IAsyncResult)"></see> 返回的结果。</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.LogoutResult.#ctor(System.Security.Principal.IPrincipal)">
+			<summary><see cref="T:System.ServiceModel.DomainServices.Client.ApplicationServices.LogoutResult"></see> 类新实例的初始化。</summary>
+			<param name="user">匿名用户。</param>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.ApplicationServices.SaveUserOperation">
+			<summary>表示从 <see cref="T:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService"></see> 上的 SaveUser 操作返回的操作类型。</summary>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.ApplicationServices.SaveUserResult">
+			<summary>表示从 <see cref="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.EndSaveUser(System.IAsyncResult)"></see> 返回的结果。</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.SaveUserResult.#ctor(System.Security.Principal.IPrincipal)">
+			<summary><see cref="T:System.ServiceModel.DomainServices.Client.ApplicationServices.SaveUserResult"></see> 类新实例的初始化。</summary>
+			<param name="user">已保存的用户。</param>
+		</member>
+	</members>
+</doc>

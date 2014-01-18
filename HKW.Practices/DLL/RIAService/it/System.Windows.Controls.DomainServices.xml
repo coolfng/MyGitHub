@@ -1,0 +1,593 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<doc>
+	<assembly>
+		<name>System.Windows.Controls.DomainServices</name>
+	</assembly>
+	<members>
+		<member name="N:System.Windows.Controls">
+			<summary>Fornisce classi per semplificare l'interazione tra l'interfaccia utente nel progetto client e i dati recuperati da un servizio del dominio.</summary>
+		</member>
+		<member name="T:System.Windows.Controls.DomainDataSource">
+			<summary>Fornisce un oggetto per il caricamento, il filtraggio, il raggruppamento e l'ordinamento di raccolte dati. </summary>
+		</member>
+		<member name="M:System.Windows.Controls.DomainDataSource.#ctor">
+			<summary>Inizializza una nuova istanza della classe <see cref="T:System.Windows.Controls.DomainDataSource"></see>. </summary>
+		</member>
+		<member name="E:System.Windows.Controls.DomainDataSource.LoadedData">
+			<summary>Si verifica quando viene completata un'operazione di caricamento dati.</summary>
+		</member>
+		<member name="E:System.Windows.Controls.DomainDataSource.LoadingData">
+			<summary>Si verifica quando viene avviata un'operazione di caricamento dati.</summary>
+		</member>
+		<member name="E:System.Windows.Controls.DomainDataSource.SubmittedChanges">
+			<summary>Si verifica tutte le volte che viene completata un'operazione di invio.</summary>
+		</member>
+		<member name="E:System.Windows.Controls.DomainDataSource.SubmittingChanges">
+			<summary>Si verifica tutte le volte che viene avviata un'operazione di invio.</summary>
+		</member>
+		<member name="F:System.Windows.Controls.DomainDataSource.AutoLoadProperty">
+			<summary>Identifica la proprietà di dipendenza <see cref="P:System.Windows.Controls.DomainDataSource.AutoLoad"></see>.</summary>
+		</member>
+		<member name="F:System.Windows.Controls.DomainDataSource.CanLoadProperty">
+			<summary>Identifica la proprietà di dipendenza <see cref="M:System.Windows.Controls.DomainDataSource.CancelLoad"></see>.</summary>
+		</member>
+		<member name="F:System.Windows.Controls.DomainDataSource.DataProperty">
+			<summary>Identifica la proprietà di dipendenza <see cref="P:System.Windows.Controls.DomainDataSource.Data"></see>.</summary>
+		</member>
+		<member name="F:System.Windows.Controls.DomainDataSource.DataViewProperty">
+			<summary>Identifica la proprietà di dipendenza <see cref="P:System.Windows.Controls.DomainDataSource.DataView"></see>.</summary>
+		</member>
+		<member name="F:System.Windows.Controls.DomainDataSource.DesignDataProperty">
+			<summary>Identifica la proprietà di dipendenza <see cref="P:System.Windows.Controls.DomainDataSource.DesignData"></see>.</summary>
+		</member>
+		<member name="F:System.Windows.Controls.DomainDataSource.DomainContextProperty">
+			<summary>Identifica la proprietà di dipendenza <see cref="P:System.Windows.Controls.DomainDataSource.DomainContext"></see>.</summary>
+		</member>
+		<member name="F:System.Windows.Controls.DomainDataSource.FilterOperatorProperty">
+			<summary>Identifica la proprietà di dipendenza <see cref="P:System.Windows.Controls.DomainDataSource.FilterOperator"></see>.</summary>
+		</member>
+		<member name="F:System.Windows.Controls.DomainDataSource.HasChangesProperty">
+			<summary>Identifica la proprietà di dipendenza <see cref="P:System.Windows.Controls.DomainDataSource.HasChanges"></see>. </summary>
+		</member>
+		<member name="F:System.Windows.Controls.DomainDataSource.IsBusyProperty">
+			<summary>Identifica la proprietà di dipendenza <see cref="P:System.Windows.Controls.DomainDataSource.IsBusy"></see>.</summary>
+		</member>
+		<member name="F:System.Windows.Controls.DomainDataSource.IsLoadingDataProperty">
+			<summary>Identifica la proprietà di dipendenza <see cref="P:System.Windows.Controls.DomainDataSource.IsLoadingData"></see>.</summary>
+		</member>
+		<member name="F:System.Windows.Controls.DomainDataSource.IsSubmittingChangesProperty">
+			<summary>Identifica la proprietà di dipendenza <see cref="P:System.Windows.Controls.DomainDataSource.IsSubmittingChanges"></see>.</summary>
+		</member>
+		<member name="F:System.Windows.Controls.DomainDataSource.LoadDelayProperty">
+			<summary>Identifica la proprietà di dipendenza <see cref="P:System.Windows.Controls.DomainDataSource.LoadDelay"></see>.</summary>
+		</member>
+		<member name="F:System.Windows.Controls.DomainDataSource.LoadIntervalProperty">
+			<summary>Identifica la proprietà di dipendenza <see cref="P:System.Windows.Controls.DomainDataSource.LoadInterval"></see>.</summary>
+		</member>
+		<member name="F:System.Windows.Controls.DomainDataSource.LoadSizeProperty">
+			<summary>Identifica la proprietà di dipendenza <see cref="P:System.Windows.Controls.DomainDataSource.LoadSize"></see>.</summary>
+		</member>
+		<member name="F:System.Windows.Controls.DomainDataSource.PageSizeProperty">
+			<summary>Identifica la proprietà di dipendenza <see cref="P:System.Windows.Controls.DomainDataSource.PageSize"></see>.</summary>
+		</member>
+		<member name="F:System.Windows.Controls.DomainDataSource.QueryNameProperty">
+			<summary>Identifica la proprietà di dipendenza <see cref="P:System.Windows.Controls.DomainDataSource.QueryName"></see>.</summary>
+		</member>
+		<member name="F:System.Windows.Controls.DomainDataSource.RefreshIntervalProperty">
+			<summary>Identifica la proprietà di dipendenza <see cref="P:System.Windows.Controls.DomainDataSource.RefreshInterval"></see>.</summary>
+		</member>
+		<member name="M:System.Windows.Controls.DomainDataSource.CancelLoad">
+			<summary>Annulla l'operazione di caricamento dati corrente eseguita da <see cref="T:System.Windows.Controls.DomainDataSource"></see>, se presente.</summary>
+		</member>
+		<member name="M:System.Windows.Controls.DomainDataSource.CancelSubmit">
+			<summary>Annulla l'operazione di invio corrente eseguita da <see cref="T:System.Windows.Controls.DomainDataSource"></see>, se presente.</summary>
+		</member>
+		<member name="M:System.Windows.Controls.DomainDataSource.Clear">
+			<summary>Cancella tutti i dati dall'oggetto <see cref="T:System.Windows.Controls.DomainDataSource"></see> e dall'oggetto <see cref="T:System.ServiceModel.DomainServices.Client.EntitySet"></see> sottostante nell'oggetto <see cref="T:System.ServiceModel.DomainServices.Client.DomainContext"></see>.</summary>
+		</member>
+		<member name="M:System.Windows.Controls.DomainDataSource.DeferLoad">
+			<summary>Consente di raggruppare più operazioni di caricamento dati in un'unica operazione.</summary>
+			<returns>Oggetto eliminabile che attiverà un'operazione di caricamento dati in caso di eliminazione.</returns>
+		</member>
+		<member name="M:System.Windows.Controls.DomainDataSource.Load">
+			<summary>Avvia un'operazione di caricamento dati sincrona. </summary>
+		</member>
+		<member name="M:System.Windows.Controls.DomainDataSource.OnApplyTemplate">
+			<summary>Compila la struttura ad albero visuale per <see cref="T:System.Windows.Controls.DomainDataSource"></see> quando viene applicato un nuovo modello.</summary>
+		</member>
+		<member name="M:System.Windows.Controls.DomainDataSource.RejectChanges">
+			<summary>Annulla le modifiche dei dati eseguite dalla proprietà <see cref="P:System.Windows.Controls.DomainDataSource.DomainContext"></see> sottostante.</summary>
+		</member>
+		<member name="M:System.Windows.Controls.DomainDataSource.SubmitChanges">
+			<summary>Invia le modifiche per ogni oggetto <see cref="T:System.ServiceModel.DomainServices.Client.Entity"></see> presente in <see cref="T:System.ServiceModel.DomainServices.Client.DomainContext"></see>.</summary>
+		</member>
+		<member name="P:System.Windows.Controls.DomainDataSource.AutoLoad">
+			<summary>Ottiene o imposta un valore che indica se il metodo <see cref="M:System.Windows.Controls.DomainDataSource.Load"></see> viene richiamato automaticamente quando si verifica una modifica che influisce sulla query composta da <see cref="T:System.Windows.Controls.DomainDataSource"></see>.</summary>
+			<returns>true se si verifica un caricamento automatico dei dati. In caso contrario, false.</returns>
+		</member>
+		<member name="P:System.Windows.Controls.DomainDataSource.CanLoad">
+			<summary>Ottiene un valore che indica se il controllo può eseguire un'operazione di caricamento basata sullo stato presente.</summary>
+			<returns>false quando <see cref="P:System.Windows.Controls.DomainDataSource.HasChanges"></see> o <see cref="P:System.Windows.Controls.DomainDataSource.IsSubmittingChanges"></see> è true. In caso contrario, true.</returns>
+		</member>
+		<member name="P:System.Windows.Controls.DomainDataSource.Data">
+			<summary>Ottiene le entità risultanti dall'ultima operazione di caricamento, ad esempio un'interfaccia IEnumerable.</summary>
+			<returns>Dati risultanti da un'operazione di caricamento dati.</returns>
+		</member>
+		<member name="P:System.Windows.Controls.DomainDataSource.DataView">
+			<summary>Ottiene la visualizzazione corrente delle entità risultanti dall'ultima operazione di caricamento tramite un oggetto <see cref="T:System.Windows.Controls.DomainDataSourceView"></see>.</summary>
+			<returns>Visualizzazione dati caricati.</returns>
+		</member>
+		<member name="P:System.Windows.Controls.DomainDataSource.DesignData">
+			<summary>Ottiene o imposta i dati da utilizzare in fase di progettazione.</summary>
+			<returns>Dati da utilizzare in fase di progettazione.</returns>
+		</member>
+		<member name="P:System.Windows.Controls.DomainDataSource.DomainContext">
+			<summary> Ottiene o imposta l'istanza di <see cref="T:System.ServiceModel.DomainServices.Client.DomainContext"></see> utilizzata per l'esecuzione delle operazioni di caricamento e di invio.</summary>
+			<returns>Contesto dati per le operazioni di caricamento e di invio dei dati.</returns>
+		</member>
+		<member name="P:System.Windows.Controls.DomainDataSource.FilterDescriptors">
+			<summary>Ottiene la raccolta di oggetti <see cref="T:System.Windows.Controls.FilterDescriptor"></see> utilizzati quando si eseguono caricamenti.</summary>
+			<returns>Raccolte di filtri applicati al set di dati.</returns>
+		</member>
+		<member name="P:System.Windows.Controls.DomainDataSource.FilterOperator">
+			<summary>Ottiene o imposta l'operatore logico utilizzato per combinare oggetti <see cref="T:System.Windows.Controls.FilterDescriptor"></see> nella raccolta di filtri.</summary>
+			<returns>Operatore logico utilizzato per combinare oggetti <see cref="T:System.Windows.Controls.FilterDescriptor"></see> nella raccolta di filtri.</returns>
+		</member>
+		<member name="P:System.Windows.Controls.DomainDataSource.GroupDescriptors">
+			<summary>Ottiene la raccolta di oggetti di raggruppamento utilizzati per organizzare i dati in gruppi.</summary>
+			<returns>Raccolta di oggetti di raggruppamento utilizzati per organizzare i dati in gruppi.</returns>
+		</member>
+		<member name="P:System.Windows.Controls.DomainDataSource.HasChanges">
+			<summary>Ottiene un valore che indica se per gli elementi esposti da <see cref="T:System.Windows.Controls.DomainDataSource"></see> sono presenti modifiche in sospeso.</summary>
+			<returns>true se per l'origine dati sono presenti modifiche in sospeso. In caso contrario, false.</returns>
+		</member>
+		<member name="P:System.Windows.Controls.DomainDataSource.IsBusy">
+			<summary>Ottiene un valore che indica se <see cref="T:System.Windows.Controls.DomainDataSource"></see> sta caricando dati o inviando modifiche.</summary>
+			<returns>true se l'origine dati sta caricando dati. In caso contrario, false.</returns>
+		</member>
+		<member name="P:System.Windows.Controls.DomainDataSource.IsLoadingData">
+			<summary>Ottiene un valore che indica se l'oggetto <see cref="T:System.Windows.Controls.DomainDataSource"></see> sta attualmente caricando dati.</summary>
+			<returns>true se l'origine dati sta caricando un set di dati. In caso contrario, false.</returns>
+		</member>
+		<member name="P:System.Windows.Controls.DomainDataSource.IsSubmittingChanges">
+			<summary>Ottiene un valore che indica se <see cref="T:System.Windows.Controls.DomainDataSource"></see> sta attualmente inviando modifiche come risultato di una chiamata al metodo <see cref="M:System.Windows.Controls.DomainDataSource.SubmitChanges"></see>.</summary>
+			<returns>true se l'origine dati sta inviando modifiche. In caso contrario, false.</returns>
+		</member>
+		<member name="P:System.Windows.Controls.DomainDataSource.LoadCommand">
+			<summary>Ottiene un'interfaccia ICommand che richiama il metodo <see cref="M:System.Windows.Controls.DomainDataSource.Load"></see> sull'oggetto <see cref="T:System.Windows.Controls.DomainDataSource"></see>.</summary>
+			<returns>Interfaccia ICommand che richiama il metodo <see cref="M:System.Windows.Controls.DomainDataSource.Load"></see> su <see cref="T:System.Windows.Controls.DomainDataSource"></see>.</returns>
+		</member>
+		<member name="P:System.Windows.Controls.DomainDataSource.LoadDelay">
+			<summary>Ottiene o imposta il ritardo prima che venga avviata un'operazione di caricamento dati automatica. </summary>
+			<returns>Ritardo tra il momento in cui una modifica richiede l'esecuzione di un caricamento automatico e il momento in cui viene richiamato il metodo <see cref="M:System.Windows.Controls.DomainDataSource.Load"></see> successivo.</returns>
+		</member>
+		<member name="P:System.Windows.Controls.DomainDataSource.LoadInterval">
+			<summary>Ottiene o imposta la durata tra due operazioni successive di caricamento dati in uno scenario progressivo di caricamento dati.</summary>
+			<returns>Durata tra due operazioni successive di caricamento dati in uno scenario progressivo di caricamento dati.</returns>
+		</member>
+		<member name="P:System.Windows.Controls.DomainDataSource.LoadSize">
+			<summary>Ottiene o imposta il numero massimo di elementi da caricare a ogni esecuzione del metodo <see cref="M:System.Windows.Controls.DomainDataSource.Load"></see>. Quando questo valore è uguale a 0, tutte le entità richieste verranno caricate. </summary>
+			<returns>Numero di elementi da caricare in un'unica operazione di caricamento dati oppure 0 se è necessario caricare tutti gli elementi.</returns>
+		</member>
+		<member name="P:System.Windows.Controls.DomainDataSource.PageSize">
+			<summary>Ottiene o imposta il numero di elementi visualizzati in ogni pagina della visualizzazione restituita dalle proprietà <see cref="P:System.Windows.Controls.DomainDataSource.Data"></see> e <see cref="P:System.Windows.Controls.DomainDataSource.DataView"></see> oppure 0 per disabilitare il paging. </summary>
+			<returns>Numero di elementi visualizzati in ogni pagina della visualizzazione restituita dalle proprietà <see cref="P:System.Windows.Controls.DomainDataSource.Data"></see> e <see cref="P:System.Windows.Controls.DomainDataSource.DataView"></see> oppure 0 se il paging non è presente.</returns>
+		</member>
+		<member name="P:System.Windows.Controls.DomainDataSource.QueryName">
+			<summary>Ottiene o imposta il nome della query da utilizzare per il caricamento.</summary>
+			<returns>Nome della query da utilizzare per il caricamento dati.</returns>
+		</member>
+		<member name="P:System.Windows.Controls.DomainDataSource.QueryParameters">
+			<summary>Ottiene la raccolta di oggetti <see cref="T:System.Windows.Controls.Parameter"></see> che rappresentano argomenti del metodo <see cref="T:System.ServiceModel.DomainServices.Client.EntityQuery`1"></see> specificato dalla proprietà <see cref="P:System.Windows.Controls.DomainDataSource.QueryName"></see>.</summary>
+			<returns>Raccolta di parametri passati alla query specificata dalla proprietà <see cref="P:System.Windows.Controls.DomainDataSource.QueryName"></see>.</returns>
+		</member>
+		<member name="P:System.Windows.Controls.DomainDataSource.RefreshInterval">
+			<summary>Ottiene o imposta l'intervallo tra operazioni <see cref="M:System.Windows.Controls.DomainDataSource.Load"></see> automatiche per aggiornare i dati in base a qualsiasi modifica che si è verificata nel server. </summary>
+			<returns>Durata tra due operazioni consecutive di aggiornamento dei dati.</returns>
+		</member>
+		<member name="P:System.Windows.Controls.DomainDataSource.RejectChangesCommand">
+			<summary>Ottiene un'interfaccia ICommand che richiama un metodo <see cref="M:System.Windows.Controls.DomainDataSource.RejectChanges"></see> su questo comando <see cref="T:System.Windows.Controls.DomainDataSource"></see>.</summary>
+			<returns>Interfaccia ICommand che richiama il metodo <see cref="M:System.Windows.Controls.DomainDataSource.RejectChanges"></see> su <see cref="T:System.Windows.Controls.DomainDataSource"></see>.</returns>
+		</member>
+		<member name="P:System.Windows.Controls.DomainDataSource.SortDescriptors">
+			<summary>Ottiene la raccolta di oggetti descrittore di ordinamento utilizzati per ordinare i dati.</summary>
+			<returns>Raccolta di oggetti descrittore di ordinamento utilizzati per ordinare i dati.</returns>
+		</member>
+		<member name="P:System.Windows.Controls.DomainDataSource.SubmitChangesCommand">
+			<summary>Ottiene un'interfaccia ICommand che richiama il metodo <see cref="M:System.Windows.Controls.DomainDataSource.SubmitChanges"></see> su <see cref="T:System.Windows.Controls.DomainDataSource"></see>.</summary>
+			<returns>Interfaccia ICommand che richiama il metodo <see cref="M:System.Windows.Controls.DomainDataSource.SubmitChanges"></see> su <see cref="T:System.Windows.Controls.DomainDataSource"></see>.</returns>
+		</member>
+		<member name="T:System.Windows.Controls.DomainDataSourceView">
+			<summary>Fornisce una visualizzazione raccolta per <see cref="T:System.Windows.Controls.DomainDataSource"></see>.</summary>
+		</member>
+		<member name="E:System.Windows.Controls.DomainDataSourceView.CurrentChanged">
+			<summary>Si verifica dopo la modifica di <see cref="P:System.Windows.Controls.DomainDataSourceView.CurrentItem"></see>.</summary>
+		</member>
+		<member name="E:System.Windows.Controls.DomainDataSourceView.CurrentChanging">
+			<summary>Si verifica prima della modifica di <see cref="P:System.Windows.Controls.DomainDataSourceView.CurrentItem"></see>.</summary>
+		</member>
+		<member name="E:System.Windows.Controls.DomainDataSourceView.PageChanged">
+			<summary>Si verifica dopo la modifica di <see cref="P:System.Windows.Controls.DomainDataSourceView.PageIndex"></see>.</summary>
+		</member>
+		<member name="E:System.Windows.Controls.DomainDataSourceView.PageChanging">
+			<summary>Si verifica prima della modifica di <see cref="P:System.Windows.Controls.DomainDataSourceView.PageIndex"></see>.</summary>
+		</member>
+		<member name="M:System.Windows.Controls.DomainDataSourceView.Add(System.Object)">
+			<summary>Aggiunge l'elemento specificato alla raccolta.</summary>
+			<param name="item">Elemento da aggiungere.</param>
+		</member>
+		<member name="M:System.Windows.Controls.DomainDataSourceView.Contains(System.Object)">
+			<summary>Restituisce un valore che indica se un elemento specificato appartiene a questa visualizzazione.</summary>
+			<returns>true se l'elemento appartiene alla visualizzazione. In caso contrario, false.</returns>
+			<param name="item">Elemento da controllare.</param>
+		</member>
+		<member name="M:System.Windows.Controls.DomainDataSourceView.GetItemAt(System.Int32)">
+			<summary>Ottiene l'elemento in corrispondenza dell'indice specificato.</summary>
+			<returns>Elemento in corrispondenza dell'indice specificato.</returns>
+			<param name="index">Indice dell'elemento da ottenere.</param>
+		</member>
+		<member name="M:System.Windows.Controls.DomainDataSourceView.IndexOf(System.Object)">
+			<summary>Ottiene la posizione ordinale dell'elemento specificato all'interno della visualizzazione.</summary>
+			<returns>Posizione ordinale dell'elemento specificato all'interno della visualizzazione.</returns>
+			<param name="item">Elemento di cui ottenere l'indice.</param>
+		</member>
+		<member name="M:System.Windows.Controls.DomainDataSourceView.MoveCurrentTo(System.Object)">
+			<summary>Imposta l'elemento specificato in modo che sia l'oggetto <see cref="P:System.Windows.Controls.DomainDataSourceView.CurrentItem"></see> nella visualizzazione.</summary>
+			<returns>true se l'oggetto <see cref="P:System.Windows.Controls.DomainDataSourceView.CurrentItem"></see> risultante è all'interno della visualizzazione. In caso contrario, false.</returns>
+			<param name="item">Elemento da impostare come <see cref="P:System.Windows.Controls.DomainDataSourceView.CurrentItem"></see>.</param>
+		</member>
+		<member name="M:System.Windows.Controls.DomainDataSourceView.MoveCurrentToFirst">
+			<summary>Imposta il primo elemento nella visualizzazione come <see cref="P:System.Windows.Controls.DomainDataSourceView.CurrentItem"></see>.</summary>
+			<returns>true se l'oggetto <see cref="P:System.Windows.Controls.DomainDataSourceView.CurrentItem"></see> risultante è all'interno della visualizzazione. In caso contrario, false.</returns>
+		</member>
+		<member name="M:System.Windows.Controls.DomainDataSourceView.MoveCurrentToLast">
+			<summary>Imposta l’ultimo elemento nella visualizzazione come <see cref="P:System.Windows.Controls.DomainDataSourceView.CurrentItem"></see>.</summary>
+			<returns>true se l'oggetto <see cref="P:System.Windows.Controls.DomainDataSourceView.CurrentItem"></see> risultante è all'interno della visualizzazione. In caso contrario, false.</returns>
+		</member>
+		<member name="M:System.Windows.Controls.DomainDataSourceView.MoveCurrentToNext">
+			<summary>Imposta l’elemento successivo a <see cref="P:System.Windows.Controls.DomainDataSourceView.CurrentItem"></see> nella visualizzazione come <see cref="P:System.Windows.Controls.DomainDataSourceView.CurrentItem"></see>.</summary>
+			<returns>true se l'oggetto <see cref="P:System.Windows.Controls.DomainDataSourceView.CurrentItem"></see> risultante è all'interno della visualizzazione. In caso contrario, false.</returns>
+		</member>
+		<member name="M:System.Windows.Controls.DomainDataSourceView.MoveCurrentToPosition(System.Int32)">
+			<summary>Imposta l'elemento in corrispondenza dell'indice specificato come primo oggetto <see cref="P:System.Windows.Controls.DomainDataSourceView.CurrentItem"></see> nella visualizzazione.</summary>
+			<returns>true se l'oggetto <see cref="P:System.Windows.Controls.DomainDataSourceView.CurrentItem"></see> risultante è all'interno della visualizzazione. In caso contrario, false.</returns>
+			<param name="position">Indice in corrispondenza del quale impostare l'oggetto <see cref="P:System.Windows.Controls.DomainDataSourceView.CurrentItem"></see>.</param>
+		</member>
+		<member name="M:System.Windows.Controls.DomainDataSourceView.MoveCurrentToPrevious">
+			<summary>Imposta l’elemento precedente a <see cref="P:System.Windows.Controls.DomainDataSourceView.CurrentItem"></see> nella visualizzazione come <see cref="P:System.Windows.Controls.DomainDataSourceView.CurrentItem"></see>.</summary>
+			<returns>true se l'oggetto <see cref="P:System.Windows.Controls.DomainDataSourceView.CurrentItem"></see> risultante è all'interno della visualizzazione. In caso contrario, false.</returns>
+		</member>
+		<member name="M:System.Windows.Controls.DomainDataSourceView.MoveToFirstPage">
+			<summary>Imposta la prima pagina come pagina corrente.</summary>
+			<returns>true se l'operazione ha avuto esito positivo. In caso contrario, false.</returns>
+		</member>
+		<member name="M:System.Windows.Controls.DomainDataSourceView.MoveToLastPage">
+			<summary>Imposta l'ultima pagina come pagina corrente.</summary>
+			<returns>true se l'operazione ha avuto esito positivo. In caso contrario, false.</returns>
+		</member>
+		<member name="M:System.Windows.Controls.DomainDataSourceView.MoveToNextPage">
+			<summary>Esegue uno spostamento sulla pagina successiva a quella corrente.</summary>
+			<returns>true se l'operazione ha avuto esito positivo. In caso contrario, false.</returns>
+		</member>
+		<member name="M:System.Windows.Controls.DomainDataSourceView.MoveToPage(System.Int32)">
+			<summary>Esegue lo spostamento sulla pagina in corrispondenza dell'indice specificato.</summary>
+			<returns>true se l'operazione ha avuto esito positivo. In caso contrario, false.</returns>
+			<param name="pageIndex">Indice della pagina su cui spostarsi.</param>
+		</member>
+		<member name="M:System.Windows.Controls.DomainDataSourceView.MoveToPreviousPage">
+			<summary>Esegue uno spostamento sulla pagina precedente a quella corrente.</summary>
+			<returns>true se l'operazione ha avuto esito positivo. In caso contrario, false.</returns>
+		</member>
+		<member name="M:System.Windows.Controls.DomainDataSourceView.Remove(System.Object)">
+			<summary>Rimuove l'elemento specificato dalla raccolta.</summary>
+			<param name="item">Elemento da rimuovere.</param>
+		</member>
+		<member name="M:System.Windows.Controls.DomainDataSourceView.RemoveAt(System.Int32)">
+			<summary>Rimuove dalla raccolta l'elemento in corrispondenza della posizione specificata.</summary>
+			<param name="index">Posizione dell'elemento da rimuovere.</param>
+		</member>
+		<member name="P:System.Windows.Controls.DomainDataSourceView.CanAdd">
+			<summary>Ottiene un valore che indica se è possibile aggiungere elementi alla raccolta.</summary>
+			<returns>true se è possibile aggiungere elementi alla raccolta. In caso contrario, false.</returns>
+		</member>
+		<member name="P:System.Windows.Controls.DomainDataSourceView.CanChangePage">
+			<summary>Ottiene un valore che indica se è possibile modificare il valore di <see cref="P:System.Windows.Controls.DomainDataSourceView.PageIndex"></see>.</summary>
+			<returns>true se il valore di <see cref="P:System.Windows.Controls.DomainDataSourceView.PageIndex"></see> può essere modificato. In caso contrario, false.</returns>
+		</member>
+		<member name="P:System.Windows.Controls.DomainDataSourceView.CanRemove">
+			<summary>Ottiene un valore che indica se è possibile rimuovere un elemento dalla raccolta.</summary>
+			<returns>true se è possibile rimuovere un elemento dalla raccolta. In caso contrario, false.</returns>
+		</member>
+		<member name="P:System.Windows.Controls.DomainDataSourceView.Count">
+			<summary>Ottiene il numero di elementi presenti nella visualizzazione.</summary>
+			<returns>Numero di elementi presenti nella visualizzazione.</returns>
+		</member>
+		<member name="P:System.Windows.Controls.DomainDataSourceView.CurrentItem">
+			<summary>Ottiene l'elemento corrente della visualizzazione.</summary>
+			<returns>Elemento corrente della visualizzazione o null se non sono presenti elementi correnti.</returns>
+		</member>
+		<member name="P:System.Windows.Controls.DomainDataSourceView.CurrentPosition">
+			<summary>Ottiene la posizione ordinale della proprietà <see cref="P:System.Windows.Controls.DomainDataSourceView.CurrentItem"></see> nella visualizzazione.</summary>
+			<returns>Posizione ordinale della proprietà <see cref="P:System.Windows.Controls.DomainDataSourceView.CurrentItem"></see> nella visualizzazione o -1 se non è presente alcun elemento corrente.</returns>
+		</member>
+		<member name="P:System.Windows.Controls.DomainDataSourceView.IsEmpty">
+			<summary>Ottiene un valore che indica se la visualizzazione risultante è vuota.</summary>
+			<returns>true se la visualizzazione è vuota. In caso contrario, false.</returns>
+		</member>
+		<member name="P:System.Windows.Controls.DomainDataSourceView.IsPageChanging">
+			<summary>Ottiene o imposta un valore che indica se è in corso una modifica dell'indice di pagina.</summary>
+			<returns>true se è in corso una modifica dell'indice di pagina. In caso contrario, false.</returns>
+		</member>
+		<member name="P:System.Windows.Controls.DomainDataSourceView.Item(System.Int32)">
+			<summary>Ottiene l'elemento in corrispondenza dell'indice specificato.</summary>
+			<returns>Elemento in corrispondenza dell'indice specificato.</returns>
+			<param name="index">Indice dell'elemento da recuperare.</param>
+		</member>
+		<member name="P:System.Windows.Controls.DomainDataSourceView.PageCount">
+			<summary>Ottiene il numero di pagine in questa visualizzazione.</summary>
+			<returns>Numero di pagine in questa visualizzazione.</returns>
+		</member>
+		<member name="P:System.Windows.Controls.DomainDataSourceView.PageIndex">
+			<summary>Ottiene l'indice in base zero della pagina corrente.</summary>
+			<returns>Indice in base zero della pagina corrente.</returns>
+		</member>
+		<member name="P:System.Windows.Controls.DomainDataSourceView.PageSize">
+			<summary>Ottiene o imposta il numero di elementi da visualizzare in una pagina.</summary>
+			<returns>Numero di elementi da visualizzare in una pagina.</returns>
+		</member>
+		<member name="P:System.Windows.Controls.DomainDataSourceView.TotalItemCount">
+			<summary>Ottiene o imposta il numero totale di elementi presenti nella visualizzazione prima che venga applicato il paging oppure -1 se il numero totale non è noto.</summary>
+			<returns>Numero totale di elementi presenti nella visualizzazione prima del paging oppure -1 se il numero totale non è noto.</returns>
+		</member>
+		<member name="T:System.Windows.Controls.FilterDescriptor">
+			<summary>Rappresenta una descrizione del filtro per le operazioni di query in un oggetto <see cref="T:System.Windows.Controls.DomainDataSource"></see>.</summary>
+		</member>
+		<member name="M:System.Windows.Controls.FilterDescriptor.#ctor">
+			<summary>Inizializza una nuova istanza della classe <see cref="T:System.Windows.Controls.FilterDescriptor"></see> con i valori predefiniti.</summary>
+		</member>
+		<member name="M:System.Windows.Controls.FilterDescriptor.#ctor(System.String,System.Windows.Controls.FilterOperator,System.Object)">
+			<summary>Inizializza una nuova istanza della classe <see cref="T:System.Windows.Controls.FilterDescriptor"></see> con la proprietà specificata da utilizzare per il filtro, l'operatore da utilizzare quando si verifica il filtro e il valore del filtro.</summary>
+			<param name="propertyPath">Percorso della proprietà da utilizzare per il filtro.</param>
+			<param name="filterOperator">Tipo di confronto da utilizzare.</param>
+			<param name="filterValue">Valore da utilizzare nell'operazione di filtro. </param>
+		</member>
+		<member name="F:System.Windows.Controls.FilterDescriptor.DefaultIgnoredValue">
+			<summary>Valore predefinito della proprietà <see cref="P:System.Windows.Controls.FilterDescriptor.IgnoredValue"></see>.</summary>
+		</member>
+		<member name="F:System.Windows.Controls.FilterDescriptor.IgnoredValueProperty">
+			<summary>Identifica la proprietà di dipendenza <see cref="P:System.Windows.Controls.FilterDescriptor.IgnoredValue"></see>.</summary>
+		</member>
+		<member name="F:System.Windows.Controls.FilterDescriptor.IsCaseSensitiveProperty">
+			<summary>Identifica la proprietà di dipendenza <see cref="P:System.Windows.Controls.FilterDescriptor.IsCaseSensitive"></see>.</summary>
+		</member>
+		<member name="F:System.Windows.Controls.FilterDescriptor.OperatorProperty">
+			<summary>Identifica la proprietà di dipendenza <see cref="P:System.Windows.Controls.FilterDescriptor.Operator"></see>.</summary>
+		</member>
+		<member name="F:System.Windows.Controls.FilterDescriptor.PropertyPathProperty">
+			<summary>Identifica la proprietà di dipendenza <see cref="P:System.Windows.Controls.FilterDescriptor.PropertyPath"></see>.</summary>
+		</member>
+		<member name="F:System.Windows.Controls.FilterDescriptor.ValueProperty">
+			<summary>Identifica la proprietà di dipendenza <see cref="P:System.Windows.Controls.FilterDescriptor.Value"></see>.</summary>
+		</member>
+		<member name="P:System.Windows.Controls.FilterDescriptor.IgnoredValue">
+			<summary>Ottiene o imposta il valore non applicato a un'operazione di query per il filtro.</summary>
+			<returns>Valore non applicato a un'operazione di query per il filtro.</returns>
+		</member>
+		<member name="P:System.Windows.Controls.FilterDescriptor.IsCaseSensitive">
+			<summary>Ottiene o imposta un valore che indica se <see cref="T:System.Windows.Controls.FilterDescriptor"></see> rispetta la distinzione tra maiuscole e minuscole per i valori di stringa.</summary>
+			<returns>true se <see cref="T:System.Windows.Controls.FilterDescriptor"></see> rispetta la distinzione tra maiuscole e minuscole per i valori di stringa. In caso contrario, false.</returns>
+		</member>
+		<member name="P:System.Windows.Controls.FilterDescriptor.Operator">
+			<summary>Ottiene o imposta l'operatore di filtro.</summary>
+			<returns>Operatore di filtro.</returns>
+		</member>
+		<member name="P:System.Windows.Controls.FilterDescriptor.PropertyPath">
+			<summary>Ottiene o imposta il nome del percorso della proprietà utilizzato come valore dei dati per stabilire se l'entità soddisfa la verifica del filtro.</summary>
+			<returns>Nome del percorso della proprietà da utilizzare come valore dei dati.</returns>
+		</member>
+		<member name="P:System.Windows.Controls.FilterDescriptor.Value">
+			<summary>Ottiene o imposta il valore da utilizzare per valutare la condizione di filtro. </summary>
+			<returns>Valore da utilizzare per valutare la condizione di filtro.</returns>
+		</member>
+		<member name="T:System.Windows.Controls.FilterDescriptorCollection">
+			<summary>Fornisce una raccolta di oggetti <see cref="T:System.Windows.Controls.FilterDescriptor"></see> di dipendenza.</summary>
+		</member>
+		<member name="M:System.Windows.Controls.FilterDescriptorCollection.#ctor">
+			<summary>Inizializza una nuova istanza della classe <see cref="T:System.Windows.Controls.FilterDescriptorCollection"></see>. </summary>
+		</member>
+		<member name="T:System.Windows.Controls.FilterDescriptorLogicalOperator">
+			<summary>Definisce valori che rappresentano operatori logici per le raccolte del filtro.</summary>
+		</member>
+		<member name="F:System.Windows.Controls.FilterDescriptorLogicalOperator.And">
+			<summary>I filtri vengono combinati mediante l'operatore AND.</summary>
+		</member>
+		<member name="F:System.Windows.Controls.FilterDescriptorLogicalOperator.Or">
+			<summary>I filtri vengono combinati mediante l'operatore OR.</summary>
+		</member>
+		<member name="T:System.Windows.Controls.FilterOperator">
+			<summary>Definisce valori che descrivono gli operatori utilizzati nella classe <see cref="T:System.Windows.Controls.FilterDescriptor"></see>.</summary>
+		</member>
+		<member name="F:System.Windows.Controls.FilterOperator.Contains">
+			<summary>Il valore dei dati deve contenere il valore del filtro.</summary>
+		</member>
+		<member name="F:System.Windows.Controls.FilterOperator.EndsWith">
+			<summary>Il valore dei dati deve terminare con il valore del filtro.</summary>
+		</member>
+		<member name="F:System.Windows.Controls.FilterOperator.IsContainedIn">
+			<summary>Il valore dei dati deve essere contenuto nel valore del filtro.</summary>
+		</member>
+		<member name="F:System.Windows.Controls.FilterOperator.IsEqualTo">
+			<summary>Il valore dei dati deve essere uguale al valore del filtro.</summary>
+		</member>
+		<member name="F:System.Windows.Controls.FilterOperator.IsGreaterThan">
+			<summary>Il valore dei dati deve essere maggiore del valore del filtro.</summary>
+		</member>
+		<member name="F:System.Windows.Controls.FilterOperator.IsGreaterThanOrEqualTo">
+			<summary>Il valore dei dati deve essere maggiore o uguale al valore del filtro.</summary>
+		</member>
+		<member name="F:System.Windows.Controls.FilterOperator.IsLessThan">
+			<summary>Il valore dei dati deve essere minore del valore del filtro.</summary>
+		</member>
+		<member name="F:System.Windows.Controls.FilterOperator.IsLessThanOrEqualTo">
+			<summary>Il valore dei dati deve essere minore o uguale al valore del filtro.</summary>
+		</member>
+		<member name="F:System.Windows.Controls.FilterOperator.IsNotEqualTo">
+			<summary>Il valore dei dati deve essere diverso dal valore del filtro.</summary>
+		</member>
+		<member name="F:System.Windows.Controls.FilterOperator.StartsWith">
+			<summary>Il valore dei dati deve iniziare con il valore del filtro.</summary>
+		</member>
+		<member name="T:System.Windows.Controls.GroupDescriptor">
+			<summary>Descrive un criterio di raggruppamento.</summary>
+		</member>
+		<member name="M:System.Windows.Controls.GroupDescriptor.#ctor">
+			<summary>Inizializza una nuova istanza della classe <see cref="T:System.Windows.Controls.GroupDescriptor"></see> con i valori predefiniti.</summary>
+		</member>
+		<member name="M:System.Windows.Controls.GroupDescriptor.#ctor(System.String)">
+			<summary>Inizializza una nuova istanza della classe <see cref="T:System.Windows.Controls.GroupDescriptor"></see> con il percorso della proprietà specificato.</summary>
+			<param name="propertyPath">Associa un valore alla proprietà Value dell'oggetto parametro sottostante.</param>
+		</member>
+		<member name="F:System.Windows.Controls.GroupDescriptor.PropertyPathProperty">
+			<summary>Identifica la proprietà di dipendenza <see cref="P:System.Windows.Controls.GroupDescriptor.PropertyPath"></see>.</summary>
+		</member>
+		<member name="P:System.Windows.Controls.GroupDescriptor.PropertyPath">
+			<summary>Ottiene o imposta la proprietà pubblica utilizzata per eseguire il raggruppamento.</summary>
+			<returns>Proprietà pubblica utilizzata per eseguire il raggruppamento.</returns>
+		</member>
+		<member name="T:System.Windows.Controls.GroupDescriptorCollection">
+			<summary>Fornisce una raccolta di oggetti <see cref="T:System.Windows.Controls.GroupDescriptor"></see> di dipendenza.</summary>
+		</member>
+		<member name="M:System.Windows.Controls.GroupDescriptorCollection.#ctor">
+			<summary>Inizializza una nuova istanza della classe <see cref="T:System.Windows.Controls.GroupDescriptorCollection"></see>. </summary>
+		</member>
+		<member name="T:System.Windows.Controls.LoadedDataEventArgs">
+			<summary>Fornisce i dati per l'evento <see cref="E:System.Windows.Controls.DomainDataSource.LoadedData"></see>.</summary>
+		</member>
+		<member name="M:System.Windows.Controls.LoadedDataEventArgs.MarkErrorAsHandled">
+			<summary>Per un'operazione non riuscita, contrassegna l'errore come gestito in modo che non venga generata l'eccezione.</summary>
+		</member>
+		<member name="P:System.Windows.Controls.LoadedDataEventArgs.AllEntities">
+			<summary>Ottiene tutte le entità caricate, incluse quelle a cui fanno riferimento le entità di primo livello.</summary>
+			<returns>Entità caricate, incluse quelle a cui fanno riferimento le entità di primo livello.</returns>
+		</member>
+		<member name="P:System.Windows.Controls.LoadedDataEventArgs.Entities">
+			<summary>Ottiene tutte le entità di primo livello caricate.</summary>
+			<returns>Entità di primo livello caricate.</returns>
+		</member>
+		<member name="P:System.Windows.Controls.LoadedDataEventArgs.HasError">
+			<summary>Ottiene un valore che indica se l'operazione ha avuto esito negativo.</summary>
+			<returns>true se l'operazione ha avuto esito negativo. In caso contrario, false.</returns>
+		</member>
+		<member name="P:System.Windows.Controls.LoadedDataEventArgs.IsErrorHandled">
+			<summary>Ottiene un valore che indica se l'errore dell'operazione è stato contrassegnato come gestito tramite una chiamata al metodo <see cref="M:System.Windows.Controls.LoadedDataEventArgs.MarkErrorAsHandled"></see>.</summary>
+			<returns>true se l'errore è stato contrassegnato come gestito. In caso contrario, false.</returns>
+		</member>
+		<member name="P:System.Windows.Controls.LoadedDataEventArgs.TotalEntityCount">
+			<summary>Ottiene il conteggio totale delle entità per l'operazione di caricamento.</summary>
+			<returns>Conteggio totale delle entità per l'operazione di caricamento.</returns>
+		</member>
+		<member name="T:System.Windows.Controls.LoadingDataEventArgs">
+			<summary>Fornisce i dati per l'evento <see cref="E:System.Windows.Controls.DomainDataSource.LoadingData"></see>.</summary>
+		</member>
+		<member name="P:System.Windows.Controls.LoadingDataEventArgs.LoadBehavior">
+			<summary>Ottiene o imposta il comportamento di questa operazione di caricamento.</summary>
+			<returns>Comportamento di questa operazione di caricamento.</returns>
+		</member>
+		<member name="P:System.Windows.Controls.LoadingDataEventArgs.Query">
+			<summary>Ottiene o imposta la query eseguita in modalità remota.</summary>
+			<returns>Ottiene o imposta la query eseguita in modalità remota.</returns>
+		</member>
+		<member name="P:System.Windows.Controls.LoadingDataEventArgs.RestoreLoadSettings">
+			<summary>Ottiene o imposta un valore che indica se le impostazioni di caricamento, filtro, ordinamento e gruppo dell'oggetto <see cref="T:System.Windows.Controls.DomainDataSource"></see> vengono ripristinati sugli stessi valori dell'ultima operazione di caricamento riuscita. </summary>
+			<returns>true per indicare le impostazioni di caricamento, filtro, ordinamento e gruppo dell'oggetto <see cref="T:System.Windows.Controls.DomainDataSource"></see> vengono ripristinati sugli stessi valori dell'ultima operazione di caricamento riuscita. In caso contrario, false.</returns>
+		</member>
+		<member name="T:System.Windows.Controls.Parameter">
+			<summary>Definisce parametri per query del servizio del dominio utilizzate da <see cref="T:System.Windows.Controls.DomainDataSource"></see>.</summary>
+		</member>
+		<member name="M:System.Windows.Controls.Parameter.#ctor">
+			<summary>Inizializza una nuova istanza della classe <see cref="T:System.Windows.Controls.Parameter"></see>. </summary>
+		</member>
+		<member name="F:System.Windows.Controls.Parameter.ParameterNameProperty">
+			<summary>Identifica la proprietà di dipendenza <see cref="P:System.Windows.Controls.Parameter.ParameterName"></see>.</summary>
+		</member>
+		<member name="F:System.Windows.Controls.Parameter.ValueProperty">
+			<summary>Identifica la proprietà di dipendenza <see cref="P:System.Windows.Controls.Parameter.Value"></see>.</summary>
+		</member>
+		<member name="P:System.Windows.Controls.Parameter.ParameterName">
+			<summary>Ottiene o imposta il nome del parametro.</summary>
+			<returns>Nome del parametro.</returns>
+		</member>
+		<member name="P:System.Windows.Controls.Parameter.Value">
+			<summary>Ottiene o imposta il valore del parametro.</summary>
+			<returns>Valore del parametro.</returns>
+		</member>
+		<member name="T:System.Windows.Controls.ParameterCollection">
+			<summary>Rappresenta una raccolta di oggetti <see cref="T:System.Windows.Controls.Parameter"></see>.</summary>
+		</member>
+		<member name="M:System.Windows.Controls.ParameterCollection.#ctor">
+			<summary>Inizializza una nuova istanza della classe <see cref="T:System.Windows.Controls.ParameterCollection"></see>. </summary>
+		</member>
+		<member name="T:System.Windows.Controls.SortDescriptor">
+			<summary>Descrive un criterio di ordinamento.</summary>
+		</member>
+		<member name="M:System.Windows.Controls.SortDescriptor.#ctor">
+			<summary>Inizializza una nuova istanza della classe <see cref="T:System.Windows.Controls.SortDescriptor"></see> con i valori predefiniti delle proprietà.</summary>
+		</member>
+		<member name="M:System.Windows.Controls.SortDescriptor.#ctor(System.String,System.ComponentModel.ListSortDirection)">
+			<summary>Inizializza una nuova istanza della classe <see cref="T:System.Windows.Controls.SortDescriptor"></see> con la proprietà specificata da utilizzare per l'ordinamento e la direzione di ordinamento. </summary>
+			<param name="propertyPath">Percorso della proprietà di ordinamento.</param>
+			<param name="direction">Direzione di ordinamento.</param>
+		</member>
+		<member name="F:System.Windows.Controls.SortDescriptor.DirectionProperty">
+			<summary>Identifica la proprietà di dipendenza <see cref="P:System.Windows.Controls.SortDescriptor.Direction"></see>.</summary>
+			<returns>Identificatore della proprietà di dipendenza <see cref="P:System.Windows.Controls.SortDescriptor.Direction"></see>.</returns>
+		</member>
+		<member name="F:System.Windows.Controls.SortDescriptor.PropertyPathProperty">
+			<summary>Identifica la proprietà di dipendenza <see cref="P:System.Windows.Controls.SortDescriptor.PropertyPath"></see>.</summary>
+			<returns>Identificatore della proprietà di dipendenza <see cref="P:System.Windows.Controls.SortDescriptor.PropertyPath"></see>.</returns>
+		</member>
+		<member name="P:System.Windows.Controls.SortDescriptor.Direction">
+			<summary>Ottiene o imposta la direzione di ordinamento.</summary>
+			<returns>Direzione di ordinamento.</returns>
+		</member>
+		<member name="P:System.Windows.Controls.SortDescriptor.PropertyPath">
+			<summary>Ottiene o imposta la proprietà pubblica utilizzata per eseguire l'ordinamento.</summary>
+			<returns>Proprietà pubblica utilizzata per eseguire l'ordinamento.</returns>
+		</member>
+		<member name="T:System.Windows.Controls.SortDescriptorCollection">
+			<summary>Rappresenta una raccolta di descrizioni di ordinamento che genera una notifica in caso di modifica sia alle raccolte che agli elementi.</summary>
+		</member>
+		<member name="M:System.Windows.Controls.SortDescriptorCollection.#ctor">
+			<summary>Inizializza una nuova istanza della classe <see cref="T:System.Windows.Controls.SortDescriptorCollection"></see>. </summary>
+		</member>
+		<member name="T:System.Windows.Controls.SubmittedChangesEventArgs">
+			<summary>Fornisce i dati per un evento <see cref="E:System.Windows.Controls.DomainDataSource.SubmittedChanges"></see>. </summary>
+		</member>
+		<member name="M:System.Windows.Controls.SubmittedChangesEventArgs.MarkErrorAsHandled">
+			<summary>Per un'operazione non riuscita, contrassegna l'errore come gestito in modo che non venga generata l'eccezione.</summary>
+		</member>
+		<member name="P:System.Windows.Controls.SubmittedChangesEventArgs.ChangeSet">
+			<summary>Ottiene il set di modifiche inviato al set di dati.</summary>
+			<returns>Set di modifiche inviato al set di dati.</returns>
+		</member>
+		<member name="P:System.Windows.Controls.SubmittedChangesEventArgs.EntitiesInError">
+			<summary>Ottiene le entità che hanno provocato l'esito negativo dell'operazione.</summary>
+			<returns>Entità che hanno provocato l'esito negativo dell'operazione.</returns>
+		</member>
+		<member name="P:System.Windows.Controls.SubmittedChangesEventArgs.HasError">
+			<summary>Ottiene un valore che indica se l'operazione ha avuto esito negativo.</summary>
+			<returns>true se l'operazione ha avuto esito negativo. In caso contrario, false.</returns>
+		</member>
+		<member name="P:System.Windows.Controls.SubmittedChangesEventArgs.IsErrorHandled">
+			<summary>Ottiene un valore che indica se l'errore dell'operazione è stato contrassegnato come gestito tramite una chiamata al metodo <see cref="M:System.Windows.Controls.SubmittedChangesEventArgs.MarkErrorAsHandled"></see>.</summary>
+			<returns>true se l'errore è stato contrassegnato come gestito. In caso contrario, false.</returns>
+		</member>
+		<member name="T:System.Windows.Controls.SubmittingChangesEventArgs">
+			<summary>Fornisce i dati per l'evento <see cref="E:System.Windows.Controls.DomainDataSource.SubmittingChanges"></see>.</summary>
+		</member>
+		<member name="P:System.Windows.Controls.SubmittingChangesEventArgs.ChangeSet">
+			<summary>Ottiene il set di modifiche inviato all'origine dati.</summary>
+			<returns>Set di modifiche inviato al set di dati.</returns>
+		</member>
+	</members>
+</doc>

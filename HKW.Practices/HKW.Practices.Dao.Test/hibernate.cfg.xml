@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-configuration xmlns="urn:nhibernate-configuration-2.2">
+  <session-factory>
+    <!--NHibernate 数据库驱动-->
+    <property name="connection.driver_class">NHibernate.Driver.SqlClientDriver</property>
+    <!--数据库链接字符串-->
+    <property name="connection.connection_string">
+      <!--server=192.168.1.80;database=NHTest02;user=sa;password=123456-->
+      server=192.168.0.202;database=NHTest02;user=sa;password=123456
+    </property>
+    <!--指定用ADO.Net的批量更新的数量，默认设置为0（不启用该功能）。-->
+    <property name="adonet.batch_size">0</property>
+    <!--是否打印sql语句-->
+    <property name="show_sql">false</property>
+    <!--设置NHibernate的Dialect类名 - 允许NHibernate针对特定的关系数据库生成优化的SQL
+				可用值： full.classname.of.Dialect, assembly -->
+    <property name="dialect">NHibernate.Dialect.MsSql2008Dialect</property>
+    <!--指定NHibernate生成的IDbCommands对象的超时时间。-->
+    <property name="command_timeout">10</property>
+    <!---将NHibernate查询中的符号映射到SQL查询中的符号 (符号可能是函数名或常量名字)。
+				可用值： hqlLiteral=SQL_LITERAL, hqlFunction=SQLFUNC
+				query.substitutions true=1, false=0 将导致符号true和false在生成的SQL中被翻译成整数常量-->
+    <property name="query.substitutions">true 1, false 0, yes 'Y', no 'N'</property>
+  </session-factory>
+</hibernate-configuration>

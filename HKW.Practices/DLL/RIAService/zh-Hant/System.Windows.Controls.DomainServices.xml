@@ -1,0 +1,593 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<doc>
+	<assembly>
+		<name>System.Windows.Controls.DomainServices</name>
+	</assembly>
+	<members>
+		<member name="N:System.Windows.Controls">
+			<summary>提供類別來簡化用戶端專案中之使用者介面與從網域服務中擷取之資料之間的互動。</summary>
+		</member>
+		<member name="T:System.Windows.Controls.DomainDataSource">
+			<summary>提供物件，以便載入、篩選、分組和排序資料集合。</summary>
+		</member>
+		<member name="M:System.Windows.Controls.DomainDataSource.#ctor">
+			<summary>初始化 <see cref="T:System.Windows.Controls.DomainDataSource"></see> 類別的新執行個體。</summary>
+		</member>
+		<member name="E:System.Windows.Controls.DomainDataSource.LoadedData">
+			<summary>在資料載入作業完成時發生。</summary>
+		</member>
+		<member name="E:System.Windows.Controls.DomainDataSource.LoadingData">
+			<summary>在資料載入作業啟動時發生。</summary>
+		</member>
+		<member name="E:System.Windows.Controls.DomainDataSource.SubmittedChanges">
+			<summary>每當提交作業完成時發生。</summary>
+		</member>
+		<member name="E:System.Windows.Controls.DomainDataSource.SubmittingChanges">
+			<summary>每當提交作業啟動時發生。</summary>
+		</member>
+		<member name="F:System.Windows.Controls.DomainDataSource.AutoLoadProperty">
+			<summary>識別 <see cref="P:System.Windows.Controls.DomainDataSource.AutoLoad"></see> 相依性屬性。</summary>
+		</member>
+		<member name="F:System.Windows.Controls.DomainDataSource.CanLoadProperty">
+			<summary>識別 <see cref="M:System.Windows.Controls.DomainDataSource.CancelLoad"></see> 相依性屬性。</summary>
+		</member>
+		<member name="F:System.Windows.Controls.DomainDataSource.DataProperty">
+			<summary>識別 <see cref="P:System.Windows.Controls.DomainDataSource.Data"></see> 相依性屬性。</summary>
+		</member>
+		<member name="F:System.Windows.Controls.DomainDataSource.DataViewProperty">
+			<summary>識別 <see cref="P:System.Windows.Controls.DomainDataSource.DataView"></see> 相依性屬性。</summary>
+		</member>
+		<member name="F:System.Windows.Controls.DomainDataSource.DesignDataProperty">
+			<summary>識別 <see cref="P:System.Windows.Controls.DomainDataSource.DesignData"></see> 相依性屬性。</summary>
+		</member>
+		<member name="F:System.Windows.Controls.DomainDataSource.DomainContextProperty">
+			<summary>識別 <see cref="P:System.Windows.Controls.DomainDataSource.DomainContext"></see> 相依性屬性。</summary>
+		</member>
+		<member name="F:System.Windows.Controls.DomainDataSource.FilterOperatorProperty">
+			<summary>識別 <see cref="P:System.Windows.Controls.DomainDataSource.FilterOperator"></see> 相依性屬性。</summary>
+		</member>
+		<member name="F:System.Windows.Controls.DomainDataSource.HasChangesProperty">
+			<summary>識別 <see cref="P:System.Windows.Controls.DomainDataSource.HasChanges"></see> 相依性屬性。</summary>
+		</member>
+		<member name="F:System.Windows.Controls.DomainDataSource.IsBusyProperty">
+			<summary>識別 <see cref="P:System.Windows.Controls.DomainDataSource.IsBusy"></see> 相依性屬性。</summary>
+		</member>
+		<member name="F:System.Windows.Controls.DomainDataSource.IsLoadingDataProperty">
+			<summary>識別 <see cref="P:System.Windows.Controls.DomainDataSource.IsLoadingData"></see> 相依性屬性。</summary>
+		</member>
+		<member name="F:System.Windows.Controls.DomainDataSource.IsSubmittingChangesProperty">
+			<summary>識別 <see cref="P:System.Windows.Controls.DomainDataSource.IsSubmittingChanges"></see> 相依性屬性。</summary>
+		</member>
+		<member name="F:System.Windows.Controls.DomainDataSource.LoadDelayProperty">
+			<summary>識別 <see cref="P:System.Windows.Controls.DomainDataSource.LoadDelay"></see> 相依性屬性。</summary>
+		</member>
+		<member name="F:System.Windows.Controls.DomainDataSource.LoadIntervalProperty">
+			<summary>識別 <see cref="P:System.Windows.Controls.DomainDataSource.LoadInterval"></see> 相依性屬性。</summary>
+		</member>
+		<member name="F:System.Windows.Controls.DomainDataSource.LoadSizeProperty">
+			<summary>識別 <see cref="P:System.Windows.Controls.DomainDataSource.LoadSize"></see> 相依性屬性。</summary>
+		</member>
+		<member name="F:System.Windows.Controls.DomainDataSource.PageSizeProperty">
+			<summary>識別 <see cref="P:System.Windows.Controls.DomainDataSource.PageSize"></see> 相依性屬性。</summary>
+		</member>
+		<member name="F:System.Windows.Controls.DomainDataSource.QueryNameProperty">
+			<summary>識別 <see cref="P:System.Windows.Controls.DomainDataSource.QueryName"></see> 相依性屬性。</summary>
+		</member>
+		<member name="F:System.Windows.Controls.DomainDataSource.RefreshIntervalProperty">
+			<summary>識別 <see cref="P:System.Windows.Controls.DomainDataSource.RefreshInterval"></see> 相依性屬性。</summary>
+		</member>
+		<member name="M:System.Windows.Controls.DomainDataSource.CancelLoad">
+			<summary>取消這個 <see cref="T:System.Windows.Controls.DomainDataSource"></see> 目前所執行的資料載入作業 (如果有的話)。</summary>
+		</member>
+		<member name="M:System.Windows.Controls.DomainDataSource.CancelSubmit">
+			<summary>取消這個 <see cref="T:System.Windows.Controls.DomainDataSource"></see> 目前所執行的提交作業 (如果有的話)。</summary>
+		</member>
+		<member name="M:System.Windows.Controls.DomainDataSource.Clear">
+			<summary>從 <see cref="T:System.Windows.Controls.DomainDataSource"></see> 和 <see cref="T:System.ServiceModel.DomainServices.Client.DomainContext"></see> 的基礎 <see cref="T:System.ServiceModel.DomainServices.Client.EntitySet"></see> 中清除所有資料。</summary>
+		</member>
+		<member name="M:System.Windows.Controls.DomainDataSource.DeferLoad">
+			<summary>用來將多個資料載入作業組成單一載入作業。</summary>
+			<returns>將在處置時觸發資料載入作業的可處置物件。</returns>
+		</member>
+		<member name="M:System.Windows.Controls.DomainDataSource.Load">
+			<summary>啟動同步資料載入作業。</summary>
+		</member>
+		<member name="M:System.Windows.Controls.DomainDataSource.OnApplyTemplate">
+			<summary>在套用新的範本時，建置 <see cref="T:System.Windows.Controls.DomainDataSource"></see> 的視覺化樹狀結構。</summary>
+		</member>
+		<member name="M:System.Windows.Controls.DomainDataSource.RejectChanges">
+			<summary>取消基礎 <see cref="P:System.Windows.Controls.DomainDataSource.DomainContext"></see> 所執行的資料變更。</summary>
+		</member>
+		<member name="M:System.Windows.Controls.DomainDataSource.SubmitChanges">
+			<summary>針對 <see cref="T:System.ServiceModel.DomainServices.Client.DomainContext"></see> 中的每個 <see cref="T:System.ServiceModel.DomainServices.Client.Entity"></see> 提交變更。</summary>
+		</member>
+		<member name="P:System.Windows.Controls.DomainDataSource.AutoLoad">
+			<summary>取得或設定值，這個值表示發生影響 <see cref="T:System.Windows.Controls.DomainDataSource"></see> 所撰寫之查詢的變更時，是否會自動叫用 <see cref="M:System.Windows.Controls.DomainDataSource.Load"></see>。</summary>
+			<returns>true 表示進行自動資料載入，否則為 false。</returns>
+		</member>
+		<member name="P:System.Windows.Controls.DomainDataSource.CanLoad">
+			<summary>取得值，這個值表示控制項是否能根據目前的狀態執行載入作業。</summary>
+			<returns>當 <see cref="P:System.Windows.Controls.DomainDataSource.HasChanges"></see> 或 <see cref="P:System.Windows.Controls.DomainDataSource.IsSubmittingChanges"></see> 為 true 時，則為 false，否則為 true。</returns>
+		</member>
+		<member name="P:System.Windows.Controls.DomainDataSource.Data">
+			<summary>取得上一個載入作業所產生的實體做為 IEnumerable。</summary>
+			<returns>資料載入作業所產生的資料。</returns>
+		</member>
+		<member name="P:System.Windows.Controls.DomainDataSource.DataView">
+			<summary>使用 <see cref="T:System.Windows.Controls.DomainDataSourceView"></see> 來取得上一個載入作業所產生之實體的目前檢視。</summary>
+			<returns>已載入資料的檢視。</returns>
+		</member>
+		<member name="P:System.Windows.Controls.DomainDataSource.DesignData">
+			<summary>取得或設定要在設計階段使用的資料。</summary>
+			<returns>要在設計階段使用的資料。</returns>
+		</member>
+		<member name="P:System.Windows.Controls.DomainDataSource.DomainContext">
+			<summary> 取得或設定用於執行載入和提交作業的 <see cref="T:System.ServiceModel.DomainServices.Client.DomainContext"></see> 執行個體。</summary>
+			<returns>資料載入和提交作業的資料內容。</returns>
+		</member>
+		<member name="P:System.Windows.Controls.DomainDataSource.FilterDescriptors">
+			<summary>取得執行載入時使用的 <see cref="T:System.Windows.Controls.FilterDescriptor"></see> 物件集合。</summary>
+			<returns>套用至資料集的篩選集合。</returns>
+		</member>
+		<member name="P:System.Windows.Controls.DomainDataSource.FilterOperator">
+			<summary>取得或設定用於在篩選集合中結合 <see cref="T:System.Windows.Controls.FilterDescriptor"></see> 物件的邏輯運算子。</summary>
+			<returns>用於在篩選集合中結合 <see cref="T:System.Windows.Controls.FilterDescriptor"></see> 物件的邏輯運算子。</returns>
+		</member>
+		<member name="P:System.Windows.Controls.DomainDataSource.GroupDescriptors">
+			<summary>取得用來將資料組成群組的群組物件集合。</summary>
+			<returns>用來將資料組成群組的群組物件集合。</returns>
+		</member>
+		<member name="P:System.Windows.Controls.DomainDataSource.HasChanges">
+			<summary>取得值，這個值表示此 <see cref="T:System.Windows.Controls.DomainDataSource"></see> 所公開的項目是否具有暫止的變更。</summary>
+			<returns>true 表示資料來源具有暫止的變更，否則為 false。</returns>
+		</member>
+		<member name="P:System.Windows.Controls.DomainDataSource.IsBusy">
+			<summary>取得值，這個值表示此 <see cref="T:System.Windows.Controls.DomainDataSource"></see> 是否正在載入資料或提交變更。</summary>
+			<returns>true 表示資料來源正在載入資料或提交變更，否則為 false。</returns>
+		</member>
+		<member name="P:System.Windows.Controls.DomainDataSource.IsLoadingData">
+			<summary>取得值，這個值表示 <see cref="T:System.Windows.Controls.DomainDataSource"></see> 目前是否正在載入資料。</summary>
+			<returns>true 表示資料來源正在載入資料集，否則為 false。</returns>
+		</member>
+		<member name="P:System.Windows.Controls.DomainDataSource.IsSubmittingChanges">
+			<summary>取得值，這個值表示 <see cref="T:System.Windows.Controls.DomainDataSource"></see> 目前是否由於 <see cref="M:System.Windows.Controls.DomainDataSource.SubmitChanges"></see> 的呼叫而提交變更。</summary>
+			<returns>true 表示資料來源正在提交變更，否則為 false。</returns>
+		</member>
+		<member name="P:System.Windows.Controls.DomainDataSource.LoadCommand">
+			<summary>取得在此 <see cref="T:System.Windows.Controls.DomainDataSource"></see> 上叫用 <see cref="M:System.Windows.Controls.DomainDataSource.Load"></see> 的 ICommand。</summary>
+			<returns>在此 <see cref="T:System.Windows.Controls.DomainDataSource"></see> 上叫用 <see cref="M:System.Windows.Controls.DomainDataSource.Load"></see> 的 ICommand。</returns>
+		</member>
+		<member name="P:System.Windows.Controls.DomainDataSource.LoadDelay">
+			<summary>取得或設定啟動自動資料載入作業之前的延遲。</summary>
+			<returns>提示進行自動載入的變更與叫用後續 <see cref="M:System.Windows.Controls.DomainDataSource.Load"></see> 之間的延遲。</returns>
+		</member>
+		<member name="P:System.Windows.Controls.DomainDataSource.LoadInterval">
+			<summary>取得或設定漸進式資料載入案例中兩個連續資料載入作業之間的持續時間。</summary>
+			<returns>漸進式資料載入案例中兩個連續資料載入作業之間的持續時間。</returns>
+		</member>
+		<member name="P:System.Windows.Controls.DomainDataSource.LoadSize">
+			<summary>取得或設定每次執行 <see cref="M:System.Windows.Controls.DomainDataSource.Load"></see> 時要載入的最大項目數。如果此值等於 0，就會載入所有要求的實體。</summary>
+			<returns>要在單一資料載入作業中載入的項目數，或 0 表示應該載入所有項目。</returns>
+		</member>
+		<member name="P:System.Windows.Controls.DomainDataSource.PageSize">
+			<summary>取得或設定 <see cref="P:System.Windows.Controls.DomainDataSource.Data"></see> 和 <see cref="P:System.Windows.Controls.DomainDataSource.DataView"></see> 屬性所傳回之檢視的每個頁面上顯示的項目數，或 0 表示停用分頁。</summary>
+			<returns><see cref="P:System.Windows.Controls.DomainDataSource.Data"></see> 和 <see cref="P:System.Windows.Controls.DomainDataSource.DataView"></see> 屬性所傳回之檢視的每個頁面上顯示的項目數，或 0 表示沒有任何分頁。</returns>
+		</member>
+		<member name="P:System.Windows.Controls.DomainDataSource.QueryName">
+			<summary>取得或設定要用於載入的查詢名稱。</summary>
+			<returns>要用於載入資料的查詢名稱。</returns>
+		</member>
+		<member name="P:System.Windows.Controls.DomainDataSource.QueryParameters">
+			<summary>取得 <see cref="T:System.Windows.Controls.Parameter"></see> 物件的集合，這些物件代表 <see cref="P:System.Windows.Controls.DomainDataSource.QueryName"></see> 屬性所指定之 <see cref="T:System.ServiceModel.DomainServices.Client.EntityQuery`1"></see> 方法的引數。</summary>
+			<returns>傳遞給 <see cref="P:System.Windows.Controls.DomainDataSource.QueryName"></see> 屬性所指定之查詢的參數集合。</returns>
+		</member>
+		<member name="P:System.Windows.Controls.DomainDataSource.RefreshInterval">
+			<summary>取得或設定自動 <see cref="M:System.Windows.Controls.DomainDataSource.Load"></see> 作業之間的間隔，以便使用任何可能已經在伺服器上發生的變更來重新整理資料。</summary>
+			<returns>兩個連續資料重新整理作業之間的持續時間。</returns>
+		</member>
+		<member name="P:System.Windows.Controls.DomainDataSource.RejectChangesCommand">
+			<summary>取得在此 <see cref="T:System.Windows.Controls.DomainDataSource"></see> 上叫用 <see cref="M:System.Windows.Controls.DomainDataSource.RejectChanges"></see> 的 ICommand。</summary>
+			<returns>在此 <see cref="T:System.Windows.Controls.DomainDataSource"></see> 上叫用 <see cref="M:System.Windows.Controls.DomainDataSource.RejectChanges"></see> 的 ICommand。</returns>
+		</member>
+		<member name="P:System.Windows.Controls.DomainDataSource.SortDescriptors">
+			<summary>取得用來排序資料的排序描述元物件集合。</summary>
+			<returns>用來排序資料的排序描述元物件集合。</returns>
+		</member>
+		<member name="P:System.Windows.Controls.DomainDataSource.SubmitChangesCommand">
+			<summary>取得在此 <see cref="T:System.Windows.Controls.DomainDataSource"></see> 上叫用 <see cref="M:System.Windows.Controls.DomainDataSource.SubmitChanges"></see> 的 ICommand。</summary>
+			<returns>在此 <see cref="T:System.Windows.Controls.DomainDataSource"></see> 上叫用 <see cref="M:System.Windows.Controls.DomainDataSource.SubmitChanges"></see> 的 ICommand。</returns>
+		</member>
+		<member name="T:System.Windows.Controls.DomainDataSourceView">
+			<summary>提供 <see cref="T:System.Windows.Controls.DomainDataSource"></see> 的集合檢視。</summary>
+		</member>
+		<member name="E:System.Windows.Controls.DomainDataSourceView.CurrentChanged">
+			<summary>在 <see cref="P:System.Windows.Controls.DomainDataSourceView.CurrentItem"></see> 已經變更之後發生。</summary>
+		</member>
+		<member name="E:System.Windows.Controls.DomainDataSourceView.CurrentChanging">
+			<summary>在 <see cref="P:System.Windows.Controls.DomainDataSourceView.CurrentItem"></see> 變更之前發生。</summary>
+		</member>
+		<member name="E:System.Windows.Controls.DomainDataSourceView.PageChanged">
+			<summary>在 <see cref="P:System.Windows.Controls.DomainDataSourceView.PageIndex"></see> 已經變更之後發生。</summary>
+		</member>
+		<member name="E:System.Windows.Controls.DomainDataSourceView.PageChanging">
+			<summary>在 <see cref="P:System.Windows.Controls.DomainDataSourceView.PageIndex"></see> 變更之前發生。</summary>
+		</member>
+		<member name="M:System.Windows.Controls.DomainDataSourceView.Add(System.Object)">
+			<summary>將指定的項目加入至集合。</summary>
+			<param name="item">要加入的項目。</param>
+		</member>
+		<member name="M:System.Windows.Controls.DomainDataSourceView.Contains(System.Object)">
+			<summary>傳回值，這個值表示給定的項目是否屬於此檢視。</summary>
+			<returns>如果項目屬於此檢視，則為 true，否則為 false。</returns>
+			<param name="item">要檢查的項目。</param>
+		</member>
+		<member name="M:System.Windows.Controls.DomainDataSourceView.GetItemAt(System.Int32)">
+			<summary>取得位於指定索引處的項目。</summary>
+			<returns>位於指定索引處的項目。</returns>
+			<param name="index">要取得的項目索引。</param>
+		</member>
+		<member name="M:System.Windows.Controls.DomainDataSourceView.IndexOf(System.Object)">
+			<summary>取得指定之項目在檢視中的序數位置。</summary>
+			<returns>指定之項目在檢視中的序數位置。</returns>
+			<param name="item">要取得其索引的項目。</param>
+		</member>
+		<member name="M:System.Windows.Controls.DomainDataSourceView.MoveCurrentTo(System.Object)">
+			<summary>將指定的項目設定為檢視中的 <see cref="P:System.Windows.Controls.DomainDataSourceView.CurrentItem"></see>。</summary>
+			<returns>如果產生的 <see cref="P:System.Windows.Controls.DomainDataSourceView.CurrentItem"></see> 位於檢視中，則為 true，否則為 false。</returns>
+			<param name="item">要設定為 <see cref="P:System.Windows.Controls.DomainDataSourceView.CurrentItem"></see> 的項目。</param>
+		</member>
+		<member name="M:System.Windows.Controls.DomainDataSourceView.MoveCurrentToFirst">
+			<summary>將檢視中的第一個項目設定為 <see cref="P:System.Windows.Controls.DomainDataSourceView.CurrentItem"></see>。</summary>
+			<returns>如果產生的 <see cref="P:System.Windows.Controls.DomainDataSourceView.CurrentItem"></see> 位於檢視中，則為 true，否則為 false。</returns>
+		</member>
+		<member name="M:System.Windows.Controls.DomainDataSourceView.MoveCurrentToLast">
+			<summary>將檢視中的最後一個項目設定為 <see cref="P:System.Windows.Controls.DomainDataSourceView.CurrentItem"></see>。</summary>
+			<returns>如果產生的 <see cref="P:System.Windows.Controls.DomainDataSourceView.CurrentItem"></see> 位於檢視中，則為 true，否則為 false。</returns>
+		</member>
+		<member name="M:System.Windows.Controls.DomainDataSourceView.MoveCurrentToNext">
+			<summary>將檢視中 <see cref="P:System.Windows.Controls.DomainDataSourceView.CurrentItem"></see> 後面的項目設定為 <see cref="P:System.Windows.Controls.DomainDataSourceView.CurrentItem"></see>。</summary>
+			<returns>如果產生的 <see cref="P:System.Windows.Controls.DomainDataSourceView.CurrentItem"></see> 位於檢視中，則為 true，否則為 false。</returns>
+		</member>
+		<member name="M:System.Windows.Controls.DomainDataSourceView.MoveCurrentToPosition(System.Int32)">
+			<summary>將指定索引處的項目設定為檢視中的 <see cref="P:System.Windows.Controls.DomainDataSourceView.CurrentItem"></see>。</summary>
+			<returns>如果產生的 <see cref="P:System.Windows.Controls.DomainDataSourceView.CurrentItem"></see> 位於檢視中，則為 true，否則為 false。</returns>
+			<param name="position">要設定 <see cref="P:System.Windows.Controls.DomainDataSourceView.CurrentItem"></see> 成為的索引。</param>
+		</member>
+		<member name="M:System.Windows.Controls.DomainDataSourceView.MoveCurrentToPrevious">
+			<summary>將檢視中 <see cref="P:System.Windows.Controls.DomainDataSourceView.CurrentItem"></see> 前面的項目設定為 <see cref="P:System.Windows.Controls.DomainDataSourceView.CurrentItem"></see>。</summary>
+			<returns>如果產生的 <see cref="P:System.Windows.Controls.DomainDataSourceView.CurrentItem"></see> 位於檢視中，則為 true，否則為 false。</returns>
+		</member>
+		<member name="M:System.Windows.Controls.DomainDataSourceView.MoveToFirstPage">
+			<summary>將第一頁設定為目前頁面。</summary>
+			<returns>如果作業成功，則為 true，否則為 false。</returns>
+		</member>
+		<member name="M:System.Windows.Controls.DomainDataSourceView.MoveToLastPage">
+			<summary>將最後一頁設定為目前頁面。</summary>
+			<returns>如果作業成功，則為 true，否則為 false。</returns>
+		</member>
+		<member name="M:System.Windows.Controls.DomainDataSourceView.MoveToNextPage">
+			<summary>移至目前頁面的下一頁。</summary>
+			<returns>如果作業成功，則為 true，否則為 false。</returns>
+		</member>
+		<member name="M:System.Windows.Controls.DomainDataSourceView.MoveToPage(System.Int32)">
+			<summary>移至位於指定索引處的頁面。</summary>
+			<returns>如果作業成功，則為 true，否則為 false。</returns>
+			<param name="pageIndex">要移往之頁面的索引。</param>
+		</member>
+		<member name="M:System.Windows.Controls.DomainDataSourceView.MoveToPreviousPage">
+			<summary>移至目前頁面的上一頁。</summary>
+			<returns>如果作業成功，則為 true，否則為 false。</returns>
+		</member>
+		<member name="M:System.Windows.Controls.DomainDataSourceView.Remove(System.Object)">
+			<summary>從集合中移除指定的項目。</summary>
+			<param name="item">要移除的項目。</param>
+		</member>
+		<member name="M:System.Windows.Controls.DomainDataSourceView.RemoveAt(System.Int32)">
+			<summary>從集合中移除位於指定之位置的項目。</summary>
+			<param name="index">要移除之項目的位置。</param>
+		</member>
+		<member name="P:System.Windows.Controls.DomainDataSourceView.CanAdd">
+			<summary>取得值，這個值表示項目是否可以加入至此集合。</summary>
+			<returns>如果項目可以加入至此集合，則為 true，否則為 false。</returns>
+		</member>
+		<member name="P:System.Windows.Controls.DomainDataSourceView.CanChangePage">
+			<summary>取得值，這個值表示 <see cref="P:System.Windows.Controls.DomainDataSourceView.PageIndex"></see> 值是否可以變更。</summary>
+			<returns>如果 <see cref="P:System.Windows.Controls.DomainDataSourceView.PageIndex"></see> 值可以變更，則為 true，否則為 false。</returns>
+		</member>
+		<member name="P:System.Windows.Controls.DomainDataSourceView.CanRemove">
+			<summary>取得值，這個值表示是否可以從集合中移除某個項目。</summary>
+			<returns>如果可以從集合中移除某個項目，則為 true，否則為 false。</returns>
+		</member>
+		<member name="P:System.Windows.Controls.DomainDataSourceView.Count">
+			<summary>取得目前在此檢視中的項目數。</summary>
+			<returns>目前在此檢視中的項目數。</returns>
+		</member>
+		<member name="P:System.Windows.Controls.DomainDataSourceView.CurrentItem">
+			<summary>取得檢視中的目前項目。</summary>
+			<returns>檢視中的目前項目，如果沒有目前的項目，則為 null。</returns>
+		</member>
+		<member name="P:System.Windows.Controls.DomainDataSourceView.CurrentPosition">
+			<summary>取得 <see cref="P:System.Windows.Controls.DomainDataSourceView.CurrentItem"></see> 在檢視中的序數位置。</summary>
+			<returns><see cref="P:System.Windows.Controls.DomainDataSourceView.CurrentItem"></see> 在檢視中的序數位置，如果沒有目前的項目，則為 -1。</returns>
+		</member>
+		<member name="P:System.Windows.Controls.DomainDataSourceView.IsEmpty">
+			<summary>取得值，這個值表示產生的檢視是否為空白。</summary>
+			<returns>如果檢視為空白，則為 true，否則為 false。</returns>
+		</member>
+		<member name="P:System.Windows.Controls.DomainDataSourceView.IsPageChanging">
+			<summary>取得值，這個值表示頁面索引是否正在變更。</summary>
+			<returns>如果頁面索引正在變更，則為 true，否則為 false。</returns>
+		</member>
+		<member name="P:System.Windows.Controls.DomainDataSourceView.Item(System.Int32)">
+			<summary>取得位於指定索引處的項目。</summary>
+			<returns>位於指定索引處的項目。</returns>
+			<param name="index">要擷取的項目索引。</param>
+		</member>
+		<member name="P:System.Windows.Controls.DomainDataSourceView.PageCount">
+			<summary>取得此檢視的頁數。</summary>
+			<returns>此檢視的頁數。</returns>
+		</member>
+		<member name="P:System.Windows.Controls.DomainDataSourceView.PageIndex">
+			<summary>取得目前頁面之以零起始的索引。</summary>
+			<returns>目前頁面之以零起始的索引。</returns>
+		</member>
+		<member name="P:System.Windows.Controls.DomainDataSourceView.PageSize">
+			<summary>取得或設定要在頁面上顯示的項目數。</summary>
+			<returns>要在頁面上顯示的項目數。</returns>
+		</member>
+		<member name="P:System.Windows.Controls.DomainDataSourceView.TotalItemCount">
+			<summary>取得套用分頁之前檢視中的項目總數，如果總數未知，則為 -1。</summary>
+			<returns>分頁之前檢視中的項目總數，如果總數未知，則為 -1。</returns>
+		</member>
+		<member name="T:System.Windows.Controls.FilterDescriptor">
+			<summary>表示 <see cref="T:System.Windows.Controls.DomainDataSource"></see> 物件中查詢作業的篩選描述。</summary>
+		</member>
+		<member name="M:System.Windows.Controls.FilterDescriptor.#ctor">
+			<summary>使用預設值，初始化 <see cref="T:System.Windows.Controls.FilterDescriptor"></see> 類別的新執行個體。</summary>
+		</member>
+		<member name="M:System.Windows.Controls.FilterDescriptor.#ctor(System.String,System.Windows.Controls.FilterOperator,System.Object)">
+			<summary>使用要用於篩選的指定屬性、要在評估篩選檢查時使用的運算子和篩選值，初始化 <see cref="T:System.Windows.Controls.FilterDescriptor"></see> 類別的新執行個體。</summary>
+			<param name="propertyPath">要用於篩選的屬性路徑。</param>
+			<param name="filterOperator">要使用的比較種類。</param>
+			<param name="filterValue">要在篩選時使用的值。</param>
+		</member>
+		<member name="F:System.Windows.Controls.FilterDescriptor.DefaultIgnoredValue">
+			<summary><see cref="P:System.Windows.Controls.FilterDescriptor.IgnoredValue"></see> 屬性的預設值。</summary>
+		</member>
+		<member name="F:System.Windows.Controls.FilterDescriptor.IgnoredValueProperty">
+			<summary>識別 <see cref="P:System.Windows.Controls.FilterDescriptor.IgnoredValue"></see> 相依性屬性。</summary>
+		</member>
+		<member name="F:System.Windows.Controls.FilterDescriptor.IsCaseSensitiveProperty">
+			<summary>識別 <see cref="P:System.Windows.Controls.FilterDescriptor.IsCaseSensitive"></see> 相依性屬性。</summary>
+		</member>
+		<member name="F:System.Windows.Controls.FilterDescriptor.OperatorProperty">
+			<summary>識別 <see cref="P:System.Windows.Controls.FilterDescriptor.Operator"></see> 相依性屬性。</summary>
+		</member>
+		<member name="F:System.Windows.Controls.FilterDescriptor.PropertyPathProperty">
+			<summary>識別 <see cref="P:System.Windows.Controls.FilterDescriptor.PropertyPath"></see> 相依性屬性。</summary>
+		</member>
+		<member name="F:System.Windows.Controls.FilterDescriptor.ValueProperty">
+			<summary>識別 <see cref="P:System.Windows.Controls.FilterDescriptor.Value"></see> 相依性屬性。</summary>
+		</member>
+		<member name="P:System.Windows.Controls.FilterDescriptor.IgnoredValue">
+			<summary>取得或設定沒有套用至篩選之查詢作業的值。</summary>
+			<returns>沒有套用至篩選之查詢作業的值。</returns>
+		</member>
+		<member name="P:System.Windows.Controls.FilterDescriptor.IsCaseSensitive">
+			<summary>取得或設定值，這個值表示 <see cref="T:System.Windows.Controls.FilterDescriptor"></see> 的字串值是否區分大小寫。</summary>
+			<returns>如果 <see cref="T:System.Windows.Controls.FilterDescriptor"></see> 的字串值區分大小寫，則為 true，否則為 false。</returns>
+		</member>
+		<member name="P:System.Windows.Controls.FilterDescriptor.Operator">
+			<summary>取得或設定篩選運算子。</summary>
+			<returns>篩選運算子。</returns>
+		</member>
+		<member name="P:System.Windows.Controls.FilterDescriptor.PropertyPath">
+			<summary>取得或設定屬性路徑的名稱，這個屬性路徑會當做資料值使用，以便評估實體是否符合篩選檢查。</summary>
+			<returns>當做資料值使用之屬性路徑的名稱。</returns>
+		</member>
+		<member name="P:System.Windows.Controls.FilterDescriptor.Value">
+			<summary>取得或設定要用於評估篩選條件的值。</summary>
+			<returns>要用於評估篩選條件的值。</returns>
+		</member>
+		<member name="T:System.Windows.Controls.FilterDescriptorCollection">
+			<summary>提供 <see cref="T:System.Windows.Controls.FilterDescriptor"></see> 相依性物件的集合。</summary>
+		</member>
+		<member name="M:System.Windows.Controls.FilterDescriptorCollection.#ctor">
+			<summary>初始化 <see cref="T:System.Windows.Controls.FilterDescriptorCollection"></see> 類別的新執行個體。</summary>
+		</member>
+		<member name="T:System.Windows.Controls.FilterDescriptorLogicalOperator">
+			<summary>定義代表篩選集合之邏輯運算子的值。</summary>
+		</member>
+		<member name="F:System.Windows.Controls.FilterDescriptorLogicalOperator.And">
+			<summary>使用 AND 運算子結合篩選。</summary>
+		</member>
+		<member name="F:System.Windows.Controls.FilterDescriptorLogicalOperator.Or">
+			<summary>使用 OR 運算子結合篩選。</summary>
+		</member>
+		<member name="T:System.Windows.Controls.FilterOperator">
+			<summary>定義描述用於 <see cref="T:System.Windows.Controls.FilterDescriptor"></see> 類別之運算子的值。</summary>
+		</member>
+		<member name="F:System.Windows.Controls.FilterOperator.Contains">
+			<summary>此資料值必須包含篩選值。</summary>
+		</member>
+		<member name="F:System.Windows.Controls.FilterOperator.EndsWith">
+			<summary>此資料值必須以篩選值做為結尾。</summary>
+		</member>
+		<member name="F:System.Windows.Controls.FilterOperator.IsContainedIn">
+			<summary>此資料值必須包含在篩選值中。</summary>
+		</member>
+		<member name="F:System.Windows.Controls.FilterOperator.IsEqualTo">
+			<summary>此資料值必須等於篩選值。</summary>
+		</member>
+		<member name="F:System.Windows.Controls.FilterOperator.IsGreaterThan">
+			<summary>此資料值必須大於篩選值。</summary>
+		</member>
+		<member name="F:System.Windows.Controls.FilterOperator.IsGreaterThanOrEqualTo">
+			<summary>此資料值必須大於或等於篩選值。</summary>
+		</member>
+		<member name="F:System.Windows.Controls.FilterOperator.IsLessThan">
+			<summary>此資料值必須小於篩選值。</summary>
+		</member>
+		<member name="F:System.Windows.Controls.FilterOperator.IsLessThanOrEqualTo">
+			<summary>此資料值必須小於或等於篩選值。</summary>
+		</member>
+		<member name="F:System.Windows.Controls.FilterOperator.IsNotEqualTo">
+			<summary>此資料值必須與篩選值不同。</summary>
+		</member>
+		<member name="F:System.Windows.Controls.FilterOperator.StartsWith">
+			<summary>此資料值必須以篩選值做為開頭。</summary>
+		</member>
+		<member name="T:System.Windows.Controls.GroupDescriptor">
+			<summary>描述分組準則。</summary>
+		</member>
+		<member name="M:System.Windows.Controls.GroupDescriptor.#ctor">
+			<summary>使用預設值，初始化 <see cref="T:System.Windows.Controls.GroupDescriptor"></see> 類別的新執行個體。</summary>
+		</member>
+		<member name="M:System.Windows.Controls.GroupDescriptor.#ctor(System.String)">
+			<summary>使用指定的屬性路徑，初始化 <see cref="T:System.Windows.Controls.GroupDescriptor"></see> 類別的新執行個體。</summary>
+			<param name="propertyPath">填入基礎 Parameter 物件的 Value 屬性。</param>
+		</member>
+		<member name="F:System.Windows.Controls.GroupDescriptor.PropertyPathProperty">
+			<summary>識別 <see cref="P:System.Windows.Controls.GroupDescriptor.PropertyPath"></see> 相依性屬性。</summary>
+		</member>
+		<member name="P:System.Windows.Controls.GroupDescriptor.PropertyPath">
+			<summary>取得或設定用來分組的公用屬性。</summary>
+			<returns>用來分組的公用屬性。</returns>
+		</member>
+		<member name="T:System.Windows.Controls.GroupDescriptorCollection">
+			<summary>提供 <see cref="T:System.Windows.Controls.GroupDescriptor"></see> 相依性物件的集合。</summary>
+		</member>
+		<member name="M:System.Windows.Controls.GroupDescriptorCollection.#ctor">
+			<summary>初始化 <see cref="T:System.Windows.Controls.GroupDescriptorCollection"></see> 類別的新執行個體。</summary>
+		</member>
+		<member name="T:System.Windows.Controls.LoadedDataEventArgs">
+			<summary>提供 <see cref="E:System.Windows.Controls.DomainDataSource.LoadedData"></see> 事件的資料。</summary>
+		</member>
+		<member name="M:System.Windows.Controls.LoadedDataEventArgs.MarkErrorAsHandled">
+			<summary>針對失敗的作業，將錯誤標示為已處理，因此不會擲回例外狀況。</summary>
+		</member>
+		<member name="P:System.Windows.Controls.LoadedDataEventArgs.AllEntities">
+			<summary>取得所有已載入的實體，包括最上層實體所參考的任何實體。</summary>
+			<returns>已載入的實體，包括最上層實體所參考的實體。</returns>
+		</member>
+		<member name="P:System.Windows.Controls.LoadedDataEventArgs.Entities">
+			<summary>取得已載入的所有最上層實體。</summary>
+			<returns>已載入的所有最上層實體。</returns>
+		</member>
+		<member name="P:System.Windows.Controls.LoadedDataEventArgs.HasError">
+			<summary>取得值，這個值表示作業是否已經失敗。</summary>
+			<returns>如果作業失敗，則為 true，否則為 false。</returns>
+		</member>
+		<member name="P:System.Windows.Controls.LoadedDataEventArgs.IsErrorHandled">
+			<summary>取得值，這個值表示是否已經透過呼叫 <see cref="M:System.Windows.Controls.LoadedDataEventArgs.MarkErrorAsHandled"></see> 方法，將作業錯誤標示為已處理。</summary>
+			<returns>如果已經將錯誤標示為已處理，則為 true，否則為 false。</returns>
+		</member>
+		<member name="P:System.Windows.Controls.LoadedDataEventArgs.TotalEntityCount">
+			<summary>取得載入作業的實體總計數。</summary>
+			<returns>載入作業的實體總計數。</returns>
+		</member>
+		<member name="T:System.Windows.Controls.LoadingDataEventArgs">
+			<summary>提供 <see cref="E:System.Windows.Controls.DomainDataSource.LoadingData"></see> 事件的資料。</summary>
+		</member>
+		<member name="P:System.Windows.Controls.LoadingDataEventArgs.LoadBehavior">
+			<summary>取得或設定套用至此載入作業的載入行為。</summary>
+			<returns>套用至此載入作業的載入行為。</returns>
+		</member>
+		<member name="P:System.Windows.Controls.LoadingDataEventArgs.Query">
+			<summary>取得或設定從遠端執行的查詢。</summary>
+			<returns>從遠端執行的查詢。</returns>
+		</member>
+		<member name="P:System.Windows.Controls.LoadingDataEventArgs.RestoreLoadSettings">
+			<summary>取得或設定值，這個值會指出 <see cref="T:System.Windows.Controls.DomainDataSource"></see> 的載入、篩選、排序和群組設定是否還原成與上一次成功載入作業時相同的值。</summary>
+			<returns>若為 true，表示 <see cref="T:System.Windows.Controls.DomainDataSource"></see> 的載入、篩選、排序和群組設定已還原成上一次成功載入作業時的儲存值，否則為 false。</returns>
+		</member>
+		<member name="T:System.Windows.Controls.Parameter">
+			<summary>定義 <see cref="T:System.Windows.Controls.DomainDataSource"></see> 所使用之網域服務查詢的參數。</summary>
+		</member>
+		<member name="M:System.Windows.Controls.Parameter.#ctor">
+			<summary>初始化 <see cref="T:System.Windows.Controls.Parameter"></see> 類別的新執行個體。</summary>
+		</member>
+		<member name="F:System.Windows.Controls.Parameter.ParameterNameProperty">
+			<summary>識別 <see cref="P:System.Windows.Controls.Parameter.ParameterName"></see> 相依性屬性。</summary>
+		</member>
+		<member name="F:System.Windows.Controls.Parameter.ValueProperty">
+			<summary>識別 <see cref="P:System.Windows.Controls.Parameter.Value"></see> 相依性屬性。</summary>
+		</member>
+		<member name="P:System.Windows.Controls.Parameter.ParameterName">
+			<summary>取得或設定參數的名稱。</summary>
+			<returns>參數名稱。</returns>
+		</member>
+		<member name="P:System.Windows.Controls.Parameter.Value">
+			<summary>取得或設定參數的值。</summary>
+			<returns>參數的值。</returns>
+		</member>
+		<member name="T:System.Windows.Controls.ParameterCollection">
+			<summary>代表 <see cref="T:System.Windows.Controls.Parameter"></see> 物件的集合。</summary>
+		</member>
+		<member name="M:System.Windows.Controls.ParameterCollection.#ctor">
+			<summary>初始化 <see cref="T:System.Windows.Controls.ParameterCollection"></see> 類別的新執行個體。</summary>
+		</member>
+		<member name="T:System.Windows.Controls.SortDescriptor">
+			<summary>描述排序準則。</summary>
+		</member>
+		<member name="M:System.Windows.Controls.SortDescriptor.#ctor">
+			<summary>使用預設屬性值，初始化 <see cref="T:System.Windows.Controls.SortDescriptor"></see> 類別的新執行個體。</summary>
+		</member>
+		<member name="M:System.Windows.Controls.SortDescriptor.#ctor(System.String,System.ComponentModel.ListSortDirection)">
+			<summary>使用要用於排序的指定屬性和排序方向，初始化 <see cref="T:System.Windows.Controls.SortDescriptor"></see> 類別的新執行個體。</summary>
+			<param name="propertyPath">排序屬性路徑。</param>
+			<param name="direction">排序方向。</param>
+		</member>
+		<member name="F:System.Windows.Controls.SortDescriptor.DirectionProperty">
+			<summary>識別 <see cref="P:System.Windows.Controls.SortDescriptor.Direction"></see> 相依性屬性。</summary>
+			<returns><see cref="P:System.Windows.Controls.SortDescriptor.Direction"></see> 相依性屬性的識別項。</returns>
+		</member>
+		<member name="F:System.Windows.Controls.SortDescriptor.PropertyPathProperty">
+			<summary>識別 <see cref="P:System.Windows.Controls.SortDescriptor.PropertyPath"></see> 相依性屬性。</summary>
+			<returns><see cref="P:System.Windows.Controls.SortDescriptor.PropertyPath"></see> 相依性屬性的識別項。</returns>
+		</member>
+		<member name="P:System.Windows.Controls.SortDescriptor.Direction">
+			<summary>取得或設定排序方向。</summary>
+			<returns>排序方向。</returns>
+		</member>
+		<member name="P:System.Windows.Controls.SortDescriptor.PropertyPath">
+			<summary>取得或設定用來排序的公用屬性。</summary>
+			<returns>用來排序的公用屬性。</returns>
+		</member>
+		<member name="T:System.Windows.Controls.SortDescriptorCollection">
+			<summary>表示針對集合和項目變更引發通知之排序描述的集合。</summary>
+		</member>
+		<member name="M:System.Windows.Controls.SortDescriptorCollection.#ctor">
+			<summary>初始化 <see cref="T:System.Windows.Controls.SortDescriptorCollection"></see> 類別的新執行個體。</summary>
+		</member>
+		<member name="T:System.Windows.Controls.SubmittedChangesEventArgs">
+			<summary>提供 <see cref="E:System.Windows.Controls.DomainDataSource.SubmittedChanges"></see> 事件的資料。</summary>
+		</member>
+		<member name="M:System.Windows.Controls.SubmittedChangesEventArgs.MarkErrorAsHandled">
+			<summary>針對失敗的作業，將錯誤標示為已處理，因此不會擲回例外狀況。</summary>
+		</member>
+		<member name="P:System.Windows.Controls.SubmittedChangesEventArgs.ChangeSet">
+			<summary>取得已提交至資料集的變更集。</summary>
+			<returns>已提交至資料集的變更集。</returns>
+		</member>
+		<member name="P:System.Windows.Controls.SubmittedChangesEventArgs.EntitiesInError">
+			<summary>取得導致提交作業失敗的實體。</summary>
+			<returns>導致提交作業失敗的實體。</returns>
+		</member>
+		<member name="P:System.Windows.Controls.SubmittedChangesEventArgs.HasError">
+			<summary>取得值，這個值表示作業是否已經失敗。</summary>
+			<returns>如果作業失敗，則為 true，否則為 false。</returns>
+		</member>
+		<member name="P:System.Windows.Controls.SubmittedChangesEventArgs.IsErrorHandled">
+			<summary>取得值，這個值表示是否已經透過呼叫 <see cref="M:System.Windows.Controls.SubmittedChangesEventArgs.MarkErrorAsHandled"></see> 方法，將作業錯誤標示為已處理。</summary>
+			<returns>如果已經將錯誤標示為已處理，則為 true，否則為 false。</returns>
+		</member>
+		<member name="T:System.Windows.Controls.SubmittingChangesEventArgs">
+			<summary>提供 <see cref="E:System.Windows.Controls.DomainDataSource.SubmittingChanges"></see> 事件的資料。</summary>
+		</member>
+		<member name="P:System.Windows.Controls.SubmittingChangesEventArgs.ChangeSet">
+			<summary>取得已提交至資料來源的變更集。</summary>
+			<returns>已提交至資料集的變更集。</returns>
+		</member>
+	</members>
+</doc>

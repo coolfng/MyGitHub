@@ -1,0 +1,217 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<doc>
+	<assembly>
+		<name>System.ServiceModel.DomainServices.Client.Web</name>
+	</assembly>
+	<members>
+		<member name="T:System.ServiceModel.DomainServices.Client.DomainServiceFault">
+			<summary>서버와 클라이언트 간에 예외 결과를 통신하는 데 사용되는 메시지 형식을 제공합니다.</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.DomainServiceFault.#ctor">
+			<summary><see cref="T:System.ServiceModel.DomainServices.Client.DomainServiceFault"></see> 클래스의 새 인스턴스를 초기화합니다. </summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.DomainServiceFault.GetValidationErrors">
+			<summary>유효성 검사 오류를 검색합니다.</summary>
+			<returns>유효성 검사 오류의 컬렉션입니다.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.DomainServiceFault.ErrorCode">
+			<summary>오류에 대한 사용자 지정 코드를 가져오거나 설정합니다.</summary>
+			<returns>사용자 지정 오류 코드입니다.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.DomainServiceFault.ErrorMessage">
+			<summary>오류에 대한 세부 정보를 제공하는 메시지를 가져오거나 설정합니다.</summary>
+			<returns>오류 메시지입니다.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.DomainServiceFault.IsDomainException">
+			<summary>클라이언트에서 오류 정보를 <see cref="T:System.ServiceModel.DomainServices.Client.DomainException"></see> 형식으로 다시 생성해야 하는지 여부를 나타내는 값을 가져오거나 설정합니다.</summary>
+			<returns>클라이언트에서 오류 정보를 <see cref="T:System.ServiceModel.DomainServices.Client.DomainException"></see>으로 다시 생성해야 하면 true이고, 그렇지 않으면 false입니다.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.DomainServiceFault.OperationErrors">
+			<summary>이 요청 작업 중에 발생한 작업 오류를 가져오거나 설정합니다.</summary>
+			<returns>작업 오류의 컬렉션입니다.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.DomainServiceFault.StackTrace">
+			<summary>오류 스택 추적을 가져오거나 설정합니다.</summary>
+			<returns>오류 스택 추적입니다.</returns>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.WebDomainClient`1">
+			<summary>Windows Communication Foundation (WCF)를 사용하는 기본 도메인 클라이언트 구현을 제공합니다.</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.WebDomainClient`1.#ctor(System.Uri)">
+			<summary>지정된 서비스 URI를 사용하여 <see cref="T:System.ServiceModel.DomainServices.Client.WebDomainClient`1"></see> 클래스의 새 인스턴스를 초기화합니다. </summary>
+			<param name="serviceUri">도메인 서비스 URI입니다.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.WebDomainClient`1.#ctor(System.Uri,System.Boolean)">
+			<summary>지정된 서비스 URI와 HTTPS 사용 옵션을 사용하여 <see cref="T:System.ServiceModel.DomainServices.Client.WebDomainClient`1"></see> 클래스의 새 인스턴스를 초기화합니다.</summary>
+			<param name="serviceUri">도메인 서비스 URI입니다.</param>
+			<param name="usesHttps">클라이언트가 HTTP 또는 HTTPS 체계를 사용하여 서비스에 연결해야 하는지 여부를 나타내는 값입니다.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.WebDomainClient`1.#ctor(System.Uri,System.Boolean,System.ServiceModel.ChannelFactory{`0})">
+			<summary>지정된 서비스 URI, HTTPS 사용 옵션 및 채널 팩터리를 사용하여 <see cref="T:System.ServiceModel.DomainServices.Client.WebDomainClient`1"></see> 클래스의 새 인스턴스를 초기화합니다. </summary>
+			<param name="channelFactory">서버와 통신할 채널을 만드는 채널 팩터리입니다.</param>
+			<param name="serviceUri">도메인 서비스 URI입니다.</param>
+			<param name="usesHttps">클라이언트가 HTTP 또는 HTTPS 체계를 사용하여 서비스에 연결해야 하는지 여부를 나타내는 값입니다.</param>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.WebDomainClient`1.ChannelFactory">
+			<summary>서버와 통신하기 위한 채널을 만드는 데 사용되는 채널 팩터리를 가져옵니다.</summary>
+			<returns>서버와 통신하기 위한 채널을 만드는 데 사용되는 채널 팩터리입니다.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.WebDomainClient`1.ServiceUri">
+			<summary>도메인 서비스의 절대 경로를 가져옵니다.</summary>
+			<returns>도메인 서비스의 절대 경로입니다.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.WebDomainClient`1.SupportsCancellation">
+			<summary>DomainClient에서 취소를 지원하는지 여부를 나타내는 값을 가져옵니다.</summary>
+			<returns>DomainClient에서 취소를 지원하면 true이고, 그렇지 않으면 false입니다.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.WebDomainClient`1.UsesHttps">
+			<summary>보안 연결을 사용해야 하는지 여부를 나타내는 값을 가져옵니다.</summary>
+			<returns>보안 연결을 사용해야 하면 true이고, 그렇지 않으면 false입니다.</returns>
+		</member>
+		<member name="N:System.ServiceModel.DomainServices.Client.ApplicationServices">
+			<summary>인증 도메인 서비스와 상호 작용하기 위해 클라이언트에서 사용할 클래스를 제공합니다.</summary>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationDomainContextBase">
+			<summary><see cref="T:System.ServiceModel.DomainServices.Server.ApplicationServices.IAuthentication`1"></see>을 구현하는 공급자의 기본 클래스로 생성된 도메인 컨텍스트를 제공합니다.</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationDomainContextBase.#ctor(System.ServiceModel.DomainServices.Client.DomainClient)">
+			<summary><see cref="T:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationDomainContextBase"></see> 클래스의 새 인스턴스를 초기화합니다. </summary>
+			<param name="domainClient">이 <see cref="T:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationDomainContextBase"></see>에서 사용할 <see cref="T:System.ServiceModel.DomainServices.Client.DomainClient"></see> 인스턴스입니다.</param>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.ApplicationServices.FormsAuthentication">
+			<summary><see cref="T:System.ServiceModel.DomainServices.Server.ApplicationServices.IAuthentication`1"></see> 인터페이스를 구현하는 도메인 서비스에서 생성된 <see cref="T:System.ServiceModel.DomainServices.Client.DomainContext"></see>를 사용하여 Forms 인증을 수행하는 인증 서비스 구현을 제공합니다.</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.FormsAuthentication.#ctor">
+			<summary><see cref="T:System.ServiceModel.DomainServices.Client.ApplicationServices.FormsAuthentication"></see> 클래스의 새 인스턴스를 초기화합니다. </summary>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.ApplicationServices.WebAuthenticationService">
+			<summary><see cref="T:System.ServiceModel.DomainServices.Server.ApplicationServices.IAuthentication`1"></see>을 구현하는 도메인 서비스에서 생성된 <see cref="P:System.ServiceModel.DomainServices.Client.ApplicationServices.WebAuthenticationService.DomainContext"></see>와 상호 작용하는 <see cref="T:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService"></see>의 추상 확장을 제공합니다.</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.WebAuthenticationService.BeginLoadUser(System.AsyncCallback,System.Object)">
+			<summary>비동기 <see cref="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.LoadUser(System.Action{System.ServiceModel.DomainServices.Client.ApplicationServices.LoadUserOperation},System.Object)"></see> 작업을 시작합니다.</summary>
+			<returns>비동기 호출의 결과입니다.</returns>
+			<param name="callback">비동기 호출이 완료된 경우 호출할 콜백입니다.</param>
+			<param name="state">선택적 결과 상태입니다.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.WebAuthenticationService.BeginLogin(System.ServiceModel.DomainServices.Client.ApplicationServices.LoginParameters,System.AsyncCallback,System.Object)">
+			<summary>비동기 Login 작업을 시작합니다.</summary>
+			<returns>비동기 호출의 결과입니다.</returns>
+			<param name="callback">비동기 호출이 완료된 경우 호출할 콜백입니다.</param>
+			<param name="state">선택적 결과 상태입니다.</param>
+			<param name="parameters">인증할 사용자를 지정하는 로그인 매개 변수입니다.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.WebAuthenticationService.BeginLogout(System.AsyncCallback,System.Object)">
+			<summary>비동기 Logout 작업을 시작합니다.</summary>
+			<returns>비동기 호출의 결과입니다.</returns>
+			<param name="callback">비동기 호출이 완료된 경우 호출할 콜백입니다.</param>
+			<param name="state">선택적 결과 상태입니다.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.WebAuthenticationService.BeginSaveUser(System.Security.Principal.IPrincipal,System.AsyncCallback,System.Object)">
+			<summary>비동기 SaveUser 작업을 시작합니다.</summary>
+			<returns>비동기 호출의 결과입니다.</returns>
+			<param name="callback">비동기 호출이 완료된 경우 호출할 콜백입니다.</param>
+			<param name="user">저장할 인증된 사용자입니다.</param>
+			<param name="state">선택적 결과 상태입니다.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.WebAuthenticationService.CancelLoadUser(System.IAsyncResult)">
+			<summary>비동기 LoadUser 작업을 취소합니다.</summary>
+			<param name="asyncResult">취소할 비동기 호출을 나타내는 <see cref="M:System.ServiceModel.DomainServices.Client.ApplicationServices.WebAuthenticationService.BeginLoadUser(System.AsyncCallback,System.Object)"></see>에서 반환된 결과입니다.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.WebAuthenticationService.CancelLogin(System.IAsyncResult)">
+			<summary>비동기 Login 작업을 취소합니다.</summary>
+			<param name="asyncResult">취소할 비동기 호출을 나타내는 <see cref="M:System.ServiceModel.DomainServices.Client.ApplicationServices.WebAuthenticationService.BeginLogin(System.ServiceModel.DomainServices.Client.ApplicationServices.LoginParameters,System.AsyncCallback,System.Object)"></see>에서 반환된 결과입니다.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.WebAuthenticationService.CancelLogout(System.IAsyncResult)">
+			<summary>비동기 Logout 작업을 취소합니다.</summary>
+			<param name="asyncResult">취소할 비동기 호출을 나타내는 <see cref="M:System.ServiceModel.DomainServices.Client.ApplicationServices.WebAuthenticationService.BeginLogout(System.AsyncCallback,System.Object)"></see>에서 반환된 결과입니다.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.WebAuthenticationService.CancelSaveUser(System.IAsyncResult)">
+			<summary>비동기 SaveUser 작업을 취소합니다.</summary>
+			<param name="asyncResult">취소할 비동기 호출을 나타내는 <see cref="M:System.ServiceModel.DomainServices.Client.ApplicationServices.WebAuthenticationService.BeginSaveUser(System.Security.Principal.IPrincipal,System.AsyncCallback,System.Object)"></see>에서 반환된 결과입니다.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.WebAuthenticationService.CreateDefaultUser">
+			<summary>기본 사용자를 만듭니다.</summary>
+			<returns>새 사용자입니다.</returns>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.WebAuthenticationService.EndLoadUser(System.IAsyncResult)">
+			<summary>비동기 LoadUser 작업을 끝냅니다.</summary>
+			<returns>작업의 결과입니다.</returns>
+			<param name="asyncResult">완료할 비동기 호출을 나타내는 <see cref="M:System.ServiceModel.DomainServices.Client.ApplicationServices.WebAuthenticationService.BeginLoadUser(System.AsyncCallback,System.Object)"></see>에서 반환된 결과입니다.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.WebAuthenticationService.EndLogin(System.IAsyncResult)">
+			<summary>비동기 Login 작업을 끝냅니다.</summary>
+			<returns>작업의 결과입니다.</returns>
+			<param name="asyncResult">완료할 비동기 호출을 나타내는 <see cref="M:System.ServiceModel.DomainServices.Client.ApplicationServices.WebAuthenticationService.BeginLogin(System.ServiceModel.DomainServices.Client.ApplicationServices.LoginParameters,System.AsyncCallback,System.Object)"></see>에서 반환된 결과입니다.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.WebAuthenticationService.EndLogout(System.IAsyncResult)">
+			<summary>비동기 Logout 작업을 끝냅니다.</summary>
+			<returns>작업의 결과입니다.</returns>
+			<param name="asyncResult">완료할 비동기 호출을 나타내는 <see cref="M:System.ServiceModel.DomainServices.Client.ApplicationServices.WebAuthenticationService.BeginLogout(System.AsyncCallback,System.Object)"></see>에서 반환된 결과입니다.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.WebAuthenticationService.EndSaveUser(System.IAsyncResult)">
+			<summary>비동기 SaveUser 작업을 끝냅니다.</summary>
+			<returns>작업의 결과입니다.</returns>
+			<param name="asyncResult">완료할 비동기 호출을 나타내는 <see cref="M:System.ServiceModel.DomainServices.Client.ApplicationServices.WebAuthenticationService.BeginSaveUser(System.Security.Principal.IPrincipal,System.AsyncCallback,System.Object)"></see>에서 반환된 결과입니다.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.WebAuthenticationService.Initialize">
+			<summary>이 인증 서비스를 초기화합니다.</summary>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.ApplicationServices.WebAuthenticationService.DomainContext">
+			<summary>이 서비스에서 인증, 로드 및 저장을 위임하는 도메인 컨텍스트를 가져오거나 설정합니다.</summary>
+			<returns>도메인 컨텍스트입니다.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.ApplicationServices.WebAuthenticationService.DomainContextType">
+			<summary>도메인 컨텍스트의 형식을 가져오거나 설정합니다.</summary>
+			<returns>도메인 컨텍스트의 형식입니다.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.ApplicationServices.WebAuthenticationService.SupportsCancellation">
+			<summary>이 서비스에서 취소를 지원하는지 여부를 나타내는 값을 가져옵니다.</summary>
+			<returns>항상 true입니다.</returns>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.ApplicationServices.WebContextBase">
+			<summary>응용 프로그램에 대한 컨텍스트를 제공합니다.</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.WebContextBase.#ctor">
+			<summary><see cref="T:System.ServiceModel.DomainServices.Client.ApplicationServices.WebContextBase"></see> 클래스의 새 인스턴스를 초기화합니다. </summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.WebContextBase.OnPropertyChanged(System.ComponentModel.PropertyChangedEventArgs)">
+			<summary>PropertyChanged 이벤트를 발생시킵니다.</summary>
+			<param name="e">발생시킬 이벤트입니다.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.WebContextBase.RaisePropertyChanged(System.String)">
+			<summary>지정된 속성에 대해 PropertyChanged 이벤트를 발생시킵니다.</summary>
+			<param name="propertyName">이벤트를 발생시킬 속성입니다.</param>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.ApplicationServices.WebContextBase.Authentication">
+			<summary>응용 프로그램에 대한 인증 컨텍스트를 가져오거나 설정합니다.</summary>
+			<returns>응용 프로그램에 대한 인증 컨텍스트입니다.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.ApplicationServices.WebContextBase.Current">
+			<summary>현재 응용 프로그램에 수명 개체로 등록되어 있는 컨텍스트를 가져옵니다.</summary>
+			<returns>현재 응용 프로그램에 수명 개체로 등록되어 있는 컨텍스트입니다.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.ApplicationServices.WebContextBase.User">
+			<summary>인증된 ID를 나타내는 보안 주체를 가져옵니다.</summary>
+			<returns>인증된 ID를 나타내는 보안 주체입니다.</returns>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.ApplicationServices.WindowsAuthentication">
+			<summary><see cref="T:System.ServiceModel.DomainServices.Server.ApplicationServices.IAuthentication`1"></see> 인터페이스를 구현하는 도메인 서비스에서 생성된 <see cref="T:System.ServiceModel.DomainServices.Client.DomainContext"></see>를 사용하여 Windows 인증을 수행하는 인증 서비스 구현을 제공합니다.</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.WindowsAuthentication.#ctor">
+			<summary><see cref="T:System.ServiceModel.DomainServices.Client.ApplicationServices.WindowsAuthentication"></see> 클래스의 새 인스턴스를 초기화합니다.</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.WindowsAuthentication.BeginLogin(System.ServiceModel.DomainServices.Client.ApplicationServices.LoginParameters,System.AsyncCallback,System.Object)">
+			<summary>Login은 Windows 인증에 대해 지원되는 작업이 아닙니다.</summary>
+			<returns>모든 경우에서 null입니다.</returns>
+			<param name="callback">이 매개 변수는 사용되지 않습니다.</param>
+			<param name="state">이 매개 변수는 사용되지 않습니다.</param>
+			<param name="parameters">이 매개 변수는 사용되지 않습니다.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.WindowsAuthentication.BeginLogout(System.AsyncCallback,System.Object)">
+			<summary>Logout은 Windows 인증에 대해 지원되는 작업이 아닙니다.</summary>
+			<returns>모든 경우에서 null입니다.</returns>
+			<param name="callback">이 매개 변수는 사용되지 않습니다.</param>
+			<param name="state">이 매개 변수는 사용되지 않습니다.</param>
+		</member>
+	</members>
+</doc>

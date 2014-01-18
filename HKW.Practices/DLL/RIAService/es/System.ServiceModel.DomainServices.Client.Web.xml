@@ -1,0 +1,217 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<doc>
+	<assembly>
+		<name>System.ServiceModel.DomainServices.Client.Web</name>
+	</assembly>
+	<members>
+		<member name="T:System.ServiceModel.DomainServices.Client.DomainServiceFault">
+			<summary>Proporciona un tipo de mensaje que se utiliza para comunicar resultados de excepciones entre el servidor y el cliente.</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.DomainServiceFault.#ctor">
+			<summary>Inicializa una nueva instancia de la clase <see cref="T:System.ServiceModel.DomainServices.Client.DomainServiceFault"></see>. </summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.DomainServiceFault.GetValidationErrors">
+			<summary>Recupera los errores de validación.</summary>
+			<returns>Colección de errores de validación.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.DomainServiceFault.ErrorCode">
+			<summary>Obtiene o establece el código personalizado para el error.</summary>
+			<returns>Código de error personalizado.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.DomainServiceFault.ErrorMessage">
+			<summary>Obtiene o establece el mensaje que proporciona detalles sobre el error.</summary>
+			<returns>Mensaje de error.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.DomainServiceFault.IsDomainException">
+			<summary>Obtiene o establece un valor que indica si se debería reconstruir la información del error en el cliente como un tipo de <see cref="T:System.ServiceModel.DomainServices.Client.DomainException"></see>.</summary>
+			<returns>true si se debe reconstruir la información del error en el cliente como una clase <see cref="T:System.ServiceModel.DomainServices.Client.DomainException"></see>; en caso contrario, false.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.DomainServiceFault.OperationErrors">
+			<summary>Obtiene o establece los errores de operación que se produjeron durante esta solicitud.</summary>
+			<returns>Colección de errores de operación.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.DomainServiceFault.StackTrace">
+			<summary>Obtiene o establece el seguimiento de la pila del error.</summary>
+			<returns>Seguimiento de la pila del error.</returns>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.WebDomainClient`1">
+			<summary>Proporciona la implementación predeterminada del cliente de dominios mediante Windows Communication Foundation (WCF).</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.WebDomainClient`1.#ctor(System.Uri)">
+			<summary>Inicializa una nueva instancia de la clase <see cref="T:System.ServiceModel.DomainServices.Client.WebDomainClient`1"></see> con el URI del servicio especificado. </summary>
+			<param name="serviceUri">URI del servicio de dominio.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.WebDomainClient`1.#ctor(System.Uri,System.Boolean)">
+			<summary>Inicializa una nueva instancia de la clase <see cref="T:System.ServiceModel.DomainServices.Client.WebDomainClient`1"></see> con el URI del servicio especificado y la opción para utilizar HTTPS.</summary>
+			<param name="serviceUri">URI del servicio de dominio.</param>
+			<param name="usesHttps">Valor que indica si el cliente debería ponerse en contacto con el servicio mediante un esquema de HTTP o HTTPS.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.WebDomainClient`1.#ctor(System.Uri,System.Boolean,System.ServiceModel.ChannelFactory{`0})">
+			<summary>Inicializa una nueva instancia de la clase <see cref="T:System.ServiceModel.DomainServices.Client.WebDomainClient`1"></see> con el URI del servicio especificado, la opción para utilizar HTTPS y el generador de canales. </summary>
+			<param name="channelFactory">Generador de canales que crea canales para comunicarse con el servidor.</param>
+			<param name="serviceUri">URI del servicio de dominio.</param>
+			<param name="usesHttps">Valor que indica si el cliente debería ponerse en contacto con el servicio mediante un esquema de HTTP o HTTPS.</param>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.WebDomainClient`1.ChannelFactory">
+			<summary>Obtiene el generador de canales que se usa con el fin de crear canales para la comunicación con el servidor.</summary>
+			<returns>Generador de canales que se usa con el fin de crear canales para la comunicación con el servidor.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.WebDomainClient`1.ServiceUri">
+			<summary>Obtiene la ruta de acceso absoluta para el servicio de dominio.</summary>
+			<returns>Obtiene la ruta de acceso absoluta para el servicio de dominio.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.WebDomainClient`1.SupportsCancellation">
+			<summary>Obtiene un valor que indica si la clase DomainClient admite cancelaciones.</summary>
+			<returns>true si la clase DomainClient admite cancelaciones; en caso contrario, false.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.WebDomainClient`1.UsesHttps">
+			<summary>Obtiene un valor que indica si se debe utilizar una conexión segura.</summary>
+			<returns>true si se debe utilizar una conexión segura; en caso contrario, false.</returns>
+		</member>
+		<member name="N:System.ServiceModel.DomainServices.Client.ApplicationServices">
+			<summary>Proporciona las clases que se usarán desde el cliente para la interacción con un servicio de dominio de autenticación.</summary>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationDomainContextBase">
+			<summary>Proporciona el contexto de dominio generado como clase base para los proveedores que implementan <see cref="T:System.ServiceModel.DomainServices.Server.ApplicationServices.IAuthentication`1"></see>.</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationDomainContextBase.#ctor(System.ServiceModel.DomainServices.Client.DomainClient)">
+			<summary>Inicializa una nueva instancia de la clase <see cref="T:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationDomainContextBase"></see>. </summary>
+			<param name="domainClient">Instancia de <see cref="T:System.ServiceModel.DomainServices.Client.DomainClient"></see> que debería usar este objeto <see cref="T:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationDomainContextBase"></see>.</param>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.ApplicationServices.FormsAuthentication">
+			<summary>Proporciona una implementación de servicios de autenticación que efectúa autenticación mediante formularios con una clase <see cref="T:System.ServiceModel.DomainServices.Client.DomainContext"></see> que se genera a partir de un servicio de dominio que implementa la interfaz <see cref="T:System.ServiceModel.DomainServices.Server.ApplicationServices.IAuthentication`1"></see>.</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.FormsAuthentication.#ctor">
+			<summary>Inicializa una nueva instancia de la clase <see cref="T:System.ServiceModel.DomainServices.Client.ApplicationServices.FormsAuthentication"></see>. </summary>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.ApplicationServices.WebAuthenticationService">
+			<summary>Proporciona una extensión abstracta del objeto <see cref="T:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService"></see> que interactúa con el <see cref="P:System.ServiceModel.DomainServices.Client.ApplicationServices.WebAuthenticationService.DomainContext"></see> generado desde un servicio de dominio que implementa <see cref="T:System.ServiceModel.DomainServices.Server.ApplicationServices.IAuthentication`1"></see>.</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.WebAuthenticationService.BeginLoadUser(System.AsyncCallback,System.Object)">
+			<summary>Comienza una operación <see cref="M:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.LoadUser(System.Action{System.ServiceModel.DomainServices.Client.ApplicationServices.LoadUserOperation},System.Object)"></see> asincrónica.</summary>
+			<returns>Resultado de la llamada asincrónica.</returns>
+			<param name="callback">Devolución de llamada que se invocará cuando se complete la llamada asincrónica.</param>
+			<param name="state">Estado del resultado opcional.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.WebAuthenticationService.BeginLogin(System.ServiceModel.DomainServices.Client.ApplicationServices.LoginParameters,System.AsyncCallback,System.Object)">
+			<summary>Comienza una operación Login asincrónica.</summary>
+			<returns>Resultado de la llamada asincrónica.</returns>
+			<param name="callback">Devolución de llamada que se invocará cuando se complete la llamada asincrónica.</param>
+			<param name="state">Estado del resultado opcional.</param>
+			<param name="parameters">Parámetros de inicio de sesión que especifican el usuario que se va a autenticar.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.WebAuthenticationService.BeginLogout(System.AsyncCallback,System.Object)">
+			<summary>Comienza una operación Logout asincrónica.</summary>
+			<returns>Resultado de la llamada asincrónica.</returns>
+			<param name="callback">Devolución de llamada que se invocará cuando se complete la llamada asincrónica.</param>
+			<param name="state">Estado del resultado opcional.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.WebAuthenticationService.BeginSaveUser(System.Security.Principal.IPrincipal,System.AsyncCallback,System.Object)">
+			<summary>Comienza una operación SaveUser asincrónica.</summary>
+			<returns>Resultado de la llamada asincrónica.</returns>
+			<param name="callback">Devolución de llamada que se invocará cuando se complete la llamada asincrónica.</param>
+			<param name="user">Usuario autenticado que se va a guardar.</param>
+			<param name="state">Estado del resultado opcional.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.WebAuthenticationService.CancelLoadUser(System.IAsyncResult)">
+			<summary>Cancela una operación LoadUser asincrónica.</summary>
+			<param name="asyncResult">Resultado devuelto de <see cref="M:System.ServiceModel.DomainServices.Client.ApplicationServices.WebAuthenticationService.BeginLoadUser(System.AsyncCallback,System.Object)"></see> que representa la llamada asincrónica que se va a cancelar.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.WebAuthenticationService.CancelLogin(System.IAsyncResult)">
+			<summary>Cancela una operación Login asincrónica.</summary>
+			<param name="asyncResult">Resultado devuelto de <see cref="M:System.ServiceModel.DomainServices.Client.ApplicationServices.WebAuthenticationService.BeginLogin(System.ServiceModel.DomainServices.Client.ApplicationServices.LoginParameters,System.AsyncCallback,System.Object)"></see> que representa la llamada asincrónica que se va a cancelar.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.WebAuthenticationService.CancelLogout(System.IAsyncResult)">
+			<summary>Cancela una operación Logout asincrónica.</summary>
+			<param name="asyncResult">Resultado devuelto de <see cref="M:System.ServiceModel.DomainServices.Client.ApplicationServices.WebAuthenticationService.BeginLogout(System.AsyncCallback,System.Object)"></see> que representa la llamada asincrónica que se va a cancelar.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.WebAuthenticationService.CancelSaveUser(System.IAsyncResult)">
+			<summary>Cancela una operación SaveUser asincrónica.</summary>
+			<param name="asyncResult">Resultado devuelto de <see cref="M:System.ServiceModel.DomainServices.Client.ApplicationServices.WebAuthenticationService.BeginSaveUser(System.Security.Principal.IPrincipal,System.AsyncCallback,System.Object)"></see> que representa la llamada asincrónica que se va a cancelar.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.WebAuthenticationService.CreateDefaultUser">
+			<summary>Crea un usuario predeterminado.</summary>
+			<returns>El nuevo usuario.</returns>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.WebAuthenticationService.EndLoadUser(System.IAsyncResult)">
+			<summary>Finaliza una operación LoadUser asincrónica.</summary>
+			<returns>Resultado de la operación.</returns>
+			<param name="asyncResult">Resultado devuelto de <see cref="M:System.ServiceModel.DomainServices.Client.ApplicationServices.WebAuthenticationService.BeginLoadUser(System.AsyncCallback,System.Object)"></see> que representa la llamada asincrónica que se va a concluir.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.WebAuthenticationService.EndLogin(System.IAsyncResult)">
+			<summary>Finaliza una operación Login asincrónica.</summary>
+			<returns>Resultado de la operación.</returns>
+			<param name="asyncResult">Resultado devuelto de <see cref="M:System.ServiceModel.DomainServices.Client.ApplicationServices.WebAuthenticationService.BeginLogin(System.ServiceModel.DomainServices.Client.ApplicationServices.LoginParameters,System.AsyncCallback,System.Object)"></see> que representa la llamada asincrónica que se va a concluir.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.WebAuthenticationService.EndLogout(System.IAsyncResult)">
+			<summary>Finaliza una operación Logout asincrónica.</summary>
+			<returns>Resultado de la operación.</returns>
+			<param name="asyncResult">Resultado devuelto de <see cref="M:System.ServiceModel.DomainServices.Client.ApplicationServices.WebAuthenticationService.BeginLogout(System.AsyncCallback,System.Object)"></see> que representa la llamada asincrónica que se va a concluir.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.WebAuthenticationService.EndSaveUser(System.IAsyncResult)">
+			<summary>Finaliza una operación SaveUser asincrónica.</summary>
+			<returns>Resultado de la operación.</returns>
+			<param name="asyncResult">Resultado devuelto de <see cref="M:System.ServiceModel.DomainServices.Client.ApplicationServices.WebAuthenticationService.BeginSaveUser(System.Security.Principal.IPrincipal,System.AsyncCallback,System.Object)"></see> que representa la llamada asincrónica que se va a concluir.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.WebAuthenticationService.Initialize">
+			<summary>Inicializa este servicio de autenticación.</summary>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.ApplicationServices.WebAuthenticationService.DomainContext">
+			<summary>Obtiene o establece el contexto de dominio en el que este servicio delega la autenticación, carga y guardado.</summary>
+			<returns>Contexto de dominio.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.ApplicationServices.WebAuthenticationService.DomainContextType">
+			<summary>Obtiene o establece el tipo del contexto de dominio.</summary>
+			<returns>Tipo del contexto de dominio.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.ApplicationServices.WebAuthenticationService.SupportsCancellation">
+			<summary>Obtiene un valor que indica si este servicio admite cancelaciones.</summary>
+			<returns>Siempre true.</returns>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.ApplicationServices.WebContextBase">
+			<summary>Proporciona el contexto para la aplicación.</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.WebContextBase.#ctor">
+			<summary>Inicializa una nueva instancia de la clase <see cref="T:System.ServiceModel.DomainServices.Client.ApplicationServices.WebContextBase"></see>. </summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.WebContextBase.OnPropertyChanged(System.ComponentModel.PropertyChangedEventArgs)">
+			<summary>Genera un evento PropertyChanged.</summary>
+			<param name="e">Evento que debe provocarse.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.WebContextBase.RaisePropertyChanged(System.String)">
+			<summary>Genera un evento PropertyChanged para la propiedad especificada.</summary>
+			<param name="propertyName">Propiedad para la que se genera un evento.</param>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.ApplicationServices.WebContextBase.Authentication">
+			<summary>Obtiene o establece el contexto de autenticación de la aplicación.</summary>
+			<returns>Contexto de autenticación para la aplicación.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.ApplicationServices.WebContextBase.Current">
+			<summary>Obtiene el contexto registrado como un objeto de duración con la aplicación actual.</summary>
+			<returns>Contexto registrado como un objeto de duración con la aplicación actual.</returns>
+		</member>
+		<member name="P:System.ServiceModel.DomainServices.Client.ApplicationServices.WebContextBase.User">
+			<summary>Obtiene una entidad de seguridad que representa la identidad autenticada.</summary>
+			<returns>Entidad de seguridad que representa la identidad autenticada.</returns>
+		</member>
+		<member name="T:System.ServiceModel.DomainServices.Client.ApplicationServices.WindowsAuthentication">
+			<summary>Proporciona una implementación de servicios de autenticación que efectúa autenticación de Windows con una clase <see cref="T:System.ServiceModel.DomainServices.Client.DomainContext"></see> que se genera a partir de un servicio de dominio que implementa la interfaz <see cref="T:System.ServiceModel.DomainServices.Server.ApplicationServices.IAuthentication`1"></see>.</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.WindowsAuthentication.#ctor">
+			<summary>Inicializa una nueva instancia de la clase <see cref="T:System.ServiceModel.DomainServices.Client.ApplicationServices.WindowsAuthentication"></see>.</summary>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.WindowsAuthentication.BeginLogin(System.ServiceModel.DomainServices.Client.ApplicationServices.LoginParameters,System.AsyncCallback,System.Object)">
+			<summary>Login no es una operación admitida en la autenticación de Windows.</summary>
+			<returns>null en todos los casos.</returns>
+			<param name="callback">Este parámetro no se utiliza.</param>
+			<param name="state">Este parámetro no se utiliza.</param>
+			<param name="parameters">Este parámetro no se utiliza.</param>
+		</member>
+		<member name="M:System.ServiceModel.DomainServices.Client.ApplicationServices.WindowsAuthentication.BeginLogout(System.AsyncCallback,System.Object)">
+			<summary>Logout no es una operación admitida en la autenticación de Windows.</summary>
+			<returns>null en todos los casos.</returns>
+			<param name="callback">Este parámetro no se utiliza.</param>
+			<param name="state">Este parámetro no se utiliza.</param>
+		</member>
+	</members>
+</doc>

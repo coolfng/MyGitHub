@@ -1,0 +1,30 @@
+﻿<hkw:BaseView
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                                 xmlns:hkw="clr-namespace:HKW.Practices.Controls.Silverlight;assembly=HKW.Practices.Controls.Silverlight"
+                                 xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk" x:Class="HKW.Practices.Controls.Silverlight.Test.TestView"
+                                 mc:Ignorable="d"
+    d:DesignHeight="300" d:DesignWidth="400">
+	<hkw:BaseView.Resources>
+		<ResourceDictionary>
+			<ResourceDictionary.MergedDictionaries>
+				<ResourceDictionary Source="ProjectDataSources.xaml"/>
+			</ResourceDictionary.MergedDictionaries>
+		</ResourceDictionary>
+	</hkw:BaseView.Resources>
+    
+	<Grid x:Name="LayoutRoot" Background="White" DataContext="{Binding Source={StaticResource SampleDataSource}}">
+		<TextBlock HorizontalAlignment="Left" Height="32" Margin="19,20,0,0" TextWrapping="Wrap" Text="控件测试页 v1.0" VerticalAlignment="Top" Width="176"/>
+
+		<sdk:DataGrid HorizontalAlignment="Left" Height="238" Margin="14,52,0,0" VerticalAlignment="Top" Width="376" AutoGenerateColumns="False" ItemsSource="{Binding Collection}">
+			<sdk:DataGrid.Columns>
+				<sdk:DataGridTextColumn Binding="{Binding 姓名}" Header="姓名"/>
+				<sdk:DataGridCheckBoxColumn Binding="{Binding 婚姻}" Header="婚姻"/>
+				<sdk:DataGridTextColumn Binding="{Binding 地址}" Header="地址"/>
+			</sdk:DataGrid.Columns>
+		</sdk:DataGrid>
+
+	</Grid>
+</hkw:BaseView>
